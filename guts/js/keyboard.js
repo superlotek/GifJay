@@ -1,5 +1,4 @@
 // keyboard
-// new key groupings
 
 // used for Cursor Key FX
 // maybe find alternative to this, Mousetrap should work, right?
@@ -64,7 +63,6 @@ timerSaves = [];
       console.log('TIMER MODE!');
       var start = new Date();
       var gleek = start.getTime();
-      // gleek /= 1000;
       timerSaves.push(gleek);
   });
 
@@ -86,14 +84,8 @@ timerSaves = [];
 
     console.log('FX MODE OFF');
     fxModeOn = 0;
-    // $(s1).add(s2).css('-webkit-filter','none')
     }
   });
-
-/*
-pos = myArray.map(function(e) { return e.hello; }).indexOf('stevie');
-https://stackoverflow.com/questions/8668174/indexof-method-in-an-object-array
-*/
 
     Mousetrap.bind("alt+`", function() {
       if (effectsOn.length > 0) {
@@ -102,13 +94,7 @@ https://stackoverflow.com/questions/8668174/indexof-method-in-an-object-array
         effectsOn.forEach(function(gleep, index) {
 
           console.log(gleep.effectKey);
-          // console.log(index + ' : ' + effect.effectKey);
-          // effectsOn.pop({effect:effect[index]});
-          // console.log(gleep);
-          // var geer = effectsOn.map(function(e) { return e.effect; }).indexOf(gleep.effectKey);
-          // console.log(geer);
           Mousetrap.trigger(gleep.effectKey);
-          // console.log('glip.effectKey: ' + effect.effectKey);
         });
 
         effectsOn = [];
@@ -130,14 +116,9 @@ if(app.settings.effects.kaleidoscope.enabled) {
       effectsOn.push({
         effect:app.settings.effects.kaleidoscope.name,
         effectKey:app.settings.effects.kaleidoscope.filterKey
-        // app.settings.effects.kaleidoscope.name
       });
     } else {
       effectName: app.settings.effects.kaleidoscope.name;
-      // effectsOn.pop({
-      //   effect:app.settings.effects.kaleidoscope.name,
-      //   effectKey:app.settings.effects.kaleidoscope.filterKey
-      // });
       effectsOn.splice(effectsOn.indexOf(app.settings.effects.kaleidoscope.name), 1);
 
       kaleidoscopeOn = 0;
@@ -147,7 +128,6 @@ if(app.settings.effects.kaleidoscope.enabled) {
       $(s1 + ' > div').add(s2 + ' > div')
         .detach().css('mix-blend-mode','normal');
       console.log(appFX.kaleidoscope.name +' OFF');
-      // console.log(appFX.kaleidoscope.name);
     }
   });
 }
@@ -176,7 +156,6 @@ if(app.settings.effects.sameSame.enabled) {
       sameSame();
       $(s2).addClass('same-same');
       effectsOn.push({
-        // app.settings.effects.sameSame.name,
 
         effect:app.settings.effects.sameSame.name,
         effectKey:app.settings.effects.sameSame.filterKey
@@ -187,12 +166,6 @@ if(app.settings.effects.sameSame.enabled) {
       // console.log(effectsOn.indexOf(app.settings.filters.saturator.name));
       effectsOn.splice(effectsOn.indexOf(effectIndex), 1);
       console.log("effectIndex : "  + effectIndex)
-
-      // effectsOn.pop({
-      //   effect:app.settings.effects.sameSame.name,
-      //   effectKey:app.settings.effects.sameSame.filterKey
-      // });
-      // effectsOn.splice(effectsOn.indexOf(app.settings.effects.sameSame.name), 1);
 
       console.log('FX: SAMESAME OFF');
       sameSameOn = 0;
@@ -209,19 +182,12 @@ if(app.settings.effects.stgFade.enabled) {
     console.log('FX: FADER ON');
     stgFadeOn = 1;
     effectsOn.push({
-      // app.settings.effects.stgFade.name,
-
       effect:app.settings.effects.stgFade.name,
       effectKey:app.settings.effects.stgFade.filterKey
     });
     } else {
     effectName: app.settings.effects.stgFade.name;
     effectsOn.splice(effectsOn.indexOf(app.settings.effects.stgFade.name), 1);
-
-    // effectsOn.pop({
-    //   effect:app.settings.effects.stgFade.name,
-    //   effectKey:app.settings.effects.stgFade.filterKey
-    // });
     console.log('FX: FADER OFF');
     stgFadeOn = 0;
 
@@ -272,8 +238,6 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
       console.log('FX: SATURATE ON');
       saturator();
       effectsOn.push({
-        // app.settings.filters.saturator.name,
-
         effect:app.settings.effects.saturator.name,
         effectKey:app.settings.effects.saturator.filterKey
       });
@@ -284,12 +248,6 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
       // console.log(effectsOn.indexOf(app.settings.filters.saturator.name));
       effectsOn.splice(effectsOn.indexOf(effectIndex), 1);
       console.log("effectIndex : "  + effectIndex)
-      // console.log(effectsOn.map(function(e) { return e.effect; }).indexOf(effectName));
-      // effectsOn.pop({
-      //   effect:app.settings.filters.saturator.name,
-      //   effectKey:app.settings.filters.saturator.filterKey
-      // });
-
       console.log('FX: SATURATE OFF');
       saturateOn = 0;
       $(s1).add(s2).css('-webkit-filter', 'none')
@@ -372,7 +330,6 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
     Mousetrap.trigger('shift+backspace');
     Mousetrap.trigger('space');
   });
-
 
   // STAGE 1 ON [ SHIFT ] + [ - ]
   Mousetrap.bind("_", function() {
@@ -473,53 +430,23 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
       gifSizeLockOn = 0;
     }
 
-
-    // OLD GRID LOCK CODE
-    // if(!gifSizeLockOn) {
-    //
-    //     console.log(stgSelect + ': Size Locked');
-    //
-    //     if(stgSelect == 'all') {
-    //       stageSizeLocked = $(s1).css('background-repeat');
-    //       stageSizeLocked2 = $(s2).css('background-repeat');
-    //       console.log(stageSizeLocked);
-    //       console.log(stageSizeLocked2);
-    //     } else {
-    //       stageSizeLocked = $(stgSelect).css('background-repeat');
-    //       console.log(stageSizeLocked);
-    //     }
-    //
-    //     gifSizeLockOn = 1;
-    //
-    // } else {
-    //   gifSizeLockOn = 0;
-    //   console.log(stgSelect + ':  Gif Size Unlocked');
-    // }
   });
 
-// STAGE LOCK [ ] ]
+// STAGE LOCK/PAUSE [ ] ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind("]", function() {
 
     // NEW STAGE LOCK OR PAUSE
-    console.log('STAGE LOCK COMING');
-
     if(!stageLockOn) {
-      console.log('STAGE LOCK COMING');
         stageLockOn = 1;
         console.log('STAGE LOCK PAUSE ON');
 
         //current SCENE
-        console.log('PAUSED STG1 : ' + gifSelectorS1);
-        console.log('PAUSED STG2 : ' + gifSelectorS2);
-        console.log('PAUSED BANKSTG1 : ' + bankSelectorS1);
-        console.log('PAUSED BANKSTG2 : ' + bankSelectorS2);
         pausedStg1 = gifSelectorS1;
         pausedStg2 = gifSelectorS2;
         pausedBankStg1 = bankSelectorS1;
         pausedBankStg2 = bankSelectorS2;
-
 
     } else {
         stageLockOn = 0;
@@ -530,30 +457,6 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
         pausedBankStg2 = null;
 
     }
-
-    // OLD STAGELOCK CODE
-    // if(!stageLockOn) {
-    //
-    //     if(stgSelect == 'all') {
-    //
-    //       console.log(stgSelect + ': Locked');
-    //       stageLockedImage = $(s1).css('background-image');
-    //       stageLockedImage2 = $(s2).css('background-image');
-    //
-    //     } else {
-    //
-    //       console.log(stgSelect + ': Locked');
-    //       stageLockedImage = $(stgSelect).css('background-image');
-    //       console.log('LAST BANK: ' + $(stgNotSelected).attr('bank'));
-    //       lastBank = $(stgNotSelected).attr('bank');
-    //     }
-    //
-    //   stageLockOn = 1;
-    //
-    // } else {
-    //   stageLockOn = 0;
-    //   console.log(stgSelect + ': Unlocked');
-    // }
 
   });
 
@@ -590,39 +493,34 @@ banks.bank[0].gifs.forEach(function(glip) {
 
 });
 
+  bankerSets.set.forEach(function(durk, index) {
+    setsArray.push(durk.trigger);
+  });
 
-    bankerSets.set.forEach(function(durk, index) {
-      setsArray.push(durk.trigger);
+  for(let i = 0; i < setsArray.length; i++) {
+
+    Mousetrap.bind("alt+" + setsArray[i], function() {
+
+      if(!setOn) {
+        setBank = bankerSets.set[i].bank;
+
+        setArray = [];
+        bankerSets.set[i].gifs.forEach(function(slees) {
+          setArray.push(slees.name);
+        });
+
+        setOn = 1;
+
+        console.log('BANKER SET: [' + setsArray[i] +  '] LOADING');
+
+      } else {
+        console.log('BANKER SET: OFF');
+        setOn = 0;
+        setArray = [];
+      }
     });
 
-    for(let i = 0; i < setsArray.length; i++) {
-
-      Mousetrap.bind("alt+" + setsArray[i], function() {
-        // console.log(setsArray[i]);
-        // console.log('index' + i);
-
-        if(!setOn) {
-          setBank = bankerSets.set[i].bank;
-
-          setArray = [];
-          bankerSets.set[i].gifs.forEach(function(slees) {
-            setArray.push(slees.name);
-          });
-
-          setOn = 1;
-
-          console.log('BANKER SET: [' + setsArray[i] +  '] LOADING');
-          // console.log(setArray);
-          // console.log(setBank);
-
-        } else {
-          console.log('BANKER SET: OFF');
-          setOn = 0;
-          setArray = [];
-        }
-      });
-
-    }
+  }
 
 // SAMPLER [ RETURN, ENTER ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -641,7 +539,6 @@ banks.bank[0].gifs.forEach(function(glip) {
     var repeatSave2 = $(s2).attr('repeat');
     var blendSave = $(s1).attr('blend');
     var blendSave2 = $(s2).attr('blend');
-
 
     samplerStg1.push([[bankSave],[gifSave],[repeatSave],[bgSize],[blendSave]]);
     samplerStg2.push([[bankSave2],[gifSave2],[repeatSave2],[bgSize2],[blendSave2]]);
@@ -755,7 +652,6 @@ banks.bank[0].gifs.forEach(function(glip) {
         giy = 1;
         stopRobomode();
         robomodeOn = 0;
-
       }
     });
 
@@ -861,8 +757,7 @@ banks.bank[0].gifs.forEach(function(glip) {
       localStorage.setItem('stg1Blend',$(s1).attr('blend'));
       localStorage.setItem('stg2Blend',$(s2).attr('blend'));
 
-          var bgSize2 = $(s2).attr('size');
-
+      var bgSize2 = $(s2).attr('size');
 
       stgStore = localStorage.getItem('killSwitch');
       location.reload();
@@ -902,7 +797,6 @@ banks.bank[0].gifs.forEach(function(glip) {
             overlayOn = 1;
             // $('.overlays').css('animation-name', 'overlayScale');
 
-
           } else {
 
             overlayOn = 0;
@@ -913,7 +807,6 @@ banks.bank[0].gifs.forEach(function(glip) {
         });
     }
 
-
     /* DEPRECATED : OVERLAY EFFECTS */
     Mousetrap.bind('ctrl+1', function() {
       console.log('FILTER GROUP 1: LOADED');
@@ -922,11 +815,9 @@ banks.bank[0].gifs.forEach(function(glip) {
       Mousetrap.trigger('8');
     });
 
-
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // MAIN KEYBOARD TRIGGERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
 
     for(let i = 0; i < letterArray.length; i++) {
 
@@ -936,8 +827,6 @@ banks.bank[0].gifs.forEach(function(glip) {
         sequencer.sequences.forEach(function(seq) {
           currentSequencerTriggers.push(seq.trigger);
         });
-
-
 
         if (storyModeOn) {
           console.log('Start selecting Sequencer Keys');
@@ -969,39 +858,16 @@ banks.bank[0].gifs.forEach(function(glip) {
 
         } else {
 
-
           if (giy) {
             console.log('say yeah!!!');
           }
 
           console.log('when is this firing??');
           $(stgSelect).css('background', bankLocation + bankNumberS1 + '/' + letterArray[i] + bgCenter);
-          // stageOneLayout = 0; stageTwoLayout = 0;
 
         }
 
       });
     }
-
-        // if(storyModeOn) {
-
-        // currentSequencerTriggers = [];
-        // sequencer.sequences.forEach(function(seq) {
-        //   currentSequencerTriggers.push(seq.trigger);
-        // });
-
-        // for(let i = 0; i < currentSequencerTriggers.length; i++) {
-        //   Mousetrap.bind(currentSequencerTriggers[i], function() {
-        //       sequencerOn = 1;
-        //       sequenceNumber = letterArray[i];
-        //       letterNumber = i;
-        //       console.log(sequenceNumber);
-        //       curSequencerIndex = 0;
-
-        //     });
-        // }
-
-    //}
-
 
 });
