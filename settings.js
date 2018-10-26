@@ -55,6 +55,8 @@ var effectsOn = [];
 var beatTime = 3650;
 var beatSpeed = 1000;
 var titlePageOn = 0;
+var sameSameConstant = 2;
+var saturateAmount = 100;
 titlePageName = 'title-1.gif';
 
 stageArray = ['sf', 'st'];
