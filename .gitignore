@@ -1,2 +1,14 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Don't need to settings and bank folder/images #
+######################
 settings.js
 banks/
