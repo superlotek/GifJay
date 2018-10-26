@@ -318,6 +318,11 @@
             .css('background-size',samplerStg2[curSamplerStg1Index][3])
             .css('mix-blend-mode',samplerStg2[curSamplerStg1Index][4]);
 
+            if (gifSizeLockOn) {
+              $(s1).css(sf);
+              $(s2).css(sf);
+            }
+
         }
 
         if (curSamplerStg1Index == (samplerStg1.length - 1)) {
