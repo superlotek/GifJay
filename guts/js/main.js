@@ -159,10 +159,18 @@
         bankSelectorS2 = pausedBankStg2;
       }
 
+      if (bankerOn) {
+        console.log('The BANKER is happening!!');
+        if (gifSizeLockOn) {
+          $(s1).css(sf);
+          $(s2).css(sf);
+        }
+      }
+
       $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter);
       $(stgNotSelected).css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2 + bgCenter);
 
-      console.log('ARE THESE FIRING?? this fires on SETS as well');
+      console.log('ARE THESE FIRING?? this fires on SETS & BANKERS as well');
       $(stgNotSelected).css(this[randomizer(stageArray)]);
       $(stgSelect).css(this[randomizer(stageArray)]);
 
@@ -192,7 +200,6 @@
       $(s2).css('opacity', '1');
 
       if (gifSizeLockOn) {
-        // console.log('FULLSCREEN MODE WORKING!!');
         $(s1).css(sf);
         $(s2).css(sf);
       }
