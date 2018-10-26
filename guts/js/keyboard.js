@@ -127,6 +127,9 @@ if(app.settings.effects.kaleidoscope.enabled) {
         .removeClass(app.settings.effects.kaleidoscope.name);
       $(s1 + ' > div').add(s2 + ' > div')
         .detach().css('mix-blend-mode','normal');
+        $(s2).css('mix-blend-mode','');
+        // $(s2).toggleClass('blend');
+
       console.log(appFX.kaleidoscope.name +' OFF');
     }
   });

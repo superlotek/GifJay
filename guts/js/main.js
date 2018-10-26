@@ -519,7 +519,7 @@
             'opacity' : '.75'
           });
           var beatz = beatTime/beatSpeed;
-          $(s2).css('animation-duration', beatz+'s');
+          $(s2).css('animation-duration', beatz * sameSameConstant + 's');
       }
     }
 
@@ -541,11 +541,11 @@
     function saturator() {
       if (stgSelect == "all") {
         // console.log('FX SATURATOR: STG 1+2');
-        $(s1).css('-webkit-filter','saturate(' + numRan(200) + ')');
-        $(s2).css('-webkit-filter','saturate(' + numRan(200) + ')');
+        $(s1).css('-webkit-filter','saturate(' + numRan(saturateAmount) + ')');
+        $(s2).css('-webkit-filter','saturate(' + numRan(saturateAmount) + ')');
         // $(s2).css('-webkit-filter','saturate(' + numRan(500) + ')');
       } else {
-        $(stgSelect).css('-webkit-filter','saturate(' + numRan(200) + ')');
+        $(stgSelect).css('-webkit-filter','saturate(' + numRan(saturateAmount) + ')');
       }
 
       if(fxModeOn) {
