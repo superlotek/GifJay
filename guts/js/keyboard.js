@@ -418,24 +418,34 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
     }
   });
 
-// STAGE SIZE LOCK [ [ ]
+// SCENE FULLSCREEN [ [ ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind("[", function() {
 
-    console.log('NEW FULLSIZE BUTTON');
-
     if (!gifSizeLockOn) {
-      console.log('initiating fullsize');
+      console.log('SCENE FULLSCREEN: ON');
       gifSizeLockOn = 1;
+
+      if (gifSizeLockOn) {
+        $(s1).css(sf);
+        $(s2).css(sf);
+      }
+
     } else {
-      console.log('turning off fullsize');
+      console.log('SCENE FULLSCREEN: OFF');
       gifSizeLockOn = 0;
+
+      if (!gifSizeLockOn) {
+        $(s1).css(st);
+        $(s2).css(st);
+      }
+
     }
 
   });
 
-// STAGE LOCK/PAUSE [ ] ]
+// SCENE PAUSE [ ] ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind("]", function() {
@@ -443,9 +453,8 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
     // NEW STAGE LOCK OR PAUSE
     if(!stageLockOn) {
         stageLockOn = 1;
-        console.log('STAGE LOCK PAUSE ON');
+        console.log('SCENE PAUSE: ON');
 
-        //current SCENE
         pausedStg1 = gifSelectorS1;
         pausedStg2 = gifSelectorS2;
         pausedBankStg1 = bankSelectorS1;
@@ -453,7 +462,7 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
 
     } else {
         stageLockOn = 0;
-        console.log('STAGE LOCK PAUSE OFF');
+        console.log('SCENE PAUSE: OFF');
         pausedStg1 = "";
         pausedStg2 = "";
         pausedBankStg1 = null;

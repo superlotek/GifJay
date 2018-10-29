@@ -152,6 +152,12 @@
     if (currentPlayMode != 'robomode') {
       console.log('NOT ROBOMODE!!');
 
+      if (gifSizeLockOn) {
+        $(s1).css(sf);
+        $(s2).css(sf);
+      }
+
+
       if (stageLockOn) {
         gifSelectorS1 = pausedStg1;
         gifSelectorS2 = pausedStg2;
