@@ -71,6 +71,7 @@ var switcherooOn = 0;
 var hueShiftOn = 0;
 var blurryOn = 0;
 var blackWhiteOn = 0;
+var filtersOnString = "";
 
 // GLITCH
 var glitchOn = 0;
@@ -82,7 +83,6 @@ var borderSize = 10;
 
 var delayFXOn = 0;
 var fxModeOn = 0;
-
 
 var hueRotateAmount;
 var saturateAmount;

@@ -87,19 +87,13 @@ timerSaves = [];
     }
   });
 
-    Mousetrap.bind("alt+`", function() {
-      if (effectsOn.length > 0) {
-        console.log('CLEAR ALL FX [' + effectsOn.length + ']');
-
-        effectsOn.forEach(function(gleep, index) {
-
-          console.log(gleep.effectKey);
-          Mousetrap.trigger(gleep.effectKey);
-        });
-
-        effectsOn = [];
-      }
-    });
+  Mousetrap.bind("alt+`", function() {
+    console.log('FILTERS: CLEARED');
+    $(stgSelect).css('-webkit-filter', 'none');
+    filtersOnString = "";
+    filtersOn = [];
+    saturateOn = 0; hueShiftOn = 0; blurryOn = 0;
+  });
 
     function findEffectInArray(element) {
       return element.effect === effectName;
@@ -240,20 +234,16 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
       saturateOn = 1;
       console.log('FX: SATURATE ON');
       saturator();
-      effectsOn.push({
-        effect:app.settings.effects.saturator.name,
-        effectKey:app.settings.effects.saturator.filterKey
-      });
     } else {
-      effectName: app.settings.effects.saturator.name;
-      var effectIndex = effectsOn.map(function(e) { return e.effect; }).indexOf(app.settings.effects.saturator.name);
-      console.log('EFFECT INDEX: ' + effectIndex);
-      // console.log(effectsOn.indexOf(app.settings.filters.saturator.name));
-      effectsOn.splice(effectsOn.indexOf(effectIndex), 1);
-      console.log("effectIndex : "  + effectIndex)
       console.log('FX: SATURATE OFF');
       saturateOn = 0;
-      $(s1).add(s2).css('-webkit-filter', 'none')
+      $(s1).add(s2).css('-webkit-filter', 'none');
+      filtersOn[0] = "";
+      filtersOnString = "";
+      filtersOn.forEach(function(element) {
+        filtersOnString += element + " ";
+      });
+
     }
   });
 }
@@ -265,15 +255,15 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
       hueShiftOn = 1;
       console.log('FX: HUESHIFT ON');
       hueShift();
-      effectsOn.push({
-        effect:app.settings.effects.hueShift.name,
-        effectKey:app.settings.effects.hueShift.filterKey
-      });
     } else {
-      effectName: app.settings.effects.hueShift.name;
       console.log('FX: HUESHIFT OFF');
       hueShiftOn = 0;
-      $(s1).add(s2).css('-webkit-filter', 'none')
+      $(s1).add(s2).css('-webkit-filter', 'none');
+      filtersOn[1] = "";
+      filtersOnString = "";
+      filtersOn.forEach(function(element) {
+        filtersOnString += element + " ";
+      });
     }
   });
 }
@@ -285,15 +275,15 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
       blurryOn = 1;
       console.log('FX: BLURRY ON');
       blurry();
-      effectsOn.push({
-        effect:app.settings.effects.blurry.name,
-        effectKey:app.settings.effects.blurry.filterKey
-      });
     } else {
-      effectName: app.settings.effects.blurry.name;
       console.log('FX: BLURRY OFF');
       blurryOn = 0;
-      $(s1).add(s2).css('-webkit-filter', 'none')
+      $(s1).add(s2).css('-webkit-filter', 'none');
+      filtersOn[2] = "";
+      filtersOnString = "";
+      filtersOn.forEach(function(element) {
+        filtersOnString += element + " ";
+      });
     }
   });
 }

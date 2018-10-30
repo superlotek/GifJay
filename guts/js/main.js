@@ -553,34 +553,71 @@
   // *** FILTERS ***
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+  function addFilter(filterNum, filterString) {
+    filtersOnString = "";
+    filtersOn[filterNum] = filterString;
+    filtersOn.forEach(function(element) {
+      filtersOnString += element + " ";
+    });
+  }
+
+
   // FILTER FX : SATURATE
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
     function saturator() {
+
+      s1SaturatorValue = numRan(saturateAmount);
+      s2SaturatorValue = numRan(saturateAmount);
+      s1SaturateString = "saturate(" + s1SaturatorValue + ")";
+      s2SaturateString = "saturate(" + s2SaturatorValue + ")";
+
       if (stgSelect == "all") {
         // console.log('FX SATURATOR: STG 1+2');
-        $(s1).css('-webkit-filter','saturate(' + numRan(saturateAmount) + ')');
-        $(s2).css('-webkit-filter','saturate(' + numRan(saturateAmount) + ')');
+        // s1SaturateValue = numRan(saturateAmount);
+        // s2SaturateValue = numRan(saturateAmount);
+        $(s1).css('-webkit-filter',s1SaturateString);
+        $(s2).css('-webkit-filter',s2SaturateString);
         // $(s2).css('-webkit-filter','saturate(' + numRan(500) + ')');
       } else {
-        $(stgSelect).css('-webkit-filter','saturate(' + numRan(saturateAmount) + ')');
+        // filtersOnString = "";
+        // filtersOn[0] = s1SaturateString;
+        // filtersOn.forEach(function(element) {
+        //   filtersOnString += element + " ";
+        // });
+        addFilter(0, s1SaturateString)
+
+        $(stgSelect).css('-webkit-filter', filtersOnString);
+
       }
 
-      if(fxModeOn) {
-          $(s1).add(s2).css('-webkit-filter','none')
-      }
+
     }
 
   // FILTER FX : HUESHIFT
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
     function hueShift() {
+
+      s1HueshiftValue = numRan(360);
+      s2HueshiftValue = numRan(360);
+      s1HueshiftString = "hue-rotate(" + s1HueshiftValue + "deg)";
+      s2HueshiftString = "hue-rotate(" + s2HueshiftValue + "deg)";
+
       if (stgSelect == "all") {
         console.log('FX HUESHIFT: STG 1+2');
-        $(s1).css('-webkit-filter','hue-rotate(' + numRan(360) + 'deg)');
-        $(s2).css('-webkit-filter','hue-rotate(' + numRan(360) + 'deg)');
+        $(s1).css('-webkit-filter', s1HueshiftString);
+        $(s2).css('-webkit-filter', s2HueshiftString);
       } else {
-        $(stgSelect).css('-webkit-filter','hue-rotate(' + numRan(360) + 'deg)');
+
+        addFilter(1, s1HueshiftString)
+
+        // filtersOnString = "";
+        // filtersOn[1] = s1HueshiftString;
+        // filtersOn.forEach(function(element) {
+        //   filtersOnString += element + " ";
+        // });
+        $(stgSelect).css('-webkit-filter', filtersOnString);
       }
     }
 
@@ -588,17 +625,23 @@
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
     function blurry() {
+
+      s1BlurValue = numRan(blurAmount);
+      s2BlurValue = numRan(blurAmount);
+      s1BlurString = "blur(" + s1BlurValue + "px)";
+      s2BlurString = "blur(" + s2BlurValue + "px)";
+
       if (stgSelect == "all") {
         console.log('FX BLURRY: STG 1+2');
         $(s1).css('-webkit-filter','blur(' + numRan(10) + 'px');
         $(s2).css('-webkit-filter','blur(' + numRan(10) + 'px');
       } else {
         $(stgSelect).css('-webkit-filter','blur(' + numRan(10) + 'px');
+        addFilter(2, s1BlurString)
+        $(stgSelect).css('-webkit-filter', filtersOnString);
+
       }
 
-      if(fxModeOn) {
-          $(s1).add(s2).css('-webkit-filter','none');
-      }
     }
 
   // FILTER FX : BLACK WHITE
