@@ -131,9 +131,20 @@
     bankBuilderS1 = [];
     bankBuilderS2 = [];
 
+    newObject = [];
+
     // console.log('creating some gifs');
     banks.bank[bankSelectorS1].gifs.forEach(function(glarb) {
       bankBuilderS1.push(glarb.name);
+      newObject.push({
+        gif: glarb.name,
+        type: glarb.type
+        });
+
+
+      // ['gif'] = glarb.name;
+      // newObject['type'] = glarb.type;
+      // console.log('is this gonan rung a long');
     });
 
     banks.bank[bankSelectorS2].gifs.forEach(function(gleek) {
@@ -143,6 +154,14 @@
     // choose 2 random gifs
     gifSelectorS1 = randomizer(bankBuilderS1);
     gifSelectorS2 = randomizer(bankBuilderS2);
+    gifSelectorS3 = randomizer(newObject);
+    // newObject.forEach(function(blurppy) {
+    //   if (blurppy.type = 'bw') {
+    //     alert('FOUND ONE');
+    //   }
+    // });
+
+    // console.log('Looking for type: ' + randomGif);
 
     if (setOn) {
       gifSelectorS1 = randomizer(setArray);
@@ -173,7 +192,17 @@
         }
       }
 
-      $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter);
+      $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS3.gif + bgCenter);
+      
+      if (gifSelectorS3.type == undefined) {
+        $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS3.gif + bgCenter);
+        $(stgSelect).css('transform','rotate(180deg)');
+      } else {
+        $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS3.gif + bgCenter);
+        $(stgSelect).css('transform','rotate(0deg)');
+      }
+
+
       $(stgNotSelected).css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2 + bgCenter);
 
       console.log('ARE THESE FIRING?? this fires on SETS & BANKERS as well');
