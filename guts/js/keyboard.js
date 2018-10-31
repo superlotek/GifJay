@@ -338,10 +338,7 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
       console.log('SCENE FULLSCREEN: ON');
       sceneFullscreenOn = 1;
 
-      if (sceneFullscreenOn) {
-        $(s1).css(sf);
-        $(s2).css(sf);
-      }
+      if (sceneFullscreenOn) { screenFullscreen(); }
 
     } else {
       console.log('SCENE FULLSCREEN: OFF');

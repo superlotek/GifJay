@@ -108,6 +108,11 @@ function stageParameters() {
     css('background-repeat'),size:$(s2).css('background-size'),blend:$(s2).css('mix-blend-mode')});
 }
 
+function screenFullscreen() {
+  $(s1).css(sf);
+  $(s2).css(sf);
+}
+
 function setGPS() {
   console.log('GPS SET');
   var d = new Date();
@@ -157,10 +162,7 @@ function sceneSetter(arrayName,banker1,banker2) {
 
   if (currentPlayMode != 'robomode') {
 
-    if (sceneFullscreenOn) {
-      $(s1).css(sf);
-      $(s2).css(sf);
-    }
+    if (sceneFullscreenOn) { screenFullscreen(); }
 
     if (stageLockOn) {
       gifSelectorS1 = pausedStg1;
@@ -170,10 +172,7 @@ function sceneSetter(arrayName,banker1,banker2) {
     }
 
     if (bankerOn) {
-      if (sceneFullscreenOn) {
-        $(s1).css(sf);
-        $(s2).css(sf);
-      }
+      if (sceneFullscreenOn) { screenFullscreen(); }
     }
 
     $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1.gif + bgCenter);
@@ -188,10 +187,7 @@ function sceneSetter(arrayName,banker1,banker2) {
     $(stgNotSelected).css(this[randomizer(stageArray)]);
     $(stgSelect).css(this[randomizer(stageArray)]);
 
-    if (sceneFullscreenOn) {
-      $(s1).css(sf);
-      $(s2).css(sf);
-    }
+    if (sceneFullscreenOn) { screenFullscreen(); }
 
   } else {
 
@@ -209,10 +205,7 @@ function sceneSetter(arrayName,banker1,banker2) {
     $(s2).css(this[randomizer(stageArray)]);
     $(s2).css('opacity', '1');
 
-    if (sceneFullscreenOn) {
-      $(s1).css(sf);
-      $(s2).css(sf);
-    }
+    if (sceneFullscreenOn) { screenFullscreen(); }
 
   }
 
@@ -335,10 +328,7 @@ function playMode(playType) {
           .css('background-size',samplerStg2[curSamplerStg1Index][3])
           .css('mix-blend-mode',samplerStg2[curSamplerStg1Index][4]);
 
-          if (sceneFullscreenOn) {
-            $(s1).css(sf);
-            $(s2).css(sf);
-          }
+          if (sceneFullscreenOn) { screenFullscreen(); }
 
       }
 
