@@ -157,7 +157,7 @@ function sceneSetter(arrayName,banker1,banker2) {
 
   if (currentPlayMode != 'robomode') {
 
-    if (gifSizeLockOn) {
+    if (sceneFullscreenOn) {
       $(s1).css(sf);
       $(s2).css(sf);
     }
@@ -170,7 +170,7 @@ function sceneSetter(arrayName,banker1,banker2) {
     }
 
     if (bankerOn) {
-      if (gifSizeLockOn) {
+      if (sceneFullscreenOn) {
         $(s1).css(sf);
         $(s2).css(sf);
       }
@@ -188,7 +188,7 @@ function sceneSetter(arrayName,banker1,banker2) {
     $(stgNotSelected).css(this[randomizer(stageArray)]);
     $(stgSelect).css(this[randomizer(stageArray)]);
 
-    if (gifSizeLockOn) {
+    if (sceneFullscreenOn) {
       $(s1).css(sf);
       $(s2).css(sf);
     }
@@ -209,7 +209,7 @@ function sceneSetter(arrayName,banker1,banker2) {
     $(s2).css(this[randomizer(stageArray)]);
     $(s2).css('opacity', '1');
 
-    if (gifSizeLockOn) {
+    if (sceneFullscreenOn) {
       $(s1).css(sf);
       $(s2).css(sf);
     }
@@ -335,7 +335,7 @@ function playMode(playType) {
           .css('background-size',samplerStg2[curSamplerStg1Index][3])
           .css('mix-blend-mode',samplerStg2[curSamplerStg1Index][4]);
 
-          if (gifSizeLockOn) {
+          if (sceneFullscreenOn) {
             $(s1).css(sf);
             $(s2).css(sf);
           }

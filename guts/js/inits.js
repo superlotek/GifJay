@@ -113,7 +113,7 @@ var gpsTimer2;
 var stageLockOn = 0;
 var stageLockedImage;
 var stageLockedImage2;
-var gifSizeLockOn = 0;
+var sceneFullscreenOn = 0;
 var stageFlipOn = 0;
 var currentPlayMode = 'giy';
 

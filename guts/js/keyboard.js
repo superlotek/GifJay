@@ -334,20 +334,20 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
 
   Mousetrap.bind("[", function() {
 
-    if (!gifSizeLockOn) {
+    if (!sceneFullscreenOn) {
       console.log('SCENE FULLSCREEN: ON');
-      gifSizeLockOn = 1;
+      sceneFullscreenOn = 1;
 
-      if (gifSizeLockOn) {
+      if (sceneFullscreenOn) {
         $(s1).css(sf);
         $(s2).css(sf);
       }
 
     } else {
       console.log('SCENE FULLSCREEN: OFF');
-      gifSizeLockOn = 0;
+      sceneFullscreenOn = 0;
 
-      if (!gifSizeLockOn) {
+      if (!sceneFullscreenOn) {
         $(s1).css(st);
         $(s2).css(st);
       }
