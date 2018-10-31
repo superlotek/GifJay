@@ -131,18 +131,24 @@ function sceneSetter(arrayName,banker1,banker2) {
   bankBuilderS1 = [];
   bankBuilderS2 = [];
 
-  // console.log('creating some gifs');
   banks.bank[bankSelectorS1].gifs.forEach(function(glarb) {
-    bankBuilderS1.push(glarb.name);
+    bankBuilderS1.push({
+      gif: glarb.name,
+      type: glarb.type
+    });
   });
 
   banks.bank[bankSelectorS2].gifs.forEach(function(gleek) {
-    bankBuilderS2.push(gleek.name);
+    bankBuilderS2.push({
+      gif: gleek.name,
+      type: gleek.type
+    });
   });
 
   // choose 2 random gifs
   gifSelectorS1 = randomizer(bankBuilderS1);
   gifSelectorS2 = randomizer(bankBuilderS2);
+  // gifSelectorS3 = randomizer(newObject);
 
   if (setOn) {
     gifSelectorS1 = randomizer(setArray);
@@ -150,13 +156,11 @@ function sceneSetter(arrayName,banker1,banker2) {
   }
 
   if (currentPlayMode != 'robomode') {
-    console.log('NOT ROBOMODE!!');
 
     if (gifSizeLockOn) {
       $(s1).css(sf);
       $(s2).css(sf);
     }
-
 
     if (stageLockOn) {
       gifSelectorS1 = pausedStg1;
@@ -166,17 +170,21 @@ function sceneSetter(arrayName,banker1,banker2) {
     }
 
     if (bankerOn) {
-      console.log('The BANKER is happening!!');
       if (gifSizeLockOn) {
         $(s1).css(sf);
         $(s2).css(sf);
       }
     }
 
-    $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter);
-    $(stgNotSelected).css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2 + bgCenter);
+    $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1.gif + bgCenter);
+    if (gifSelectorS1.type == 'flip') {
+      console.log('cool!!0');
+    }
+    //   // $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS3.gif + bgCenter);
+    //   $(stgSelect).css('transform','rotate(0deg)');
+    // }
 
-    console.log('ARE THESE FIRING?? this fires on SETS & BANKERS as well');
+    $(stgNotSelected).css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2.gif + bgCenter);
     $(stgNotSelected).css(this[randomizer(stageArray)]);
     $(stgSelect).css(this[randomizer(stageArray)]);
 
@@ -185,10 +193,7 @@ function sceneSetter(arrayName,banker1,banker2) {
       $(s2).css(sf);
     }
 
-
   } else {
-
-    console.log('NOW WERE IN ROBOMODE');
 
     if (stageLockOn) {
       gifSelectorS1 = pausedStg1;
@@ -198,9 +203,8 @@ function sceneSetter(arrayName,banker1,banker2) {
     }
 
     // SET THE SCENE
-    console.log('SETS HAPPENING NOW???');
-    $(s1).css({'background':bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter });
-    $(s2).css({'background':bankLocation + bankSelectorS2 + '/' + gifSelectorS2 + bgCenter });
+    $(s1).css({'background':bankLocation + bankSelectorS1 + '/' + gifSelectorS1.gif + bgCenter });
+    $(s2).css({'background':bankLocation + bankSelectorS2 + '/' + gifSelectorS2.gif + bgCenter });
     $(s1).css(this[randomizer(stageArray)]);
     $(s2).css(this[randomizer(stageArray)]);
     $(s2).css('opacity', '1');
