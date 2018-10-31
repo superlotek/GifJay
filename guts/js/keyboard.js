@@ -404,14 +404,14 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
 // BANKER SETS ON/OFF [ ' ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-gleep = [];
-banks.bank[0].gifs.forEach(function(glip) {
-	console.log(glip.set);
-	if (glip.set == 'd') {
-		gleep.push(glip.name);
-  }
-
-});
+// gleep = [];
+// banks.bank[0].gifs.forEach(function(glip) {
+// 	console.log(glip.set);
+// 	if (glip.set == 'd') {
+// 		gleep.push(glip.name);
+//   }
+//
+// });
 
   bankerSets.set.forEach(function(durk, index) {
     setsArray.push(durk.trigger);
@@ -693,9 +693,10 @@ banks.bank[0].gifs.forEach(function(glip) {
           var numberKey = bankNumber;
           if(bankerOn == 1) {
             bankerArray.push(bankNumber);
-            console.log('Bank ' + numberKey + ' added to Banker'); console.log(bankerArray);
+            console.log('BANK ' + numberKey + ' : ADDED TO BANKS'); console.log(bankerArray);
           } else {
             console.log('BANK SELECTED : ' + bankNumber);
+            bankSelected = true;
           }
         });
     }
@@ -739,55 +740,32 @@ banks.bank[0].gifs.forEach(function(glip) {
 // MAIN KEYBOARD TRIGGERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    for(let i = 0; i < letterArray.length; i++) {
-
-      Mousetrap.bind(letterArray[i], function() {
-
-        currentSequencerTriggers = [];
-        sequencer.sequences.forEach(function(seq) {
-          currentSequencerTriggers.push(seq.trigger);
+  if (giy) {
+    theBankNumber = 0;
+    console.log('GIY MODE');
+    availableTriggers = [];
+    for (i=0; i < banks.bank[theBankNumber].gifs.length; i++) {
+      if (banks.bank[theBankNumber].gifs[i].trigger) {
+        availableTriggers.push({
+          trigger: banks.bank[theBankNumber].gifs[i].trigger,
+          name: banks.bank[theBankNumber].gifs[i].name
         });
+      }
+    }
 
-        if (storyModeOn) {
-          console.log('Start selecting Sequencer Keys');
+    for(let i = 0; i < availableTriggers.length; i++) {
 
-              sequencerOn = 1;
-              sequenceNumber = letterArray[i];
-              letterNumber = i;
-              console.log(sequenceNumber);
-              curSequencerIndex = 0;
-
-        }else if (giy) {
-            console.log('GIY MODE');
-
-            if (bankNumber) {
-              console.log('kickin" this letter thing?');
-              bankNumberS1 = bankNumber;
-              bankNumberS2 = bankNumber;
-            } else {
-              bankNumberS1 = bankSelectorS1;
-              bankNumberS2 = bankSelectorS2;
-            }
-
-          if (stgSelect == s1) {
-            $(stgSelect).css('background', bankLocation + bankNumberS1 + '/' + letterArray[i] + bgCenter);
-
-          } else {
-            $(stgSelect).css('background', bankLocation + bankNumberS2 + '/' + letterArray[i] + bgCenter);
-          }
-
-        } else {
-
-          if (giy) {
-            console.log('say yeah!!!');
-          }
-
-          console.log('when is this firing??');
-          $(stgSelect).css('background', bankLocation + bankNumberS1 + '/' + letterArray[i] + bgCenter);
-
+      Mousetrap.bind(availableTriggers[i].trigger, function() {
+        if (!bankNumber) {
+          giyBank = bankSelectorS1;
+        } else if (bankSelected && bankNumber) {
+          giyBank = bankNumber;
         }
-
+        cacheBuster =  new Date().getTime();
+        bgCenters = ".gif?" + cacheBuster + ") center center";
+        $(s1).css('background', bankLocation + giyBank + '/' + availableTriggers[i].name + bgCenters);
       });
     }
+  }
 
 });
