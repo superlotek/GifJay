@@ -1,48 +1,77 @@
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-// MIDI EXPERIMENTS (Chrome only so far, unless us polyfill)
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    var midi;
+    var log = document.getElementById("midi-log");
+    init();
 
-/*
-  Test for MIDI API Input
-  https://airtightinteractive.com/demos/webmiditest
- */
-
-var midi, data;
-// request MIDI access
-if (navigator.requestMIDIAccess) {
-
-  navigator.requestMIDIAccess({
-    sysex: false
-  }).then(onMIDISuccess, onMIDIFailure);
-} else {
-  alert("No MIDI support in your browser.");
-}
-
-// midi functions
-function onMIDISuccess(midiAccess) {
-  // when we get a succesful response, run this code
-  midi = midiAccess; // this is our raw MIDI data, inputs, outputs, and sysex status
-
-  var inputs = midi.inputs.values();
-  // loop over all available inputs and listen for any MIDI input
-  for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
-    // each time there is a midi message call the onMIDIMessage function
-    input.value.onmidimessage = onMIDIMessage;
-  }
-}
-
-function onMIDIFailure(error) {
-  // when we get a failed response, run this code
-  console.log("No access to MIDI devices or your browser doesn't support WebMIDI API. Please use WebMIDIAPIShim " + error);
-}
-
-function onMIDIMessage(message) {
-  data = message.data; // this gives us our [command/channel, note, velocity] data.
-  console.log('MIDI data', data); // MIDI data [144, 63, 73]
-
-  // SAMPLE COMMAND
-  if (data[1] == 22) {
-      $(s2).css('opacity',data[2]*.0127);
+    function init() {
+      navigator.requestMIDIAccess().then( onSuccess, onFailure ); //get midi access
     }
 
-}
+    function onSuccess( access ) { 
+
+      midi = access;
+      var inputs = midi.inputs;
+
+
+      //connect to first device found
+      if(inputs.size > 0) {
+        var iterator = inputs.values(); // returns an iterator that loops over all inputs
+        var input = iterator.next().value; // get the first input
+        input.onmidimessage = handleMIDIMessage;
+      }
+    }
+
+    function onFailure( err ) {
+      logText("MIDI Init Error. Error code: " + err.code);
+    }
+
+    function handleMIDIMessage(event){
+
+      //event.data & event.receivedTime are populated
+      //event.data has 3 components:
+      //0) The device id
+      //1) The controller id
+      //2) The controller value (typically in the range 0 - 127)
+
+    if (event.data[1] == 12) {
+      console.log(event.data[2]);
+      // $(s1).css('opacity', event.data[2] * .0127);
+      $(s1).css('-webkit-filter','saturate(' + event.data[2] + ')')
+    }
+
+if (event.data[1] == 12) {
+      console.log(event.data[2]);
+      // $(s1).css('opacity', event.data[2] * .0127);
+      $(s1).css('-webkit-filter','saturate(' + event.data[2] + ')')
+    } 
+
+if (event.data[1] == 16) {
+      console.log(event.data[2]);
+      // $(s1).css('opacity', event.data[2] * .0127);
+      $(s1).css('-webkit-filter','saturate(' + event.data[2] + ')')
+    } 
+
+if ((event.data[1] == 39 && event.data[2] == 127) && (event.data[1] == 50 && event.data[2] == 127)) {
+      console.log(event.data[2]);
+      // $(s1).css('opacity', event.data[2] * .0127);
+      $(s1).css('display', 'none');
+      alert('yup');
+    } 
+
+
+
+    if (event.data[1] == 37 && event.data[2] == 64) {
+      Mousetrap.trigger('>');
+    }
+    if (event.data[1] == 60 && event.data[2] == 1) {
+      Mousetrap.trigger('8');
+    }
+    if (event.data[1] == 43 && event.data[2] == 1) {
+      Mousetrap.trigger('.');
+    }
+
+
+
+      if (event.data.length === 3) {
+        // logText('controller id: ' + event.data[1] +  ', value: ' + event.data[2]);
+      }
+    }
