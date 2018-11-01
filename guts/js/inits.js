@@ -70,9 +70,9 @@ var sameSameOn = 0;
 var switcherooOn = 0;
 var hueShiftOn = 0;
 var blurryOn = 0;
-var blackWhiteOn = 0;
+var invertOn = 0;
 var filtersOnString = "";
-
+var sampledFilterOn = 0;
 // GLITCH
 var glitchOn = 0;
 var screenHeight = 100;
