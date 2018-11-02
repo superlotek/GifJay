@@ -552,7 +552,6 @@
     });
   }
 
-
   // FILTER FX : SATURATE
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -564,24 +563,13 @@
       s2SaturateString = "saturate(" + s2SaturatorValue + ")";
 
       if (stgSelect == "all") {
-        // console.log('FX SATURATOR: STG 1+2');
-        // s1SaturateValue = numRan(saturateAmount);
-        // s2SaturateValue = numRan(saturateAmount);
-        $(s1).css('-webkit-filter',s1SaturateString);
-        $(s2).css('-webkit-filter',s2SaturateString);
-        // $(s2).css('-webkit-filter','saturate(' + numRan(500) + ')');
+        $(s1).css('-webkit-filter', s1SaturateString);
+        $(s2).css('-webkit-filter', s2SaturateString);
+        addFilter(0, s2SaturateString);
       } else {
-        // filtersOnString = "";
-        // filtersOn[0] = s1SaturateString;
-        // filtersOn.forEach(function(element) {
-        //   filtersOnString += element + " ";
-        // });
-        addFilter(0, s1SaturateString)
-
+        addFilter(0, s1SaturateString);
         $(stgSelect).css('-webkit-filter', filtersOnString);
-
       }
-
 
     }
 

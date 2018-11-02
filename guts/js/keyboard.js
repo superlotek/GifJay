@@ -77,16 +77,30 @@ timerSaves = [];
   Mousetrap.bind("`", function() {
     if (sampledFilterOn == 1) {
       console.log('SAMPLED FILTER: APPLIED');
-      $(s1).css('filter', sampledFilter);
+      $(stgSelect).css('filter', sampledFilter);
+      if ('all') {
+        $(s1).css('filter', sampledFilter);
+        $(s2).css('filter', sampledFilter);
+      } else {
+        $(stgSelect).css('filter', sampledFilter);
+      }
     }
   });
 
   Mousetrap.bind("alt+`", function() {
     console.log('FILTERS: CLEARED');
+
+    if ('all') {
+      $(s1).css('-webkit-filter', 'none');
+      $(s2).css('-webkit-filter', 'none');
+    } else {
+      $(stgSelect).css('-webkit-filter', 'none');
+    }
+
     $(stgSelect).css('-webkit-filter', 'none');
     filtersOnString = "";
     filtersOn = [];
-    saturateOn = 0; hueShiftOn = 0; blurryOn = 0;
+    saturateOn = 0; hueShiftOn = 0; blurryOn = 0; invertOn = 0;
   });
 
     function findEffectInArray(element) {
