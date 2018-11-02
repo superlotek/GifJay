@@ -151,15 +151,15 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
 }
 
   /* Black / White */
-  if(app.settings.effects.blackAndWhite.enabled) {
-    Mousetrap.bind(app.settings.effects.blackAndWhite.filterKey, function() {
-      if(!blackWhiteOn) {
-        blackWhiteOn = 1;
+  if(app.settings.effects.invert.enabled) {
+    Mousetrap.bind(app.settings.effects.invert.filterKey, function() {
+      if(!invertOn) {
+        invertOn = 1;
         console.log('FX: B/W ON');
-        blackWhite();
+        invert();
       } else {
         console.log('FX: B/W OFF');
-        blackWhiteOn = 0;
+        invertOn = 0;
         $(s1).add(s2).css('-webkit-filter', 'none')
       }
     });
