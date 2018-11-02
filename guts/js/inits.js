@@ -70,7 +70,7 @@ var sameSameOn = 0;
 var switcherooOn = 0;
 var hueShiftOn = 0;
 var blurryOn = 0;
-var blackWhiteOn = 0;
+var invertOn = 0;
 
 // GLITCH
 var glitchOn = 0;
@@ -88,7 +88,6 @@ var hueRotateAmount;
 var saturateAmount;
 
 var gifAmount = 26;
-// var bankNumber;
 
 // SAMPLER
 var samplerStg1 = [];
@@ -100,9 +99,6 @@ var sequencerOn = 0;
 var curSequencerIndex;
 var storyModeOn = 0;
 var setOn = 0;
-// var daLetter;
-// var sequencerReverse = 0;
-
 
 // RoboMode
 var lastClick = 0;
@@ -118,5 +114,4 @@ var stageFlipOn = 0;
 var currentPlayMode = 'giy';
 
 var overlayOn = 0;
-// var overlaySpin = 0;
 var stgStore;

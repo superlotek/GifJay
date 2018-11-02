@@ -441,7 +441,7 @@ function startRobomode() {
   if(switcherooOn) { switcheroo(); }
   if(hueShiftOn) { hueShift(); }
   if(blurryOn) { blurry(); }
-  if(blackWhiteOn) { blackWhite(); }
+  if(invertOn) { invert(); }
 
   // add asset info to data-type attributes
   stageParameters();
