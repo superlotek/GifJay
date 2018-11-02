@@ -153,11 +153,10 @@ function sceneSetter(arrayName,banker1,banker2) {
   // choose 2 random gifs
   gifSelectorS1 = randomizer(bankBuilderS1);
   gifSelectorS2 = randomizer(bankBuilderS2);
-  // gifSelectorS3 = randomizer(newObject);
 
   if (setOn) {
-    gifSelectorS1.gif = randomizer(setArray);
-    gifSelectorS2.gif = randomizer(setArray);
+    gifSelectorS1 = randomizer(setArray);
+    gifSelectorS2 = randomizer(setArray);
   }
 
   if (currentPlayMode != 'robomode') {
@@ -175,13 +174,37 @@ function sceneSetter(arrayName,banker1,banker2) {
       if (sceneFullscreenOn) { screenFullscreen(); }
     }
 
-    $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1.gif + bgCenter);
-    if (gifSelectorS1.type == 'flip') {
-      console.log('cool!!0');
+    $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter);
+    $(stgNotSelected).css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2 + bgCenter);
+    $(stgNotSelected).css(this[randomizer(stageArray)]);
+    $(stgSelect).css(this[randomizer(stageArray)]);
+
+    // choose 2 random gifs
+    gifSelectorS1 = randomizer(bankBuilderS1);
+    gifSelectorS2 = randomizer(bankBuilderS2);
+
+    if (setOn) {
+      gifSelectorS1.gif = randomizer(setArray);
+      gifSelectorS2.gif = randomizer(setArray);
     }
-    //   // $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS3.gif + bgCenter);
-    //   $(stgSelect).css('transform','rotate(0deg)');
-    // }
+
+    if (stageLockOn) {
+      gifSelectorS1 = pausedStg1;
+      gifSelectorS2 = pausedStg2;
+      bankSelectorS1 = pausedBankStg1;
+      bankSelectorS2 = pausedBankStg2;
+    }
+
+    // SET THE SCENE
+    $(s1).css({'background':bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter });
+    $(s2).css({'background':bankLocation + bankSelectorS2 + '/' + gifSelectorS2 + bgCenter });
+    $(s1).css(this[randomizer(stageArray)]);
+    $(s2).css(this[randomizer(stageArray)]);
+    $(s2).css('opacity', '1');
+
+    if (sceneFullscreenOn) { screenFullscreen(); }
+
+    $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1.gif + bgCenter);
 
     $(stgNotSelected).css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2.gif + bgCenter);
     $(stgNotSelected).css(this[randomizer(stageArray)]);
@@ -412,6 +435,19 @@ function startRobomode() {
     randomColorChange() + ' ' + numRan(100) + '%, ' +
     randomColorChange() + ' ' + numRan(100)+ '%)');
 
+  // CHECKING FOR FX & FILTERS
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    if(stgFadeOn) { stgFade(); }
+    if(saturateOn) { saturator(); }
+    if(sameSameOn) { sameSame(); }
+    if(switcherooOn) { switcheroo(); }
+    if(hueShiftOn) { hueShift(); }
+    if(blurryOn) { blurry(); }
+    if(invertOn) { invert(); }
+
+    // add asset info to data-type attributes
+    stageParameters();
+
 // CHECKING PLAY MODE
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -464,7 +500,6 @@ function clearBeatTime() {
   }, beatTime);
 }
 
-
 // SCREENSAVER
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -500,13 +535,6 @@ function buildKaleidoscope() {
   }
 }
 
-// FX : ROBOCHOP
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-function roboChop() {
-
-}
-
 // FX : STAGE FADE
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -535,83 +563,104 @@ function roboChop() {
     }
   }
 
-  // FX : SWITCHEROO
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-    function switcheroo() {
-      console.log('SWITCHEROO');
-    }
-
-
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** FILTERS ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-// FILTER FX : SATURATE
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  function saturator() {
-    if (stgSelect == "all") {
-      // console.log('FX SATURATOR: STG 1+2');
-      $(s1).css('-webkit-filter','saturate(' + numRan(saturateAmount) + ')');
-      $(s2).css('-webkit-filter','saturate(' + numRan(saturateAmount) + ')');
-      // $(s2).css('-webkit-filter','saturate(' + numRan(500) + ')');
-    } else {
-      $(stgSelect).css('-webkit-filter','saturate(' + numRan(saturateAmount) + ')');
-    }
-
-    if(fxModeOn) {
-        $(s1).add(s2).css('-webkit-filter','none')
-    }
+  function addFilter(filterNum, filterString) {
+    filtersOnString = "";
+    filtersOn[filterNum] = filterString;
+    filtersOn.forEach(function(element) {
+      filtersOnString += element + " ";
+    });
   }
 
-// FILTER FX : HUESHIFT
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  function hueShift() {
-    if (stgSelect == "all") {
-      console.log('FX HUESHIFT: STG 1+2');
-      $(s1).css('-webkit-filter','hue-rotate(' + numRan(360) + 'deg)');
-      $(s2).css('-webkit-filter','hue-rotate(' + numRan(360) + 'deg)');
-    } else {
-      $(stgSelect).css('-webkit-filter','hue-rotate(' + numRan(360) + 'deg)');
-    }
-  }
-
-// FILTER FX : BLURRY
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  function blurry() {
-    if (stgSelect == "all") {
-      console.log('FX BLURRY: STG 1+2');
-      $(s1).css('-webkit-filter','blur(' + numRan(10) + 'px');
-      $(s2).css('-webkit-filter','blur(' + numRan(10) + 'px');
-    } else {
-      $(stgSelect).css('-webkit-filter','blur(' + numRan(10) + 'px');
-    }
-
-    if(fxModeOn) {
-        $(s1).add(s2).css('-webkit-filter','none');
-    }
-  }
-
-  // FILTER FX : INVERT
+  // FILTER FX : SATURATE
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    function invert() {
+    function saturator() {
 
-      s1InvertValue = 1;
-      s2InvertValue = 1;
-      s1InvertString = "invert(" + s1InvertValue + ")";
-      s2InvertString = "invert(" + s2InvertValue + ")";
+      s1SaturatorValue = numRan(saturateAmount);
+      s2SaturatorValue = numRan(saturateAmount);
+      s1SaturateString = "saturate(" + s1SaturatorValue + ")";
+      s2SaturateString = "saturate(" + s2SaturatorValue + ")";
 
       if (stgSelect == "all") {
-        console.log('FX INVERT: STG 1+2');
-        $(s1).css('-webkit-filter','invert(' + s1InvertValue + ')');
-        $(s2).css('-webkit-filter','invert(' + s2InvertValue + ')');
+        $(s1).css('-webkit-filter', s1SaturateString);
+        $(s2).css('-webkit-filter', s2SaturateString);
+        addFilter(0, s2SaturateString);
       } else {
-        $(stgSelect).css('-webkit-filter','invert(1)');
-        addFilter(3, s1InvertString);
+        addFilter(0, s1SaturateString);
         $(stgSelect).css('-webkit-filter', filtersOnString);
       }
+
     }
+
+    // FILTER FX : HUESHIFT
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+      function hueShift() {
+
+        s1HueshiftValue = numRan(360);
+        s2HueshiftValue = numRan(360);
+        s1HueshiftString = "hue-rotate(" + s1HueshiftValue + "deg)";
+        s2HueshiftString = "hue-rotate(" + s2HueshiftValue + "deg)";
+
+        if (stgSelect == "all") {
+          console.log('FX HUESHIFT: STG 1+2');
+          $(s1).css('-webkit-filter', s1HueshiftString);
+          $(s2).css('-webkit-filter', s2HueshiftString);
+        } else {
+
+          addFilter(1, s1HueshiftString)
+
+          $(stgSelect).css('-webkit-filter', filtersOnString);
+        }
+      }
+
+    // FILTER FX : BLURRY
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+      function blurry() {
+
+        s1BlurValue = numRan(blurAmount);
+        s2BlurValue = numRan(blurAmount);
+        s1BlurString = "blur(" + s1BlurValue + "px)";
+        s2BlurString = "blur(" + s2BlurValue + "px)";
+
+        if (stgSelect == "all") {
+          console.log('FX BLURRY: STG 1+2');
+          $(s1).css('-webkit-filter','blur(' + s1BlurValue + 'px');
+          $(s2).css('-webkit-filter','blur(' + s2BlurValue + 'px');
+        } else {
+          $(stgSelect).css('-webkit-filter','blur(' + numRan(10) + 'px');
+          addFilter(2, s1BlurString);
+          $(stgSelect).css('-webkit-filter', filtersOnString);
+
+        }
+
+      }
+
+    // FILTER FX : INVERT
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+      function invert() {
+
+        s1InvertValue = 1;
+        s2InvertValue = 1;
+        s1InvertString = "invert(" + s1InvertValue + ")";
+        s2InvertString = "invert(" + s2InvertValue + ")";
+
+        if (stgSelect == "all") {
+          console.log('FX INVERT: STG 1+2');
+          $(s1).css('-webkit-filter','invert(' + s1InvertValue + ')');
+          $(s2).css('-webkit-filter','invert(' + s2InvertValue + ')');
+        } else {
+          $(stgSelect).css('-webkit-filter','invert(1)');
+          addFilter(3, s1InvertString);
+          $(stgSelect).css('-webkit-filter', filtersOnString);
+        }
+
+      }
+
+    /* ---------------------- */
