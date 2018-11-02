@@ -102,9 +102,9 @@ function stageSetup() {
 }
 
 function stageParameters() {
-  $(s1).attr({stage:1,bank:bankSelectorS1,gif:gifSelectorS1,repeat:$(s1).
+  $(s1).attr({stage:1,bank:bankSelectorS1,gif:gifSelectorS1.gif,repeat:$(s1).
     css('background-repeat'),size:$(s1).css('background-size'),blend:$(s1).css('mix-blend-mode')});
-  $(s2).attr({stage:2,bank:bankSelectorS2,gif:gifSelectorS2,repeat:$(s2).
+  $(s2).attr({stage:2,bank:bankSelectorS2,gif:gifSelectorS2.gif,repeat:$(s2).
     css('background-repeat'),size:$(s2).css('background-size'),blend:$(s2).css('mix-blend-mode')});
 }
 
@@ -382,14 +382,14 @@ function fxChecker() {
     if (kaleidoscopeOn) {
       console.log('KALEIDOSCOPE IS RUNNING');
       if (stgSelect == 'all') {
-        $(s1 + '.kaleidoscope > div').css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter);
-        $(s2 + '.kaleidoscope > div').css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2 + bgCenter);
+        $(s1 + '.kaleidoscope > div').css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1.gif + bgCenter);
+        $(s2 + '.kaleidoscope > div').css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2.gif + bgCenter);
         $(s2).css('background', 'none !important');
         $(s2 + '.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
         $(s1 + '.kaleidoscope > div').add(s2  + '.kaleidoscope > div').css(sf);
       } else {
-        $(stgSelect + '.kaleidoscope > div').css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter);
-        $(stgNotSelected).css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2 + bgCenter);
+        $(stgSelect + '.kaleidoscope > div').css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1.gif + bgCenter);
+        $(stgNotSelected).css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2.gif + bgCenter);
         $('.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
         $(stgSelect + '.kaleidoscope > div').css(sf);
       }
