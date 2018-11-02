@@ -56,7 +56,6 @@ $(document).ready(function() {
     }
   });
 
-
 timerSaves = [];
 
   Mousetrap.bind("alt+/", function() {
@@ -66,7 +65,6 @@ timerSaves = [];
       timerSaves.push(gleek);
   });
 
-
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** BANK & FX SELECTOR ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -74,6 +72,7 @@ timerSaves = [];
 // FX MODE [ ` ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+<<<<<<< HEAD
   Mousetrap.bind("`", function() {
     if (sampledFilterOn == 1) {
       console.log('SAMPLED FILTER: APPLIED');
@@ -107,6 +106,8 @@ timerSaves = [];
       return element.effect === effectName;
     }
 
+=======
+>>>>>>> develop
   // Kaleidoscope
 if(app.settings.effects.kaleidoscope.enabled) {
   Mousetrap.bind(app.settings.effects.kaleidoscope.filterKey, function() {
@@ -115,14 +116,7 @@ if(app.settings.effects.kaleidoscope.enabled) {
       kaleidoscopeOn = 1;
       buildKaleidoscope();
       fxChecker();
-      effectsOn.push({
-        effect:app.settings.effects.kaleidoscope.name,
-        effectKey:app.settings.effects.kaleidoscope.filterKey
-      });
     } else {
-      effectName: app.settings.effects.kaleidoscope.name;
-      effectsOn.splice(effectsOn.indexOf(app.settings.effects.kaleidoscope.name), 1);
-
       kaleidoscopeOn = 0;
       console.log('REMOVING KALEIDOSCOPE: ' + stgSelect);
       $(s1).add(s2)
@@ -130,9 +124,6 @@ if(app.settings.effects.kaleidoscope.enabled) {
       $(s1 + ' > div').add(s2 + ' > div')
         .detach().css('mix-blend-mode','normal');
         $(s2).css('mix-blend-mode','');
-        // $(s2).toggleClass('blend');
-
-      console.log(appFX.kaleidoscope.name +' OFF');
     }
   });
 }
@@ -160,22 +151,10 @@ if(app.settings.effects.sameSame.enabled) {
       console.log('FX: SAMESAME ON');
       sameSame();
       $(s2).addClass('same-same');
-      effectsOn.push({
-
-        effect:app.settings.effects.sameSame.name,
-        effectKey:app.settings.effects.sameSame.filterKey
-      });
     } else {
-      effectName: app.settings.effects.sameSame.name;
-      var effectIndex = effectsOn.map(function(e) { return e.effect; }).indexOf(app.settings.effects.sameSame.name);
-      // console.log(effectsOn.indexOf(app.settings.filters.saturator.name));
-      effectsOn.splice(effectsOn.indexOf(effectIndex), 1);
-      console.log("effectIndex : "  + effectIndex)
-
       console.log('FX: SAMESAME OFF');
       sameSameOn = 0;
       $(s2).removeClass('same-same');
-
     }
   });
 }
@@ -186,13 +165,7 @@ if(app.settings.effects.stgFade.enabled) {
     if(!stgFadeOn) {
     console.log('FX: FADER ON');
     stgFadeOn = 1;
-    effectsOn.push({
-      effect:app.settings.effects.stgFade.name,
-      effectKey:app.settings.effects.stgFade.filterKey
-    });
     } else {
-    effectName: app.settings.effects.stgFade.name;
-    effectsOn.splice(effectsOn.indexOf(app.settings.effects.stgFade.name), 1);
     console.log('FX: FADER OFF');
     stgFadeOn = 0;
 
@@ -206,20 +179,14 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
   if(!switcherooOn) {
   console.log('FX: SWITCHEROO ON');
   switcherooOn = !switcherooOn;
-  effectsOn.push({
-    effect:app.settings.effects.switcheroo.name,
-    effectKey:app.settings.effects.switcheroo.filterKey
-  });
   } else {
-  effectName: app.settings.effects.switcheroo.name;
-  effectsOn.splice(effectsOn.indexOf(app.settings.effects.switcheroo.name), 1);
-
   console.log('FX: SWITCHEROO OFF');
   switcherooOn = !switcherooOn;
   }
 });
 }
 
+<<<<<<< HEAD
 
   /* Invert */
   if(app.settings.effects.invert.enabled) {
@@ -228,6 +195,15 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
         invertOn = 1;
         console.log('FX: INVERT ON');
         invert();
+=======
+  /* Black / White */
+  if(app.settings.effects.blackAndWhite.enabled) {
+    Mousetrap.bind(app.settings.effects.blackAndWhite.filterKey, function() {
+      if(!blackWhiteOn) {
+        blackWhiteOn = 1;
+        console.log('FX: B/W ON');
+        blackWhite();
+>>>>>>> develop
       } else {
         console.log('FX: INVERT OFF');
         invertOn = 0;
@@ -437,20 +413,17 @@ Mousetrap.bind('shift+return', function() {
 
   Mousetrap.bind("[", function() {
 
-    if (!gifSizeLockOn) {
+    if (!sceneFullscreenOn) {
       console.log('SCENE FULLSCREEN: ON');
-      gifSizeLockOn = 1;
+      sceneFullscreenOn = 1;
 
-      if (gifSizeLockOn) {
-        $(s1).css(sf);
-        $(s2).css(sf);
-      }
+      if (sceneFullscreenOn) { screenFullscreen(); }
 
     } else {
       console.log('SCENE FULLSCREEN: OFF');
-      gifSizeLockOn = 0;
+      sceneFullscreenOn = 0;
 
-      if (!gifSizeLockOn) {
+      if (!sceneFullscreenOn) {
         $(s1).css(st);
         $(s2).css(st);
       }
