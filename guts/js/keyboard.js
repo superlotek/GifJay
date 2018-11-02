@@ -72,7 +72,6 @@ timerSaves = [];
 // FX MODE [ ` ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-<<<<<<< HEAD
   Mousetrap.bind("`", function() {
     if (sampledFilterOn == 1) {
       console.log('SAMPLED FILTER: APPLIED');
@@ -106,8 +105,6 @@ timerSaves = [];
       return element.effect === effectName;
     }
 
-=======
->>>>>>> develop
   // Kaleidoscope
 if(app.settings.effects.kaleidoscope.enabled) {
   Mousetrap.bind(app.settings.effects.kaleidoscope.filterKey, function() {
@@ -186,8 +183,6 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
 });
 }
 
-<<<<<<< HEAD
-
   /* Invert */
   if(app.settings.effects.invert.enabled) {
     Mousetrap.bind(app.settings.effects.invert.filterKey, function() {
@@ -195,15 +190,6 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
         invertOn = 1;
         console.log('FX: INVERT ON');
         invert();
-=======
-  /* Black / White */
-  if(app.settings.effects.blackAndWhite.enabled) {
-    Mousetrap.bind(app.settings.effects.blackAndWhite.filterKey, function() {
-      if(!blackWhiteOn) {
-        blackWhiteOn = 1;
-        console.log('FX: B/W ON');
-        blackWhite();
->>>>>>> develop
       } else {
         console.log('FX: INVERT OFF');
         invertOn = 0;
