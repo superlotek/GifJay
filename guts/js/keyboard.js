@@ -696,33 +696,53 @@ Mousetrap.bind('shift+return', function() {
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.DOWN.down(function () {
     if (effectAmount >= blurAmount) { return false; }
-    $(stgSelect).css('-webkit-filter','blur('+ (effectAmount++) +'px)');
+    if (stgSelect == 'all') {
+      $(s1).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
+      $(s2).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
+    } else {
+      $(stgSelect).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
+    }
   });
-  kd.DOWN.up(function () { $(stgSelect).css(filterClear); effectAmount = 0; });
+  kd.DOWN.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
 
   // SATURATE - Up Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   kd.UP.down(function () {
     if (effectAmount >= saturateAmount) { return false; }
-    $(stgSelect).css('-webkit-filter','saturate('+ (effectAmount++) + ')');
+    if (stgSelect == 'all') {
+      $(s1).css('-webkit-filter','saturate(' + (effectAmount++) + ')');
+      $(s2).css('-webkit-filter','saturate(' + (effectAmount++) + ')');
+    } else {
+      $(stgSelect).css('-webkit-filter','saturate('+ (effectAmount++) + ')');
+    }
   });
-  kd.UP.up(function () { $(stgSelect).css(filterClear); effectAmount = 0; });
+  kd.UP.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
 
   // INVERT - Right Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.RIGHT.down(function () {
-    $(stgSelect).css('-webkit-filter','invert('+ (effectAmount++) + ')');
+    if (stgSelect == 'all') {
+      $(s1).css('-webkit-filter','invert(' + (effectAmount++) + ')');
+      $(s2).css('-webkit-filter','invert(' + (effectAmount++) + ')');
+    } else {
+      $(stgSelect).css('-webkit-filter','invert(' + (effectAmount++) + ')');
+    }
   });
-  kd.RIGHT.up(function () { $(stgSelect).css(filterClear); effectAmount = 0; });
+  kd.RIGHT.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
 
   // HUE ROTATE - Left Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.LEFT.down(function () {
     if (effectAmount >= 360) { return false; }
-    $(stgSelect).css('-webkit-filter','hue-rotate('+ (effectAmount++) + 'deg)');
+    if (stgSelect == 'all') {
+      $(s1).css('-webkit-filter','hue-rotate(' + (effectAmount++) + 'deg)');
+      $(s2).css('-webkit-filter','hue-rotate(' + (effectAmount++) + 'deg)');
+    } else {
+      $(stgSelect).css('-webkit-filter','hue-rotate(' + (effectAmount++) + 'deg)');
+    }
   });
-  kd.LEFT.up(function () { $(stgSelect).css(filterClear); effectAmount = 0; });
+  kd.LEFT.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
 
   // KILL SWITCH
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
