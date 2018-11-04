@@ -25,7 +25,7 @@ $(document).ready(function() {
 // *** SCREENSAVER ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  Mousetrap.bind("~", function() {
+  Mousetrap.bind("shift+space", function() {
 
     if(!screensaver) {
 
@@ -76,7 +76,7 @@ timerSaves = [];
     if (sampledFilterOn == 1) {
       console.log('SAMPLED FILTER: APPLIED');
       $(stgSelect).css('filter', sampledFilter);
-      if ('all') {
+      if (stgSelect == 'all') {
         $(s1).css('filter', sampledFilter);
         $(s2).css('filter', sampledFilter);
       } else {
@@ -85,25 +85,23 @@ timerSaves = [];
     }
   });
 
-  Mousetrap.bind("alt+`", function() {
+  Mousetrap.bind("~", function() {
     console.log('FILTERS: CLEARED');
-
-    if ('all') {
+    if (stgSelect == 'all') {
       $(s1).css('-webkit-filter', 'none');
       $(s2).css('-webkit-filter', 'none');
     } else {
       $(stgSelect).css('-webkit-filter', 'none');
     }
-
-    $(stgSelect).css('-webkit-filter', 'none');
+    // $(stgSelect).css('-webkit-filter', 'none');
     filtersOnString = "";
     filtersOn = [];
     saturateOn = 0; hueShiftOn = 0; blurryOn = 0; invertOn = 0;
   });
 
-    function findEffectInArray(element) {
-      return element.effect === effectName;
-    }
+  function findEffectInArray(element) {
+    return element.effect === effectName;
+  }
 
   // Kaleidoscope
 if(app.settings.effects.kaleidoscope.enabled) {
@@ -813,14 +811,6 @@ Mousetrap.bind('shift+return', function() {
 
         });
     }
-
-    /* DEPRECATED : OVERLAY EFFECTS */
-    Mousetrap.bind('ctrl+1', function() {
-      console.log('FILTER GROUP 1: LOADED');
-      console.log(filterGroups.groups[0].effects);
-      Mousetrap.trigger('3');
-      Mousetrap.trigger('8');
-    });
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // MAIN KEYBOARD TRIGGERS
