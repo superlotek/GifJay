@@ -467,14 +467,49 @@ Mousetrap.bind('shift+return', function() {
 // BANKER SETS ON/OFF [ ' ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-// gleep = [];
-// banks.bank[0].gifs.forEach(function(glip) {
-// 	console.log(glip.set);
-// 	if (glip.set == 'd') {
-// 		gleep.push(glip.name);
-//   }
-//
-// });
+bankerSets = {};
+bankerSets.set = [];
+  for (i=0; i < banks.bank[0].gifs.length; i++) {
+    if (banks.bank[0].gifs[i].set) {
+      // bankerSets.set = [];
+      bankerSets.set[i] = {
+        bank: banks.bank[0].id,
+        trigger: banks.bank[0].gifs[i].set,
+        gifs: []
+      }
+        for (j=0; j < banks.bank[0].gifs.length; j++ ) {
+          if (banks.bank[0].gifs[i].set) {
+            bankerSets.set[i].gifs[j] = {
+              name: banks.bank[0].gifs[i].name
+            }
+          }
+        }
+        // bank: banks.bank[0].id,
+        // trigger: banks.bank[0].gifs[i].set
+        // gif: banks.bank[0].gifs[i].name
+    }
+  }
+
+  /*
+
+  bankerSets = {
+  	"set" : [
+  		{
+  			"name" : "set1",
+  			"trigger" : "a",
+  			"bank" : 0,
+  			"gifs" : [
+  				{ "name" : "bathbomb-boomerang_o"},
+  				{ "name" : "cruz-lights-3"},
+  				{ "name" : "spinning_trail_eye_crop_o"},
+  				{ "name" : "star_trails"}
+  			]
+  		},
+
+  */
+
+
+
 
   bankerSets.set.forEach(function(durk, index) {
     setsArray.push(durk.trigger);

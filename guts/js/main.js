@@ -155,8 +155,8 @@ function sceneSetter(arrayName,banker1,banker2) {
   gifSelectorS2 = randomizer(bankBuilderS2);
 
   if (setOn) {
-    gifSelectorS1 = randomizer(setArray);
-    gifSelectorS2 = randomizer(setArray);
+    gifSelectorS1 = randomizer(someSet);
+    gifSelectorS2 = randomizer(someSet);
   }
 
   if (currentPlayMode != 'robomode') {
