@@ -139,6 +139,7 @@ function sceneSetter(arrayName,banker1,banker2) {
   banks.bank[bankSelectorS1].gifs.forEach(function(glarb) {
     bankBuilderS1.push({
       gif: glarb.name,
+      location: glarb.location,
       type: glarb.type
     });
   });
@@ -146,6 +147,7 @@ function sceneSetter(arrayName,banker1,banker2) {
   banks.bank[bankSelectorS2].gifs.forEach(function(gleek) {
     bankBuilderS2.push({
       gif: gleek.name,
+      location: gleek.location,
       type: gleek.type
     });
   });
@@ -174,8 +176,8 @@ function sceneSetter(arrayName,banker1,banker2) {
       if (sceneFullscreenOn) { screenFullscreen(); }
     }
 
-    $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter);
-    $(stgNotSelected).css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2 + bgCenter);
+    $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1 + bgCenter);
+    $(stgNotSelected).css('background', bankLocation + gifSelectorS1.location + gifSelectorS2 + bgCenter);
     $(stgNotSelected).css(this[randomizer(stageArray)]);
     $(stgSelect).css(this[randomizer(stageArray)]);
 
@@ -196,17 +198,17 @@ function sceneSetter(arrayName,banker1,banker2) {
     }
 
     // SET THE SCENE
-    $(s1).css({'background':bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter });
-    $(s2).css({'background':bankLocation + bankSelectorS2 + '/' + gifSelectorS2 + bgCenter });
+    $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1 + bgCenter });
+    $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2 + bgCenter });
     $(s1).css(this[randomizer(stageArray)]);
     $(s2).css(this[randomizer(stageArray)]);
     $(s2).css('opacity', '1');
 
     if (sceneFullscreenOn) { screenFullscreen(); }
 
-    $(stgSelect).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1.gif + bgCenter);
+    $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
 
-    $(stgNotSelected).css('background', bankLocation + bankSelectorS2 + '/' + gifSelectorS2.gif + bgCenter);
+    $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
     $(stgNotSelected).css(this[randomizer(stageArray)]);
     $(stgSelect).css(this[randomizer(stageArray)]);
 
@@ -222,8 +224,8 @@ function sceneSetter(arrayName,banker1,banker2) {
     }
 
     // SET THE SCENE
-    $(s1).css({'background':bankLocation + bankSelectorS1 + '/' + gifSelectorS1.gif + bgCenter });
-    $(s2).css({'background':bankLocation + bankSelectorS2 + '/' + gifSelectorS2.gif + bgCenter });
+    $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter });
+    $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter });
     $(s1).css(this[randomizer(stageArray)]);
     $(s2).css(this[randomizer(stageArray)]);
     $(s2).css('opacity', '1');

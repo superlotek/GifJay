@@ -9,7 +9,7 @@ letterArrayS1 = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'
 letterArrayS2 = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
 // Declarations
-var bankLocation = "url(banks/bank";
+var bankLocation = "url(../../Bins/";
 var bgCenter = ".gif) center center";
 
 var s1 = '.stage-one';
