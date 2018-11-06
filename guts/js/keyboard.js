@@ -547,19 +547,21 @@ bankerSets.set = [];
     console.log('SAMPLED');
     var stageSave = $(s1).attr('stage');
     var bankSave = $(s1).attr('bank');
+    var locationSave = $(s1).attr('location');
     var gifSave = $(s1).attr('gif');
     var bgSize = $(s1).attr('size');
     var repeatSave = $(s1).attr('repeat');
     var stageSave2 = $(s2).attr('stage');
     var bankSave2 = $(s2).attr('bank');
+    var locationSave2 = $(s2).attr('location');
     var gifSave2 = $(s2).attr('gif');
     var bgSize2 = $(s2).attr('size');
     var repeatSave2 = $(s2).attr('repeat');
     var blendSave = $(s1).attr('blend');
     var blendSave2 = $(s2).attr('blend');
 
-    samplerStg1.push([[bankSave],[gifSave],[repeatSave],[bgSize],[blendSave]]);
-    samplerStg2.push([[bankSave2],[gifSave2],[repeatSave2],[bgSize2],[blendSave2]]);
+    samplerStg1.push([[bankSave],[locationSave],[gifSave],[repeatSave],[bgSize],[blendSave]]);
+    samplerStg2.push([[bankSave2],[locationSave2],[gifSave2],[repeatSave2],[bgSize2],[blendSave2]]);
 
     if(samplerOn) {
       console.log('this is firing during SEQ LOVE');
