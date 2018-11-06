@@ -1,0 +1,171 @@
+// GifJay v.0.8.9
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// USER SETTINGS
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+banksInUse = [];
+
+banks = {
+	"bank" : [
+		{
+			"id" : 0,
+			"name" : "Colors",
+			"enabled" : true,
+			"gifs" : [
+
+				/* FOR NEW GIF LOCATION */
+				{ "trigger" : "a", "location" : "MasterGif/", "name" : "masterGif_demo_1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "a", "location" : "MasterGif/", "name" : "masterGif_demo_2_o", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"id" : 1,
+			"name" : "Black N White",
+			"enabled" : true,
+			"gifs" : [
+				{ "trigger" : "a", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
+				{ "trigger" : "a", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"},
+				{ "trigger" : "a", "location" : "Dancing/", "name" : "m", "type" : 'flip', "set": "a"},
+				{ "trigger" : "a", "location" : "Dancing/", "name" : "n", "type" : 'flip', "set": "a"}
+
+			]
+		},
+		{
+			"id" : 2,
+			"name" : "Colors",
+			"enabled" : true,
+			"gifs" : [
+
+				/* FOR NEW GIF LOCATION */
+				{ "trigger" : "a", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "a", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "a", "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "a", "location" : "BathBombs/", "name" : "bathbomb-slow-2_o", "type" : 'flip', "set": "a"}
+			]
+		},
+	]
+}
+
+setsArray = [];
+
+bankerSets = {
+	"set" : [
+		{
+			"name" : "set1",
+			"trigger" : "a",
+			"bank" : 2,
+			"gifs" : [
+				{ "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o"},
+				{ "location" : "BathBombs/", "name" : "bathbomb-slow-2_o"}
+			]
+		},
+		{
+			"name" : "set2",
+			"trigger" : "b",
+			"bank" : 1,
+			"gifs" : [
+				{ "location" : "Dancing/", "name" : "h"},
+				{ "location" : "Dancing/", "name" : "m"}
+			]
+		},
+		{
+			"name" : "set3",
+			"trigger" : "c",
+			"bank" : 0,
+			"gifs" : [
+				{ "location" : "MasterGif/", "name" : "masterGif_demo_1_o"},
+				{ "location" : "MasterGif/", "name" : "masterGif_demo_2_o"}
+			]
+		},
+		{
+			"name" : "set4",
+			"trigger" : "d",
+			"bank" : 1,
+			"gifs" : [
+				{ "location" : "Dancing/", "name" : "b"},
+				{ "location" : "Dancing/", "name" : "n"}
+			]
+		}
+	]
+}
+
+var effectsOn = [];
+var filtersOn = [];
+var beatTime = 3650;
+var beatSpeed = 1000;
+var titlePageOn = 0;
+var sameSameConstant = 2;
+var saturateAmount = 100;
+var blurAmount = 10;
+titlePageName = 'title-1.gif';
+
+stageArray = ['sf', 'st'];
+shapeArray = ['circle','triangle','rhombus','octagon','close','frame','rabbet'];
+flipArray = ['rotateX(180deg)','rotateX(-180deg)','rotateY(180deg)','rotateY(-180deg)'];
+// blendModeArray = ['multiply','screen','overlay','darken','lighten','color-dodge','color-burn',
+//   'hard-light','soft-light','difference','exclusion','hue','saturation','color','luminosity'];
+// blendModeArray = ['multiply','screen','overlay','darken','lighten'];
+blendModeArray = ['screen','overlay'];
+effectArray = ['invert','saturation','brightness','hue-rotate','blur'];
+
+
+bankArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r'];
+bgPosA = ['top', 'bottom'];
+bgPosB = ['right', 'left'];
+repeatArray = ['repeat', 'no-repeat'];
+borderArray = ['dotted', 'dashed', 'double', 'solid', 'ridge'];
+
+var app = {
+	settings: {
+		effects: {
+			kaleidoscope: {
+				name: 'kaleidoscope',
+				enabled: true,
+				filterKey: "1"
+			},
+			roboChop: {
+				name: 'roboChop',
+				enabled: false,
+				filterKey: "2"
+			},
+			sameSame: {
+				name: 'sameSame',
+				enabled: true,
+				filterKey: "3"
+			},
+			stgFade: {
+				name: 'stgFade',
+				enabled: true,
+				filterKey: "4"
+			},
+			switcheroo: {
+				name: 'switcheroo',
+				enabled: false,
+				filterKey: "5"
+			},
+			invert: {
+				name: 'invert',
+				enabled: true,
+				filterKey: "7"
+			},
+			saturator: {
+				name: 'saturator',
+				enabled: true,
+				filterKey: "8"
+			},
+			hueShift: {
+				name: 'hueShift',
+				enabled: true,
+				filterKey: "9"
+			},
+			blurry: {
+				name: 'blurry',
+				enabled: true,
+				filterKey: "0"
+			}
+		}
+	}
+}
+
+var appFX = app.settings.effects;
