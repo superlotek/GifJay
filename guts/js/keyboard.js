@@ -25,7 +25,7 @@ $(document).ready(function() {
 // *** SCREENSAVER ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  Mousetrap.bind("~", function() {
+  Mousetrap.bind("shift+space", function() {
 
     if(!screensaver) {
 
@@ -71,6 +71,37 @@ timerSaves = [];
 
 // FX MODE [ ` ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+  Mousetrap.bind("`", function() {
+    if (sampledFilterOn == 1) {
+      console.log('SAMPLED FILTER: APPLIED');
+      $(stgSelect).css('filter', sampledFilter);
+      if (stgSelect == 'all') {
+        $(s1).css('filter', sampledFilter);
+        $(s2).css('filter', sampledFilter);
+      } else {
+        $(stgSelect).css('filter', sampledFilter);
+      }
+    }
+  });
+
+  Mousetrap.bind("~", function() {
+    console.log('FILTERS: CLEARED');
+    if (stgSelect == 'all') {
+      $(s1).css('-webkit-filter', 'none');
+      $(s2).css('-webkit-filter', 'none');
+    } else {
+      $(stgSelect).css('-webkit-filter', 'none');
+    }
+    // $(stgSelect).css('-webkit-filter', 'none');
+    filtersOnString = "";
+    filtersOn = [];
+    saturateOn = 0; hueShiftOn = 0; blurryOn = 0; invertOn = 0;
+  });
+
+  function findEffectInArray(element) {
+    return element.effect === effectName;
+  }
 
   // Kaleidoscope
 if(app.settings.effects.kaleidoscope.enabled) {
@@ -150,17 +181,22 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
 });
 }
 
-  /* Black / White */
-  if(app.settings.effects.blackAndWhite.enabled) {
-    Mousetrap.bind(app.settings.effects.blackAndWhite.filterKey, function() {
-      if(!blackWhiteOn) {
-        blackWhiteOn = 1;
-        console.log('FX: B/W ON');
-        blackWhite();
+  /* Invert */
+  if(app.settings.effects.invert.enabled) {
+    Mousetrap.bind(app.settings.effects.invert.filterKey, function() {
+      if(!invertOn) {
+        invertOn = 1;
+        console.log('FX: INVERT ON');
+        invert();
       } else {
-        console.log('FX: B/W OFF');
-        blackWhiteOn = 0;
-        $(s1).add(s2).css('-webkit-filter', 'none')
+        console.log('FX: INVERT OFF');
+        invertOn = 0;
+        $(s1).add(s2).css('-webkit-filter', 'none');
+        filtersOn[3] = "";
+        filtersOnString = "";
+        filtersOn.forEach(function(element) {
+          filtersOnString += element + " ";
+        });
       }
     });
 }
@@ -174,7 +210,13 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
     } else {
       console.log('FX: SATURATE OFF');
       saturateOn = 0;
-      $(s1).add(s2).css('-webkit-filter', 'none')
+      $(s1).add(s2).css('-webkit-filter', 'none');
+      filtersOn[0] = "";
+      filtersOnString = "";
+      filtersOn.forEach(function(element) {
+        filtersOnString += element + " ";
+      });
+
     }
   });
 }
@@ -189,7 +231,12 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
     } else {
       console.log('FX: HUESHIFT OFF');
       hueShiftOn = 0;
-      $(s1).add(s2).css('-webkit-filter', 'none')
+      $(s1).add(s2).css('-webkit-filter', 'none');
+      filtersOn[1] = "";
+      filtersOnString = "";
+      filtersOn.forEach(function(element) {
+        filtersOnString += element + " ";
+      });
     }
   });
 }
@@ -204,10 +251,26 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
     } else {
       console.log('FX: BLURRY OFF');
       blurryOn = 0;
-      $(s1).add(s2).css('-webkit-filter', 'none')
+      $(s1).add(s2).css('-webkit-filter', 'none');
+      filtersOn[2] = "";
+      filtersOnString = "";
+      filtersOn.forEach(function(element) {
+        filtersOnString += element + " ";
+      });
     }
   });
 }
+
+// FILTER SAMPLE [ SHIFT ] [ RETURN ]
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Mousetrap.bind('shift+return', function() {
+  console.log('FILTERS: SAMPLED');
+  sampledFilterOn = 1;
+  sampledFilter = "";
+  sampledFilter = $(s1).css('filter');
+  console.log('FILTERS SAMPLED: ' + sampledFilter);
+});
+
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** STAGE PARAMETERS ***
@@ -404,14 +467,14 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
 // BANKER SETS ON/OFF [ ' ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-gleep = [];
-banks.bank[0].gifs.forEach(function(glip) {
-	console.log(glip.set);
-	if (glip.set == 'd') {
-		gleep.push(glip.name);
-  }
-
-});
+// gleep = [];
+// banks.bank[0].gifs.forEach(function(glip) {
+// 	console.log(glip.set);
+// 	if (glip.set == 'd') {
+// 		gleep.push(glip.name);
+//   }
+//
+// });
 
   bankerSets.set.forEach(function(durk, index) {
     setsArray.push(durk.trigger);
@@ -449,19 +512,21 @@ banks.bank[0].gifs.forEach(function(glip) {
     console.log('SAMPLED');
     var stageSave = $(s1).attr('stage');
     var bankSave = $(s1).attr('bank');
+    var locationSave = $(s1).attr('location');
     var gifSave = $(s1).attr('gif');
     var bgSize = $(s1).attr('size');
     var repeatSave = $(s1).attr('repeat');
     var stageSave2 = $(s2).attr('stage');
     var bankSave2 = $(s2).attr('bank');
+    var locationSave2 = $(s2).attr('location');
     var gifSave2 = $(s2).attr('gif');
     var bgSize2 = $(s2).attr('size');
     var repeatSave2 = $(s2).attr('repeat');
     var blendSave = $(s1).attr('blend');
     var blendSave2 = $(s2).attr('blend');
 
-    samplerStg1.push([[bankSave],[gifSave],[repeatSave],[bgSize],[blendSave]]);
-    samplerStg2.push([[bankSave2],[gifSave2],[repeatSave2],[bgSize2],[blendSave2]]);
+    samplerStg1.push([[bankSave],[locationSave],[gifSave],[repeatSave],[bgSize],[blendSave]]);
+    samplerStg2.push([[bankSave2],[locationSave2],[gifSave2],[repeatSave2],[bgSize2],[blendSave2]]);
 
     if(samplerOn) {
       console.log('this is firing during SEQ LOVE');
@@ -630,33 +695,54 @@ banks.bank[0].gifs.forEach(function(glip) {
   // BLUR - Down Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.DOWN.down(function () {
-    if (effectAmount >= 10) { return false; }
-    $(stgSelect).css('-webkit-filter','blur('+ (effectAmount++) +'px)');
+    if (effectAmount >= blurAmount) { return false; }
+    if (stgSelect == 'all') {
+      $(s1).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
+      $(s2).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
+    } else {
+      $(stgSelect).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
+    }
   });
-  kd.DOWN.up(function () { $(stgSelect).css(filterClear); effectAmount = 0; });
+  kd.DOWN.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
 
   // SATURATE - Up Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   kd.UP.down(function () {
-    if (effectAmount >= 10) { return false; }
-    $(stgSelect).css('-webkit-filter','saturate('+ (effectAmount++) + ')');
+    if (effectAmount >= saturateAmount) { return false; }
+    if (stgSelect == 'all') {
+      $(s1).css('-webkit-filter','saturate(' + (effectAmount++) + ')');
+      $(s2).css('-webkit-filter','saturate(' + (effectAmount++) + ')');
+    } else {
+      $(stgSelect).css('-webkit-filter','saturate('+ (effectAmount++) + ')');
+    }
   });
-  kd.UP.up(function () { $(stgSelect).css(filterClear); effectAmount = 0; });
+  kd.UP.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
 
   // INVERT - Right Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.RIGHT.down(function () {
-    $(stgSelect).css('-webkit-filter','invert('+ (effectAmount++) + ')');
+    if (stgSelect == 'all') {
+      $(s1).css('-webkit-filter','invert(' + (effectAmount++) + ')');
+      $(s2).css('-webkit-filter','invert(' + (effectAmount++) + ')');
+    } else {
+      $(stgSelect).css('-webkit-filter','invert(' + (effectAmount++) + ')');
+    }
   });
-  kd.RIGHT.up(function () { $(stgSelect).css(filterClear); effectAmount = 0; });
+  kd.RIGHT.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
 
   // HUE ROTATE - Left Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.LEFT.down(function () {
-    $(stgSelect).css('-webkit-filter','hue-rotate('+ (effectAmount++) + 'deg)');
+    if (effectAmount >= 360) { return false; }
+    if (stgSelect == 'all') {
+      $(s1).css('-webkit-filter','hue-rotate(' + (effectAmount++) + 'deg)');
+      $(s2).css('-webkit-filter','hue-rotate(' + (effectAmount++) + 'deg)');
+    } else {
+      $(stgSelect).css('-webkit-filter','hue-rotate(' + (effectAmount++) + 'deg)');
+    }
   });
-  kd.LEFT.up(function () { $(stgSelect).css(filterClear); effectAmount = 0; });
+  kd.LEFT.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
 
   // KILL SWITCH
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -693,9 +779,10 @@ banks.bank[0].gifs.forEach(function(glip) {
           var numberKey = bankNumber;
           if(bankerOn == 1) {
             bankerArray.push(bankNumber);
-            console.log('Bank ' + numberKey + ' added to Banker'); console.log(bankerArray);
+            console.log('BANK ' + numberKey + ' : ADDED TO BANKS'); console.log(bankerArray);
           } else {
             console.log('BANK SELECTED : ' + bankNumber);
+            bankSelected = true;
           }
         });
     }
@@ -727,67 +814,36 @@ banks.bank[0].gifs.forEach(function(glip) {
         });
     }
 
-    /* DEPRECATED : OVERLAY EFFECTS */
-    Mousetrap.bind('ctrl+1', function() {
-      console.log('FILTER GROUP 1: LOADED');
-      console.log(filterGroups.groups[0].effects);
-      Mousetrap.trigger('3');
-      Mousetrap.trigger('8');
-    });
-
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // MAIN KEYBOARD TRIGGERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    for(let i = 0; i < letterArray.length; i++) {
-
-      Mousetrap.bind(letterArray[i], function() {
-
-        currentSequencerTriggers = [];
-        sequencer.sequences.forEach(function(seq) {
-          currentSequencerTriggers.push(seq.trigger);
+  if (giy) {
+    theBankNumber = 0;
+    console.log('GIY MODE');
+    availableTriggers = [];
+    for (i=0; i < banks.bank[theBankNumber].gifs.length; i++) {
+      if (banks.bank[theBankNumber].gifs[i].trigger) {
+        availableTriggers.push({
+          trigger: banks.bank[theBankNumber].gifs[i].trigger,
+          name: banks.bank[theBankNumber].gifs[i].name
         });
+      }
+    }
 
-        if (storyModeOn) {
-          console.log('Start selecting Sequencer Keys');
+    for(let i = 0; i < availableTriggers.length; i++) {
 
-              sequencerOn = 1;
-              sequenceNumber = letterArray[i];
-              letterNumber = i;
-              console.log(sequenceNumber);
-              curSequencerIndex = 0;
-
-        }else if (giy) {
-            console.log('GIY MODE');
-
-            if (bankNumber) {
-              console.log('kickin" this letter thing?');
-              bankNumberS1 = bankNumber;
-              bankNumberS2 = bankNumber;
-            } else {
-              bankNumberS1 = bankSelectorS1;
-              bankNumberS2 = bankSelectorS2;
-            }
-
-          if (stgSelect == s1) {
-            $(stgSelect).css('background', bankLocation + bankNumberS1 + '/' + letterArray[i] + bgCenter);
-
-          } else {
-            $(stgSelect).css('background', bankLocation + bankNumberS2 + '/' + letterArray[i] + bgCenter);
-          }
-
-        } else {
-
-          if (giy) {
-            console.log('say yeah!!!');
-          }
-
-          console.log('when is this firing??');
-          $(stgSelect).css('background', bankLocation + bankNumberS1 + '/' + letterArray[i] + bgCenter);
-
+      Mousetrap.bind(availableTriggers[i].trigger, function() {
+        if (!bankNumber) {
+          giyBank = bankSelectorS1;
+        } else if (bankSelected && bankNumber) {
+          giyBank = bankNumber;
         }
-
+        cacheBuster =  new Date().getTime();
+        bgCenters = ".gif?" + cacheBuster + ") center center";
+        $(s1).css('background', bankLocation + giyBank + '/' + availableTriggers[i].name + bgCenters);
       });
     }
+  }
 
 });

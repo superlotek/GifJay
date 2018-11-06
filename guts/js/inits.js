@@ -5,10 +5,11 @@ var version = "0.9.1";
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 var bankerArray = [];
-letterArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+letterArrayS1 = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+letterArrayS2 = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
 // Declarations
-var bankLocation = "url(banks/bank";
+var bankLocation = "url(../../Bins/";
 var bgCenter = ".gif) center center";
 
 var s1 = '.stage-one';
@@ -20,7 +21,7 @@ var st = {'background-position':'center', 'background-size':'auto', 'backgroundR
 var filterClear = {'-webkit-filter':'none'};
 var bankSelectkeyArray;
 
-
+var bankSelected = 0;
 // Startup
 var startUpKey;
 var giy = 1;
@@ -70,7 +71,9 @@ var sameSameOn = 0;
 var switcherooOn = 0;
 var hueShiftOn = 0;
 var blurryOn = 0;
-var blackWhiteOn = 0;
+var invertOn = 0;
+var filtersOnString = "";
+var sampledFilterOn = 0;
 
 // GLITCH
 var glitchOn = 0;
@@ -83,12 +86,10 @@ var borderSize = 10;
 var delayFXOn = 0;
 var fxModeOn = 0;
 
-
 var hueRotateAmount;
 var saturateAmount;
 
 var gifAmount = 26;
-// var bankNumber;
 
 // SAMPLER
 var samplerStg1 = [];
@@ -100,9 +101,6 @@ var sequencerOn = 0;
 var curSequencerIndex;
 var storyModeOn = 0;
 var setOn = 0;
-// var daLetter;
-// var sequencerReverse = 0;
-
 
 // RoboMode
 var lastClick = 0;
@@ -118,5 +116,4 @@ var stageFlipOn = 0;
 var currentPlayMode = 'giy';
 
 var overlayOn = 0;
-// var overlaySpin = 0;
 var stgStore;
