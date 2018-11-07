@@ -819,14 +819,16 @@ Mousetrap.bind('shift+return', function() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   if (giy) {
-    theBankNumber = 0;
+    theBankNumber = 1;
     console.log('GIY MODE');
     availableTriggers = [];
     for (i=0; i < banks.bank[theBankNumber].gifs.length; i++) {
       if (banks.bank[theBankNumber].gifs[i].trigger) {
         availableTriggers.push({
           trigger: banks.bank[theBankNumber].gifs[i].trigger,
-          name: banks.bank[theBankNumber].gifs[i].name
+          name: banks.bank[theBankNumber].gifs[i].name,
+          location: banks.bank[theBankNumber].gifs[i].location
+
         });
       }
     }
@@ -841,7 +843,7 @@ Mousetrap.bind('shift+return', function() {
         }
         cacheBuster =  new Date().getTime();
         bgCenters = ".gif?" + cacheBuster + ") center center";
-        $(s1).css('background', bankLocation + giyBank + '/' + availableTriggers[i].name + bgCenters);
+        $(s1).css('background', bankLocation + availableTriggers[i].location + availableTriggers[i].name + bgCenters);
       });
     }
   }
