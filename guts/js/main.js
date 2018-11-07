@@ -323,7 +323,7 @@ function playMode(playType) {
       currentPlayMode = 'sampler';
       console.log("samplerCounter : " + samplerCounter);
       console.log("samplerIndex : " + samplerIndex);
-
+      smpldScn = sampledScenes.scene[samplerIndex];
       if (kaleidoscopeOn) {
 
         // $(s1 + '.kaleidoscope > div').css('background', bankLocation +
@@ -340,20 +340,23 @@ function playMode(playType) {
 
       } else {
 
-        $(s1).css('background', bankLocation + sampledScenes.scene[samplerIndex].stages[0].location + sampledScenes.scene[samplerIndex].stages[0].gif + bgCenter)
-          .css('background-repeat', sampledScenes.scene[samplerIndex].stages[0].repeat)
-          .css('background-size', sampledScenes.scene[samplerIndex].stages[0].size)
-          .css('mix-blend-mode', sampledScenes.scene[samplerIndex].stages[0].blend);
+        $(s1).css({
+            'background' : bankLocation + smpldScn.stages[0].location + smpldScn.stages[0].gif + bgCenter,
+            'background-repeat' : smpldScn.stages[0].repeat,
+            'background-size' : smpldScn.stages[0].size,
+            'mix-blend-mode' : smpldScn.stages[0].blend
+          });
 
-        $(s2).css('background', bankLocation + sampledScenes.scene[samplerIndex].stages[1].location + sampledScenes.scene[samplerIndex].stages[1].gif + bgCenter)
-          .css('background-repeat', sampledScenes.scene[samplerIndex].stages[1].repeat)
-          .css('background-size', sampledScenes.scene[samplerIndex].stages[1].size)
-          .css('mix-blend-mode', sampledScenes.scene[samplerIndex].stages[1].blend);
+          $(s2).css({
+              'background' : bankLocation + smpldScn.stages[1].location + smpldScn.stages[1].gif + bgCenter,
+              'background-repeat' : smpldScn.stages[1].repeat,
+              'background-size' : smpldScn.stages[1].size,
+              'mix-blend-mode' : smpldScn.stages[1].blend
+            });
 
         if (sceneFullscreenOn) { screenFullscreen(); }
 
       }
-
 
       if (samplerIndex == (sampledScenes.scene.length - 1)) { samplerIndex = -1; }
       ++samplerIndex;

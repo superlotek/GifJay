@@ -26,7 +26,6 @@ banks = {
 				{ "trigger" : "b", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"},
 				{ "trigger" : "c", "location" : "Dancing/", "name" : "m", "type" : 'flip', "set": "a"},
 				{ "trigger" : "d", "location" : "Dancing/", "name" : "n", "type" : 'flip', "set": "a"}
-
 			]
 		},
 		{
@@ -60,28 +59,28 @@ banks = {
 	]
 }
 
-sampledScenes = {
-	"scene" : [
-		{
-			"stages" : [
-				{ "bank" : 2, "location" : "BathBombs/", "gif" : "bathbomb-spinner-1_o", "size" : "cover", "no-repeat" : "repeat", "blend" : "normal" },
-				{ "bank" : 1, "location" : "Dancing/", "gif" : "h", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
-			]
-		},
-		{
-			"stages" : [
-				{ "bank" : 0, "location" : "MasterGif/", "gif" : "masterGif_demo_1_o", "size" : "auto", "repeat" : "repeat", "blend" : "normal" },
-				{ "bank" : 1, "location" : "Dancing/", "gif" : "m", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
-			]
-		},
-		{
-			"stages" : [
-				{ "bank" : 0, "location" : "MasterGif/", "gif" : "masterGif_demo_1_o", "size" : "auto", "repeat" : "repeat", "blend" : "normal" },
-				{ "bank" : 1, "location" : "Dancing/", "gif" : "m", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
-			]
-		}
-	]
-}
+// sampledScenes = {
+// 	"scene" : [
+// 		{
+// 			"stages" : [
+// 				{ "bank" : 2, "location" : "BathBombs/", "gif" : "bathbomb-spinner-1_o", "size" : "cover", "no-repeat" : "repeat", "blend" : "normal" },
+// 				{ "bank" : 1, "location" : "Dancing/", "gif" : "h", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
+// 			]
+// 		},
+// 		{
+// 			"stages" : [
+// 				{ "bank" : 0, "location" : "MasterGif/", "gif" : "masterGif_demo_1_o", "size" : "auto", "repeat" : "repeat", "blend" : "normal" },
+// 				{ "bank" : 1, "location" : "Dancing/", "gif" : "m", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
+// 			]
+// 		},
+// 		{
+// 			"stages" : [
+// 				{ "bank" : 0, "location" : "MasterGif/", "gif" : "masterGif_demo_1_o", "size" : "auto", "repeat" : "repeat", "blend" : "normal" },
+// 				{ "bank" : 1, "location" : "Dancing/", "gif" : "m", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
+// 			]
+// 		}
+// 	]
+// }
 
 setsArray = [];
 
