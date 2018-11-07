@@ -96,6 +96,12 @@ var samplerStg1 = [];
 var samplerStg2 = [];
 var samplerOn = 0;
 var samplerOn2 = 0;
+var samplerCounter = null;
+var samplerIndex = 0;
+sampledScenes = {};
+sampledScenes.scene =  [];
+sampledScenes.scene.stages = [];
+
 
 var sequencerOn = 0;
 var curSequencerIndex;

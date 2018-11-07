@@ -13,8 +13,6 @@ banks = {
 			"name" : "Colors",
 			"enabled" : true,
 			"gifs" : [
-
-				/* FOR NEW GIF LOCATION */
 				{ "trigger" : "a", "location" : "MasterGif/", "name" : "masterGif_demo_1_o", "type" : 'flip', "set": "a"},
 				{ "trigger" : "b", "location" : "MasterGif/", "name" : "masterGif_demo_2_o", "type" : 'flip', "set": "a"}
 			]
@@ -36,14 +34,52 @@ banks = {
 			"name" : "Colors",
 			"enabled" : true,
 			"gifs" : [
-
-				/* FOR NEW GIF LOCATION */
 				{ "trigger" : "a", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
 				{ "trigger" : "b", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "a"},
 				{ "trigger" : "c", "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o", "type" : 'flip', "set": "a"},
 				{ "trigger" : "d", "location" : "BathBombs/", "name" : "bathbomb-slow-2_o", "type" : 'flip', "set": "a"}
 			]
 		},
+		{
+			"id" : 3,
+			"name" : "Trails",
+			"enabled" : true,
+			"gifs" : [
+				{ "trigger" : "a", "location" : "DancingTrails/", "name" : "a", "type" : 'flip', "set": "a"},
+				{ "trigger" : "b", "location" : "DancingTrails/", "name" : "b", "type" : 'flip', "set": "a"},
+				{ "trigger" : "c", "location" : "DancingTrails/", "name" : "c", "type" : 'flip', "set": "a"},
+				{ "trigger" : "d", "location" : "DancingTrails/", "name" : "d", "type" : 'flip', "set": "a"},
+				{ "trigger" : "e", "location" : "DancingTrails/", "name" : "e", "type" : 'flip', "set": "a"},
+				{ "trigger" : "f", "location" : "DancingTrails/", "name" : "f", "type" : 'flip', "set": "a"},
+				{ "trigger" : "g", "location" : "DancingTrails/", "name" : "g", "type" : 'flip', "set": "a"},
+				{ "trigger" : "h", "location" : "DancingTrails/", "name" : "h", "type" : 'flip', "set": "a"},
+				{ "trigger" : "i", "location" : "DancingTrails/", "name" : "i", "type" : 'flip', "set": "a"},
+				{ "trigger" : "j", "location" : "DancingTrails/", "name" : "j", "type" : 'flip', "set": "a"}
+			]
+		}
+	]
+}
+
+sampledScenes = {
+	"scene" : [
+		{
+			"stages" : [
+				{ "bank" : 2, "location" : "BathBombs/", "gif" : "bathbomb-spinner-1_o", "size" : "cover", "no-repeat" : "repeat", "blend" : "normal" },
+				{ "bank" : 1, "location" : "Dancing/", "gif" : "h", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
+			]
+		},
+		{
+			"stages" : [
+				{ "bank" : 0, "location" : "MasterGif/", "gif" : "masterGif_demo_1_o", "size" : "auto", "repeat" : "repeat", "blend" : "normal" },
+				{ "bank" : 1, "location" : "Dancing/", "gif" : "m", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
+			]
+		},
+		{
+			"stages" : [
+				{ "bank" : 0, "location" : "MasterGif/", "gif" : "masterGif_demo_1_o", "size" : "auto", "repeat" : "repeat", "blend" : "normal" },
+				{ "bank" : 1, "location" : "Dancing/", "gif" : "m", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
+			]
+		}
 	]
 }
 

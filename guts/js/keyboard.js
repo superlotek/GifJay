@@ -510,30 +510,50 @@ Mousetrap.bind('shift+return', function() {
 
   Mousetrap.bind('return', function() {
     console.log('SAMPLED');
-    var stageSave = $(s1).attr('stage');
-    var bankSave = $(s1).attr('bank');
-    var locationSave = $(s1).attr('location');
-    var gifSave = $(s1).attr('gif');
-    var bgSize = $(s1).attr('size');
-    var repeatSave = $(s1).attr('repeat');
-    var stageSave2 = $(s2).attr('stage');
-    var bankSave2 = $(s2).attr('bank');
-    var locationSave2 = $(s2).attr('location');
-    var gifSave2 = $(s2).attr('gif');
-    var bgSize2 = $(s2).attr('size');
-    var repeatSave2 = $(s2).attr('repeat');
-    var blendSave = $(s1).attr('blend');
-    var blendSave2 = $(s2).attr('blend');
 
-    samplerStg1.push([[bankSave],[locationSave],[gifSave],[repeatSave],[bgSize],[blendSave]]);
-    samplerStg2.push([[bankSave2],[locationSave2],[gifSave2],[repeatSave2],[bgSize2],[blendSave2]]);
-
-    if(samplerOn) {
-      console.log('this is firing during SEQ LOVE');
+    if (samplerCounter == null ) {
+      samplerCounter = 0;
+    } else {
+      ++samplerCounter;
     }
 
-    console.log('SAMPLED STG1: ' + samplerStg1);
-    console.log('SAMPLED STG2: ' + samplerStg2);
+    console.log("samplerCounter : " + samplerCounter);
+    console.log("samplerIndex : " + samplerIndex);
+
+
+    // var stageSave = $(s1).attr('stage');
+    // var bankSave = $(s1).attr('bank');
+    // var locationSave = $(s1).attr('location');
+    // var gifSave = $(s1).attr('gif');
+    // var bgSize = $(s1).attr('size');
+    // var repeatSave = $(s1).attr('repeat');
+    // var stageSave2 = $(s2).attr('stage');
+    // var bankSave2 = $(s2).attr('bank');
+    // var locationSave2 = $(s2).attr('location');
+    // var gifSave2 = $(s2).attr('gif');
+    // var bgSize2 = $(s2).attr('size');
+    // var repeatSave2 = $(s2).attr('repeat');
+    // var blendSave = $(s1).attr('blend');
+    // var blendSave2 = $(s2).attr('blend');
+
+    sampledScenes.scene[samplerCounter].stages[0] = {
+      bank: $(s1).attr('bank'), location: $(s1).attr('location'), gif: $(s1).attr('gif'), size: $(s1).attr('size'), repeat: $(s1).attr('repeat'), blend: $(s1).attr('blend')
+
+    };
+    sampledScenes.scene[samplerCounter].stages[1] = {
+      bank: $(s2).attr('bank'), location: $(s2).attr('location'), gif: $(s2).attr('gif'), size: $(s2).attr('size'), repeat: $(s2).attr('repeat'), blend: $(s2).attr('blend')
+    };
+
+
+    // samplerStg1.push([[bankSave],[locationSave],[gifSave],[repeatSave],[bgSize],[blendSave]]);
+    // samplerStg2.push([[bankSave2],[locationSave2],[gifSave2],[repeatSave2],[bgSize2],[blendSave2]]);
+
+    // if(samplerOn) {
+    //   console.log('this is firing during SEQ LOVE');
+    // }
+    //
+    // console.log('SAMPLED STG1: ' + samplerStg1);
+    // console.log('SAMPLED STG2: ' + samplerStg2);
   });
 
 // SAMPLER PLAY [ ; ]
@@ -541,14 +561,16 @@ Mousetrap.bind('shift+return', function() {
 
   // INITIATE SAMPLER
   Mousetrap.bind(';', function() {
-    if (samplerStg1.length && samplerStg2.length && !samplerOn) {
+    // if (samplerStg1.length && samplerStg2.length && !samplerOn) {
+    if (!samplerOn) {
+
       console.log('STARTING SAMPLER');
       samplerOn = 1;
-      customSequencerOn2 = 1;
-      samplerStg1Num = 1;
-      samplerStg2Num = 1;
-      curSamplerStg1Index = -1;
-      curSamplerStg2Index = -1;
+      // customSequencerOn2 = 1;
+      // samplerStg1Num = 1;
+      // samplerStg2Num = 1;
+      // curSamplerStg1Index = -1;
+      // curSamplerStg2Index = -1;
     }
   });
 
