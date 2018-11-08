@@ -157,15 +157,6 @@ function sceneSetter(arrayName,banker1,banker2) {
   gifSelectorS1 = randomizer(bankBuilderS1);
   gifSelectorS2 = randomizer(bankBuilderS2);
 
-  // if (setOn) {
-  //   gifSelectorS1 = randomizer(setArray);
-  //   gifSelectorS2 = randomizer(setArray);
-  //   console.log(gifSelectorS1);
-  //   console.log(gifSelectorS2);
-  //   console.log('SET ON 1 IN SCENE SETTER');
-  // }
-
-
   if (currentPlayMode == 'sampler') {
     console.log('You should definitely be switching to Sampler by now!!');
     currentPlayMode = "sampler";
@@ -173,82 +164,66 @@ function sceneSetter(arrayName,banker1,banker2) {
 
   if (currentPlayMode != 'robomode') {
 
-    if (sceneFullscreenOn) { screenFullscreen(); }
+        if (sceneFullscreenOn) { screenFullscreen(); }
 
-    // CHECKING FOR SCENE PAUSE
-    if (stageLockOn) {
-      gifSelectorS1 = pausedStg1;
-      gifSelectorS2 = pausedStg2;
-      bankSelectorS1 = pausedBankStg1;
-      bankSelectorS2 = pausedBankStg2;
-    }
+        // CHECKING FOR SCENE PAUSE
+        if (stageLockOn) {
+          gifSelectorS1 = pausedStg1;
+          gifSelectorS2 = pausedStg2;
+          bankSelectorS1 = pausedBankStg1;
+          bankSelectorS2 = pausedBankStg2;
+        }
 
-    // CHECKING FOR BANKER
-    if (bankerOn) {
-      if (sceneFullscreenOn) { screenFullscreen(); }
-    }
+        // CHECKING FOR BANKER
+        if (bankerOn) {
+          if (sceneFullscreenOn) { screenFullscreen(); }
+        }
 
-    // Setting the scene for the random GIFs
-    $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1 + bgCenter);
-    $(stgNotSelected).css('background', bankLocation + gifSelectorS1.location + gifSelectorS2 + bgCenter);
-    $(stgNotSelected).css(this[randomizer(stageArray)]);
-    $(stgSelect).css(this[randomizer(stageArray)]);
+        if (setOn) {
+          gifSelectorS1 = randomizer(bankerSetStorage.scenes);
+          gifSelectorS2 = randomizer(bankerSetStorage.scenes);
+          console.log('SET ON 2 IN SCENE SETTER');
+        }
 
-    // // choose 2 random gifs ** DUPES **
-    // gifSelectorS1 = randomizer(bankBuilderS1);
-    // gifSelectorS2 = randomizer(bankBuilderS2);
+        // SET THE SCENE
+        console.log('does SETS GO HERE??');
+        $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.name + bgCenter });
+        $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.name + bgCenter });
+        $(s1).css(this[randomizer(stageArray)]);
+        $(s2).css(this[randomizer(stageArray)]);
+        $(s2).css('opacity', '1');
 
-    if (setOn) {
-      gifSelectorS1 = randomizer(bankerSetStorage.scenes);
-      gifSelectorS2 = randomizer(bankerSetStorage.scenes);
-      // console.log('SET ARRAY.banks: ' + bankerSetStorage.scenes[0].location);
-      // console.log('SET ARRAY.banks: ' + bankerSetStorage.scenes[0].name);
+        // This setups up before RoboMode
+        $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
+        $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
+        $(stgNotSelected).css(this[randomizer(stageArray)]);
+        $(stgSelect).css(this[randomizer(stageArray)]);
 
-      // console.log('gifSelectorS1.gif ' +   gifSelectorS1.gif);
-      console.log('SET ON 2 IN SCENE SETTER');
-    }
-
-    // if (stageLockOn) {  ** DUPES **
-    //   gifSelectorS1 = pausedStg1;
-    //   gifSelectorS2 = pausedStg2;
-    //   bankSelectorS1 = pausedBankStg1;
-    //   bankSelectorS2 = pausedBankStg2;
-    // }
-
-    // SET THE SCENE
-    console.log('does SETS GO HERE??');
-    $(s1).css({'background':bankLocation + gifSelectorS1.locationz + gifSelectorS1.name + bgCenter });
-    $(s2).css({'background':bankLocation + gifSelectorS2.locationz + gifSelectorS2.name + bgCenter });
-    $(s1).css(this[randomizer(stageArray)]);
-    $(s2).css(this[randomizer(stageArray)]);
-    $(s2).css('opacity', '1');
-
-    // if (sceneFullscreenOn) { screenFullscreen(); }  ** DUPES **
-
-    $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
-    $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-    $(stgNotSelected).css(this[randomizer(stageArray)]);
-    $(stgSelect).css(this[randomizer(stageArray)]);
-
-    if (sceneFullscreenOn) { screenFullscreen(); }
+        if (sceneFullscreenOn) { screenFullscreen(); }
 
   } else {
 
-    if (stageLockOn) {
-      gifSelectorS1 = pausedStg1;
-      gifSelectorS2 = pausedStg2;
-      bankSelectorS1 = pausedBankStg1;
-      bankSelectorS2 = pausedBankStg2;
-    }
+        if (stageLockOn) {
+          gifSelectorS1 = pausedStg1;
+          gifSelectorS2 = pausedStg2;
+          bankSelectorS1 = pausedBankStg1;
+          bankSelectorS2 = pausedBankStg2;
+        }
 
-    // SET THE SCENE
-    $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter });
-    $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter });
-    $(s1).css(this[randomizer(stageArray)]);
-    $(s2).css(this[randomizer(stageArray)]);
-    $(s2).css('opacity', '1');
+        if (setOn) {
+          gifSelectorS1 = randomizer(bankerSetStorage.scenes);
+          gifSelectorS2 = randomizer(bankerSetStorage.scenes);
+          console.log('SET ON 2 IN SCENE SETTER');
+        }
 
-    if (sceneFullscreenOn) { screenFullscreen(); }
+        // SET THE SCENE
+        $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter });
+        $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter });
+        $(s1).css(this[randomizer(stageArray)]);
+        $(s2).css(this[randomizer(stageArray)]);
+        $(s2).css('opacity', '1');
+
+        if (sceneFullscreenOn) { screenFullscreen(); }
 
   }
 
