@@ -167,7 +167,7 @@ function sceneSetter(arrayName,banker1,banker2) {
         if (sceneFullscreenOn) { screenFullscreen(); }
 
         // CHECKING FOR SCENE PAUSE
-        if (stageLockOn) {
+        if (scenePauseOn) {
           gifSelectorS1 = pausedStg1;
           gifSelectorS2 = pausedStg2;
           bankSelectorS1 = pausedBankStg1;
@@ -197,7 +197,7 @@ function sceneSetter(arrayName,banker1,banker2) {
 
   } else {
 
-        if (stageLockOn) {
+        if (scenePauseOn) {
           gifSelectorS1 = pausedStg1;
           gifSelectorS2 = pausedStg2;
           bankSelectorS1 = pausedBankStg1;

@@ -360,7 +360,7 @@ Mousetrap.bind('shift+return', function() {
   });
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-// *** GRID SIZES & LOCKS ***
+// *** GRID SIZES & PAUSE ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 // STAGE SIZE [ \ ], [ | ]
@@ -421,9 +421,9 @@ Mousetrap.bind('shift+return', function() {
 
   Mousetrap.bind("]", function() {
 
-    // NEW STAGE LOCK OR PAUSE
-    if(!stageLockOn) {
-        stageLockOn = 1;
+    // NEW STAGE PAUSE
+    if(!scenePauseOn) {
+        scenePauseOn = 1;
         console.log('SCENE PAUSE: ON');
 
         pausedStg1 = gifSelectorS1;
@@ -432,7 +432,7 @@ Mousetrap.bind('shift+return', function() {
         pausedBankStg2 = bankSelectorS2;
 
     } else {
-        stageLockOn = 0;
+        scenePauseOn = 0;
         console.log('SCENE PAUSE: OFF');
         pausedStg1 = "";
         pausedStg2 = "";
