@@ -310,7 +310,16 @@ function playMode(playType) {
     case 'sampler':
       console.log('PLAY MODE: Sampler');
       currentPlayMode = 'sampler';
-      console.log("samplerCounter : " + samplerCounter);
+
+      if (scenePauseOn) {
+        samplerIndex = pausedSamplerIndex;
+
+      } else {
+
+        if (samplerIndex == (sampledScenes.scene.length - 1)) { samplerIndex = -1; }
+        ++samplerIndex;
+      }
+
       console.log("samplerIndex : " + samplerIndex);
       smpldScn = sampledScenes.scene[samplerIndex];
 
@@ -328,7 +337,7 @@ function playMode(playType) {
         });
         $(s2).css('background', 'none !important');
         $(s2 + '.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
-        $(s1 + '.kaleidoscope > div').add(s2  + '.kaleidoscope > div').css(sf);
+        $(s1 + '.kaleidoscope > div').add(s2 + '.kaleidoscope > div').css(sf);
 
       } else {
 
@@ -348,29 +357,7 @@ function playMode(playType) {
 
         if (sceneFullscreenOn) { screenFullscreen(); }
 
-        // if (scenePauseOn) {
-        //   console.log('OH YEAHHH');
-        //   console.log(samplerIndex);
-        //   --samplerIndex;
-        //   // currentSamplerIndex = samplerIndex;
-        //   // samplerIndex = currentSamplerIndex;
-        // }
-
       }
-
-      if (scenePauseOn) {
-        console.log('OH YEAHHH');
-        console.log(samplerIndex);
-        samplerIndex = pausedSamplerIndex;
-        console.log('PAUSED SAMOLER INDEX: ' + pausedSamplerIndex);
-        console.log('samplerIndex ' + samplerIndex);
-        // currentIndex = samplerIndex;
-        // --samplerIndex;
-      }
-
-
-      if (samplerIndex == (sampledScenes.scene.length - 1)) { samplerIndex = -1; }
-      ++samplerIndex;
 
       break;
 

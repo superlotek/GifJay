@@ -425,8 +425,9 @@ Mousetrap.bind('shift+return', function() {
     if(!scenePauseOn) {
         scenePauseOn = 1;
         console.log('SCENE PAUSE: ON');
+        console.log('SAMPLER INDEX: ' + samplerIndex);
         pausedSamplerIndex = samplerIndex;
-
+        console.log('PAUSED SAMPLER INDEX: ' + pausedSamplerIndex);
         pausedStg1 = gifSelectorS1;
         pausedStg2 = gifSelectorS2;
         pausedBankStg1 = bankSelectorS1;
@@ -434,6 +435,21 @@ Mousetrap.bind('shift+return', function() {
 
     } else {
         scenePauseOn = 0;
+
+        if (samplerIndex == (sampledScenes.scene.length - 1)) {
+          console.log('SOMTHING SHOULD FIX HERE FOR THE LAST CLIP');
+          console.log('SAMPLER INDEX: ' + samplerIndex);
+          samplerIndex = -1;
+        } else {
+          // samplerIndex = pausedSamplerIndex;
+          // samplerIndex--;
+          samplerIndex = pausedSamplerIndex;
+          console.log('SAMPLER INDEX: ' + samplerIndex);
+          console.log('UNPAUSED SAMPLER INDEX: ' + pausedSamplerIndex);
+
+
+        }
+
         console.log('SCENE PAUSE: OFF');
         pausedStg1 = "";
         pausedStg2 = "";
@@ -548,12 +564,9 @@ Mousetrap.bind('shift+return', function() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind('return', function() {
-    console.log('SAMPLED');
+    console.log('SCENE SAMPLED');
 
     if (samplerCounter == null ) { samplerCounter = 0; } else { ++samplerCounter; }
-
-    console.log("samplerCounter : " + samplerCounter);
-    console.log("samplerIndex : " + samplerIndex);
 
     sampledScenes.scene.push(
       {
@@ -573,9 +586,9 @@ Mousetrap.bind('shift+return', function() {
     if (sampledScenes.scene.length && !samplerOn) {
     // if (!samplerOn) {
 
-      console.log('STARTING SAMPLER');
+      console.log('SAMPLER: ON');
       samplerOn = 1;
-      samplerIndex = 0;
+      samplerIndex = -1;
     }
   });
 
