@@ -185,7 +185,7 @@ function sceneSetter(arrayName,banker1,banker2) {
         $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.name + bgCenter });
         $(s1).css(this[randomizer(stageArray)]);
         $(s2).css(this[randomizer(stageArray)]);
-        $(s2).css('opacity', '1');
+        // $(s2).css('opacity', '1');
 
         // This setups up before RoboMode
         $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
@@ -215,7 +215,7 @@ function sceneSetter(arrayName,banker1,banker2) {
         $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter });
         $(s1).css(this[randomizer(stageArray)]);
         $(s2).css(this[randomizer(stageArray)]);
-        $(s2).css('opacity', '1');
+        // $(s2).css('opacity', '1');
 
         if (sceneFullscreenOn) { screenFullscreen(); }
 
