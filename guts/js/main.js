@@ -136,104 +136,88 @@ function sceneSetter(arrayName,banker1,banker2) {
   bankBuilderS1 = [];
   bankBuilderS2 = [];
 
-  banks.bank[bankSelectorS1].gifs.forEach(function(glarb) {
+  // Setting up for random GIFs
+  banks.bank[bankSelectorS1].gifs.forEach(function(element) {
     bankBuilderS1.push({
-      gif: glarb.name,
-      location: glarb.location,
-      type: glarb.type
+      gif: element.name,
+      location: element.location,
+      type: element.type
     });
   });
 
-  banks.bank[bankSelectorS2].gifs.forEach(function(gleek) {
+  banks.bank[bankSelectorS2].gifs.forEach(function(element) {
     bankBuilderS2.push({
-      gif: gleek.name,
-      location: gleek.location,
-      type: gleek.type
+      gif: element.name,
+      location: element.location,
+      type: element.type
     });
   });
 
-  // choose 2 random gifs
+  // Selecting 2 random gifs
   gifSelectorS1 = randomizer(bankBuilderS1);
   gifSelectorS2 = randomizer(bankBuilderS2);
 
-  if (setOn) {
-    gifSelectorS1 = randomizer(setArray);
-    gifSelectorS2 = randomizer(setArray);
-    console.log(gifSelectorS1);
-    console.log(gifSelectorS2);
-
+  if (currentPlayMode == 'sampler') {
+    console.log('You should definitely be switching to Sampler by now!!');
+    currentPlayMode = "sampler";
   }
 
   if (currentPlayMode != 'robomode') {
 
-    if (sceneFullscreenOn) { screenFullscreen(); }
+        if (sceneFullscreenOn) { screenFullscreen(); }
 
-    if (stageLockOn) {
-      gifSelectorS1 = pausedStg1;
-      gifSelectorS2 = pausedStg2;
-      bankSelectorS1 = pausedBankStg1;
-      bankSelectorS2 = pausedBankStg2;
-    }
+        // CHECKING FOR SCENE PAUSE
+        if (scenePauseOn) {
+          gifSelectorS1 = pausedStg1;
+          gifSelectorS2 = pausedStg2;
+          bankSelectorS1 = pausedBankStg1;
+          bankSelectorS2 = pausedBankStg2;
+        }
 
-    if (bankerOn) {
-      if (sceneFullscreenOn) { screenFullscreen(); }
-    }
+        // CHECKING FOR BANKER
+        if (bankerOn) {
+          if (sceneFullscreenOn) { screenFullscreen(); }
+        }
 
-    $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1 + bgCenter);
-    $(stgNotSelected).css('background', bankLocation + gifSelectorS1.location + gifSelectorS2 + bgCenter);
-    $(stgNotSelected).css(this[randomizer(stageArray)]);
-    $(stgSelect).css(this[randomizer(stageArray)]);
+        // SET THE SCENE
+        console.log('does SETS GO HERE??');
+        $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.name + bgCenter });
+        $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.name + bgCenter });
+        $(s1).css(this[randomizer(stageArray)]);
+        $(s2).css(this[randomizer(stageArray)]);
+        // $(s2).css('opacity', '1');
 
-    // choose 2 random gifs
-    gifSelectorS1 = randomizer(bankBuilderS1);
-    gifSelectorS2 = randomizer(bankBuilderS2);
+        // This setups up before RoboMode
+        $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
+        $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
+        $(stgNotSelected).css(this[randomizer(stageArray)]);
+        $(stgSelect).css(this[randomizer(stageArray)]);
 
-    if (setOn) {
-      gifSelectorS1.gif = randomizer(setArray);
-      gifSelectorS2.gif = randomizer(setArray);
-    }
-
-    if (stageLockOn) {
-      gifSelectorS1 = pausedStg1;
-      gifSelectorS2 = pausedStg2;
-      bankSelectorS1 = pausedBankStg1;
-      bankSelectorS2 = pausedBankStg2;
-    }
-
-    // SET THE SCENE
-    $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1 + bgCenter });
-    $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2 + bgCenter });
-    $(s1).css(this[randomizer(stageArray)]);
-    $(s2).css(this[randomizer(stageArray)]);
-    $(s2).css('opacity', '1');
-
-    if (sceneFullscreenOn) { screenFullscreen(); }
-
-    $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
-
-    $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-    $(stgNotSelected).css(this[randomizer(stageArray)]);
-    $(stgSelect).css(this[randomizer(stageArray)]);
-
-    if (sceneFullscreenOn) { screenFullscreen(); }
+        if (sceneFullscreenOn) { screenFullscreen(); }
 
   } else {
 
-    if (stageLockOn) {
-      gifSelectorS1 = pausedStg1;
-      gifSelectorS2 = pausedStg2;
-      bankSelectorS1 = pausedBankStg1;
-      bankSelectorS2 = pausedBankStg2;
-    }
+        if (scenePauseOn) {
+          gifSelectorS1 = pausedStg1;
+          gifSelectorS2 = pausedStg2;
+          bankSelectorS1 = pausedBankStg1;
+          bankSelectorS2 = pausedBankStg2;
+        }
 
-    // SET THE SCENE
-    $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter });
-    $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter });
-    $(s1).css(this[randomizer(stageArray)]);
-    $(s2).css(this[randomizer(stageArray)]);
-    $(s2).css('opacity', '1');
+        if (setOn) {
+          gifSelectorS1 = randomizer(bankerSetStorage.scenes);
+          gifSelectorS2 = randomizer(bankerSetStorage.scenes);
+          console.log('SET ON 2 IN SCENE SETTER');
+        }
 
-    if (sceneFullscreenOn) { screenFullscreen(); }
+        // SET THE SCENE
+        $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter });
+        $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter });
+        $(s1).css(this[randomizer(stageArray)]);
+        $(s2).css(this[randomizer(stageArray)]);
+        // $(s2).css('opacity', '1');
+
+        if (sceneFullscreenOn) { screenFullscreen(); }
 
   }
 
@@ -252,10 +236,14 @@ function playMode(playType) {
       console.log('PLAY MODE: Banker');
       currentPlayMode = 'banker';
 
-      if (stgSelect == s1 || s2) { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray); }
-      if (stgSelect == 'all') { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray) }
+      if (samplerOn) {
+        playMode('sampler');
+      } else {
+        if (stgSelect == s1 || s2) { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray); }
+        if (stgSelect == 'all') { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray) }
+        sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
+      }
 
-      sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
       break;
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -265,7 +253,8 @@ function playMode(playType) {
       console.log('PLAY MODE: Sets');
       currentPlayMode = 'sets';
       bankSelectorS1 = setBank; bankSelectorS2 = setBank;
-      sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
+      // sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
+      sceneSetter(bankerSetStorage,bankSelectorS1,bankSelectorS2);
       break;
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -322,51 +311,52 @@ function playMode(playType) {
       console.log('PLAY MODE: Sampler');
       currentPlayMode = 'sampler';
 
-      ++curSamplerStg1Index;
-      ++curSamplerStg2Index;
-
-      var samplerStg1 = this["samplerStg" + samplerStg1Num];
-      var samplerStg1 = this["samplerStg" + samplerStg2Num];
-
-      if (kaleidoscopeOn) {
-
-        $(s1 + '.kaleidoscope > div').css('background', bankLocation +
-          samplerStg1[curSamplerStg1Index][1] + samplerStg1[curSamplerStg1Index][2] + bgCenter)
-          .css({'background-repeat':samplerStg1[curSamplerStg1Index][3]})
-          .css('background-size',samplerStg1[curSamplerStg1Index][4]);
-        $(s2 + '.kaleidoscope > div').css('background', bankLocation + samplerStg2[curSamplerStg2Index][1] + samplerStg2[curSamplerStg2Index][2] + bgCenter)
-          .css({'background-repeat':samplerStg2[curSamplerStg1Index][3]})
-          .css('background-size',samplerStg2[curSamplerStg1Index][4]);
-
-        $(s2).css('background', 'none !important');
-        $(s2 + '.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
-        $(s1 + '.kaleidoscope > div').add(s2  + '.kaleidoscope > div').css(sf);
+      if (scenePauseOn) {
+        samplerIndex = pausedSamplerIndex;
 
       } else {
 
-        $(s1).css('background', bankLocation +
-          samplerStg1[curSamplerStg1Index][1] + samplerStg1[curSamplerStg1Index][2] + bgCenter)
-          .css({'background-repeat':samplerStg1[curSamplerStg1Index][3]})
-          .css('background-size',samplerStg1[curSamplerStg1Index][4])
-          .css('mix-blend-mode',samplerStg1[curSamplerStg1Index][5]);
-
-
-        $(s2).css('background', bankLocation +
-          samplerStg2[curSamplerStg2Index][1] + samplerStg2[curSamplerStg2Index][2] + bgCenter)
-          .css({'background-repeat':samplerStg2[curSamplerStg1Index][3]})
-          .css('background-size',samplerStg2[curSamplerStg1Index][4])
-          .css('mix-blend-mode',samplerStg2[curSamplerStg1Index][5]);
-
-          if (sceneFullscreenOn) { screenFullscreen(); }
-
+        if (samplerIndex == (sampledScenes.scene.length - 1)) { samplerIndex = -1; }
+        ++samplerIndex;
       }
 
-      if (curSamplerStg1Index == (samplerStg1.length - 1)) {
-        curSamplerStg1Index = -1;
-      }
+      console.log("samplerIndex : " + samplerIndex);
+      smpldScn = sampledScenes.scene[samplerIndex];
 
-      if (curSamplerStg2Index == (samplerStg2.length - 1)) {
-        curSamplerStg2Index = -1;
+      if (kaleidoscopeOn) {
+
+        $(s1 + '.kaleidoscope > div').css({
+          'background' : bankLocation + smpldScn.stages[0].location + smpldScn.stages[0].gif + bgCenter,
+          'background-repeat' : smpldScn.stages[0].repeat,
+          'background-size' : smpldScn.stages[0].size
+        });
+        $(s2 + '.kaleidoscope > div').css({
+          'background' : bankLocation + smpldScn.stages[1].location + smpldScn.stages[1].gif + bgCenter,
+          'background-repeat' : smpldScn.stages[1].repeat,
+          'background-size' : smpldScn.stages[1].size
+        });
+        $(s2).css('background', 'none !important');
+        $(s2 + '.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
+        $(s1 + '.kaleidoscope > div').add(s2 + '.kaleidoscope > div').css(sf);
+
+      } else {
+
+        $(s1).css({
+            'background' : bankLocation + smpldScn.stages[0].location + smpldScn.stages[0].gif + bgCenter,
+            'background-repeat' : smpldScn.stages[0].repeat,
+            'background-size' : smpldScn.stages[0].size,
+            'mix-blend-mode' : smpldScn.stages[0].blend
+          });
+
+          $(s2).css({
+              'background' : bankLocation + smpldScn.stages[1].location + smpldScn.stages[1].gif + bgCenter,
+              'background-repeat' : smpldScn.stages[1].repeat,
+              'background-size' : smpldScn.stages[1].size,
+              'mix-blend-mode' : smpldScn.stages[1].blend
+            });
+
+        if (sceneFullscreenOn) { screenFullscreen(); }
+
       }
 
       break;

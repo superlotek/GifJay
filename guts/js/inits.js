@@ -1,4 +1,4 @@
-var version = "0.9.1";
+var version = "0.9.2";
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // INITS
@@ -96,6 +96,14 @@ var samplerStg1 = [];
 var samplerStg2 = [];
 var samplerOn = 0;
 var samplerOn2 = 0;
+var samplerCounter = null;
+var samplerIndex = 0;
+sampledScenes = {};
+sampledScenes.scene =  [];
+sampledScenes.scene.stages = [];
+
+bankerSetStorage = {};
+bankerSetStorage.scenes = [];
 
 var sequencerOn = 0;
 var curSequencerIndex;
@@ -108,9 +116,9 @@ var robomodeOn = 0;
 var roboFillOn = 0;
 var gpsTimer;
 var gpsTimer2;
-var stageLockOn = 0;
-var stageLockedImage;
-var stageLockedImage2;
+var scenePauseOn = 0;
+// var stageLockedImage;
+// var stageLockedImage2;
 var sceneFullscreenOn = 0;
 var stageFlipOn = 0;
 var currentPlayMode = 'giy';
