@@ -179,12 +179,6 @@ function sceneSetter(arrayName,banker1,banker2) {
           if (sceneFullscreenOn) { screenFullscreen(); }
         }
 
-        if (setOn) {
-          gifSelectorS1 = randomizer(bankerSetStorage.scenes);
-          gifSelectorS2 = randomizer(bankerSetStorage.scenes);
-          console.log('SET ON 2 IN SCENE SETTER');
-        }
-
         // SET THE SCENE
         console.log('does SETS GO HERE??');
         $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.name + bgCenter });
