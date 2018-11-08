@@ -869,6 +869,7 @@ Mousetrap.bind('shift+return', function() {
         cacheBuster =  new Date().getTime();
         bgCenters = ".gif?" + cacheBuster + ") center center";
         $(s1).css('background', bankLocation + availableTriggers[i].location + availableTriggers[i].name + bgCenters);
+        $(s1).add(s2).css(this[randomizer(stageArray)]);
       });
     }
   }

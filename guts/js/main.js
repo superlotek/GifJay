@@ -331,6 +331,7 @@ function playMode(playType) {
         $(s1 + '.kaleidoscope > div').add(s2  + '.kaleidoscope > div').css(sf);
 
       } else {
+        
         $(s1).css({
             'background' : bankLocation + smpldScn.stages[0].location + smpldScn.stages[0].gif + bgCenter,
             'background-repeat' : smpldScn.stages[0].repeat,
