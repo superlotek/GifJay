@@ -467,28 +467,28 @@ Mousetrap.bind('shift+return', function() {
 // BANKER SETS ON/OFF [ ' ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-bankerSets = {};
-bankerSets.set = [];
-  for (i=0; i < banks.bank[0].gifs.length; i++) {
-    if (banks.bank[0].gifs[i].set) {
-      // bankerSets.set = [];
-      bankerSets.set[i] = {
-        bank: banks.bank[0].id,
-        trigger: banks.bank[0].gifs[i].set,
-        gifs: []
-      }
-        for (j=0; j < banks.bank[0].gifs.length; j++ ) {
-          if (banks.bank[0].gifs[i].set) {
-            bankerSets.set[i].gifs[j] = {
-              name: banks.bank[0].gifs[i].name
-            }
-          }
-        }
-        // bank: banks.bank[0].id,
-        // trigger: banks.bank[0].gifs[i].set
-        // gif: banks.bank[0].gifs[i].name
-    }
-  }
+// bankerSets = {};
+// bankerSets.set = [];
+//   for (i=0; i < banks.bank[0].gifs.length; i++) {
+//     if (banks.bank[0].gifs[i].set) {
+//       // bankerSets.set = [];
+//       bankerSets.set[i] = {
+//         bank: banks.bank[0].id,
+//         trigger: banks.bank[0].gifs[i].set,
+//         gifs: []
+//       }
+//         for (j=0; j < banks.bank[0].gifs.length; j++ ) {
+//           if (banks.bank[0].gifs[i].set) {
+//             bankerSets.set[i].gifs[j] = {
+//               name: banks.bank[0].gifs[i].name
+//             }
+//           }
+//         }
+//         // bank: banks.bank[0].id,
+//         // trigger: banks.bank[0].gifs[i].set
+//         // gif: banks.bank[0].gifs[i].name
+//     }
+//   }
 
   /*
 
@@ -508,11 +508,9 @@ bankerSets.set = [];
 
   */
 
-
-
-
-  bankerSets.set.forEach(function(durk, index) {
-    setsArray.push(durk.trigger);
+  // This creates the keyboard commands that map to the Banker Set letters
+  bankerSets.set.forEach(function(element) {
+    setsArray.push(element.trigger);
   });
 
   for(let i = 0; i < setsArray.length; i++) {
@@ -520,11 +518,16 @@ bankerSets.set = [];
     Mousetrap.bind("alt+" + setsArray[i], function() {
 
       if(!setOn) {
+        // Sets the bank number that this Banker Set is referencing
         setBank = bankerSets.set[i].bank;
 
-        setArray = [];
-        bankerSets.set[i].gifs.forEach(function(slees) {
-          setArray.push(slees.name);
+        // setArray = [];
+        // Array to store the Banker Set gifs so they can be randomized
+
+        bankerSets.set[i].gifs.forEach(function(element) {
+          bankerSetStorage.scenes.push(
+            { location: element.location, name: element.name }
+          );
         });
 
         setOn = 1;
@@ -534,7 +537,7 @@ bankerSets.set = [];
       } else {
         console.log('BANKER SET: OFF');
         setOn = 0;
-        setArray = [];
+        setArray = {};
       }
     });
 

@@ -102,6 +102,8 @@ sampledScenes = {};
 sampledScenes.scene =  [];
 sampledScenes.scene.stages = [];
 
+bankerSetStorage = {};
+bankerSetStorage.scenes = [];
 
 var sequencerOn = 0;
 var curSequencerIndex;

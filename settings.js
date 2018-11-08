@@ -55,6 +55,17 @@ banks = {
 				{ "trigger" : "i", "location" : "DancingTrails/", "name" : "i", "type" : 'flip', "set": "a"},
 				{ "trigger" : "j", "location" : "DancingTrails/", "name" : "j", "type" : 'flip', "set": "a"}
 			]
+		},
+		{
+			"id" : 4,
+			"name" : "Trails",
+			"enabled" : true,
+			"gifs" : [
+				{ "trigger" : "a", "location" : "HighSierras/", "name" : "high-sierras-3_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "b", "location" : "HighSierras/", "name" : "high-sierras-12_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "c", "location" : "StarTrails/", "name" : "l", "type" : 'flip', "set": "a"},
+				{ "trigger" : "d", "location" : "StarTrails/", "name" : "v", "type" : 'flip', "set": "a"}
+			]
 		}
 	]
 }
@@ -121,13 +132,24 @@ bankerSets = {
 				{ "location" : "Dancing/", "name" : "b"},
 				{ "location" : "Dancing/", "name" : "n"}
 			]
+		},
+		{
+			"name" : "set5",
+			"trigger" : "e",
+			"bank" : 4,
+			"gifs" : [
+				{ "location" : "StarTrails/", "name" : "l"},
+				// { "location" : "StarTrails/", "name" : "v"},
+				// { "location" : "HighSierras/", "name" : "high-sierras-3_o"},
+				{ "location" : "HighSierras/", "name" : "high-sierras-12_o"}
+			]
 		}
 	]
 }
 
 var effectsOn = [];
 var filtersOn = [];
-var beatTime = 3650;
+var beatTime = 2000;
 var beatSpeed = 1000;
 var titlePageOn = 0;
 var sameSameConstant = 2;
