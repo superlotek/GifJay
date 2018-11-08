@@ -164,6 +164,11 @@ function sceneSetter(arrayName,banker1,banker2) {
 
   }
 
+  if (currentPlayMode == 'sampler') {
+    console.log('You should definitely be switching to Sampler by now!!');
+    currentPlayMode = "sampler";
+  }
+
   if (currentPlayMode != 'robomode') {
 
     if (sceneFullscreenOn) { screenFullscreen(); }
@@ -252,10 +257,14 @@ function playMode(playType) {
       console.log('PLAY MODE: Banker');
       currentPlayMode = 'banker';
 
-      if (stgSelect == s1 || s2) { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray); }
-      if (stgSelect == 'all') { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray) }
+      if (samplerOn) {
+        playMode('sampler');
+      } else {
+        if (stgSelect == s1 || s2) { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray); }
+        if (stgSelect == 'all') { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray) }
+        sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
+      }
 
-      sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
       break;
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -327,18 +336,6 @@ function playMode(playType) {
 
       if (kaleidoscopeOn) {
 
-        // $(s1 + '.kaleidoscope > div').css('background', bankLocation +
-        //   samplerStg1[curSamplerStg1Index][1] + samplerStg1[curSamplerStg1Index][2] + bgCenter)
-        //   .css({'background-repeat':samplerStg1[curSamplerStg1Index][3]})
-        //   .css('background-size',samplerStg1[curSamplerStg1Index][4]);
-        // $(s2 + '.kaleidoscope > div').css('background', bankLocation + samplerStg2[curSamplerStg2Index][1] + samplerStg2[curSamplerStg2Index][2] + bgCenter)
-        //   .css({'background-repeat':samplerStg2[curSamplerStg1Index][3]})
-        //   .css('background-size',samplerStg2[curSamplerStg1Index][4]);
-        //
-        // $(s2).css('background', 'none !important');
-        // $(s2 + '.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
-        // $(s1 + '.kaleidoscope > div').add(s2  + '.kaleidoscope > div').css(sf);
-
         $(s1 + '.kaleidoscope > div').css({
           'background' : bankLocation + smpldScn.stages[0].location + smpldScn.stages[0].gif + bgCenter,
           'background-repeat' : smpldScn.stages[0].repeat,
@@ -354,7 +351,6 @@ function playMode(playType) {
         $(s1 + '.kaleidoscope > div').add(s2  + '.kaleidoscope > div').css(sf);
 
       } else {
-
         $(s1).css({
             'background' : bankLocation + smpldScn.stages[0].location + smpldScn.stages[0].gif + bgCenter,
             'background-repeat' : smpldScn.stages[0].repeat,

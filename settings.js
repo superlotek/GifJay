@@ -10,7 +10,7 @@ banks = {
 	"bank" : [
 		{
 			"id" : 0,
-			"name" : "Colors",
+			"name" : "MasterGif",
 			"enabled" : true,
 			"gifs" : [
 				{ "trigger" : "a", "location" : "MasterGif/", "name" : "masterGif_demo_1_o", "type" : 'flip', "set": "a"},
@@ -19,7 +19,7 @@ banks = {
 		},
 		{
 			"id" : 1,
-			"name" : "Black N White",
+			"name" : "Dancing",
 			"enabled" : true,
 			"gifs" : [
 				{ "trigger" : "a", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
@@ -30,7 +30,7 @@ banks = {
 		},
 		{
 			"id" : 2,
-			"name" : "Colors",
+			"name" : "Bathbombs",
 			"enabled" : true,
 			"gifs" : [
 				{ "trigger" : "a", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
