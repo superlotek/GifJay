@@ -425,6 +425,7 @@ Mousetrap.bind('shift+return', function() {
     if(!scenePauseOn) {
         scenePauseOn = 1;
         console.log('SCENE PAUSE: ON');
+        pausedSamplerIndex = samplerIndex;
 
         pausedStg1 = gifSelectorS1;
         pausedStg2 = gifSelectorS2;
