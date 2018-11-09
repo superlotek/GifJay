@@ -814,6 +814,7 @@ Mousetrap.bind('shift+return', function() {
     var bankSelectKeyArray = [')','!','@','#','$','%','^','&','*','('];
     for(let i = 0; i < bankSelectKeyArray.length; i++) {
         Mousetrap.bind(bankSelectKeyArray[i], function() {
+          // someBankThing(bankNumber);
           bankNumber = i; console.log('S1 BANK SELECTED : ' + bankNumber);
           var numberKey = bankNumber;
           if(bankerOn == 1) {
@@ -822,6 +823,8 @@ Mousetrap.bind('shift+return', function() {
           } else {
             console.log('BANK SELECTED : ' + bankNumber);
             bankSelected = true;
+            someBankThing(bankNumber);
+            doGiy(bankNumber);
           }
         });
     }
@@ -858,68 +861,74 @@ Mousetrap.bind('shift+return', function() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 function someBankThing(bankNumber) {
-  theBankNumber = bankNumber;
-  console.log('GIY MODE');
+  // theBankNumber = bankNumber;
+  // console.log('GIY MODE');
   availableTriggers = {};
   availableTriggers.bank = [];
   for (i=0; i < banks.bank.length; i++) {
     if (banks.bank[i].gifs) {
-      availableTriggers.bank.push(
-        [
-        { gif: banks.bank[i].gifs
-              // trigger: banks.bank[i].gifs.trigger,
-              // location: banks.bank[i].gifs.location,
-              // name: banks.bank[i].gifs.name
+      availableTriggers.bank.push({
+        gifs:
+          {
+            gif: banks.bank[i].gifs
+          }
         }
-]
-        // trigger: banks.bank[i].gifs.trigger,
-        // location: banks.bank[i].gifs.location,
-        // name: banks.bank[i].gifs.name
       );
     }
   }
 }
 
+doGiy();
 
-// function someBankThing(bankNumber) {
-//   theBankNumber = bankNumber;
-//   console.log('GIY MODE');
-//   availableTriggers = [];
-//   for (i=0; i < banks.bank[theBankNumber].gifs.length; i++) {
-//     if (banks.bank[theBankNumber].gifs[i].trigger) {
-//       availableTriggers.push({
-//         trigger: banks.bank[theBankNumber].gifs[i].trigger,
-//         name: banks.bank[theBankNumber].gifs[i].name,
-//         location: banks.bank[theBankNumber].gifs[i].location
-//
-//       });
-//     }
-//   }
-// }
+function doGiy() {
+
+  someBankThing(bankNumber)
+  console.log('THE BANK NUMBER IS : ' + bankNumber);
+  bankSum = availableTriggers.bank[bankNumber].gifs.gif.length - 1;
+  // for(let i = 0; i < availableTriggers.bank[bankNumber].length; i++) {
+    for(let j = 0; j < availableTriggers.bank[bankNumber].gifs.gif.length; j++) {
+
+    Mousetrap.bind(availableTriggers.bank[bankNumber].gifs.gif[j].trigger, function() {
+      if (!bankNumber) {
+        giyBank = bankSelectorS1;
+      } else if (bankSelected && bankNumber) {
+        giyBank = bankNumber;
+      }
+      cacheBuster =  new Date().getTime();
+      bgCenters = ".gif?" + cacheBuster + ") center center";
+      $(s1).css('background', bankLocation + availableTriggers.bank[bankNumber].gifs.gif[j].location + availableTriggers.bank[bankNumber].gifs.gif[j].name + bgCenters);
+      $(s1).add(s2).css(this[randomizer(stageArray)]);
+    });
+  }
 
 
+
+}
 
 
   if (giy) {
 
-    someBankThing(bankNumber)
-
-    for(let i = 0; i < availableTriggers.length; i++) {
-
-      Mousetrap.bind(availableTriggers[i].trigger, function() {
-
-        console.log(bankNumber);
-        if (!bankNumber) {
-          giyBank = bankSelectorS1;
-        } else if (bankSelected && bankNumber) {
-          giyBank = bankNumber;
-        }
-        cacheBuster =  new Date().getTime();
-        bgCenters = ".gif?" + cacheBuster + ") center center";
-        $(s1).css('background', bankLocation + availableTriggers[i].location + availableTriggers[i].name + bgCenters);
-        $(s1).add(s2).css(this[randomizer(stageArray)]);
-      });
-    }
+    // someBankThing(bankNumber)
+    // console.log('THE BANK NUMBER IS : ' + bankNumber);
+    // bankSum = availableTriggers.bank[bankNumber].gifs.gif.length - 1;
+    // // for(let i = 0; i < availableTriggers.bank[bankNumber].length; i++) {
+    //   for(let j = 0; j < availableTriggers.bank[bankNumber].gifs.gif.length; j++) {
+    //
+    //   Mousetrap.bind(availableTriggers.bank[bankNumber].gifs.gif[j].trigger, function() {
+    //     console.log(j);
+    //     console.log(bankNumber);
+    //     if (!bankNumber) {
+    //       giyBank = bankSelectorS1;
+    //     } else if (bankSelected && bankNumber) {
+    //       giyBank = bankNumber;
+    //     }
+    //     cacheBuster =  new Date().getTime();
+    //     bgCenters = ".gif?" + cacheBuster + ") center center";
+    //     $(s1).css('background', bankLocation + availableTriggers.bank[bankNumber].gifs.gif[j].location + availableTriggers.bank[bankNumber].gifs.gif[j].name + bgCenters);
+    //     $(s1).add(s2).css(this[randomizer(stageArray)]);
+    //   });
+    // }
+    // }
   }
 
 });
