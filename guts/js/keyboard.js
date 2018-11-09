@@ -857,24 +857,58 @@ Mousetrap.bind('shift+return', function() {
 // MAIN KEYBOARD TRIGGERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  if (giy) {
-    theBankNumber = 1;
-    console.log('GIY MODE');
-    availableTriggers = [];
-    for (i=0; i < banks.bank[theBankNumber].gifs.length; i++) {
-      if (banks.bank[theBankNumber].gifs[i].trigger) {
-        availableTriggers.push({
-          trigger: banks.bank[theBankNumber].gifs[i].trigger,
-          name: banks.bank[theBankNumber].gifs[i].name,
-          location: banks.bank[theBankNumber].gifs[i].location
-
-        });
-      }
+function someBankThing(bankNumber) {
+  theBankNumber = bankNumber;
+  console.log('GIY MODE');
+  availableTriggers = {};
+  availableTriggers.bank = [];
+  for (i=0; i < banks.bank.length; i++) {
+    if (banks.bank[i].gifs) {
+      availableTriggers.bank.push(
+        [
+        { gif: banks.bank[i].gifs
+              // trigger: banks.bank[i].gifs.trigger,
+              // location: banks.bank[i].gifs.location,
+              // name: banks.bank[i].gifs.name
+        }
+]
+        // trigger: banks.bank[i].gifs.trigger,
+        // location: banks.bank[i].gifs.location,
+        // name: banks.bank[i].gifs.name
+      );
     }
+  }
+}
+
+
+// function someBankThing(bankNumber) {
+//   theBankNumber = bankNumber;
+//   console.log('GIY MODE');
+//   availableTriggers = [];
+//   for (i=0; i < banks.bank[theBankNumber].gifs.length; i++) {
+//     if (banks.bank[theBankNumber].gifs[i].trigger) {
+//       availableTriggers.push({
+//         trigger: banks.bank[theBankNumber].gifs[i].trigger,
+//         name: banks.bank[theBankNumber].gifs[i].name,
+//         location: banks.bank[theBankNumber].gifs[i].location
+//
+//       });
+//     }
+//   }
+// }
+
+
+
+
+  if (giy) {
+
+    someBankThing(bankNumber)
 
     for(let i = 0; i < availableTriggers.length; i++) {
 
       Mousetrap.bind(availableTriggers[i].trigger, function() {
+
+        console.log(bankNumber);
         if (!bankNumber) {
           giyBank = bankSelectorS1;
         } else if (bankSelected && bankNumber) {

@@ -22,10 +22,10 @@ banks = {
 			"name" : "Dancing",
 			"enabled" : true,
 			"gifs" : [
-				{ "trigger" : "a", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
-				{ "trigger" : "b", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"},
-				{ "trigger" : "c", "location" : "Dancing/", "name" : "m", "type" : 'flip', "set": "a"},
-				{ "trigger" : "d", "location" : "Dancing/", "name" : "n", "type" : 'flip', "set": "a"}
+				{ "trigger" : "q", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
+				{ "trigger" : "a", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"},
+				{ "trigger" : "z", "location" : "Dancing/", "name" : "m", "type" : 'flip', "set": "a"},
+				{ "trigger" : "w", "location" : "Dancing/", "name" : "n", "type" : 'flip', "set": "a"}
 			]
 		},
 		{
@@ -44,16 +44,16 @@ banks = {
 			"name" : "Trails",
 			"enabled" : true,
 			"gifs" : [
-				{ "trigger" : "a", "location" : "DancingTrails/", "name" : "a", "type" : 'flip', "set": "a"},
-				{ "trigger" : "b", "location" : "DancingTrails/", "name" : "b", "type" : 'flip', "set": "a"},
-				{ "trigger" : "c", "location" : "DancingTrails/", "name" : "c", "type" : 'flip', "set": "a"},
-				{ "trigger" : "d", "location" : "DancingTrails/", "name" : "d", "type" : 'flip', "set": "a"},
-				{ "trigger" : "e", "location" : "DancingTrails/", "name" : "e", "type" : 'flip', "set": "a"},
-				{ "trigger" : "f", "location" : "DancingTrails/", "name" : "f", "type" : 'flip', "set": "a"},
-				{ "trigger" : "g", "location" : "DancingTrails/", "name" : "g", "type" : 'flip', "set": "a"},
-				{ "trigger" : "h", "location" : "DancingTrails/", "name" : "h", "type" : 'flip', "set": "a"},
-				{ "trigger" : "i", "location" : "DancingTrails/", "name" : "i", "type" : 'flip', "set": "a"},
-				{ "trigger" : "j", "location" : "DancingTrails/", "name" : "j", "type" : 'flip', "set": "a"}
+				{ "trigger" : "q", "location" : "DancingTrails/", "name" : "a", "type" : 'flip', "set": "a"},
+				{ "trigger" : "w", "location" : "DancingTrails/", "name" : "b", "type" : 'flip', "set": "a"},
+				{ "trigger" : "e", "location" : "DancingTrails/", "name" : "c", "type" : 'flip', "set": "a"},
+				{ "trigger" : "r", "location" : "DancingTrails/", "name" : "d", "type" : 'flip', "set": "a"},
+				{ "trigger" : "a", "location" : "DancingTrails/", "name" : "e", "type" : 'flip', "set": "a"},
+				{ "trigger" : "s", "location" : "DancingTrails/", "name" : "f", "type" : 'flip', "set": "a"},
+				{ "trigger" : "d", "location" : "DancingTrails/", "name" : "g", "type" : 'flip', "set": "a"},
+				{ "trigger" : "f", "location" : "DancingTrails/", "name" : "h", "type" : 'flip', "set": "a"},
+				{ "trigger" : "z", "location" : "DancingTrails/", "name" : "i", "type" : 'flip', "set": "a"},
+				{ "trigger" : "x", "location" : "DancingTrails/", "name" : "j", "type" : 'flip', "set": "a"}
 			]
 		},
 		{
