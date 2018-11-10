@@ -823,8 +823,8 @@ Mousetrap.bind('shift+return', function() {
           } else {
             console.log('BANK SELECTED : ' + bankNumber);
             bankSelected = true;
-            someBankThing(bankNumber);
-            doGiy(bankNumber);
+            // someBankThing(bankNumber);
+            // doGiy(bankNumber);
           }
         });
     }
@@ -861,12 +861,15 @@ Mousetrap.bind('shift+return', function() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 function someBankThing(bankNumber) {
+  console.log('RUNNING: SOME BANK THING');
+  console.log('BANK NUMBER: ' + bankNumber);
   // theBankNumber = bankNumber;
   // console.log('GIY MODE');
   availableTriggers = {};
   availableTriggers.bank = [];
-  for (i=0; i < banks.bank.length; i++) {
-    if (banks.bank[i].gifs) {
+  for (i=0; i < banks.bank[bankNumber].gifs.length; i++) {
+    if (banks.bank[bankNumber].gifs[i].trigger) {
+      console.log('YES TRIGGERS');
       availableTriggers.bank.push({
         gifs:
           {
@@ -878,13 +881,15 @@ function someBankThing(bankNumber) {
   }
 }
 
+someBankThing(bankNumber);
+
 doGiy();
 
 function doGiy() {
 
   someBankThing(bankNumber)
   console.log('THE BANK NUMBER IS : ' + bankNumber);
-  bankSum = availableTriggers.bank[bankNumber].gifs.gif.length - 1;
+  // bankSum = availableTriggers.bank[bankNumber].gifs.gif.length - 1;
   // for(let i = 0; i < availableTriggers.bank[bankNumber].length; i++) {
     for(let j = 0; j < availableTriggers.bank[bankNumber].gifs.gif.length; j++) {
 

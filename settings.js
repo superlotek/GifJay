@@ -24,8 +24,8 @@ banks = {
 			"gifs" : [
 				{ "trigger" : "q", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
 				{ "trigger" : "a", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"},
-				{ "trigger" : "z", "location" : "Dancing/", "name" : "m", "type" : 'flip', "set": "a"},
-				{ "trigger" : "w", "location" : "Dancing/", "name" : "n", "type" : 'flip', "set": "a"}
+				{ "trigger" : "", "location" : "Dancing/", "name" : "m", "type" : 'flip', "set": "a"},
+				{ "trigger" : "", "location" : "Dancing/", "name" : "n", "type" : 'flip', "set": "a"}
 			]
 		},
 		{
@@ -33,10 +33,10 @@ banks = {
 			"name" : "Bathbombs",
 			"enabled" : true,
 			"gifs" : [
-				{ "trigger" : "a", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : "b", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : "c", "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : "d", "location" : "BathBombs/", "name" : "bathbomb-slow-2_o", "type" : 'flip', "set": "a"}
+				{ "trigger" : "u", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "i", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "", "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "", "location" : "BathBombs/", "name" : "bathbomb-slow-2_o", "type" : 'flip', "set": "a"}
 			]
 		},
 		{
