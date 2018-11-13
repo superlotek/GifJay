@@ -183,7 +183,7 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
 
   /* Invert */
   if(app.settings.effects.invert.enabled) {
-    Mousetrap.bind(app.settings.effects.invert.filterKey || event.data[1] == 19, function() {
+    Mousetrap.bind(app.settings.effects.invert.filterKey, function() {
       if(!invertOn) {
         invertOn = 1;
         console.log('FX: INVERT ON');
@@ -202,7 +202,7 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
 }
 
   if(app.settings.effects.saturator.enabled) {
-    Mousetrap.bind(app.settings.effects.saturator.filterKey || event.data[1] == 16, function() {
+    Mousetrap.bind(app.settings.effects.saturator.filterKey, function() {
     if(!saturateOn) {
       saturateOn = 1;
       console.log('FX: SATURATE ON');
@@ -223,7 +223,7 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
 
   /* HueShift */
   if(app.settings.effects.hueShift.enabled) {
-    Mousetrap.bind(app.settings.effects.hueShift.filterKey || event.data[1] == 17, function() {
+    Mousetrap.bind(app.settings.effects.hueShift.filterKey, function() {
     if(!hueShiftOn) {
       hueShiftOn = 1;
       console.log('FX: HUESHIFT ON');
@@ -243,7 +243,7 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
 
   /* Blurry */
   if(app.settings.effects.blurry.enabled) {
-    Mousetrap.bind(app.settings.effects.blurry.filterKey || event.data[1] == 18, function() {
+    Mousetrap.bind(app.settings.effects.blurry.filterKey, function() {
     if(!blurryOn) {
       blurryOn = 1;
       console.log('FX: BLURRY ON');

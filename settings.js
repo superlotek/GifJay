@@ -6,6 +6,19 @@
 
 banksInUse = [];
 
+midiKeys = {
+  'commands' : [
+    { 'name': 'Quick Stage Setup', 'trigger': 'alt+backspace', 'device': 144, 'controller': 62, 'value': 0 },
+    { 'name': 'Startup/SceneFlip', 'trigger': 'space', 'device': 128, 'controller': 63, 'value': 0 },
+		{ 'name': 'Show/Hide STG1', 'trigger': '_', 'device': 144, 'controller': 64, 'value': 0 },
+		{ 'name': 'Show/Hide STG2', 'trigger': '+', 'device': 144, 'controller': 65, 'value': 0 },
+		{ 'name': 'Set GPS', 'trigger': '<', 'device': 144, 'controller': 99, 'value': 0 },
+		{ 'name': 'Start/Stop Robomode', 'trigger': '>', 'device': 144, 'controller': 98, 'value': 0 },
+		{ 'name': 'GPS X2', 'trigger': ',', 'device': 144, 'controller': 101, 'value': 0 },
+		{ 'name': 'GPS /2', 'trigger': '/', 'device': 144, 'controller': 100, 'value': 0 }
+  ]
+}
+
 banks = {
 	"bank" : [
 		{
