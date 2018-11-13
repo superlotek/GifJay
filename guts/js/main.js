@@ -576,19 +576,25 @@ function buildKaleidoscope() {
 
     function saturator() {
 
-      s1SaturatorValue = numRan(saturateAmount);
-      s2SaturatorValue = numRan(saturateAmount);
-      s1SaturateString = "saturate(" + s1SaturatorValue + ")";
-      s2SaturateString = "saturate(" + s2SaturatorValue + ")";
+      // s1SaturatorValue = event.data[2];
+      // s2SaturatorValue = event.data[2];
+      // console.log('SAT: ' + event.data[2]);
+      // s1SaturateString = "saturate(" + event.data[2] + ")";
+      // s2SaturateString = "saturate(" + event.data[2] + ")";
 
-      if (stgSelect == "all") {
-        $(s1).css('-webkit-filter', s1SaturateString);
-        $(s2).css('-webkit-filter', s2SaturateString);
-        addFilter(0, s2SaturateString);
-      } else {
-        addFilter(0, s1SaturateString);
-        $(stgSelect).css('-webkit-filter', filtersOnString);
-      }
+      // if (event.data[2] == 0) {
+      //   console.log('YAH!!!');
+      //   $(stgSelect).css('-webkit-filter', 'saturate(1)');
+      // }
+      //
+      // if (stgSelect == "all") {
+      //   $(s1).css('-webkit-filter', s1SaturateString);
+      //   $(s2).css('-webkit-filter', s2SaturateString);
+      //   addFilter(0, s2SaturateString);
+      // } else {
+      //   addFilter(0, s1SaturateString);
+      //   $(stgSelect).css('-webkit-filter', filtersOnString);
+      // }
 
     }
 
@@ -597,21 +603,23 @@ function buildKaleidoscope() {
 
       function hueShift() {
 
-        s1HueshiftValue = numRan(360);
-        s2HueshiftValue = numRan(360);
-        s1HueshiftString = "hue-rotate(" + s1HueshiftValue + "deg)";
-        s2HueshiftString = "hue-rotate(" + s2HueshiftValue + "deg)";
-
-        if (stgSelect == "all") {
-          console.log('FX HUESHIFT: STG 1+2');
-          $(s1).css('-webkit-filter', s1HueshiftString);
-          $(s2).css('-webkit-filter', s2HueshiftString);
-        } else {
-
-          addFilter(1, s1HueshiftString)
-
-          $(stgSelect).css('-webkit-filter', filtersOnString);
-        }
+        // s1HueshiftValue = event.data[2] * 2.83;
+        // s2HueshiftValue = event.data[2] * 2.83;
+        // console.log('HUE: ' + event.data[2] * 2.83);
+        //
+        // s1HueshiftString = "hue-rotate(" + s1HueshiftValue + "deg)";
+        // s2HueshiftString = "hue-rotate(" + s2HueshiftValue + "deg)";
+        //
+        // if (stgSelect == "all") {
+        //   console.log('FX HUESHIFT: STG 1+2');
+        //   $(s1).css('-webkit-filter', s1HueshiftString);
+        //   $(s2).css('-webkit-filter', s2HueshiftString);
+        // } else {
+        //
+        //   addFilter(1, s1HueshiftString)
+        //
+        //   $(stgSelect).css('-webkit-filter', filtersOnString);
+        // }
       }
 
     // FILTER FX : BLURRY
@@ -619,21 +627,21 @@ function buildKaleidoscope() {
 
       function blurry() {
 
-        s1BlurValue = numRan(blurAmount);
-        s2BlurValue = numRan(blurAmount);
-        s1BlurString = "blur(" + s1BlurValue + "px)";
-        s2BlurString = "blur(" + s2BlurValue + "px)";
-
-        if (stgSelect == "all") {
-          console.log('FX BLURRY: STG 1+2');
-          $(s1).css('-webkit-filter','blur(' + s1BlurValue + 'px');
-          $(s2).css('-webkit-filter','blur(' + s2BlurValue + 'px');
-        } else {
-          $(stgSelect).css('-webkit-filter','blur(' + numRan(10) + 'px');
-          addFilter(2, s1BlurString);
-          $(stgSelect).css('-webkit-filter', filtersOnString);
-
-        }
+        // s1BlurValue = event.data[2] * (blurAmount/127);
+        // s2BlurValue = event.data[2] * (blurAmount/127);
+        // s1BlurString = "blur(" + s1BlurValue + "px)";
+        // s2BlurString = "blur(" + s2BlurValue + "px)";
+        //
+        // if (stgSelect == "all") {
+        //   console.log('FX BLURRY: STG 1+2');
+        //   $(s1).css('-webkit-filter','blur(' + s1BlurValue + 'px');
+        //   $(s2).css('-webkit-filter','blur(' + s2BlurValue + 'px');
+        // } else {
+        //   $(stgSelect).css('-webkit-filter','blur(' + numRan(10) + 'px');
+        //   addFilter(2, s1BlurString);
+        //   $(stgSelect).css('-webkit-filter', filtersOnString);
+        //
+        // }
 
       }
 
@@ -642,20 +650,20 @@ function buildKaleidoscope() {
 
       function invert() {
 
-        s1InvertValue = 1;
-        s2InvertValue = 1;
-        s1InvertString = "invert(" + s1InvertValue + ")";
-        s2InvertString = "invert(" + s2InvertValue + ")";
-
-        if (stgSelect == "all") {
-          console.log('FX INVERT: STG 1+2');
-          $(s1).css('-webkit-filter','invert(' + s1InvertValue + ')');
-          $(s2).css('-webkit-filter','invert(' + s2InvertValue + ')');
-        } else {
-          $(stgSelect).css('-webkit-filter','invert(1)');
-          addFilter(3, s1InvertString);
-          $(stgSelect).css('-webkit-filter', filtersOnString);
-        }
+        // s1InvertValue = event.data[2] * .78;
+        // s2InvertValue = event.data[2] * .78;
+        // s1InvertString = "invert(" + s1InvertValue + "%)";
+        // s2InvertString = "invert(" + s2InvertValue + "%)";
+        //
+        // if (stgSelect == "all") {
+        //   console.log('FX INVERT: STG 1+2');
+        //   $(s1).css('-webkit-filter','invert(' + s1InvertValue + '%)');
+        //   $(s2).css('-webkit-filter','invert(' + s2InvertValue + '%10/2)');
+        // } else {
+        //   $(stgSelect).css('-webkit-filter','invert(1)');
+        //   addFilter(3, s1InvertString);
+        //   $(stgSelect).css('-webkit-filter', filtersOnString);
+        // }
 
       }
 

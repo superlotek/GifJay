@@ -154,7 +154,7 @@ var beatSpeed = 1000;
 var titlePageOn = 0;
 var sameSameConstant = 2;
 var saturateAmount = 100;
-var blurAmount = 10;
+var blurAmount = 5;
 titlePageName = 'title-1.gif';
 
 stageArray = ['sf', 'st'];
