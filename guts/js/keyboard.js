@@ -814,7 +814,6 @@ Mousetrap.bind('shift+return', function() {
     var bankSelectKeyArray = [')','!','@','#','$','%','^','&','*','('];
     for(let i = 0; i < bankSelectKeyArray.length; i++) {
         Mousetrap.bind(bankSelectKeyArray[i], function() {
-          // someBankThing(bankNumber);
           bankNumber = i; console.log('S1 BANK SELECTED : ' + bankNumber);
           var numberKey = bankNumber;
           if(bankerOn == 1) {
@@ -823,9 +822,8 @@ Mousetrap.bind('shift+return', function() {
           } else {
             console.log('BANK SELECTED : ' + bankNumber);
             bankSelected = true;
-            // someBankThing(bankNumber);
-            // doGiy(bankNumber);
           }
+          giyStuff(bankNumber);
         });
     }
 
@@ -859,6 +857,8 @@ Mousetrap.bind('shift+return', function() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // GIY:  KEYBOARD TRIGGERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+giyStuff();
+function giyStuff() {
 
   Mousetrap.bind(availableTriggers.bank[bankNumber].gifs[0].trigger, function() {
     console.log('YOU PRESSED: ' + availableTriggers.bank[bankNumber].gifs[0].trigger);
@@ -875,6 +875,8 @@ Mousetrap.bind('shift+return', function() {
     $(s1).css('background', bankLocation + availableTriggers.bank[bankNumber].gifs[1].location + availableTriggers.bank[bankNumber].gifs[1].name + bgCenters);
     $(s1).add(s2).css(this[randomizer(stageArray)]);
   });
+
+}
 
 
 
