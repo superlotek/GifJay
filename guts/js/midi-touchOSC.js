@@ -57,63 +57,70 @@ if (event.data[0] == 128 && event.data[1] == 55) {
 }
 
 /* FILTERS */
-
 if (event.data[1] == 16) {
-  console.log(event.data[2]);
   s1SaturateString = "saturate(" + event.data[2] + ")";
-  if (stgSelect == "all") {
-    $(s1).css('-webkit-filter', s1SaturateString);
-    $(s2).css('-webkit-filter', s2SaturateString);
-    addFilter(0, s2SaturateString);
-  } else {
-    addFilter(0, s1SaturateString);
-    $(stgSelect).css('-webkit-filter', filtersOnString);
-  }
+  addFilter(0, s1SaturateString);
+  $(s1).css('-webkit-filter', filtersOnString);
+}
+
+if (event.data[1] == 20) {
+  s2SaturateString = "saturate(" + event.data[2] + ")";
+  $(s2).css('-webkit-filter', s2SaturateString);
+    // addFilter(0, s1SaturateString);
 }
 
 if (event.data[1] == 17) {
-  console.log(event.data[2]);
   s1HueshiftValue = event.data[2] * 2.83;
-  s2HueshiftValue = event.data[2] * 2.83;
-  console.log('HUE: ' + event.data[2] * 2.83);
   s1HueshiftString = "hue-rotate(" + s1HueshiftValue + "deg)";
+  addFilter(1, s1HueshiftString)
+  $(s1).css('-webkit-filter', filtersOnString);
+}
+
+if (event.data[1] == 21) {
+  s2HueshiftValue = event.data[2] * 2.83;
   s2HueshiftString = "hue-rotate(" + s2HueshiftValue + "deg)";
-  if (stgSelect == "all") {
-    console.log('FX HUESHIFT: STG 1+2');
-    $(s1).css('-webkit-filter', s1HueshiftString);
-    $(s2).css('-webkit-filter', s2HueshiftString);
-  } else {
-    addFilter(1, s1HueshiftString)
-    $(stgSelect).css('-webkit-filter', filtersOnString);
-  }
+  $(s2).css('-webkit-filter', s2HueshiftString);
+  // addFilter(1, s1HueshiftString)
 }
 
 if (event.data[1] == 18) {
-  console.log(event.data[2]);
   s1BlurValue = event.data[2] * (blurAmount/127);
-  s2BlurValue = event.data[2] * (blurAmount/127);
   s1BlurString = "blur(" + s1BlurValue + "px)";
+  addFilter(2, s1BlurString);
+  $(stgSelect).css('-webkit-filter', filtersOnString);
+}
+
+if (event.data[1] == 22) {
+  s2BlurValue = event.data[2] * (blurAmount/127);
   s2BlurString = "blur(" + s2BlurValue + "px)";
-  if (stgSelect == "all") {
-    console.log('FX BLURRY: STG 1+2');
-    $(s1).css('-webkit-filter','blur(' + s1BlurValue + 'px');
-    $(s2).css('-webkit-filter','blur(' + s2BlurValue + 'px');
-  } else {
-    $(stgSelect).css('-webkit-filter','blur(' + numRan(10) + 'px');
-    addFilter(2, s1BlurString);
-    $(stgSelect).css('-webkit-filter', filtersOnString);
-  }
+  $(s2).css('-webkit-filter','blur(' + s2BlurValue + 'px');
+  // addFilter(2, s1BlurString);
+}
+
+if (event.data[1] == 19) {
+  s1InvertValue = event.data[2] * .78;
+  s1InvertString = "invert(" + s1InvertValue + "%)";
+  addFilter(2, s1InvertString);
+  $(s1).css('-webkit-filter', filtersOnString);
+}
+
+if (event.data[1] == 23) {
+  s2InvertValue =  event.data[2] * .78;
+  s2InvertString = "invert(" + s2InvertValue + "%)";
+  $(s2).css('-webkit-filter','invert(' + s2InvertValue + '%');
+  // addFilter(2, s1BlurString);
 }
 
 /*
 Loop through all the simple MIDI commands
-
+*/
 midiKeys.commands.forEach(function(element, index) {
-	console.log('device ' + element.device);
-	console.log('controller: ' + element.controller);
-	console.log('trigger: ' + element.trigger);
-	console.log('name: ' + element.name);
-	console.log('index: ' + index);
+  // console.log('name: ' + element.name);
+
+	// console.log('device ' + element.device);
+	// console.log('controller: ' + element.controller);
+	// console.log('trigger: ' + element.trigger);
+	// console.log('index: ' + index);
 
   if (event.data[0] == midiKeys.commands[index].device && event.data[1] == midiKeys.commands[index].controller) {
     Mousetrap.trigger(midiKeys.commands[index].trigger);
@@ -121,75 +128,5 @@ midiKeys.commands.forEach(function(element, index) {
 
 
 });
-*/
-
-/* QUICK STAGE SETUP */
-if (event.data[0] == midiKeys.commands[0].device && event.data[1] == midiKeys.commands[0].controller) {
-  Mousetrap.trigger(midiKeys.commands[0].trigger);
-}
-
-/* STARTUP / SCENEFLIP */
-if (event.data[0] == midiKeys.commands[1].device && event.data[1] == midiKeys.commands[1].controller) {
-  Mousetrap.trigger(midiKeys.commands[1].trigger);
-}
-
-/* SHOW/HIDE STG1 */
-if (event.data[0] == midiKeys.commands[2].device && event.data[1] == midiKeys.commands[2].controller) {
-  Mousetrap.trigger(midiKeys.commands[2].trigger);
-}
-
-/* SHOW/HIDE STG2 */
-if (event.data[0] == midiKeys.commands[3].device && event.data[1] == midiKeys.commands[3].controller) {
-  Mousetrap.trigger(midiKeys.commands[3].trigger);
-}
-
-/* SET GPS */
-if (event.data[0] == midiKeys.commands[4].device && event.data[1] == midiKeys.commands[4].controller) {
-  Mousetrap.trigger(midiKeys.commands[4].trigger);
-}
-
-/* START/STOP ROBOMODE */
-if (event.data[0] == midiKeys.commands[5].device && event.data[1] == midiKeys.commands[5].controller) {
-  Mousetrap.trigger(midiKeys.commands[5].trigger);
-}
-
-/* GPS X2 */
-if (event.data[0] == midiKeys.commands[6].device && event.data[1] == midiKeys.commands[6].controller) {
-  Mousetrap.trigger(midiKeys.commands[6].trigger);
-}
-
-/* GPS /2 */
-if (event.data[0] == midiKeys.commands[7].device && event.data[1] == midiKeys.commands[7].controller) {
-  Mousetrap.trigger(midiKeys.commands[7].trigger);
-}
-
-
-
-// if (event.data[1] == 99 && event.data[0] == 144) {
-//   Mousetrap.trigger('<');
-// }
-//
-// if (event.data[1] == 98 && event.data[0] == 144) {
-//   Mousetrap.trigger('>');
-// }
-
-// if (event.data[1] == 101 && event.data[0] == 144) {
-//   Mousetrap.trigger(',');
-// }
-// if (event.data[1] == 100 && event.data[0] == 144) {
-//   Mousetrap.trigger('/');
-// }
-
-// if (event.data[1] == 50 && event.data[0] == 151) {
-//   Mousetrap.trigger('1');
-// }
-// if (event.data[1] == 50 && event.data[0] == 135) {
-//   Mousetrap.trigger('1');
-// }
-//
-// if (event.data[1] == 64 && event.data[0] == 144 && event.data[1] == 65 && event.data[0] == 144) {
-//   Mousetrap.trigger('backspace');
-// }
-
 
 }
