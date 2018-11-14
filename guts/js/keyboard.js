@@ -857,61 +857,78 @@ Mousetrap.bind('shift+return', function() {
     }
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-// MAIN KEYBOARD TRIGGERS
+// GIY:  KEYBOARD TRIGGERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-function someBankThing(bankNumber) {
-  console.log('RUNNING: SOME BANK THING');
-  console.log('BANK NUMBER: ' + bankNumber);
-  // theBankNumber = bankNumber;
-  // console.log('GIY MODE');
-  availableTriggers = {};
-  availableTriggers.bank = [];
-  for (i=0; i < banks.bank[bankNumber].gifs.length; i++) {
-    if (banks.bank[bankNumber].gifs[i].trigger) {
-      console.log('YES TRIGGERS');
-      availableTriggers.bank.push({
-        gifs:
-          {
-            gif: banks.bank[i].gifs
-          }
-        }
-      );
-    }
-  }
-}
+  Mousetrap.bind(availableTriggers.bank[bankNumber].gifs[0].trigger, function() {
+    console.log('YOU PRESSED: ' + availableTriggers.bank[bankNumber].gifs[0].trigger);
+    cacheBuster =  new Date().getTime();
+    bgCenters = ".gif?" + cacheBuster + ") center center";
+    $(s1).css('background', bankLocation + availableTriggers.bank[bankNumber].gifs[0].location + availableTriggers.bank[bankNumber].gifs[0].name + bgCenters);
+    $(s1).add(s2).css(this[randomizer(stageArray)]);
+  });
 
-someBankThing(bankNumber);
-
-doGiy();
-
-function doGiy() {
-
-  someBankThing(bankNumber)
-  console.log('THE BANK NUMBER IS : ' + bankNumber);
-  // bankSum = availableTriggers.bank[bankNumber].gifs.gif.length - 1;
-  // for(let i = 0; i < availableTriggers.bank[bankNumber].length; i++) {
-    for(let j = 0; j < availableTriggers.bank[bankNumber].gifs.gif.length; j++) {
-
-    Mousetrap.bind(availableTriggers.bank[bankNumber].gifs.gif[j].trigger, function() {
-      if (!bankNumber) {
-        giyBank = bankSelectorS1;
-      } else if (bankSelected && bankNumber) {
-        giyBank = bankNumber;
-      }
-      cacheBuster =  new Date().getTime();
-      bgCenters = ".gif?" + cacheBuster + ") center center";
-      $(s1).css('background', bankLocation + availableTriggers.bank[bankNumber].gifs.gif[j].location + availableTriggers.bank[bankNumber].gifs.gif[j].name + bgCenters);
-      $(s1).add(s2).css(this[randomizer(stageArray)]);
-    });
-  }
+  Mousetrap.bind(availableTriggers.bank[bankNumber].gifs[1].trigger, function() {
+    console.log('YOU PRESSED: ' + availableTriggers.bank[bankNumber].gifs[1].trigger);
+    cacheBuster =  new Date().getTime();
+    bgCenters = ".gif?" + cacheBuster + ") center center";
+    $(s1).css('background', bankLocation + availableTriggers.bank[bankNumber].gifs[1].location + availableTriggers.bank[bankNumber].gifs[1].name + bgCenters);
+    $(s1).add(s2).css(this[randomizer(stageArray)]);
+  });
 
 
 
-}
+// function someBankThing(bankNumber) {
+//   console.log('RUNNING: SOME BANK THING');
+//   console.log('BANK NUMBER: ' + bankNumber);
+//   // theBankNumber = bankNumber;
+//   // console.log('GIY MODE');
+//   availableTriggers = {};
+//   availableTriggers.bank = [];
+//   for (i=0; i < banks.bank[bankNumber].gifs.length; i++) {
+//     if (banks.bank[bankNumber].gifs[i].trigger) {
+//       console.log('YES TRIGGERS');
+//       availableTriggers.bank.push({
+//         gifs:
+//           {
+//             gif: banks.bank[i].gifs
+//           }
+//         }
+//       );
+//     }
+//   }
+// }
+
+// someBankThing(bankNumber);
+// doGiy();
+
+// function doGiy() {
+//
+//   someBankThing(bankNumber)
+//   console.log('THE BANK NUMBER IS : ' + bankNumber);
+//   // bankSum = availableTriggers.bank[bankNumber].gifs.gif.length - 1;
+//   // for(let i = 0; i < availableTriggers.bank[bankNumber].length; i++) {
+//     for(let j = 0; j < availableTriggers.bank[bankNumber].gifs.gif.length; j++) {
+//
+//     Mousetrap.bind(availableTriggers.bank[bankNumber].gifs.gif[j].trigger, function() {
+//       if (!bankNumber) {
+//         giyBank = bankSelectorS1;
+//       } else if (bankSelected && bankNumber) {
+//         giyBank = bankNumber;
+//       }
+//       cacheBuster =  new Date().getTime();
+//       bgCenters = ".gif?" + cacheBuster + ") center center";
+//       $(s1).css('background', bankLocation + availableTriggers.bank[bankNumber].gifs.gif[j].location + availableTriggers.bank[bankNumber].gifs.gif[j].name + bgCenters);
+//       $(s1).add(s2).css(this[randomizer(stageArray)]);
+//     });
+//   }
+//
+//
+//
+// }
 
 
-  if (giy) {
+  // if (giy) {
 
     // someBankThing(bankNumber)
     // console.log('THE BANK NUMBER IS : ' + bankNumber);
@@ -934,6 +951,6 @@ function doGiy() {
     //   });
     // }
     // }
-  }
+  // }
 
 });

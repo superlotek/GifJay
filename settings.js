@@ -6,6 +6,44 @@
 
 banksInUse = [];
 
+
+availableTriggers = {
+	"bank" : [
+		{
+			"gifs" : [
+				{ "trigger" : "q", "location" : "MasterGif/", "name" : "masterGif_demo_1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "w", "location" : "MasterGif/", "name" : "masterGif_demo_2_o", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"gifs" : [
+				{ "trigger" : "a", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
+				{ "trigger" : "s", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"gifs" : [
+				{ "trigger" : "z", "location" : "DancingTrails/", "name" : "a", "type" : 'flip', "set": "a"},
+				{ "trigger" : "x", "location" : "DancingTrails/", "name" : "b", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"gifs" : [
+				{ "trigger" : "e", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "r", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"gifs" : [
+				{ "trigger" : "d", "location" : "HighSierras/", "name" : "high-sierras-3_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "f", "location" : "HighSierras/", "name" : "high-sierras-12_o", "type" : 'flip', "set": "a"}
+			]
+		}
+	]
+}
+
+
+
 banks = {
 	"bank" : [
 		{
