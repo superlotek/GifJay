@@ -39,6 +39,16 @@ function killSwitch() {
 }
 
 function startup() {
+  bankNumber = randomizer(banksInUse);
+
+  banks.bank.forEach(function(gleep) {
+    if (gleep.enabled) {
+      banksInUse.push(gleep.id);
+    }
+  });
+
+  bankNumber = randomizer(banksInUse);
+
   if(localStorage.getItem('killSwitch') == 'killed') {
     killSwitch();
   } else {
