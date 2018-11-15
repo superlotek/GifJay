@@ -842,8 +842,10 @@ Mousetrap.bind('shift+return', function() {
 // GIY:  KEYBOARD TRIGGERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-createGiyTriggers(bankNumber);
+  createGiyTriggers(bankNumber);
+
   function createGiyTriggers(bankNumber) {
+    console.log('CREATE GIY TRIGGERS');
 
     // Reset the trigger buttons (A-Z)
     for ( i = 0; i < giyTriggerArray.length; i++) {
@@ -856,12 +858,14 @@ createGiyTriggers(bankNumber);
     	singleBankTriggerArray.push(element);
 
       Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {
+        console.log(index);
+        console.log(singleBankTriggerArray[index].trigger);
         cacheBuster =  new Date().getTime();
         bgCenters = ".gif?" + cacheBuster + ") center center";
         $(s1).css({
           'background': bankLocation + availableTriggers.bank[bankNumber].gifs[index].location + availableTriggers.bank[bankNumber].gifs[index].name + bgCenters
         });
-        $(s1).css(this[randomizer(stageArray)]);
+        // $(s1).css(this[randomizer(stageArray)]);
       });
 
       Mousetrap.bind(singleBankTriggerArray[index].trigger.toUpperCase(), function() {
