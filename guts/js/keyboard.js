@@ -816,7 +816,7 @@ Mousetrap.bind('shift+return', function() {
         Mousetrap.bind(bankSelectKeyArray[i], function() {
           bankNumber = i; console.log('S1 BANK SELECTED : ' + bankNumber);
           var numberKey = bankNumber;
-          makeSomeTriggers(bankNumber);
+          createGiyTriggers(bankNumber);
 
           if(bankerOn == 1) {
             bankerArray.push(bankNumber);
@@ -825,7 +825,6 @@ Mousetrap.bind('shift+return', function() {
             console.log('BANK SELECTED : ' + bankNumber);
             bankSelected = true;
           }
-          giyStuff(bankNumber);
         });
     }
 
@@ -859,42 +858,31 @@ Mousetrap.bind('shift+return', function() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // GIY:  KEYBOARD TRIGGERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-giyStuff();
-function giyStuff() {
 
-makeSomeTriggers(bankNumber);
-
-function makeSomeTriggers(bankNumber) {
-
-  // Reset the trigger buttons (A-Z)
-  for ( i = 0; i < giyTriggerArray.length; i++) {
-    console.log(giyTriggerArray[i]);
-    Mousetrap.unbind(giyTriggerArray[i]);
-  }
-
-  singleBankTriggerArray = [];
-
-  availableTriggers.bank[bankNumber].gifs.forEach(function(element, index) {
-  	singleBankTriggerArray.push(element);
-    console.log(index);
-    console.log('name: ' + element.name);
-
-    Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {
-      console.log('CLICKED ON ' + index);
-      console.log('name: ' + element.name);
-
+createGiyTriggers(bankNumber);
+  function createGiyTriggers(bankNumber) {
+    // Reset the trigger buttons (A-Z)
+    for ( i = 0; i < giyTriggerArray.length; i++) {
+      Mousetrap.unbind(giyTriggerArray[i]);
+    }
+    singleBankTriggerArray = [];
+    availableTriggers.bank[bankNumber].gifs.forEach(function(element, index) {
+    	singleBankTriggerArray.push(element);
       cacheBuster =  new Date().getTime();
       bgCenters = ".gif?" + cacheBuster + ") center center";
-      $(stgSelect).css('background', bankLocation + availableTriggers.bank[bankNumber].gifs[index].location + availableTriggers.bank[bankNumber].gifs[index].name + bgCenters);
-      $(s1).add(s2).css(this[randomizer(stageArray)]);
+      Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {
+        $(s1).css({
+          'background': bankLocation + availableTriggers.bank[bankNumber].gifs[index].location + availableTriggers.bank[bankNumber].gifs[index].name + bgCenters
+        });
+        $(s1).css(this[randomizer(stageArray)]);
+      });
+      Mousetrap.bind(singleBankTriggerArray[index].trigger.toUpperCase(), function() {
+        $(s2).css({
+          'background': bankLocation + availableTriggers.bank[bankNumber].gifs[index].location + availableTriggers.bank[bankNumber].gifs[index].name + bgCenters
+        });
+        $(s2).css(this[randomizer(stageArray)]);
+      });
     });
+  }
 
-  });
-
-}
-
-
-
-}
-
-});
+}); /* END DOM READY */
