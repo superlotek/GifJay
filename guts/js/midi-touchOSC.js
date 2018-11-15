@@ -1,13 +1,17 @@
 var midi;
 var log = document.getElementById("midi-log");
-init();
+
+if (midiOn === true) {
+  init();
+}
+
 
 function init() {
   navigator.requestMIDIAccess().then( onSuccess, onFailure ); //get midi access
 }
 
 function onSuccess( access ) {
-
+  console.log('MIDI detected!');
   midi = access;
   var inputs = midi.inputs;
 
@@ -34,27 +38,24 @@ function handleMIDIMessage(event){
   console.log(event.data);
 
 /* GIY PLAY */
-if (event.data[0] == 128 && event.data[1] == 53) {
-  console.log('YEAH!! - A');
-    cacheBuster =  new Date().getTime();
-    bgCenters = ".gif?" + cacheBuster + ") center center";
-    $(s1).css('background', bankLocation + availableTriggers[0].location + availableTriggers[0].name + bgCenters);
-    $(s1).add(s2).css(this[randomizer(stageArray)]);
-}
-if (event.data[0] == 128 && event.data[1] == 54) {
-  console.log('YEAH!! - B');
-  cacheBuster =  new Date().getTime();
-  bgCenters = ".gif?" + cacheBuster + ") center center";
-  $(s1).css('background', bankLocation + availableTriggers[1].location + availableTriggers[1].name + bgCenters);
-  $(s1).add(s2).css(this[randomizer(stageArray)]);
-}
-if (event.data[0] == 128 && event.data[1] == 55) {
-  console.log('YEAH!! - C');
-  cacheBuster =  new Date().getTime();
-  bgCenters = ".gif?" + cacheBuster + ") center center";
-  $(s1).css('background', bankLocation + availableTriggers[2].location + availableTriggers[2].name + bgCenters);
-  $(s1).add(s2).css(this[randomizer(stageArray)]);
-}
+// if (event.data[0] == 128 && event.data[1] == 53) {
+//   console.log('YEAH!! - A');
+//   Mousetrap.trigger('a');
+// }
+// if (event.data[0] == 128 && event.data[1] == 54) {
+//   console.log('YEAH!! - B');
+//   cacheBuster =  new Date().getTime();
+//   bgCenters = ".gif?" + cacheBuster + ") center center";
+//   $(s1).css('background', bankLocation + availableTriggers[1].location + availableTriggers[1].name + bgCenters);
+//   $(s1).add(s2).css(this[randomizer(stageArray)]);
+// }
+// if (event.data[0] == 128 && event.data[1] == 55) {
+//   console.log('YEAH!! - C');
+//   cacheBuster =  new Date().getTime();
+//   bgCenters = ".gif?" + cacheBuster + ") center center";
+//   $(s1).css('background', bankLocation + availableTriggers[2].location + availableTriggers[2].name + bgCenters);
+//   $(s1).add(s2).css(this[randomizer(stageArray)]);
+// }
 
 /* FILTERS */
 if (event.data[1] == 16) {
