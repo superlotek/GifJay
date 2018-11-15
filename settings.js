@@ -4,7 +4,48 @@
 // USER SETTINGS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-banksInUse = [];
+availableTriggers = {
+	"bank" : [
+		{
+			"gifs" : [
+				{ "trigger" : "q", "location" : "MasterGif/", "name" : "masterGif_demo_1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "w", "location" : "MasterGif/", "name" : "masterGif_demo_2_o", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"gifs" : [
+				{ "trigger" : "a", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
+				{ "trigger" : "s", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"gifs" : [
+				{ "trigger" : "z", "location" : "DancingTrails/", "name" : "a", "type" : 'flip', "set": "a"},
+				{ "trigger" : "x", "location" : "DancingTrails/", "name" : "b", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"gifs" : [
+				{ "trigger" : "e", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "r", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"gifs" : [
+				{ "trigger" : "d", "location" : "HighSierras/", "name" : "high-sierras-3_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "f", "location" : "HighSierras/", "name" : "high-sierras-12_o", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"gifs" : [
+				{ "trigger" : "c", "location" : "CanyonFly/", "name" : "canyon_fly_1_o_t", "type" : 'flip', "set": "a"},
+				{ "trigger" : "v", "location" : "CanyonFly/", "name" : "canyon_fly_1_o", "type" : 'flip', "set": "a"},
+			]
+		}
+	]
+}
+
+
 
 banks = {
 	"bank" : [
@@ -22,10 +63,10 @@ banks = {
 			"name" : "Dancing",
 			"enabled" : true,
 			"gifs" : [
-				{ "trigger" : "a", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
-				{ "trigger" : "b", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"},
-				{ "trigger" : "c", "location" : "Dancing/", "name" : "m", "type" : 'flip', "set": "a"},
-				{ "trigger" : "d", "location" : "Dancing/", "name" : "n", "type" : 'flip', "set": "a"}
+				{ "trigger" : "q", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
+				{ "trigger" : "a", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"},
+				{ "trigger" : "", "location" : "Dancing/", "name" : "m", "type" : 'flip', "set": "a"},
+				{ "trigger" : "", "location" : "Dancing/", "name" : "n", "type" : 'flip', "set": "a"}
 			]
 		},
 		{
@@ -33,10 +74,10 @@ banks = {
 			"name" : "Bathbombs",
 			"enabled" : true,
 			"gifs" : [
-				{ "trigger" : "a", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : "b", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : "c", "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : "d", "location" : "BathBombs/", "name" : "bathbomb-slow-2_o", "type" : 'flip', "set": "a"}
+				{ "trigger" : "u", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "i", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "", "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "", "location" : "BathBombs/", "name" : "bathbomb-slow-2_o", "type" : 'flip', "set": "a"}
 			]
 		},
 		{
@@ -44,16 +85,16 @@ banks = {
 			"name" : "Trails",
 			"enabled" : true,
 			"gifs" : [
-				{ "trigger" : "a", "location" : "DancingTrails/", "name" : "a", "type" : 'flip', "set": "a"},
-				{ "trigger" : "b", "location" : "DancingTrails/", "name" : "b", "type" : 'flip', "set": "a"},
-				{ "trigger" : "c", "location" : "DancingTrails/", "name" : "c", "type" : 'flip', "set": "a"},
-				{ "trigger" : "d", "location" : "DancingTrails/", "name" : "d", "type" : 'flip', "set": "a"},
-				{ "trigger" : "e", "location" : "DancingTrails/", "name" : "e", "type" : 'flip', "set": "a"},
-				{ "trigger" : "f", "location" : "DancingTrails/", "name" : "f", "type" : 'flip', "set": "a"},
-				{ "trigger" : "g", "location" : "DancingTrails/", "name" : "g", "type" : 'flip', "set": "a"},
-				{ "trigger" : "h", "location" : "DancingTrails/", "name" : "h", "type" : 'flip', "set": "a"},
-				{ "trigger" : "i", "location" : "DancingTrails/", "name" : "i", "type" : 'flip', "set": "a"},
-				{ "trigger" : "j", "location" : "DancingTrails/", "name" : "j", "type" : 'flip', "set": "a"}
+				{ "trigger" : "q", "location" : "DancingTrails/", "name" : "a", "type" : 'flip', "set": "a"},
+				{ "trigger" : "w", "location" : "DancingTrails/", "name" : "b", "type" : 'flip', "set": "a"},
+				{ "trigger" : "e", "location" : "DancingTrails/", "name" : "c", "type" : 'flip', "set": "a"},
+				{ "trigger" : "r", "location" : "DancingTrails/", "name" : "d", "type" : 'flip', "set": "a"},
+				{ "trigger" : "a", "location" : "DancingTrails/", "name" : "e", "type" : 'flip', "set": "a"},
+				{ "trigger" : "s", "location" : "DancingTrails/", "name" : "f", "type" : 'flip', "set": "a"},
+				{ "trigger" : "d", "location" : "DancingTrails/", "name" : "g", "type" : 'flip', "set": "a"},
+				{ "trigger" : "f", "location" : "DancingTrails/", "name" : "h", "type" : 'flip', "set": "a"},
+				{ "trigger" : "z", "location" : "DancingTrails/", "name" : "i", "type" : 'flip', "set": "a"},
+				{ "trigger" : "x", "location" : "DancingTrails/", "name" : "j", "type" : 'flip', "set": "a"}
 			]
 		},
 		{
@@ -65,6 +106,19 @@ banks = {
 				{ "trigger" : "b", "location" : "HighSierras/", "name" : "high-sierras-12_o", "type" : 'flip', "set": "a"},
 				{ "trigger" : "c", "location" : "StarTrails/", "name" : "l", "type" : 'flip', "set": "a"},
 				{ "trigger" : "d", "location" : "StarTrails/", "name" : "v", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"id" : 5,
+			"name" : "Canyon Fly",
+			"enabled" : true,
+			"gifs" : [
+				{ "trigger" : "a", "location" : "CanyonFly/", "name" : "canyon_fly_1_o_t", "type" : 'flip', "set": "a"},
+				{ "trigger" : "b", "location" : "CanyonFly/", "name" : "canyon_fly_1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "c", "location" : "CanyonFly/", "name" : "canyon_fly_2_o_t", "type" : 'flip', "set": "a"},
+				{ "trigger" : "d", "location" : "CanyonFly/", "name" : "canyon_fly_2_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "e", "location" : "CanyonFly/", "name" : "canyon_fly_3_o_t", "type" : 'flip', "set": "a"},
+				{ "trigger" : "f", "location" : "CanyonFly/", "name" : "canyon_fly_3_o", "type" : 'flip', "set": "a"}
 			]
 		}
 	]
