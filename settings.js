@@ -4,9 +4,6 @@
 // USER SETTINGS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-banksInUse = [];
-
-
 availableTriggers = {
 	"bank" : [
 		{
@@ -37,6 +34,12 @@ availableTriggers = {
 			"gifs" : [
 				{ "trigger" : "d", "location" : "HighSierras/", "name" : "high-sierras-3_o", "type" : 'flip', "set": "a"},
 				{ "trigger" : "f", "location" : "HighSierras/", "name" : "high-sierras-12_o", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"gifs" : [
+				{ "trigger" : "c", "location" : "CanyonFly/", "name" : "canyon_fly_1_o_t", "type" : 'flip', "set": "a"},
+				{ "trigger" : "v", "location" : "CanyonFly/", "name" : "canyon_fly_1_o", "type" : 'flip', "set": "a"},
 			]
 		}
 	]
@@ -103,6 +106,19 @@ banks = {
 				{ "trigger" : "b", "location" : "HighSierras/", "name" : "high-sierras-12_o", "type" : 'flip', "set": "a"},
 				{ "trigger" : "c", "location" : "StarTrails/", "name" : "l", "type" : 'flip', "set": "a"},
 				{ "trigger" : "d", "location" : "StarTrails/", "name" : "v", "type" : 'flip', "set": "a"}
+			]
+		},
+		{
+			"id" : 5,
+			"name" : "Canyon Fly",
+			"enabled" : true,
+			"gifs" : [
+				{ "trigger" : "a", "location" : "CanyonFly/", "name" : "canyon_fly_1_o_t", "type" : 'flip', "set": "a"},
+				{ "trigger" : "b", "location" : "CanyonFly/", "name" : "canyon_fly_1_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "c", "location" : "CanyonFly/", "name" : "canyon_fly_2_o_t", "type" : 'flip', "set": "a"},
+				{ "trigger" : "d", "location" : "CanyonFly/", "name" : "canyon_fly_2_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "e", "location" : "CanyonFly/", "name" : "canyon_fly_3_o_t", "type" : 'flip', "set": "a"},
+				{ "trigger" : "f", "location" : "CanyonFly/", "name" : "canyon_fly_3_o", "type" : 'flip', "set": "a"}
 			]
 		}
 	]

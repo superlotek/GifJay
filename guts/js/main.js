@@ -39,6 +39,7 @@ function killSwitch() {
 }
 
 function startup() {
+  bankNumber = randomizer(banksInUse);
 
   banks.bank.forEach(function(gleep) {
     if (gleep.enabled) {
