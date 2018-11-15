@@ -832,24 +832,7 @@ Mousetrap.bind('shift+return', function() {
     var overlaySelectKeyArray = ['¡','™','£','¢','∞','§','¶','•','ª','º'];
     for(let i = 0; i < overlaySelectKeyArray.length; i++) {
         Mousetrap.bind(overlaySelectKeyArray[i], function() {
-
-          if(!overlayOn) {
-            // $('.overlays').css('background', 'none');
-
-            overlayNumber = i+1; console.log('OVERLAY SELECTED : ' + overlayNumber);
-            $('.overlays').css('background', 'url(overlays/overlay_' + i + '.gif)');
-            $('.overlays').css('background-size', 'cover');
-
-            overlayOn = 1;
-            // $('.overlays').css('animation-name', 'overlayScale');
-
-          } else {
-
-            overlayOn = 0;
-            $('.overlays').css('background', 'none');
-
-          }
-
+          console.log('OVERLAY COMING SOON');
         });
     }
 
