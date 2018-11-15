@@ -844,22 +844,30 @@ Mousetrap.bind('shift+return', function() {
 
 createGiyTriggers(bankNumber);
   function createGiyTriggers(bankNumber) {
+
     // Reset the trigger buttons (A-Z)
     for ( i = 0; i < giyTriggerArray.length; i++) {
       Mousetrap.unbind(giyTriggerArray[i]);
     }
+
     singleBankTriggerArray = [];
+
     availableTriggers.bank[bankNumber].gifs.forEach(function(element, index) {
     	singleBankTriggerArray.push(element);
-      cacheBuster =  new Date().getTime();
-      bgCenters = ".gif?" + cacheBuster + ") center center";
+
       Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {
+        cacheBuster =  new Date().getTime();
+        bgCenters = ".gif?" + cacheBuster + ") center center";
         $(s1).css({
           'background': bankLocation + availableTriggers.bank[bankNumber].gifs[index].location + availableTriggers.bank[bankNumber].gifs[index].name + bgCenters
         });
         $(s1).css(this[randomizer(stageArray)]);
       });
+
       Mousetrap.bind(singleBankTriggerArray[index].trigger.toUpperCase(), function() {
+        cacheBuster =  new Date().getTime();
+        bgCenters = ".gif?" + cacheBuster + ") center center";
+
         $(s2).css({
           'background': bankLocation + availableTriggers.bank[bankNumber].gifs[index].location + availableTriggers.bank[bankNumber].gifs[index].name + bgCenters
         });
