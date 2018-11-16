@@ -556,7 +556,7 @@ function buildKaleidoscope() {
 
   function sameSame() {
 
-    if(!bankerOn) {
+    // if(!bankerOn) {
         // console.log('SAMESAME v2');
         $(s1).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter)
           .css({'background-repeat':'no-repeat', 'background-size':'cover'});
@@ -567,7 +567,7 @@ function buildKaleidoscope() {
         });
         var beatz = beatTime/beatSpeed;
         $(s2).css('animation-duration', beatz * sameSameConstant + 's');
-    }
+    // }
   }
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
