@@ -842,24 +842,36 @@ Mousetrap.bind('shift+return', function() {
 // GIY:  KEYBOARD TRIGGERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-createGiyTriggers(bankNumber);
-  function createGiyTriggers(bankNumber) {
+  createGiyTriggers(bankNumber);
 
+  function createGiyTriggers(bankNumber) {
+    console.log('CREATING GIY TRIGGERS');
     // Reset the trigger buttons (A-Z)
     for ( i = 0; i < giyTriggerArray.length; i++) {
       Mousetrap.unbind(giyTriggerArray[i]);
+      Mousetrap.unbind(giyTriggerArray[i].toUpperCase());
     }
 
     singleBankTriggerArray = [];
 
-    availableTriggers.bank[bankNumber].gifs.forEach(function(element, index) {
-    	singleBankTriggerArray.push(element);
+    banks.bank[bankNumber].gifs.forEach(function(element, index) {
+      if (banks.bank[bankNumber].gifs[index].trigger !== null) {
+        singleBankTriggerArray.push(element);
+      }
+      singleBankTriggers();
+    });
+  }
+
+  function singleBankTriggers() {
+    console.log('SINGLE BANK TRIGGERS');
+    singleBankTriggerArray.forEach(function(element, index) {
 
       Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {
+        console.log('HI ' + singleBankTriggerArray[index].trigger);
         cacheBuster =  new Date().getTime();
         bgCenters = ".gif?" + cacheBuster + ") center center";
         $(s1).css({
-          'background': bankLocation + availableTriggers.bank[bankNumber].gifs[index].location + availableTriggers.bank[bankNumber].gifs[index].name + bgCenters
+          'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
         $(s1).css(this[randomizer(stageArray)]);
       });
@@ -867,9 +879,8 @@ createGiyTriggers(bankNumber);
       Mousetrap.bind(singleBankTriggerArray[index].trigger.toUpperCase(), function() {
         cacheBuster =  new Date().getTime();
         bgCenters = ".gif?" + cacheBuster + ") center center";
-
         $(s2).css({
-          'background': bankLocation + availableTriggers.bank[bankNumber].gifs[index].location + availableTriggers.bank[bankNumber].gifs[index].name + bgCenters
+          'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
         $(s2).css(this[randomizer(stageArray)]);
       });
