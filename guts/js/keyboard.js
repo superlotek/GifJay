@@ -537,6 +537,8 @@ Mousetrap.bind('shift+return', function() {
       if(!setOn) {
         // Sets the bank number that this Banker Set is referencing
         setBank = bankerSets.set[i].bank;
+        bankNumber = setBank;
+        createGiyTriggers(bankNumber);
 
         // setArray = [];
         // Array to store the Banker Set gifs so they can be randomized
@@ -873,6 +875,7 @@ Mousetrap.bind('shift+return', function() {
         $(s1).css({
           'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
+        if (sceneFullscreenOn) { screenFullscreen(); return false; }
         $(s1).css(this[randomizer(stageArray)]);
       });
 
@@ -882,6 +885,7 @@ Mousetrap.bind('shift+return', function() {
         $(s2).css({
           'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
+        if (sceneFullscreenOn) { screenFullscreen(); return false; }
         $(s2).css(this[randomizer(stageArray)]);
       });
     });

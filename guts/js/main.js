@@ -119,6 +119,7 @@ function stageParameters() {
 }
 
 function screenFullscreen() {
+  console.log('SCENE FULLSCREEN');
   $(s1).css(sf);
   $(s2).css(sf);
 }
