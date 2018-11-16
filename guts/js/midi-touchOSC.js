@@ -57,6 +57,23 @@ function handleMIDIMessage(event){
 //   $(s1).add(s2).css(this[randomizer(stageArray)]);
 // }
 
+
+if (event.data[1] == 52) {
+  console.log('hi');
+  console.log(event.data[2]);
+  var numberOfGifs = banks.bank[3].gifs.length - 1;
+  ogValue = 127 / numberOfGifs;
+  var glrp = Math.floor(event.data[2] / ogValue);
+  console.log(glrp);
+  // cacheBuster =  new Date().getTime();
+  bgCenters = ".gif?) center center";
+
+  $(s1).css({
+    'background': bankLocation + singleBankTriggerArray[glrp].location + singleBankTriggerArray[glrp].name + bgCenters
+  });
+}
+
+
 /* FILTERS */
 if (event.data[1] == 16) {
   s1SaturateString = "saturate(" + event.data[2] + ")";

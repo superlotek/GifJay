@@ -891,17 +891,18 @@ Mousetrap.bind('shift+return', function() {
     });
   }
 
-  $('#start').change(function() {
-    var numberOfGifs = banks.bank[3].gifs.length - 1;
-    ogValue = 127 / numberOfGifs;
-    var glrp = Math.floor($(this).val() / ogValue);
-    console.log(glrp);
-    cacheBuster =  new Date().getTime();
-    bgCenters = ".gif?" + cacheBuster + ") center center";
-
-    $(s1).css({
-      'background': bankLocation + singleBankTriggerArray[glrp].location + singleBankTriggerArray[glrp].name + bgCenters
-    });
-
+  // $('#start').change(function() {
+  //   var numberOfGifs = banks.bank[3].gifs.length - 1;
+  //   ogValue = 127 / numberOfGifs;
+  //   var glrp = Math.floor($(this).val() / ogValue);
+  //   console.log(glrp);
+  //   cacheBuster =  new Date().getTime();
+  //   bgCenters = ".gif?" + cacheBuster + ") center center";
+  //
+  //   $(s1).css({
+  //     'background': bankLocation + singleBankTriggerArray[glrp].location + singleBankTriggerArray[glrp].name + bgCenters
+  //   });
+  //
+  // });
 
 }); /* END DOM READY */
