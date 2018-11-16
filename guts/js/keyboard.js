@@ -813,21 +813,39 @@ Mousetrap.bind('shift+return', function() {
   // SELECTING BANKS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    var bankSelectKeyArray = [')','!','@','#','$','%','^','&','*','('];
-    for(let i = 0; i < bankSelectKeyArray.length; i++) {
-        Mousetrap.bind(bankSelectKeyArray[i], function() {
-          bankNumber = i; console.log('S1 BANK SELECTED : ' + bankNumber);
+    // Check for enabled Banks
+    createEnabledBankers();
+    function createEnabledBankers() {
+      banks.bank.forEach(function(element, index) {
+        console.log('CHECKING FOR ENABLED BANKS');
+
+        if (element.enabled === true) {
+          console.log('BANK ' + element.id + ': ENABLED!');
+          enabledBankersArray.push(element);
+        }
+      });
+      enabledBankers();
+    }
+
+    function enabledBankers() {
+      for(let i = 0; i < enabledBankersArray.length; i++) {
+        Mousetrap.bind(enabledBankersArray[i].trigger, function() {
+          bankNumber = enabledBankersArray[i].id;
+          console.log('S1 BANK SELECTED : ' + bankNumber);
           var numberKey = bankNumber;
           createGiyTriggers(bankNumber);
 
           if(bankerOn == 1) {
             bankerArray.push(bankNumber);
-            console.log('BANK ' + numberKey + ' : ADDED TO BANKS'); console.log(bankerArray);
+            console.log('BANK ' + numberKey + ' : ADDED TO BANKS');
+            console.log(bankerArray);
           } else {
             console.log('BANK SELECTED : ' + bankNumber);
             bankSelected = true;
           }
+
         });
+      }
     }
 
   // OVERLAYS

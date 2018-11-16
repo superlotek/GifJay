@@ -8,8 +8,9 @@ banks = {
 	"bank" : [
 		{
 			"id" : 0,
+			"trigger": ")",
 			"name" : "MasterGif",
-			"enabled" : true,
+			"enabled" : false,
 			"gifs" : [
 				{ "trigger" : "a", "location" : "MasterGif/", "name" : "masterGif_demo_1_o", "type" : 'flip', "set": "a"},
 				{ "trigger" : "b", "location" : "MasterGif/", "name" : "masterGif_demo_2_o", "type" : 'flip', "set": "a"}
@@ -17,8 +18,9 @@ banks = {
 		},
 		{
 			"id" : 1,
+			"trigger": "!",
 			"name" : "Dancing",
-			"enabled" : true,
+			"enabled" : false,
 			"gifs" : [
 				{ "trigger" : "q", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
 				{ "trigger" : "a", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"},
@@ -28,6 +30,7 @@ banks = {
 		},
 		{
 			"id" : 2,
+			"trigger": "@",
 			"name" : "Bathbombs",
 			"enabled" : true,
 			"gifs" : [
@@ -39,6 +42,7 @@ banks = {
 		},
 		{
 			"id" : 3,
+			"trigger": "#",
 			"name" : "Trails",
 			"enabled" : true,
 			"gifs" : [
@@ -56,6 +60,7 @@ banks = {
 		},
 		{
 			"id" : 4,
+			"trigger": "$",
 			"name" : "Trails",
 			"enabled" : true,
 			"gifs" : [
@@ -67,6 +72,7 @@ banks = {
 		},
 		{
 			"id" : 5,
+			"trigger": "%",
 			"name" : "Canyon Fly",
 			"enabled" : true,
 			"gifs" : [
