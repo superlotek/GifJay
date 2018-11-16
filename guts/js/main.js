@@ -191,10 +191,10 @@ function sceneSetter(arrayName, banker1, banker2) {
         }
 
         // SET THE SCENE
-        $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.name + bgCenter });
-        $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.name + bgCenter });
-        $(s1).css(this[randomizer(stageArray)]);
-        $(s2).css(this[randomizer(stageArray)]);
+        // $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.name + bgCenter });
+        // $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.name + bgCenter });
+        // $(s1).css(this[randomizer(stageArray)]);
+        // $(s2).css(this[randomizer(stageArray)]);
         // $(s2).css('opacity', '1');
 
         // This setups up before RoboMode
