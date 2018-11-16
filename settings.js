@@ -137,8 +137,8 @@ banks = {
 			"gifs" : [
 				{ "trigger" : "q", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
 				{ "trigger" : "a", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"},
-				{ "trigger" : "", "location" : "Dancing/", "name" : "m", "type" : 'flip', "set": "a"},
-				{ "trigger" : "", "location" : "Dancing/", "name" : "n", "type" : 'flip', "set": "a"}
+				{ "trigger" : null, "location" : "Dancing/", "name" : "m", "type" : 'flip', "set": "a"},
+				{ "trigger" : null, "location" : "Dancing/", "name" : "n", "type" : 'flip', "set": "a"}
 			]
 		},
 		{
@@ -148,8 +148,8 @@ banks = {
 			"gifs" : [
 				{ "trigger" : "u", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
 				{ "trigger" : "i", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : "", "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : "", "location" : "BathBombs/", "name" : "bathbomb-slow-2_o", "type" : 'flip', "set": "a"}
+				{ "trigger" : null, "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : null, "location" : "BathBombs/", "name" : "bathbomb-slow-2_o", "type" : 'flip', "set": "a"}
 			]
 		},
 		{
@@ -190,34 +190,11 @@ banks = {
 				{ "trigger" : "c", "location" : "CanyonFly/", "name" : "canyon_fly_2_o_t", "type" : 'flip', "set": "a"},
 				{ "trigger" : "d", "location" : "CanyonFly/", "name" : "canyon_fly_2_o", "type" : 'flip', "set": "a"},
 				{ "trigger" : "e", "location" : "CanyonFly/", "name" : "canyon_fly_3_o_t", "type" : 'flip', "set": "a"},
-				{ "trigger" : "f", "location" : "CanyonFly/", "name" : "canyon_fly_3_o", "type" : 'flip', "set": "a"}
+				{ "trigger" : "", "location" : "CanyonFly/", "name" : "canyon_fly_3_o", "type" : 'flip', "set": "a"}
 			]
 		}
 	]
 }
-
-// sampledScenes = {
-// 	"scene" : [
-// 		{
-// 			"stages" : [
-// 				{ "bank" : 2, "location" : "BathBombs/", "gif" : "bathbomb-spinner-1_o", "size" : "cover", "no-repeat" : "repeat", "blend" : "normal" },
-// 				{ "bank" : 1, "location" : "Dancing/", "gif" : "h", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
-// 			]
-// 		},
-// 		{
-// 			"stages" : [
-// 				{ "bank" : 0, "location" : "MasterGif/", "gif" : "masterGif_demo_1_o", "size" : "auto", "repeat" : "repeat", "blend" : "normal" },
-// 				{ "bank" : 1, "location" : "Dancing/", "gif" : "m", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
-// 			]
-// 		},
-// 		{
-// 			"stages" : [
-// 				{ "bank" : 0, "location" : "MasterGif/", "gif" : "masterGif_demo_1_o", "size" : "auto", "repeat" : "repeat", "blend" : "normal" },
-// 				{ "bank" : 1, "location" : "Dancing/", "gif" : "m", "size" : "auto", "repeat" : "repeat", "blend" : "screen" }
-// 			]
-// 		}
-// 	]
-// }
 
 setsArray = [];
 

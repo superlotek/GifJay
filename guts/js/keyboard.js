@@ -537,6 +537,8 @@ Mousetrap.bind('shift+return', function() {
       if(!setOn) {
         // Sets the bank number that this Banker Set is referencing
         setBank = bankerSets.set[i].bank;
+        bankNumber = setBank;
+        createGiyTriggers(bankNumber);
 
         // setArray = [];
         // Array to store the Banker Set gifs so they can be randomized
@@ -845,39 +847,61 @@ Mousetrap.bind('shift+return', function() {
   createGiyTriggers(bankNumber);
 
   function createGiyTriggers(bankNumber) {
-    console.log('CREATE GIY TRIGGERS');
-
+    console.log('CREATING GIY TRIGGERS');
     // Reset the trigger buttons (A-Z)
     for ( i = 0; i < giyTriggerArray.length; i++) {
       Mousetrap.unbind(giyTriggerArray[i]);
+      Mousetrap.unbind(giyTriggerArray[i].toUpperCase());
     }
 
     singleBankTriggerArray = [];
 
-    availableTriggers.bank[bankNumber].gifs.forEach(function(element, index) {
-    	singleBankTriggerArray.push(element);
+    banks.bank[bankNumber].gifs.forEach(function(element, index) {
+      if (banks.bank[bankNumber].gifs[index].trigger !== null) {
+        singleBankTriggerArray.push(element);
+      }
+      singleBankTriggers();
+    });
+  }
+
+  function singleBankTriggers() {
+    console.log('SINGLE BANK TRIGGERS');
+    singleBankTriggerArray.forEach(function(element, index) {
 
       Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {
-        console.log(index);
-        console.log(singleBankTriggerArray[index].trigger);
+        console.log('HI ' + singleBankTriggerArray[index].trigger);
         cacheBuster =  new Date().getTime();
         bgCenters = ".gif?" + cacheBuster + ") center center";
         $(s1).css({
-          'background': bankLocation + availableTriggers.bank[bankNumber].gifs[index].location + availableTriggers.bank[bankNumber].gifs[index].name + bgCenters
+          'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
-        // $(s1).css(this[randomizer(stageArray)]);
+        if (sceneFullscreenOn) { screenFullscreen(); return false; }
+        $(s1).css(this[randomizer(stageArray)]);
       });
 
       Mousetrap.bind(singleBankTriggerArray[index].trigger.toUpperCase(), function() {
         cacheBuster =  new Date().getTime();
         bgCenters = ".gif?" + cacheBuster + ") center center";
-
         $(s2).css({
-          'background': bankLocation + availableTriggers.bank[bankNumber].gifs[index].location + availableTriggers.bank[bankNumber].gifs[index].name + bgCenters
+          'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
+        if (sceneFullscreenOn) { screenFullscreen(); return false; }
         $(s2).css(this[randomizer(stageArray)]);
       });
     });
   }
+
+  $('#start').change(function() {
+    var numberOfGifs = banks.bank[3].gifs.length - 1;
+    ogValue = 127 / numberOfGifs;
+    var glrp = Math.floor($(this).val() / ogValue);
+    console.log(glrp);
+    cacheBuster =  new Date().getTime();
+    bgCenters = ".gif?" + cacheBuster + ") center center";
+
+    $(s1).css({
+      'background': bankLocation + singleBankTriggerArray[glrp].location + singleBankTriggerArray[glrp].name + bgCenters
+    });
+
 
 }); /* END DOM READY */
