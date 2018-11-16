@@ -73,9 +73,9 @@ banks = {
 				{ "trigger" : "a", "location" : "CanyonFly/", "name" : "canyon_fly_1_o_t", "type" : 'flip', "set": "a"},
 				{ "trigger" : "b", "location" : "CanyonFly/", "name" : "canyon_fly_1_o", "type" : 'flip', "set": "a"},
 				{ "trigger" : "c", "location" : "CanyonFly/", "name" : "canyon_fly_2_o_t", "type" : 'flip', "set": "a"},
-				{ "trigger" : null, "location" : "CanyonFly/", "name" : "canyon_fly_2_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : null, "location" : "CanyonFly/", "name" : "canyon_fly_3_o_t", "type" : 'flip', "set": "a"},
-				{ "trigger" : null, "location" : "CanyonFly/", "name" : "canyon_fly_3_o", "type" : 'flip', "set": "a"}
+				{ "trigger" : "d", "location" : "CanyonFly/", "name" : "canyon_fly_2_o", "type" : 'flip', "set": "a"},
+				{ "trigger" : "e", "location" : "CanyonFly/", "name" : "canyon_fly_3_o_t", "type" : 'flip', "set": "a"},
+				{ "trigger" : "f", "location" : "CanyonFly/", "name" : "canyon_fly_3_o", "type" : 'flip', "set": "a"}
 			]
 		}
 	]

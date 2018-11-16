@@ -138,7 +138,7 @@ function setGPS() {
 *********************************************
 */
 
-function sceneSetter(arrayName,banker1,banker2) {
+function sceneSetter(arrayName, banker1, banker2) {
 
   // choose 2 random banks
   bankSelectorS1 = banker1;
@@ -190,7 +190,6 @@ function sceneSetter(arrayName,banker1,banker2) {
         }
 
         // SET THE SCENE
-        console.log('does SETS GO HERE??');
         $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.name + bgCenter });
         $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.name + bgCenter });
         $(s1).css(this[randomizer(stageArray)]);
@@ -249,9 +248,10 @@ function playMode(playType) {
       if (samplerOn) {
         playMode('sampler');
       } else {
-        if (stgSelect == s1 || s2) { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray); }
-        if (stgSelect == 'all') { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray) }
-        sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
+        // if (stgSelect == s1 || s2) { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray); }
+        // if (stgSelect == "all") { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray); }
+        bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray);
+        sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
       }
 
       break;
@@ -264,7 +264,7 @@ function playMode(playType) {
       currentPlayMode = 'sets';
       bankSelectorS1 = setBank; bankSelectorS2 = setBank;
       // sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
-      sceneSetter(bankerSetStorage,bankSelectorS1,bankSelectorS2);
+      sceneSetter(bankerSetStorage, bankSelectorS1, bankSelectorS2);
       break;
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-
