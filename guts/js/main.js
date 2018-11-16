@@ -180,11 +180,10 @@ function sceneSetter(arrayName,banker1,banker2) {
         }
 
         // SET THE SCENE
-        console.log('does SETS GO HERE??');
-        $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.name + bgCenter });
-        $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.name + bgCenter });
-        $(s1).css(this[randomizer(stageArray)]);
-        $(s2).css(this[randomizer(stageArray)]);
+        // $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.name + bgCenter });
+        // $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.name + bgCenter });
+        // $(s1).css(this[randomizer(stageArray)]);
+        // $(s2).css(this[randomizer(stageArray)]);
         // $(s2).css('opacity', '1');
 
         // This setups up before RoboMode
@@ -545,7 +544,7 @@ function buildKaleidoscope() {
 
   function sameSame() {
 
-    if(!bankerOn) {
+    // if(!bankerOn) {
         // console.log('SAMESAME v2');
         $(s1).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter)
           .css({'background-repeat':'no-repeat', 'background-size':'cover'});
@@ -556,7 +555,7 @@ function buildKaleidoscope() {
         });
         var beatz = beatTime/beatSpeed;
         $(s2).css('animation-duration', beatz * sameSameConstant + 's');
-    }
+    // }
   }
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
