@@ -4,46 +4,46 @@
 // USER SETTINGS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-availableTriggers = {
-	"bank" : [
-		{
-			"gifs" : [
-				{ "trigger" : "a", "location" : "MasterGif/", "name" : "masterGif_demo_1_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : "b", "location" : "MasterGif/", "name" : "masterGif_demo_2_o", "type" : 'flip', "set": "a"}
-			]
-		},
-		{
-			"gifs" : [
-				{ "trigger" : "a", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
-				{ "trigger" : "s", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"}
-			]
-		},
-		{
-			"gifs" : [
-				{ "trigger" : "z", "location" : "DancingTrails/", "name" : "a", "type" : 'flip', "set": "a"},
-				{ "trigger" : "x", "location" : "DancingTrails/", "name" : "b", "type" : 'flip', "set": "a"}
-			]
-		},
-		{
-			"gifs" : [
-				{ "trigger" : "e", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : "r", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "a"}
-			]
-		},
-		{
-			"gifs" : [
-				{ "trigger" : "d", "location" : "HighSierras/", "name" : "high-sierras-3_o", "type" : 'flip', "set": "a"},
-				{ "trigger" : "f", "location" : "HighSierras/", "name" : "high-sierras-12_o", "type" : 'flip', "set": "a"}
-			]
-		},
-		{
-			"gifs" : [
-				{ "trigger" : "c", "location" : "CanyonFly/", "name" : "canyon_fly_1_o_t", "type" : 'flip', "set": "a"},
-				{ "trigger" : "v", "location" : "CanyonFly/", "name" : "canyon_fly_1_o", "type" : 'flip', "set": "a"},
-			]
-		}
-	]
-}
+// availableTriggers = {
+// 	"bank" : [
+// 		{
+// 			"gifs" : [
+// 				{ "trigger" : "a", "location" : "MasterGif/", "name" : "masterGif_demo_1_o", "type" : 'flip', "set": "a"},
+// 				{ "trigger" : "b", "location" : "MasterGif/", "name" : "masterGif_demo_2_o", "type" : 'flip', "set": "a"}
+// 			]
+// 		},
+// 		{
+// 			"gifs" : [
+// 				{ "trigger" : "a", "location" : "Dancing/", "name" : "b", "type" : 'flip', "set": "a"},
+// 				{ "trigger" : "s", "location" : "Dancing/", "name" : "h", "type" : 'flip', "set": "a"}
+// 			]
+// 		},
+// 		{
+// 			"gifs" : [
+// 				{ "trigger" : "z", "location" : "DancingTrails/", "name" : "a", "type" : 'flip', "set": "a"},
+// 				{ "trigger" : "x", "location" : "DancingTrails/", "name" : "b", "type" : 'flip', "set": "a"}
+// 			]
+// 		},
+// 		{
+// 			"gifs" : [
+// 				{ "trigger" : "e", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "a"},
+// 				{ "trigger" : "r", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "a"}
+// 			]
+// 		},
+// 		{
+// 			"gifs" : [
+// 				{ "trigger" : "d", "location" : "HighSierras/", "name" : "high-sierras-3_o", "type" : 'flip', "set": "a"},
+// 				{ "trigger" : "f", "location" : "HighSierras/", "name" : "high-sierras-12_o", "type" : 'flip', "set": "a"}
+// 			]
+// 		},
+// 		{
+// 			"gifs" : [
+// 				{ "trigger" : "c", "location" : "CanyonFly/", "name" : "canyon_fly_1_o_t", "type" : 'flip', "set": "a"},
+// 				{ "trigger" : "v", "location" : "CanyonFly/", "name" : "canyon_fly_1_o", "type" : 'flip', "set": "a"},
+// 			]
+// 		}
+// 	]
+// }
 
 var midiOn = true;
 
@@ -269,8 +269,8 @@ titlePageName = 'title-1.gif';
 stageArray = ['sf', 'st'];
 shapeArray = ['circle','triangle','rhombus','octagon','close','frame','rabbet'];
 flipArray = ['rotateX(180deg)','rotateX(-180deg)','rotateY(180deg)','rotateY(-180deg)'];
-// blendModeArray = ['multiply','screen','overlay','darken','lighten','color-dodge','color-burn',
-//   'hard-light','soft-light','difference','exclusion','hue','saturation','color','luminosity'];
+blendModes = ['multiply','screen','overlay','darken','lighten','color-dodge','color-burn',
+  'hard-light','soft-light','difference','exclusion','hue','saturation','color','luminosity'];
 // blendModeArray = ['multiply','screen','overlay','darken','lighten'];
 blendModeArray = ['screen','overlay'];
 effectArray = ['invert','saturation','brightness','hue-rotate','blur'];

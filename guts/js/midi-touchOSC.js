@@ -35,7 +35,7 @@ function handleMIDIMessage(event){
   //1) The controller id
   //2) The controller value (typically in the range 0 - 127)
 
-  console.log(event.data);
+  // console.log(event.data);
 
 /* GIY PLAY */
 // if (event.data[0] == 128 && event.data[1] == 53) {
@@ -58,20 +58,35 @@ function handleMIDIMessage(event){
 // }
 
 
-if (event.data[1] == 52) {
-  console.log('hi');
-  console.log(event.data[2]);
+if (event.data[1] == 48) {
+  console.log('GIF TWIST');
   var numberOfGifs = banks.bank[3].gifs.length - 1;
   ogValue = 127 / numberOfGifs;
   var glrp = Math.floor(event.data[2] / ogValue);
   console.log(glrp);
-  // cacheBuster =  new Date().getTime();
+  cacheBuster =  new Date().getTime();
   bgCenters = ".gif?) center center";
 
   $(s1).css({
     'background': bankLocation + singleBankTriggerArray[glrp].location + singleBankTriggerArray[glrp].name + bgCenters
   });
 }
+
+if (event.data[1] == 49) {
+  console.log('BLEND MODES');
+  // console.log(event.data[2]);
+  var numberOfBlendModes = blendModes.length - 1;
+  ogValue = 127 / numberOfBlendModes;
+  var glrp = Math.floor(event.data[2] / ogValue);
+  console.log(blendModes[glrp]);
+  // cacheBuster =  new Date().getTime();
+  bgCenters = ".gif?) center center";
+
+  $(s2).css({
+    'mix-blend-mode' : blendModes[glrp]
+  });
+}
+
 
 
 /* FILTERS */
