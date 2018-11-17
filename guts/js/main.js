@@ -596,6 +596,7 @@ function buildKaleidoscope() {
         $(s1).css('-webkit-filter', s1SaturateString);
         $(s2).css('-webkit-filter', s2SaturateString);
         addFilter(0, s2SaturateString);
+        $(s1).add(s2).css('-webkit-filter', filtersOnString);
       } else {
         addFilter(0, s1SaturateString);
         $(stgSelect).css('-webkit-filter', filtersOnString);
@@ -617,10 +618,10 @@ function buildKaleidoscope() {
           console.log('FX HUESHIFT: STG 1+2');
           $(s1).css('-webkit-filter', s1HueshiftString);
           $(s2).css('-webkit-filter', s2HueshiftString);
+          addFilter(1, s2HueshiftString)
+          $(s1).add(s2).css('-webkit-filter', filtersOnString);
         } else {
-
           addFilter(1, s1HueshiftString)
-
           $(stgSelect).css('-webkit-filter', filtersOnString);
         }
       }
@@ -639,6 +640,8 @@ function buildKaleidoscope() {
           console.log('FX BLURRY: STG 1+2');
           $(s1).css('-webkit-filter','blur(' + s1BlurValue + 'px');
           $(s2).css('-webkit-filter','blur(' + s2BlurValue + 'px');
+          addFilter(2, s2BlurString);
+          $(s1).add(s2).css('-webkit-filter', filtersOnString);
         } else {
           $(stgSelect).css('-webkit-filter','blur(' + numRan(10) + 'px');
           addFilter(2, s1BlurString);
@@ -662,6 +665,8 @@ function buildKaleidoscope() {
           console.log('FX INVERT: STG 1+2');
           $(s1).css('-webkit-filter','invert(' + s1InvertValue + ')');
           $(s2).css('-webkit-filter','invert(' + s2InvertValue + ')');
+          addFilter(3, s2InvertString);
+          $(s1).add(s2).css('-webkit-filter', filtersOnString);
         } else {
           $(stgSelect).css('-webkit-filter','invert(1)');
           addFilter(3, s1InvertString);
