@@ -190,6 +190,16 @@ function sceneSetter(arrayName, banker1, banker2) {
           if (sceneFullscreenOn) { screenFullscreen(); }
         }
 
+        if (gifSelectorS1.gif === gifSelectorS2.gif) {
+          console.log("WE'VE GOT A DUPE!!!");
+          $(s1).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
+          $(s2).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
+          $(s1).css('background-repeat', 'repeat');
+          $(s2).css('background-repeat', 'no-repeat');
+          $(s2).css('background-size', 'cover');
+          return false;
+        }
+
         // SET THE SCENE
         // $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.name + bgCenter });
         // $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.name + bgCenter });
