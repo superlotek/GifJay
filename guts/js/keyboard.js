@@ -812,6 +812,11 @@ bankerStorageSet = new Set();
               console.log('BANK ' + bankNumber + ' : REMOVED FROM BANKER');
               bankerArray = [...bankerStorageSet];
               console.log(bankerArray);
+
+              if (bankerArray.length === 0) {
+                Mousetrap.trigger("'");
+              }
+
               return false;
             }
 
