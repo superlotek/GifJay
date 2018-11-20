@@ -786,6 +786,8 @@ Mousetrap.bind('shift+return', function() {
       enabledBankers();
     }
 
+bankerStorageSet = new Set();
+
     function enabledBankers() {
       for(let i = 0; i < enabledBankersArray.length; i++) {
         Mousetrap.bind(enabledBankersArray[i].trigger, function() {
@@ -795,12 +797,24 @@ Mousetrap.bind('shift+return', function() {
           createGiyTriggers(bankNumber);
 
           if(bankerOn == 1) {
-            bankerArray.push(bankNumber);
-            console.log('BANK ' + numberKey + ' : ADDED TO BANKS');
+
+            if (bankerStorageSet.has(bankNumber)) {
+              bankerStorageSet.delete(bankNumber);
+              console.log('BANK ' + bankNumber + ' : REMOVED FROM BANKER');
+              bankerArray = [...bankerStorageSet];
+              console.log(bankerArray);
+              return false;
+            }
+
+            bankerStorageSet.add(bankNumber);
+            bankerArray = [...bankerStorageSet];
+            console.log('BANK ' + bankNumber + ' : ADDED TO BANKER');
             console.log(bankerArray);
+
           } else {
             console.log('BANK SELECTED : ' + bankNumber);
             bankSelected = true;
+            
           }
 
         });
