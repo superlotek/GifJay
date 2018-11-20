@@ -39,8 +39,6 @@ function killSwitch() {
 }
 
 function startup() {
-  bankNumber = randomizer(banksInUse);
-
   banks.bank.forEach(function(gleep) {
     if (gleep.enabled) {
       banksInUse.push(gleep.id);
@@ -48,6 +46,7 @@ function startup() {
   });
 
   bankNumber = randomizer(banksInUse);
+  console.log('BANK NUMBER: ' + bankNumber);
 
   if(localStorage.getItem('killSwitch') == 'killed') {
     killSwitch();
