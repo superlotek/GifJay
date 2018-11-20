@@ -616,6 +616,15 @@ Mousetrap.bind('shift+return', function() {
 
         } else {
 
+          if (samplerOn) {
+            console.log('THIS IS WHERE WE DELETE YOU');
+            sampledScenes.scene.splice(samplerIndex,1);
+            console.log(sampledScenes);
+            --samplerIndex;
+            return false;
+
+          }
+
           console.log('StageFlip');
           stageFlip();
 
@@ -814,7 +823,7 @@ bankerStorageSet = new Set();
           } else {
             console.log('BANK SELECTED : ' + bankNumber);
             bankSelected = true;
-            
+
           }
 
         });

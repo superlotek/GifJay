@@ -336,6 +336,12 @@ function playMode(playType) {
 
       } else {
 
+        if (sampledScenes.scene.length === 0) {
+          console.log('SWITCH TO ANOTHER MODE');
+          Mousetrap.trigger('alt+;');
+          return false;
+        }
+
         if (samplerIndex == (sampledScenes.scene.length - 1)) { samplerIndex = -1; }
         ++samplerIndex;
       }
