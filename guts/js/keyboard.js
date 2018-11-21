@@ -520,42 +520,86 @@ Mousetrap.bind('shift+return', function() {
 // BANKER SETS ON/OFF [ ' ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  // This creates the keyboard commands that map to the Banker Set letters
-  bankerSets.set.forEach(function(element) {
-    setsArray.push(element.trigger);
+  // // This creates the keyboard commands that map to the Banker Set letters
+  // bankerSets.set.forEach(function(element) {
+  //   setsArray.push(element.trigger);
+  // });
+  //
+  // for(let i = 0; i < setsArray.length; i++) {
+  //
+  //   Mousetrap.bind("alt+" + setsArray[i], function() {
+  //
+  //     if(!setOn) {
+  //       // Sets the bank number that this Banker Set is referencing
+  //       setBank = bankerSets.set[i].bank;
+  //       bankNumber = setBank;
+  //       createGiyTriggers(bankNumber);
+  //
+  //       // setArray = [];
+  //       // Array to store the Banker Set gifs so they can be randomized
+  //
+  //       bankerSets.set[i].gifs.forEach(function(element) {
+  //         bankerSetStorage.scenes.push(
+  //           { location: element.location, name: element.name }
+  //         );
+  //       });
+  //
+  //       setOn = 1;
+  //
+  //       console.log('BANKER SET: [' + setsArray[i] +  '] LOADING');
+  //
+  //     } else {
+  //       console.log('BANKER SET: OFF');
+  //       setOn = 0;
+  //       setArray = {};
+  //     }
+  //   });
+  //
+  // }
+
+  // BANKER SETS ON/OFF [ ' ]
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+  gleep = [];
+  banks.bank[0].gifs.forEach(function(glip) {
+  	console.log(glip.set);
+  	if (glip.set == 'd') {
+  		gleep.push(glip.name);
+    }
+
   });
 
-  for(let i = 0; i < setsArray.length; i++) {
-
-    Mousetrap.bind("alt+" + setsArray[i], function() {
-
-      if(!setOn) {
-        // Sets the bank number that this Banker Set is referencing
-        setBank = bankerSets.set[i].bank;
-        bankNumber = setBank;
-        createGiyTriggers(bankNumber);
-
-        // setArray = [];
-        // Array to store the Banker Set gifs so they can be randomized
-
-        bankerSets.set[i].gifs.forEach(function(element) {
-          bankerSetStorage.scenes.push(
-            { location: element.location, name: element.name }
-          );
-        });
-
-        setOn = 1;
-
-        console.log('BANKER SET: [' + setsArray[i] +  '] LOADING');
-
-      } else {
-        console.log('BANKER SET: OFF');
-        setOn = 0;
-        setArray = {};
-      }
+    bankerSets.set.forEach(function(durk, index) {
+      setsArray.push(durk.trigger);
     });
 
-  }
+    for(let i = 0; i < setsArray.length; i++) {
+
+      Mousetrap.bind("alt+" + setsArray[i], function() {
+
+        if(!setOn) {
+          setBank = bankerSets.set[i].bank;
+
+          setArray = [];
+          bankerSets.set[i].gifs.forEach(function(slees) {
+            setArray.push(slees.name);
+          });
+
+          setOn = 1;
+
+          console.log('BANKER SET: [' + setsArray[i] +  '] LOADING');
+
+        } else {
+          console.log('BANKER SET: OFF');
+          setOn = 0;
+          setArray = [];
+        }
+      });
+
+    }
+
+
+
 
 // SAMPLER [ RETURN, ENTER ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
