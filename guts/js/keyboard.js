@@ -56,15 +56,6 @@ $(document).ready(function() {
     }
   });
 
-timerSaves = [];
-
-  Mousetrap.bind("alt+/", function() {
-      console.log('TIMER MODE!');
-      var start = new Date();
-      var gleek = start.getTime();
-      timerSaves.push(gleek);
-  });
-
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** BANK & FX SELECTOR ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -260,6 +251,51 @@ Mousetrap.bind(app.settings.effects.switcheroo.filterKey, function() {
     }
   });
 }
+
+// BLEND MODES SWITCHER
+Mousetrap.bind('alt+,', function() {
+  if(!blendModesOn) {
+  console.log('BLEND MODES: ON');
+  blendModesOn = !blendModesOn;
+  blendModeSwitcher(0);
+
+  if (blendModeRandomOn) {
+    blendModeRandomOn = !blendModeRandomOn;
+    console.log('RANDOM BLEND MODE: OFF');
+    $(s2).css('mix-blend-mode', 'screen');
+  }
+
+
+  } else {
+    console.log('BLEND MODES: OFF');
+  blendModesOn = !blendModesOn;
+  $(s2).css('mix-blend-mode', 'screen');
+  blendCounter = null;
+  }
+});
+
+// BLEND MODES SWITCHER CYCLE
+Mousetrap.bind('alt+.', function() {
+  if(blendModesOn) {
+    // blendCounter++;
+    blendModeSwitcher(blendCounter++);
+  }
+});
+
+// BLEND MODES SWITCHER RANDOM
+Mousetrap.bind('alt+/', function() {
+  if (!blendModeRandomOn) {
+    blendModeRandomOn = 1;
+    console.log('RANDOM BLEND MODE: ON');
+  } else {
+    blendModeRandomOn = 0;
+    console.log('RANDOM BLEND MODE: OFF');
+    $(s2).css('mix-blend-mode', 'screen');
+  }
+});
+
+
+
 
 // FILTER SAMPLE [ SHIFT ] [ RETURN ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

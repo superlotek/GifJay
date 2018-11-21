@@ -167,6 +167,10 @@ function sceneSetter(arrayName, banker1, banker2) {
   gifSelectorS1 = randomizer(bankBuilderS1);
   gifSelectorS2 = randomizer(bankBuilderS2);
 
+  if (blendModeRandomOn) {
+    $(s2).css('mix-blend-mode', blendModeSwitcherArray[numRan(blendModeSwitcherArray.length)]);
+  }
+
   if (currentPlayMode == 'sampler') {
     console.log('You should definitely be switching to Sampler by now!!');
     currentPlayMode = "sampler";
@@ -595,6 +599,25 @@ function buildKaleidoscope() {
         var beatz = beatTime/beatSpeed;
         $(s2).css('animation-duration', beatz * sameSameConstant + 's');
     // }
+  }
+
+  // BLEND MODE SWITCHER
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+  function blendModeSwitcher(counter) {
+    console.log('BLEND MODE SWITCHER FUNCTION');
+    console.log(blendModeSwitcherArray.length);
+    console.log(blendModeSwitcherArray);
+    console.log('BLEND COUNTER: ' + blendCounter);
+    console.log('BLEND MODE: ' + blendModeSwitcherArray[counter]);
+
+    if (counter === blendModeSwitcherArray.length - 1) {
+      console.log('I STHIS TAKIUNG??');
+      blendCounter = 0;
+      return false;
+    }
+
+    $(s2).css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
   }
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

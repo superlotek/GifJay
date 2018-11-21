@@ -167,8 +167,8 @@ titlePageName = 'title-1.gif';
 stageArray = ['sf', 'st'];
 shapeArray = ['circle','triangle','rhombus','octagon','close','frame','rabbet'];
 flipArray = ['rotateX(180deg)','rotateX(-180deg)','rotateY(180deg)','rotateY(-180deg)'];
-// blendModeArray = ['multiply','screen','overlay','darken','lighten','color-dodge','color-burn',
-//   'hard-light','soft-light','difference','exclusion','hue','saturation','color','luminosity'];
+blendModeSwitcherArray = ['multiply','darken','lighten','color-dodge','color-burn',
+  'hard-light','soft-light','difference','exclusion','hue','saturation','color','luminosity'];
 // blendModeArray = ['multiply','screen','overlay','darken','lighten'];
 blendModeArray = ['screen','overlay'];
 effectArray = ['invert','saturation','brightness','hue-rotate','blur'];
