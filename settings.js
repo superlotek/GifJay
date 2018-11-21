@@ -4,6 +4,19 @@
 // USER SETTINGS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+var currentScene = {
+	"stage" : [
+		{
+			"bank": null, "location": null, "name": null, "filter": null, "blendMode": null
+		},
+		{
+			"bank": null, "location": null, "name": null, "filter": null, "blendMode": null
+		}
+	]
+};
+
+
+
 banks = {
 	"bank" : [
 		{

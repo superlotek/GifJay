@@ -240,6 +240,17 @@ function sceneSetter(arrayName, banker1, banker2) {
 
   }
 
+  currentScene.stage[0].bank = bankSelectorS1;
+  currentScene.stage[1].bank = bankSelectorS2;
+  currentScene.stage[0].location = gifSelectorS1.location;
+  currentScene.stage[1].location = gifSelectorS2.location;
+  currentScene.stage[0].name = gifSelectorS1.gif;
+  currentScene.stage[1].name = gifSelectorS2.gif;
+  currentScene.stage[0].blendMode = $(s1).css('mix-blend-mode');
+  currentScene.stage[1].blendMode = $(s2).css('mix-blend-mode');
+  currentScene.stage[0].filter = $(s1).css('filter');
+  currentScene.stage[1].filter = $(s2).css('filter');
+
   fxChecker();
 
 }
@@ -453,7 +464,8 @@ function stageFlip() {
 
 function startRobomode() {
 
-  $('body').css('background', 'linear-gradient(' + numRan(360) + 'deg, ' +
+  $('body').css('background-image', 'repeating-linear-gradient(' + numRan(360) + 'deg, ' +
+    randomColorChange() + ' ' + numRan(100) + '%, ' +
     randomColorChange() + ' ' + numRan(100) + '%, ' +
     randomColorChange() + ' ' + numRan(100)+ '%)');
 
