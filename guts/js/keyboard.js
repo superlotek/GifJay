@@ -560,15 +560,76 @@ Mousetrap.bind('shift+return', function() {
   // BANKER SETS ON/OFF [ ' ]
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  gleep = [];
-  banks.bank[0].gifs.forEach(function(glip) {
-  	console.log(glip.set);
-  	if (glip.set == 'd') {
-  		gleep.push(glip.name);
+  // gleep = [];
+  // banks.bank[0].gifs.forEach(function(glip) {
+  // 	console.log(glip.set);
+  // 	if (glip.set == 'd') {
+  // 		gleep.push(glip.name);
+  //   }
+  //
+  // });
+
+
+/*
+
+function search(nameKey, myArray){
+    for (var i=0; i < myArray.length; i++) {
+        if (myArray[i].name === nameKey) {
+            return myArray[i];
+        }
     }
+}
 
-  });
+var array = [
+    { name:"string 1", value:"this", other: "that" },
+    { name:"string 2", value:"this", other: "that" }
+];
 
+var resultObject = search("string 1", array);
+
+
+*/
+
+/* STEPS
+  init function to run through the banks and filter the  enabled banks
+
+  function to run through the filtered banks and find the banker set with the letter key
+*/
+
+
+  function bankerSetz(trigger) {
+    moveSomeBanks = [];
+    console.log('YOU WANT TO TRIGGER BANKER SET ' + trigger);
+    bankAmount = banks.bank.length;
+    console.log('bankAmount: ' + bankAmount);
+    banks.bank.forEach(function(element) {
+      if (element.enabled === true) {
+        console.log('GOT ME SOME ENABLED BANKS');
+        moveSomeBanks.push(element);
+      }
+    });
+    findTheSets(trigger);
+  }
+
+  function findTheSets(trigger) {
+    theRightSet = [];
+    console.log('FINDING THE SETS');
+    console.log(moveSomeBanks);
+    bankSetAmount = moveSomeBanks.length;
+    for (i = 0; i < bankSetAmount; i++) {
+      console.log(moveSomeBanks[i]);
+      moveSomeBanks[i].gifs.forEach(function(element) {
+        // console.log(element);
+        if (element.set === trigger) {
+          console.log('OH YEAH, found the ' + trigger);
+          theRightSet.push(element);
+        }
+      });
+    }
+  }
+
+
+  function setUpBankerTriggers() {
     bankerSets.set.forEach(function(durk, index) {
       setsArray.push(durk.trigger);
     });
@@ -576,6 +637,9 @@ Mousetrap.bind('shift+return', function() {
     for(let i = 0; i < setsArray.length; i++) {
 
       Mousetrap.bind("alt+" + setsArray[i], function() {
+
+        // sends the trigger key
+        // bankerSetz(setsArray[i]);
 
         if(!setOn) {
           setBank = bankerSets.set[i].bank;
@@ -597,7 +661,9 @@ Mousetrap.bind('shift+return', function() {
       });
 
     }
+  }
 
+  setUpBankerTriggers();
 
 
 
