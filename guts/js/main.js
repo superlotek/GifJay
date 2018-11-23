@@ -147,6 +147,25 @@ function sceneSetter(arrayName, banker1, banker2) {
   bankBuilderS2 = [];
 
   // Setting up for random GIFs
+
+  if (setOn) {
+    console.log('THIS SHOULD DO SOMETHING for NEW SETS');
+    arrayName.forEach(function(element, index) {
+      bankBuilderS1.push({
+        gif: element.name,
+        location: element.location,
+      });
+    });
+
+      arrayName.forEach(function(element, index) {
+        bankBuilderS2.push({
+          gif: element.name,
+          location: element.location,
+        });
+      });
+
+  } else {
+
   banks.bank[bankSelectorS1].gifs.forEach(function(element) {
     bankBuilderS1.push({
       gif: element.name,
@@ -162,6 +181,8 @@ function sceneSetter(arrayName, banker1, banker2) {
       type: element.type
     });
   });
+
+}
 
   // Selecting 2 random gifs
   gifSelectorS1 = randomizer(bankBuilderS1);
