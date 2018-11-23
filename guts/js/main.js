@@ -288,8 +288,7 @@ function playMode(playType) {
       console.log('PLAY MODE: Sets');
       currentPlayMode = 'sets';
       bankSelectorS1 = setBank; bankSelectorS2 = setBank;
-      // sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
-      sceneSetter(bankerSetStorage, bankSelectorS1, bankSelectorS2);
+      sceneSetter(newKeyArray, bankSelectorS1, bankSelectorS2);
       break;
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-

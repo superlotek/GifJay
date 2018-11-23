@@ -23,10 +23,10 @@ banks = {
 			"id" : 0,
 			"trigger": ")",
 			"name" : "MasterGif",
-			"enabled" : false,
+			"enabled" : true,
 			"gifs" : [
-				{ "trigger" : "a", "location" : "MasterGif/", "name" : "masterGif_demo_1_o", "type" : 'flip', "set": null},
-				{ "trigger" : "b", "location" : "MasterGif/", "name" : "masterGif_demo_2_o", "type" : 'flip', "set": null}
+				{ "trigger" : "a", "location" : "MasterGif/", "name" : "masterGif_demo_1_o", "type" : 'flip', "set": 'k'},
+				{ "trigger" : "b", "location" : "MasterGif/", "name" : "masterGif_demo_2_o", "type" : 'flip', "set": 'k'}
 			]
 		},
 		{
@@ -49,8 +49,8 @@ banks = {
 			"gifs" : [
 				{ "trigger" : "u", "location" : "BathBombs/", "name" : "bathbomb-galaxy-1_o", "type" : 'flip', "set": "c"},
 				{ "trigger" : "i", "location" : "BathBombs/", "name" : "bathbomb-spinner-1_o", "type" : 'flip', "set": "c"},
-				{ "trigger" : null, "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o", "type" : 'flip', "set": "c"},
-				{ "trigger" : null, "location" : "BathBombs/", "name" : "bathbomb-slow-2_o", "type" : 'flip', "set": "c"}
+				{ "trigger" : null, "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o", "type" : 'flip', "set": null},
+				{ "trigger" : null, "location" : "BathBombs/", "name" : "bathbomb-slow-2_o", "type" : 'flip', "set": null}
 			]
 		},
 		{
@@ -101,58 +101,6 @@ banks = {
 }
 
 setsArray = [];
-
-bankerSets = {
-	"set" : [
-		{
-			"name" : "set1",
-			"trigger" : "a",
-			"bank" : 2,
-			"gifs" : [
-				{ "location" : "BathBombs/", "name" : "bathbomb-spinner-blur_o"},
-				{ "location" : "BathBombs/", "name" : "bathbomb-slow-2_o"}
-			]
-		},
-		{
-			"name" : "set2",
-			"trigger" : "b",
-			"bank" : 1,
-			"gifs" : [
-				{ "location" : "Dancing/", "name" : "h"},
-				{ "location" : "Dancing/", "name" : "m"}
-			]
-		},
-		{
-			"name" : "set3",
-			"trigger" : "c",
-			"bank" : 0,
-			"gifs" : [
-				{ "location" : "MasterGif/", "name" : "masterGif_demo_1_o"},
-				{ "location" : "MasterGif/", "name" : "masterGif_demo_2_o"}
-			]
-		},
-		{
-			"name" : "set4",
-			"trigger" : "d",
-			"bank" : 1,
-			"gifs" : [
-				{ "location" : "Dancing/", "name" : "b"},
-				{ "location" : "Dancing/", "name" : "n"}
-			]
-		},
-		{
-			"name" : "set5",
-			"trigger" : "e",
-			"bank" : 4,
-			"gifs" : [
-				{ "location" : "StarTrails/", "name" : "l"},
-				// { "location" : "StarTrails/", "name" : "v"},
-				// { "location" : "HighSierras/", "name" : "high-sierras-3_o"},
-				{ "location" : "HighSierras/", "name" : "high-sierras-12_o"}
-			]
-		}
-	]
-}
 
 var effectsOn = [];
 var filtersOn = [];

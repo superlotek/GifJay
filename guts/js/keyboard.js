@@ -520,56 +520,6 @@ Mousetrap.bind('shift+return', function() {
 // BANKER SETS ON/OFF [ ' ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  // // This creates the keyboard commands that map to the Banker Set letters
-  // bankerSets.set.forEach(function(element) {
-  //   setsArray.push(element.trigger);
-  // });
-  //
-  // for(let i = 0; i < setsArray.length; i++) {
-  //
-  //   Mousetrap.bind("alt+" + setsArray[i], function() {
-  //
-  //     if(!setOn) {
-  //       // Sets the bank number that this Banker Set is referencing
-  //       setBank = bankerSets.set[i].bank;
-  //       bankNumber = setBank;
-  //       createGiyTriggers(bankNumber);
-  //
-  //       // setArray = [];
-  //       // Array to store the Banker Set gifs so they can be randomized
-  //
-  //       bankerSets.set[i].gifs.forEach(function(element) {
-  //         bankerSetStorage.scenes.push(
-  //           { location: element.location, name: element.name }
-  //         );
-  //       });
-  //
-  //       setOn = 1;
-  //
-  //       console.log('BANKER SET: [' + setsArray[i] +  '] LOADING');
-  //
-  //     } else {
-  //       console.log('BANKER SET: OFF');
-  //       setOn = 0;
-  //       setArray = {};
-  //     }
-  //   });
-  //
-  // }
-
-  // BANKER SETS ON/OFF [ ' ]
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  // gleep = [];
-  // banks.bank[0].gifs.forEach(function(glip) {
-  // 	console.log(glip.set);
-  // 	if (glip.set == 'd') {
-  // 		gleep.push(glip.name);
-  //   }
-  //
-  // });
-
-
 /*
 
 function search(nameKey, myArray){
@@ -579,93 +529,99 @@ function search(nameKey, myArray){
         }
     }
 }
-
 var array = [
     { name:"string 1", value:"this", other: "that" },
     { name:"string 2", value:"this", other: "that" }
 ];
-
 var resultObject = search("string 1", array);
 
 
 */
 
-/* STEPS
-  init function to run through the banks and filter the  enabled banks
+  findEnabledBanks();
 
-  function to run through the filtered banks and find the banker set with the letter key
-*/
-
-
-  function bankerSetz(trigger) {
-    moveSomeBanks = [];
-    console.log('YOU WANT TO TRIGGER BANKER SET ' + trigger);
+  /*
+    this goes through the bank object and
+    puts all the enabled banks into a new
+    array called ** arr_enabledBanks **
+  */
+  function findEnabledBanks() {
+    arr_enabledBanks = [];
+    console.log('FIND ENABLED BANKS');
     bankAmount = banks.bank.length;
-    console.log('bankAmount: ' + bankAmount);
+    console.log('TOTAL BANK AMOUNT: ' + bankAmount);
     banks.bank.forEach(function(element) {
       if (element.enabled === true) {
-        console.log('GOT ME SOME ENABLED BANKS');
-        moveSomeBanks.push(element);
+        arr_enabledBanks.push(element);
       }
     });
-    findTheSets(trigger);
+    console.log('ENABLED BANKS AMOUNT: ' + arr_enabledBanks.length);
+    createTriggerArray(arr_enabledBanks);
   }
 
-  function findTheSets(trigger) {
-    theRightSet = [];
-    console.log('FINDING THE SETS');
-    console.log(moveSomeBanks);
-    bankSetAmount = moveSomeBanks.length;
-    for (i = 0; i < bankSetAmount; i++) {
-      console.log(moveSomeBanks[i]);
-      moveSomeBanks[i].gifs.forEach(function(element) {
-        // console.log(element);
-        if (element.set === trigger) {
-          console.log('OH YEAH, found the ' + trigger);
-          theRightSet.push(element);
+  /*
+  this one takes an array parameter ENABLEDBANKS
+  and filters out all the banker set key triggers
+  into a new array **triggerArray**
+  */
+  function createTriggerArray(array) {
+    alltriggerArray = new Set();
+    console.log('CREATIING KEY TRIGGER ARRAY');
+    for (i = 0; i < array.length; i++) {
+      // console.log('ID or bank # ' + array[i].id);
+      for (j = 0; j < array[i].gifs.length; j++) {
+        array[i].gifs[j].bank = array[i].id;
+        console.log('what is this?? ' + array[i].gifs[j].bank);
+        alltriggerArray.add(array[i].gifs[j].set);
+      }
+    }
+    triggerArray = [...alltriggerArray];
+    bankerSetKeyTriggers(arr_enabledBanks);
+  }
+
+  /* creates an array of all the gifs for
+  the particular bank
+  */
+  function justMakeSoloKeyTrigger(key, array) {
+    newKeyArray = [];
+    console.log('SOLO KEY MAKER');
+    console.log('THI SIS THE ARRAY: '+ arr_enabledBanks[0].id);
+
+    console.log('AND YOU CLICKED ' + key);
+    for (i = 0; i < array.length; i++) {
+      console.log('ID or bank # ' + array[i].id);
+      for (j = 0; j < array[i].gifs.length; j++) {
+        array[i].gifs[j].bank = arr_enabledBanks[0].id;
+        if (array[i].gifs[j].set == key) {
+          setBank = array[i].id;
+          newKeyArray.push(array[i].gifs[j]);
+          console.log('hurrAYYYY');
         }
-      });
+      }
+    }
+
+    if(!setOn) {
+      // setBank = newKeyArray;
+      console.log(setBank);
+      setOn = 1;
+    } else {
+      console.log('BANKER SET: OFF');
+      setOn = 0;
     }
   }
 
-
-  function setUpBankerTriggers() {
-    bankerSets.set.forEach(function(durk, index) {
-      setsArray.push(durk.trigger);
-    });
-
-    for(let i = 0; i < setsArray.length; i++) {
-
-      Mousetrap.bind("alt+" + setsArray[i], function() {
-
-        // sends the trigger key
-        // bankerSetz(setsArray[i]);
-
-        if(!setOn) {
-          setBank = bankerSets.set[i].bank;
-
-          setArray = [];
-          bankerSets.set[i].gifs.forEach(function(slees) {
-            setArray.push(slees.name);
-          });
-
-          setOn = 1;
-
-          console.log('BANKER SET: [' + setsArray[i] +  '] LOADING');
-
-        } else {
-          console.log('BANKER SET: OFF');
-          setOn = 0;
-          setArray = [];
-        }
+/*
+This function takes the triggerArray
+and makes key triggers for the available Banker Sets
+*/
+function bankerSetKeyTriggers(array) {
+    for(let i = 0; i < triggerArray.length; i++) {
+      Mousetrap.bind("alt+" + triggerArray[i], function() {
+        console.log('CLICK: BANKER SET ' + triggerArray[i]);
+        justMakeSoloKeyTrigger(triggerArray[i], arr_enabledBanks);
       });
-
     }
-  }
-
-  setUpBankerTriggers();
-
-
+}
 
 // SAMPLER [ RETURN, ENTER ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
