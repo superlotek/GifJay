@@ -146,6 +146,27 @@ function sceneSetter(arrayName,banker1,banker2) {
   bankBuilderS2 = [];
 
   // Setting up for random GIFs
+  if (setOn) {
+    console.log('THIS SHOULD DO SOMETHING for NEW SETS');
+    arrayName.forEach(function(element, index) {
+      bankBuilderS1.push({
+        gif: element.name,
+        location: element.location,
+      });
+    });
+
+      arrayName.forEach(function(element, index) {
+        bankBuilderS2.push({
+          gif: element.name,
+          location: element.location,
+        });
+      });
+
+      if (sceneFullscreenOn) { screenFullscreen(); }
+
+
+  } else {
+
   banks.bank[bankSelectorS1].gifs.forEach(function(element) {
     bankBuilderS1.push({
       gif: element.name,
@@ -162,9 +183,15 @@ function sceneSetter(arrayName,banker1,banker2) {
     });
   });
 
+}
+
   // Selecting 2 random gifs
   gifSelectorS1 = randomizer(bankBuilderS1);
   gifSelectorS2 = randomizer(bankBuilderS2);
+
+  if (blendModeRandomOn) {
+    $(s2).css('mix-blend-mode', blendModeSwitcherArray[numRan(blendModeSwitcherArray.length)]);
+  }
 
   if (currentPlayMode == 'sampler') {
     console.log('You should definitely be switching to Sampler by now!!');
@@ -575,6 +602,25 @@ function buildKaleidoscope() {
         var beatz = beatTime/beatSpeed;
         $(s2).css('animation-duration', beatz * sameSameConstant + 's');
     // }
+  }
+  
+  // BLEND MODE SWITCHER
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+  function blendModeSwitcher(counter) {
+    console.log('BLEND MODE SWITCHER FUNCTION');
+    console.log(blendModeSwitcherArray.length);
+    console.log(blendModeSwitcherArray);
+    console.log('BLEND COUNTER: ' + blendCounter);
+    console.log('BLEND MODE: ' + blendModeSwitcherArray[counter]);
+
+    if (counter === blendModeSwitcherArray.length - 1) {
+      console.log('I STHIS TAKIUNG??');
+      blendCounter = 0;
+      return false;
+    }
+
+    $(s2).css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
   }
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
