@@ -568,10 +568,9 @@ var resultObject = search("string 1", array);
     alltriggerArray = new Set();
     console.log('CREATIING KEY TRIGGER ARRAY');
     for (i = 0; i < array.length; i++) {
-      // console.log('ID or bank # ' + array[i].id);
       for (j = 0; j < array[i].gifs.length; j++) {
         array[i].gifs[j].bank = array[i].id;
-        console.log('what is this?? ' + array[i].gifs[j].bank);
+        // console.log('what is this?? ' + array[i].gifs[j].bank);
         alltriggerArray.add(array[i].gifs[j].set);
       }
     }
@@ -579,29 +578,35 @@ var resultObject = search("string 1", array);
     bankerSetKeyTriggers(arr_enabledBanks);
   }
 
+  // multiBankerSetObject = {};
+  // multiBankerSetObject.multiBankerSetArray = []
   /* creates an array of all the gifs for
   the particular bank
   */
   function justMakeSoloKeyTrigger(key, array) {
-    newKeyArray = [];
+    singleBankerSet = [];
     console.log('SOLO KEY MAKER');
     console.log('THI SIS THE ARRAY: '+ arr_enabledBanks[0].id);
 
     console.log('AND YOU CLICKED ' + key);
     for (i = 0; i < array.length; i++) {
-      console.log('ID or bank # ' + array[i].id);
+      // console.log('ID or bank # ' + array[i].id);
       for (j = 0; j < array[i].gifs.length; j++) {
+        // add gif bank number
         array[i].gifs[j].bank = arr_enabledBanks[0].id;
         if (array[i].gifs[j].set == key) {
           setBank = array[i].id;
-          newKeyArray.push(array[i].gifs[j]);
-          console.log('hurrAYYYY');
+          singleBankerSet.push(array[i].gifs[j]);
         }
       }
+
+      // console.log('singleBankerSet: ' + singleBankerSet.length);
+      // multiBankerSetObject.multiBankerSetArray.push(singleBankerSet);
+
     }
 
     if(!setOn) {
-      // setBank = newKeyArray;
+      // setBank = singleBankerSet;
       console.log(setBank);
       setOn = 1;
     } else {
@@ -615,10 +620,13 @@ This function takes the triggerArray
 and makes key triggers for the available Banker Sets
 */
 function bankerSetKeyTriggers(array) {
+
+  bankerSetStorage = new Set();
     for(let i = 0; i < triggerArray.length; i++) {
       Mousetrap.bind("alt+" + triggerArray[i], function() {
         console.log('CLICK: BANKER SET ' + triggerArray[i]);
         justMakeSoloKeyTrigger(triggerArray[i], arr_enabledBanks);
+        bankerSetStorage.add(triggerArray[i]);
       });
     }
 }

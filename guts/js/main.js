@@ -164,6 +164,9 @@ function sceneSetter(arrayName, banker1, banker2) {
         });
       });
 
+      if (sceneFullscreenOn) { screenFullscreen(); }
+
+
   } else {
 
   banks.bank[bankSelectorS1].gifs.forEach(function(element) {
@@ -309,7 +312,7 @@ function playMode(playType) {
       console.log('PLAY MODE: Sets');
       currentPlayMode = 'sets';
       bankSelectorS1 = setBank; bankSelectorS2 = setBank;
-      sceneSetter(newKeyArray, bankSelectorS1, bankSelectorS2);
+      sceneSetter(singleBankerSet, bankSelectorS1, bankSelectorS2);
       break;
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-
