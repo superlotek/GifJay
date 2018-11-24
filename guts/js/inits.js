@@ -79,6 +79,10 @@ var invertOn = 0;
 var filtersOnString = "";
 var sampledFilterOn = 0;
 
+var blendModesOn = 0;
+var blendCounter = null;
+var blendModeRandomOn = 0;
+
 // GLITCH
 var glitchOn = 0;
 var screenHeight = 100;

@@ -272,7 +272,7 @@ function playMode(playType) {
       currentPlayMode = 'sets';
       bankSelectorS1 = setBank; bankSelectorS2 = setBank;
       // sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
-      sceneSetter(bankerSetStorage,bankSelectorS1,bankSelectorS2);
+      sceneSetter(singleBankerSet,bankSelectorS1,bankSelectorS2);
       break;
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-
