@@ -139,15 +139,26 @@ function setGPS() {
 
 function sceneSetter(arrayName,banker1,banker2) {
 
+  // Setting up for random GIFs
   // choose 2 random banks
   bankSelectorS1 = banker1;
   bankSelectorS2 = banker2;
   bankBuilderS1 = [];
   bankBuilderS2 = [];
 
+<<<<<<< HEAD
   // Setting up for random GIFs
   if (setOn) {
     console.log('THIS SHOULD DO SOMETHING for NEW SETS');
+=======
+  if (setOn) {
+    if(bankerOn) {
+      console.log('NO NO BANKERS HERE');
+      Mousetrap.trigger('\'');
+      return false;
+    }
+
+>>>>>>> gifjay_1.9.41
     arrayName.forEach(function(element, index) {
       bankBuilderS1.push({
         gif: element.name,
@@ -155,6 +166,7 @@ function sceneSetter(arrayName,banker1,banker2) {
       });
     });
 
+<<<<<<< HEAD
       arrayName.forEach(function(element, index) {
         bankBuilderS2.push({
           gif: element.name,
@@ -164,6 +176,16 @@ function sceneSetter(arrayName,banker1,banker2) {
 
       if (sceneFullscreenOn) { screenFullscreen(); }
 
+=======
+    arrayName.forEach(function(element, index) {
+      bankBuilderS2.push({
+        gif: element.name,
+        location: element.location,
+      });
+    });
+
+    if (sceneFullscreenOn) { screenFullscreen(); }
+>>>>>>> gifjay_1.9.41
 
   } else {
 
@@ -266,7 +288,22 @@ function sceneSetter(arrayName,banker1,banker2) {
 
   }
 
+<<<<<<< HEAD
   fxChecker();
+=======
+  currentScene.stage[0].bank = bankSelectorS1;
+  currentScene.stage[1].bank = bankSelectorS2;
+  currentScene.stage[0].location = gifSelectorS1.location;
+  currentScene.stage[1].location = gifSelectorS2.location;
+  currentScene.stage[0].name = gifSelectorS1.gif;
+  currentScene.stage[1].name = gifSelectorS2.gif;
+  currentScene.stage[0].blendMode = $(s1).css('mix-blend-mode');
+  currentScene.stage[1].blendMode = $(s2).css('mix-blend-mode');
+  currentScene.stage[0].filter = $(s1).css('filter');
+  currentScene.stage[1].filter = $(s2).css('filter');
+
+  Effects.fxChecker();
+>>>>>>> gifjay_1.9.41
 
 }
 
@@ -299,7 +336,11 @@ function playMode(playType) {
       currentPlayMode = 'sets';
       bankSelectorS1 = setBank; bankSelectorS2 = setBank;
       // sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
+<<<<<<< HEAD
       sceneSetter(singleBankerSet,bankSelectorS1,bankSelectorS2);
+=======
+      sceneSetter(singleBankerSet, bankSelectorS1, bankSelectorS2);
+>>>>>>> gifjay_1.9.41
       break;
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -417,26 +458,6 @@ function playMode(playType) {
     }
 }
 
-function fxChecker() {
-
-    // CHECK FOR KALEIDOSCOPE
-    if (kaleidoscopeOn) {
-      console.log('KALEIDOSCOPE IS RUNNING');
-      if (stgSelect == 'all') {
-        $(s1 + '.kaleidoscope > div').css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
-        $(s2 + '.kaleidoscope > div').css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-        $(s2).css('background', 'none !important');
-        $(s2 + '.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
-        $(s1 + '.kaleidoscope > div').add(s2  + '.kaleidoscope > div').css(sf);
-      } else {
-        $(stgSelect + '.kaleidoscope > div').css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
-        $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-        $('.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
-        $(stgSelect + '.kaleidoscope > div').css(sf);
-      }
-    }
-}
-
 // ROBOMODE
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -476,19 +497,6 @@ function startRobomode() {
     randomColorChange() + ' ' + numRan(100) + '%, ' +
     randomColorChange() + ' ' + numRan(100)+ '%)');
 
-  // CHECKING FOR FX & FILTERS
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-    if(stgFadeOn) { stgFade(); }
-    if(saturateOn) { saturator(); }
-    if(sameSameOn) { sameSame(); }
-    if(switcherooOn) { switcheroo(); }
-    if(hueShiftOn) { hueShift(); }
-    if(blurryOn) { blurry(); }
-    if(invertOn) { invert(); }
-
-    // add asset info to data-type attributes
-    stageParameters();
-
 // CHECKING PLAY MODE
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -512,13 +520,12 @@ function startRobomode() {
 
 // CHECKING FOR FX & FILTERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  if(stgFadeOn) { stgFade(); }
-  if(saturateOn) { saturator(); }
-  if(sameSameOn) { sameSame(); }
-  if(switcherooOn) { switcheroo(); }
-  if(hueShiftOn) { hueShift(); }
-  if(blurryOn) { blurry(); }
-  if(invertOn) { invert(); }
+  if(stgFadeOn) { Effects.stgFade(); }
+  if(saturateOn) { Filter.saturator(); }
+  if(sameSameOn) { Effects.sameSame(); }
+  if(hueShiftOn) { Filter.hueShift(); }
+  if(blurryOn) { Filter.blurry(); }
+  if(invertOn) { Filter.invert(); }
 
   // add asset info to data-type attributes
   stageParameters();
@@ -558,6 +565,7 @@ function roboScreen() {
   startRobomode(beatTime);
   clearBeatTime();
 }
+<<<<<<< HEAD
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** FX & FILTERS ***
@@ -729,3 +737,5 @@ function buildKaleidoscope() {
       }
 
     /* ---------------------- */
+=======
+>>>>>>> gifjay_1.9.41

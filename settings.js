@@ -4,6 +4,7 @@
 // USER SETTINGS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+<<<<<<< HEAD
 var currentScene = {
 	"stage" : [
 		{
@@ -90,6 +91,10 @@ midiKeys = {
 }
 
 banks = {
+=======
+// GIF BINS
+const banks = {
+>>>>>>> gifjay_1.9.41
 	"bank" : [
 		{
 			"id" : 0,
@@ -207,6 +212,7 @@ banks = {
 
 setsArray = [];
 
+<<<<<<< HEAD
 // bankerSets = {
 // 	"set" : [
 // 		{
@@ -259,6 +265,8 @@ setsArray = [];
 // 	]
 // }
 
+=======
+>>>>>>> gifjay_1.9.41
 var effectsOn = [];
 var filtersOn = [];
 var beatTime = 2000;
@@ -274,10 +282,8 @@ shapeArray = ['circle','triangle','rhombus','octagon','close','frame','rabbet'];
 flipArray = ['rotateX(180deg)','rotateX(-180deg)','rotateY(180deg)','rotateY(-180deg)'];
 blendModeSwitcherArray = ['multiply','darken','lighten','color-dodge','color-burn',
   'hard-light','soft-light','difference','exclusion','hue','saturation','color','luminosity'];
-// blendModeArray = ['multiply','screen','overlay','darken','lighten'];
 blendModeArray = ['screen','overlay'];
 effectArray = ['invert','saturation','brightness','hue-rotate','blur'];
-
 
 bankArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r'];
 bgPosA = ['top', 'bottom'];
@@ -288,51 +294,13 @@ borderArray = ['dotted', 'dashed', 'double', 'solid', 'ridge'];
 var app = {
 	settings: {
 		effects: {
-			kaleidoscope: {
-				name: 'kaleidoscope',
-				enabled: true,
-				filterKey: "1"
-			},
-			roboChop: {
-				name: 'roboChop',
-				enabled: false,
-				filterKey: "2"
-			},
-			sameSame: {
-				name: 'sameSame',
-				enabled: true,
-				filterKey: "3"
-			},
-			stgFade: {
-				name: 'stgFade',
-				enabled: true,
-				filterKey: "4"
-			},
-			switcheroo: {
-				name: 'switcheroo',
-				enabled: false,
-				filterKey: "5"
-			},
-			invert: {
-				name: 'invert',
-				enabled: true,
-				filterKey: "7"
-			},
-			saturator: {
-				name: 'saturator',
-				enabled: true,
-				filterKey: "8"
-			},
-			hueShift: {
-				name: 'hueShift',
-				enabled: true,
-				filterKey: "9"
-			},
-			blurry: {
-				name: 'blurry',
-				enabled: true,
-				filterKey: "0"
-			}
+			kaleidoscope: { name: 'kaleidoscope', enabled: true, filterKey: "1" },
+			sameSame: { name: 'sameSame', enabled: true, filterKey: "3" },
+			stgFade: { name: 'stgFade', enabled: true, filterKey: "4" },
+			invert: { name: 'invert', enabled: true, filterKey: "7" },
+			saturator: { name: 'saturator', enabled: true, filterKey: "8" },
+			hueShift: { name: 'hueShift', enabled: true, filterKey: "9" },
+			blurry: { name: 'blurry', enabled: true, filterKey: "0" }
 		}
 	}
 }
