@@ -164,6 +164,9 @@ if(app.settings.effects.stgFade.enabled) {
     });
 }
 
+  // FILTERS
+
+  // SATURATE
   if(app.settings.effects.saturator.enabled) {
     Mousetrap.bind(app.settings.effects.saturator.filterKey, function() {
     if(!saturateOn) {
