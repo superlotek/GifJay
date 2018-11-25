@@ -140,13 +140,38 @@ function setGPS() {
 
 function sceneSetter(arrayName, banker1, banker2) {
 
+  // Setting up for random GIFs
   // choose 2 random banks
   bankSelectorS1 = banker1;
   bankSelectorS2 = banker2;
   bankBuilderS1 = [];
   bankBuilderS2 = [];
 
-  // Setting up for random GIFs
+  if (setOn) {
+    if(bankerOn) {
+      console.log('NO NO BANKERS HERE');
+      Mousetrap.trigger('\'');
+      return false;
+    }
+
+    arrayName.forEach(function(element, index) {
+      bankBuilderS1.push({
+        gif: element.name,
+        location: element.location,
+      });
+    });
+
+    arrayName.forEach(function(element, index) {
+      bankBuilderS2.push({
+        gif: element.name,
+        location: element.location,
+      });
+    });
+
+    if (sceneFullscreenOn) { screenFullscreen(); }
+
+  } else {
+
   banks.bank[bankSelectorS1].gifs.forEach(function(element) {
     bankBuilderS1.push({
       gif: element.name,
@@ -162,6 +187,8 @@ function sceneSetter(arrayName, banker1, banker2) {
       type: element.type
     });
   });
+
+}
 
   // Selecting 2 random gifs
   gifSelectorS1 = randomizer(bankBuilderS1);
@@ -289,7 +316,7 @@ function playMode(playType) {
       currentPlayMode = 'sets';
       bankSelectorS1 = setBank; bankSelectorS2 = setBank;
       // sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
-      sceneSetter(bankerSetStorage, bankSelectorS1, bankSelectorS2);
+      sceneSetter(singleBankerSet, bankSelectorS1, bankSelectorS2);
       break;
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -473,19 +500,6 @@ function startRobomode() {
     randomColorChange() + ' ' + numRan(100) + '%, ' +
     randomColorChange() + ' ' + numRan(100)+ '%)');
 
-  // CHECKING FOR FX & FILTERS
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-    if(stgFadeOn) { stgFade(); }
-    if(saturateOn) { saturator(); }
-    if(sameSameOn) { sameSame(); }
-    if(switcherooOn) { switcheroo(); }
-    if(hueShiftOn) { hueShift(); }
-    if(blurryOn) { blurry(); }
-    if(invertOn) { invert(); }
-
-    // add asset info to data-type attributes
-    stageParameters();
-
 // CHECKING PLAY MODE
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -510,12 +524,12 @@ function startRobomode() {
 // CHECKING FOR FX & FILTERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   if(stgFadeOn) { stgFade(); }
-  if(saturateOn) { saturator(); }
+  if(saturateOn) { Filter.saturator(); }
   if(sameSameOn) { sameSame(); }
   if(switcherooOn) { switcheroo(); }
-  if(hueShiftOn) { hueShift(); }
-  if(blurryOn) { blurry(); }
-  if(invertOn) { invert(); }
+  if(hueShiftOn) { Filter.hueShift(); }
+  if(blurryOn) { Filter.blurry(); }
+  if(invertOn) { Filter.invert(); }
 
   // add asset info to data-type attributes
   stageParameters();
@@ -600,129 +614,3 @@ function buildKaleidoscope() {
         $(s2).css('animation-duration', beatz * sameSameConstant + 's');
     // }
   }
-
-  // BLEND MODE SWITCHER
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  function blendModeSwitcher(counter) {
-    console.log('BLEND MODE SWITCHER FUNCTION');
-    console.log(blendModeSwitcherArray.length);
-    console.log(blendModeSwitcherArray);
-    console.log('BLEND COUNTER: ' + blendCounter);
-    console.log('BLEND MODE: ' + blendModeSwitcherArray[counter]);
-
-    if (counter === blendModeSwitcherArray.length - 1) {
-      console.log('I STHIS TAKIUNG??');
-      blendCounter = 0;
-      return false;
-    }
-
-    $(s2).css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
-  }
-
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-// *** FILTERS ***
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  function addFilter(filterNum, filterString) {
-    filtersOnString = "";
-    filtersOn[filterNum] = filterString;
-    filtersOn.forEach(function(element) {
-      filtersOnString += element + " ";
-    });
-  }
-
-  // FILTER FX : SATURATE
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-    function saturator() {
-
-      s1SaturatorValue = numRan(saturateAmount);
-      s2SaturatorValue = numRan(saturateAmount);
-      s1SaturateString = "saturate(" + s1SaturatorValue + ")";
-      s2SaturateString = "saturate(" + s2SaturatorValue + ")";
-
-      if (stgSelect == "all") {
-        $(s1).css('-webkit-filter', s1SaturateString);
-        $(s2).css('-webkit-filter', s2SaturateString);
-        addFilter(0, s2SaturateString);
-        $(s1).add(s2).css('-webkit-filter', filtersOnString);
-      } else {
-        addFilter(0, s1SaturateString);
-        $(stgSelect).css('-webkit-filter', filtersOnString);
-      }
-
-    }
-
-    // FILTER FX : HUESHIFT
-    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-      function hueShift() {
-
-        s1HueshiftValue = numRan(360);
-        s2HueshiftValue = numRan(360);
-        s1HueshiftString = "hue-rotate(" + s1HueshiftValue + "deg)";
-        s2HueshiftString = "hue-rotate(" + s2HueshiftValue + "deg)";
-
-        if (stgSelect == "all") {
-          console.log('FX HUESHIFT: STG 1+2');
-          $(s1).css('-webkit-filter', s1HueshiftString);
-          $(s2).css('-webkit-filter', s2HueshiftString);
-          addFilter(1, s2HueshiftString)
-          $(s1).add(s2).css('-webkit-filter', filtersOnString);
-        } else {
-          addFilter(1, s1HueshiftString)
-          $(stgSelect).css('-webkit-filter', filtersOnString);
-        }
-      }
-
-    // FILTER FX : BLURRY
-    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-      function blurry() {
-
-        s1BlurValue = numRan(blurAmount);
-        s2BlurValue = numRan(blurAmount);
-        s1BlurString = "blur(" + s1BlurValue + "px)";
-        s2BlurString = "blur(" + s2BlurValue + "px)";
-
-        if (stgSelect == "all") {
-          console.log('FX BLURRY: STG 1+2');
-          $(s1).css('-webkit-filter','blur(' + s1BlurValue + 'px');
-          $(s2).css('-webkit-filter','blur(' + s2BlurValue + 'px');
-          addFilter(2, s2BlurString);
-          $(s1).add(s2).css('-webkit-filter', filtersOnString);
-        } else {
-          $(stgSelect).css('-webkit-filter','blur(' + numRan(10) + 'px');
-          addFilter(2, s1BlurString);
-          $(stgSelect).css('-webkit-filter', filtersOnString);
-
-        }
-
-      }
-
-    // FILTER FX : INVERT
-    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-      function invert() {
-
-        s1InvertValue = 1;
-        s2InvertValue = 1;
-        s1InvertString = "invert(" + s1InvertValue + ")";
-        s2InvertString = "invert(" + s2InvertValue + ")";
-
-        if (stgSelect == "all") {
-          console.log('FX INVERT: STG 1+2');
-          $(s1).css('-webkit-filter','invert(' + s1InvertValue + ')');
-          $(s2).css('-webkit-filter','invert(' + s2InvertValue + ')');
-          addFilter(3, s2InvertString);
-          $(s1).add(s2).css('-webkit-filter', filtersOnString);
-        } else {
-          $(stgSelect).css('-webkit-filter','invert(1)');
-          addFilter(3, s1InvertString);
-          $(stgSelect).css('-webkit-filter', filtersOnString);
-        }
-
-      }
-
-    /* ---------------------- */

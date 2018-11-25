@@ -5,9 +5,6 @@ var version = "0.9.2";
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 var banksInUse = [];
-// var bankerArray = [];
-// letterArrayS1 = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-// letterArrayS2 = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 var giyTriggerArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
 // Declarations
@@ -23,6 +20,14 @@ var wc = '#webcam-container';
 var sf = {'background-position':'center', 'background-size':'cover', 'backgroundRepeat':'no-repeat'}; // STAGE FullScreen
 var st = {'background-position':'center', 'background-size':'auto', 'backgroundRepeat':'repeat'}; // STAGE Tile
 var filterClear = {'-webkit-filter':'none'};
+
+var currentScene = {
+	"stage" : [
+		{ "bank": null, "location": null, "name": null, "filter": null, "blendMode": null },
+		{ "bank": null, "location": null, "name": null, "filter": null, "blendMode": null }
+	]
+};
+
 var bankSelectkeyArray;
 
 var bankSelected = 0;
@@ -125,8 +130,6 @@ var roboFillOn = 0;
 var gpsTimer;
 var gpsTimer2;
 var scenePauseOn = 0;
-// var stageLockedImage;
-// var stageLockedImage2;
 var sceneFullscreenOn = 0;
 var stageFlipOn = 0;
 var currentPlayMode = 'giy';
