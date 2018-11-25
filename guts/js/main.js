@@ -282,7 +282,7 @@ function sceneSetter(arrayName, banker1, banker2) {
   currentScene.stage[0].filter = $(s1).css('filter');
   currentScene.stage[1].filter = $(s2).css('filter');
 
-  fxChecker();
+  Effects.fxChecker();
 
 }
 
@@ -440,26 +440,6 @@ function playMode(playType) {
     }
 }
 
-function fxChecker() {
-
-    // CHECK FOR KALEIDOSCOPE
-    if (kaleidoscopeOn) {
-      console.log('KALEIDOSCOPE IS RUNNING');
-      if (stgSelect == 'all') {
-        $(s1 + '.kaleidoscope > div').css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
-        $(s2 + '.kaleidoscope > div').css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-        $(s2).css('background', 'none !important');
-        $(s2 + '.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
-        $(s1 + '.kaleidoscope > div').add(s2  + '.kaleidoscope > div').css(sf);
-      } else {
-        $(stgSelect + '.kaleidoscope > div').css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
-        $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-        $('.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
-        $(stgSelect + '.kaleidoscope > div').css(sf);
-      }
-    }
-}
-
 // ROBOMODE
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -523,10 +503,9 @@ function startRobomode() {
 
 // CHECKING FOR FX & FILTERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  if(stgFadeOn) { stgFade(); }
+  if(stgFadeOn) { Effects.stgFade(); }
   if(saturateOn) { Filter.saturator(); }
-  if(sameSameOn) { sameSame(); }
-  if(switcherooOn) { switcheroo(); }
+  if(sameSameOn) { Effects.sameSame(); }
   if(hueShiftOn) { Filter.hueShift(); }
   if(blurryOn) { Filter.blurry(); }
   if(invertOn) { Filter.invert(); }
@@ -569,48 +548,3 @@ function roboScreen() {
   startRobomode(beatTime);
   clearBeatTime();
 }
-
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-// *** FX & FILTERS ***
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-// FX : KALEIDOSCOPE
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-function buildKaleidoscope() {
-  if (stgSelect == "all") {
-    $(s1).add(s2).addClass('kaleidoscope')
-    .append('<div class="tl" /><div class="tr" /><div class="bl" /><div class="br" />');
-  } else {
-    $(stgSelect).addClass('kaleidoscope')
-    .append('<div class="tl" /><div class="tr" /><div class="bl" /><div class="br" />');
-  }
-}
-
-// FX : STAGE FADE
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  function stgFade() {
-    $(s2).fadeOut(beatTime/2, function() {
-      $(this).fadeIn(beatTime/2);
-    });
-  }
-
-// FX : SAMESAME
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  function sameSame() {
-
-    // if(!bankerOn) {
-        // console.log('SAMESAME v2');
-        $(s1).css('background', bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter)
-          .css({'background-repeat':'no-repeat', 'background-size':'cover'});
-        $(s2).css({
-          'background' : bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter,
-          'background-repeat':'round', 'background-size' : numRan(100) + '%',
-          'opacity' : '.75'
-        });
-        var beatz = beatTime/beatSpeed;
-        $(s2).css('animation-duration', beatz * sameSameConstant + 's');
-    // }
-  }

@@ -100,8 +100,8 @@ if(app.settings.effects.kaleidoscope.enabled) {
     if(!kaleidoscopeOn) {
       console.log(appFX.kaleidoscope.name + ': ON');
       kaleidoscopeOn = 1;
-      buildKaleidoscope();
-      fxChecker();
+      Effects.buildKaleidoscope();
+      Effects.fxChecker();
     } else {
       kaleidoscopeOn = 0;
       console.log('REMOVING KALEIDOSCOPE: ' + stgSelect);
@@ -120,7 +120,7 @@ if(app.settings.effects.sameSame.enabled) {
     if(!sameSameOn) {
       sameSameOn = 1;
       console.log('FX: SAMESAME ON');
-      sameSame();
+      Effects.sameSame();
       $(s2).addClass('same-same');
     } else {
       console.log('FX: SAMESAME OFF');
