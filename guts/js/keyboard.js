@@ -6,7 +6,7 @@ kd.run(function () { kd.tick(); });
 
 $(document).ready(function() {
 
-  $('body').css('background-color', randomColorChange());
+  // $('body').css('background-color', randomColorChange());
 
     startup();
 
@@ -17,24 +17,24 @@ $(document).ready(function() {
       });
     });
 
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-// KEY INPUT (Mousetrap.js) https://craig.is/killing/mice
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  // KEY INPUT (Mousetrap.js) https://craig.is/killing/mice
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-// *** SCREENSAVER ***
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  // *** SCREENSAVER ***
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-// *** BANK & FX SELECTOR ***
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  // *** BANK & FX SELECTOR ***
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-// FX MODE [ ` ]
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  // FX MODE [ ` ]
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind("`", function() {
     if (sampledFilterOn == 1) {
-      console.log('SAMPLED FILTER: APPLIED');
+      console.log('SAMPLED FILTER: APPLIED', "\n---------------------------------");
       $(stgSelect).css('filter', sampledFilter);
       if (stgSelect == 'all') {
         $(s1).css('filter', sampledFilter);
@@ -48,70 +48,68 @@ $(document).ready(function() {
   Mousetrap.bind("~", function() {
     console.log('FILTERS: CLEARED');
     if (stgSelect == 'all') {
-      $(s1).css('-webkit-filter', 'none');
-      $(s2).css('-webkit-filter', 'none');
+      $(s1).add(s2).css('-webkit-filter', 'none');
     } else {
       $(stgSelect).css('-webkit-filter', 'none');
     }
-    // $(stgSelect).css('-webkit-filter', 'none');
     filtersOnString = "";
     filtersOn = [];
     saturateOn = 0; hueShiftOn = 0; blurryOn = 0; invertOn = 0;
   });
 
-  function findEffectInArray(element) {
-    return element.effect === effectName;
-  }
+  // function findEffectInArray(element) {
+  //   return element.effect === effectName;
+  // }
 
   // Kaleidoscope
-if(app.settings.effects.kaleidoscope.enabled) {
-  Mousetrap.bind(app.settings.effects.kaleidoscope.filterKey, function() {
-    if(!kaleidoscopeOn) {
-      console.log(appFX.kaleidoscope.name + ': ON');
-      kaleidoscopeOn = 1;
-      Effects.buildKaleidoscope();
-      Effects.fxChecker();
-    } else {
-      kaleidoscopeOn = 0;
-      console.log('REMOVING KALEIDOSCOPE: ' + stgSelect);
-      $(s1).add(s2)
-        .removeClass(app.settings.effects.kaleidoscope.name);
-      $(s1 + ' > div').add(s2 + ' > div')
-        .detach().css('mix-blend-mode','normal');
-        $(s2).css('mix-blend-mode','');
-    }
-  });
-}
+  if(app.settings.effects.kaleidoscope.enabled) {
+    Mousetrap.bind(app.settings.effects.kaleidoscope.filterKey, function() {
+      if(!kaleidoscopeOn) {
+        console.log(appFX.kaleidoscope.name + ': ON');
+        kaleidoscopeOn = 1;
+        Effects.buildKaleidoscope();
+        Effects.fxChecker();
+      } else {
+        kaleidoscopeOn = 0;
+        console.log('REMOVING KALEIDOSCOPE: ' + stgSelect);
+        $(s1).add(s2)
+          .removeClass(app.settings.effects.kaleidoscope.name);
+        $(s1 + ' > div').add(s2 + ' > div')
+          .detach().css('mix-blend-mode','normal');
+          $(s2).css('mix-blend-mode','');
+      }
+    });
+  }
 
   /* SameSame */
-if(app.settings.effects.sameSame.enabled) {
-  Mousetrap.bind(app.settings.effects.sameSame.filterKey, function() {
-    if(!sameSameOn) {
-      sameSameOn = 1;
-      console.log('FX: SAMESAME ON');
-      Effects.sameSame();
-      $(s2).addClass('same-same');
-    } else {
-      console.log('FX: SAMESAME OFF');
-      sameSameOn = 0;
-      $(s2).removeClass('same-same');
-    }
-  });
-}
+  if(app.settings.effects.sameSame.enabled) {
+    Mousetrap.bind(app.settings.effects.sameSame.filterKey, function() {
+      if(!sameSameOn) {
+        sameSameOn = 1;
+        console.log('FX: SAMESAME ON');
+        Effects.sameSame();
+        $(s2).addClass('same-same');
+      } else {
+        console.log('FX: SAMESAME OFF');
+        sameSameOn = 0;
+        $(s2).removeClass('same-same');
+      }
+    });
+  }
 
   // STG FADE
-if(app.settings.effects.stgFade.enabled) {
-  Mousetrap.bind(app.settings.effects.stgFade.filterKey, function() {
-    if(!stgFadeOn) {
-    console.log('FX: FADER ON');
-    stgFadeOn = 1;
-    } else {
-    console.log('FX: FADER OFF');
-    stgFadeOn = 0;
+  if(app.settings.effects.stgFade.enabled) {
+    Mousetrap.bind(app.settings.effects.stgFade.filterKey, function() {
+      if(!stgFadeOn) {
+      console.log('FX: FADER ON');
+      stgFadeOn = 1;
+      } else {
+      console.log('FX: FADER OFF');
+      stgFadeOn = 0;
 
-    }
-  });
-}
+      }
+    });
+  }
 
   /* Invert */
   if(app.settings.effects.invert.enabled) {
@@ -131,30 +129,29 @@ if(app.settings.effects.stgFade.enabled) {
         });
       }
     });
-}
+  }
 
   // FILTERS
 
   // SATURATE
   if(app.settings.effects.saturator.enabled) {
     Mousetrap.bind(app.settings.effects.saturator.filterKey, function() {
-    if(!saturateOn) {
-      saturateOn = 1;
-      console.log('FX: SATURATE ON');
-      Filter.saturator();
-    } else {
-      console.log('FX: SATURATE OFF');
-      saturateOn = 0;
-      $(s1).add(s2).css('-webkit-filter', 'none');
-      filtersOn[0] = "";
-      filtersOnString = "";
-      filtersOn.forEach(function(element) {
-        filtersOnString += element + " ";
-      });
-
-    }
-  });
-}
+      if(!saturateOn) {
+        saturateOn = 1;
+        console.log('FX: SATURATE ON');
+        Filter.saturator();
+      } else {
+        console.log('FX: SATURATE OFF');
+        saturateOn = 0;
+        $(s1).add(s2).css('-webkit-filter', 'none');
+        filtersOn[0] = "";
+        filtersOnString = "";
+        filtersOn.forEach(function(element) {
+          filtersOnString += element + " ";
+        });
+      }
+    });
+  }
 
   /* HueShift */
   if(app.settings.effects.hueShift.enabled) {
@@ -229,10 +226,10 @@ Mousetrap.bind('alt+.', function() {
 Mousetrap.bind('alt+/', function() {
   if (!blendModeRandomOn) {
     blendModeRandomOn = 1;
-    console.log('RANDOM BLEND MODE: ON');
+    console.log('RANDOM BLEND MODE: ON', "\n---------------------------------");
   } else {
     blendModeRandomOn = 0;
-    console.log('RANDOM BLEND MODE: OFF');
+    console.log('RANDOM BLEND MODE: OFF', "\n---------------------------------");
     $(s2).css('mix-blend-mode', 'screen');
   }
 });
@@ -400,7 +397,7 @@ Mousetrap.bind('shift+return', function() {
         console.log('SCENE PAUSE: ON');
         console.log('SAMPLER INDEX: ' + samplerIndex);
         pausedSamplerIndex = samplerIndex;
-        console.log('PAUSED SAMPLER INDEX: ' + pausedSamplerIndex);
+        console.log('PAUSED SAMPLER INDEX: ' + pausedSamplerIndex, "\n---------------------------------");
         pausedStg1 = gifSelectorS1;
         pausedStg2 = gifSelectorS2;
         pausedBankStg1 = bankSelectorS1;
@@ -414,13 +411,9 @@ Mousetrap.bind('shift+return', function() {
           console.log('SAMPLER INDEX: ' + samplerIndex);
           samplerIndex = -1;
         } else {
-          // samplerIndex = pausedSamplerIndex;
-          // samplerIndex--;
           samplerIndex = pausedSamplerIndex;
           console.log('SAMPLER INDEX: ' + samplerIndex);
           console.log('UNPAUSED SAMPLER INDEX: ' + pausedSamplerIndex);
-
-
         }
 
         console.log('SCENE PAUSE: OFF');
@@ -489,7 +482,7 @@ Mousetrap.bind('shift+return', function() {
           arr_enabledBanks.push(element);
         }
       });
-      console.log('ENABLED BANKS AMOUNT: ' + arr_enabledBanks.length);
+      console.log('ENABLED BANKS AMOUNT: ' + arr_enabledBanks.length, "\n---------------------------------");
       createTriggerArray(arr_enabledBanks);
     }
 
@@ -500,7 +493,7 @@ Mousetrap.bind('shift+return', function() {
     */
     function createTriggerArray(array) {
       alltriggerArray = new Set();
-      console.log('CREATIING KEY TRIGGER ARRAY');
+      console.log('CREATIING: BANKER SET KEY TRIGGER ARRAY', "\n---------------------------------");
       for (i = 0; i < array.length; i++) {
         for (j = 0; j < array[i].gifs.length; j++) {
           array[i].gifs[j].bank = array[i].id;
@@ -522,7 +515,7 @@ Mousetrap.bind('shift+return', function() {
       console.log('SOLO KEY MAKER');
       console.log('THI SIS THE ARRAY: '+ arr_enabledBanks[0].id);
 
-      console.log('AND YOU CLICKED ' + key);
+      console.log('AND YOU CLICKED ' + key, "\n---------------------------------");
       for (i = 0; i < array.length; i++) {
         // console.log('ID or bank # ' + array[i].id);
         for (j = 0; j < array[i].gifs.length; j++) {
@@ -544,7 +537,7 @@ Mousetrap.bind('shift+return', function() {
         console.log(setBank);
         setOn = 1;
       } else {
-        console.log('BANKER SET: OFF');
+        console.log('BANKER SET: OFF', "\n---------------------------------");
         setOn = 0;
       }
     }
@@ -637,7 +630,6 @@ Mousetrap.bind('shift+return', function() {
         Mousetrap.trigger('"');
         sequencerOn = 0;
         curSequencerIndex = -1;
-
       }
   });
 
@@ -666,7 +658,6 @@ Mousetrap.bind('shift+return', function() {
             console.log(sampledScenes);
             --samplerIndex;
             return false;
-
           }
 
           console.log('StageFlip');
@@ -799,93 +790,83 @@ Mousetrap.bind('shift+return', function() {
 
   // KILL SWITCH
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-    Mousetrap.bind("alt+ctrl+esc", function() {
-      console.log('KILL SWITCH ENABLED');
-      localStorage.setItem('killSwitch','killed');
-      localStorage.setItem('stg1Bank', currentScene.stage[0].bank);
-      localStorage.setItem('stg2Bank', currentScene.stage[1].bank);
-      localStorage.setItem('stg1Gif', currentScene.stage[0].name);
-      localStorage.setItem('stg2Gif', currentScene.stage[1].name);
-      localStorage.setItem('stg1Location', currentScene.stage[0].location);
-      localStorage.setItem('stg2Location', currentScene.stage[1].location);
-      localStorage.setItem('stg1BgSize', currentScene.stage[0].bgSize);
-      localStorage.setItem('stg2BgSize', currentScene.stage[1].bgSize);
-      localStorage.setItem('stg1Blend', currentScene.stage[0].blendMode);
-      localStorage.setItem('stg2Blend', currentScene.stage[1].blendMode);
-      localStorage.setItem('stg1Filter', currentScene.stage[0].filter);
-      localStorage.setItem('stg2Filter', currentScene.stage[1].filter);
-      localStorage.setItem('stg1Repeat', currentScene.stage[0].repeat);
-      localStorage.setItem('stg2Repeat', currentScene.stage[1].repeat);
-      stgStore = localStorage.getItem('killSwitch');
-      location.reload();
-    });
+  Mousetrap.bind("alt+ctrl+esc", function() {
+    console.log('KILL SWITCH: ENABLED');
+    localStorage.setItem('killSwitch','killed');
+    localStorage.setItem('stg1Bank', currentScene.stage[0].bank);
+    localStorage.setItem('stg2Bank', currentScene.stage[1].bank);
+    localStorage.setItem('stg1Gif', currentScene.stage[0].name);
+    localStorage.setItem('stg2Gif', currentScene.stage[1].name);
+    localStorage.setItem('stg1Location', currentScene.stage[0].location);
+    localStorage.setItem('stg2Location', currentScene.stage[1].location);
+    localStorage.setItem('stg1BgSize', currentScene.stage[0].bgSize);
+    localStorage.setItem('stg2BgSize', currentScene.stage[1].bgSize);
+    localStorage.setItem('stg1Blend', currentScene.stage[0].blendMode);
+    localStorage.setItem('stg2Blend', currentScene.stage[1].blendMode);
+    localStorage.setItem('stg1Filter', currentScene.stage[0].filter);
+    localStorage.setItem('stg2Filter', currentScene.stage[1].filter);
+    localStorage.setItem('stg1Repeat', currentScene.stage[0].repeat);
+    localStorage.setItem('stg2Repeat', currentScene.stage[1].repeat);
+    stgStore = localStorage.getItem('killSwitch');
+    location.reload();
+  });
 
   // SELECTING BANKS
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-    // Check for enabled Banks
-    createEnabledBankers();
-    function createEnabledBankers() {
-      banks.bank.forEach(function(element, index) {
-        console.log('CHECKING FOR ENABLED BANKS');
-
-        if (element.enabled === true) {
-          console.log('BANK ' + element.id + ': ENABLED!');
-          enabledBankersArray.push(element);
-        }
-      });
-      enabledBankers();
-    }
-
-bankerStorageSet = new Set();
-
-    function enabledBankers() {
-      for(let i = 0; i < enabledBankersArray.length; i++) {
-        Mousetrap.bind(enabledBankersArray[i].trigger, function() {
-          bankNumber = enabledBankersArray[i].id;
-          console.log('S1 BANK SELECTED : ' + bankNumber);
-          var numberKey = bankNumber;
-          createGiyTriggers(bankNumber);
-
-          if(bankerOn == 1) {
-
-            if (bankerStorageSet.has(bankNumber)) {
-              bankerStorageSet.delete(bankNumber);
-              console.log('BANK ' + bankNumber + ' : REMOVED FROM BANKER');
-              bankerArray = [...bankerStorageSet];
-              console.log(bankerArray);
-
-              if (bankerArray.length === 0) {
-                Mousetrap.trigger("'");
-              }
-
-              return false;
-            }
-
-            bankerStorageSet.add(bankNumber);
-            bankerArray = [...bankerStorageSet];
-            console.log('BANK ' + bankNumber + ' : ADDED TO BANKER');
-            console.log(bankerArray);
-
-          } else {
-            console.log('BANK SELECTED : ' + bankNumber);
-            bankSelected = true;
-
-          }
-
-        });
-      }
-    }
-
-  // OVERLAYS
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    var overlaySelectKeyArray = ['¡','™','£','¢','∞','§','¶','•','ª','º'];
-    for(let i = 0; i < overlaySelectKeyArray.length; i++) {
-        Mousetrap.bind(overlaySelectKeyArray[i], function() {
-          console.log('OVERLAY COMING SOON');
-        });
+  // Check for enabled Banks
+  createEnabledBankers();
+  function createEnabledBankers() {
+    console.log('CHECKING FOR: ENABLED BANKS');
+    banks.bank.forEach(function(element, index) {
+
+      if (element.enabled === true) {
+        console.log('BANK ' + element.id + ': ENABLED');
+        enabledBankersArray.push(element);
+      }
+
+    });
+    enabledBankers();
+    console.log("---------------------------------");
+  }
+
+  bankerStorageSet = new Set();
+
+  function enabledBankers() {
+    for(let i = 0; i < enabledBankersArray.length; i++) {
+      Mousetrap.bind(enabledBankersArray[i].trigger, function() {
+        bankNumber = enabledBankersArray[i].id;
+        console.log('S1 BANK SELECTED: ' + bankNumber);
+        var numberKey = bankNumber;
+        createGiyTriggers(bankNumber);
+
+        if(bankerOn == 1) {
+
+          if (bankerStorageSet.has(bankNumber)) {
+            bankerStorageSet.delete(bankNumber);
+            console.log('BANK ' + bankNumber + ': REMOVED FROM BANKER', "\n---------------------------------");
+            bankerArray = [...bankerStorageSet];
+            console.log(bankerArray);
+
+            if (bankerArray.length === 0) {
+              Mousetrap.trigger("'");
+            }
+            return false;
+          }
+
+          bankerStorageSet.add(bankNumber);
+          bankerArray = [...bankerStorageSet];
+          console.log('BANK ' + bankNumber + ': ADDED TO BANKER', "\n---------------------------------");;
+          console.log(bankerArray);
+
+        } else {
+          console.log('BANK SELECTED: ' + bankNumber, "\n---------------------------------");
+          bankSelected = true;
+        }
+
+      });
     }
+  }
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // GIY:  KEYBOARD TRIGGERS
@@ -894,7 +875,7 @@ bankerStorageSet = new Set();
   createGiyTriggers(bankNumber);
 
   function createGiyTriggers(bankNumber) {
-    console.log('CREATING GIY TRIGGERS');
+    console.log('CREATING: GIY TRIGGERS', "\n---------------------------------");
     // Reset the trigger buttons (A-Z)
     for ( i = 0; i < giyTriggerArray.length; i++) {
       Mousetrap.unbind(giyTriggerArray[i]);
@@ -907,12 +888,12 @@ bankerStorageSet = new Set();
       if (banks.bank[bankNumber].gifs[index].trigger !== null) {
         singleBankTriggerArray.push(element);
       }
-      singleBankTriggers();
     });
+    singleBankTriggers();
   }
 
   function singleBankTriggers() {
-    console.log('SINGLE BANK TRIGGERS');
+    console.log('CREATING: SINGLE BANK TRIGGERS', "\n---------------------------------");
     singleBankTriggerArray.forEach(function(element, index) {
 
       Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {

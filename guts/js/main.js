@@ -39,9 +39,12 @@ function killSwitch() {
 }
 
 function startup() {
-  banks.bank.forEach(function(element) {
-    if (element.enabled) {
-      banksInUse.push(element.id);
+  
+  $('body').css('background-color', randomColorChange());
+
+  banks.bank.forEach(function(item) {
+    if (item.enabled) {
+      banksInUse.push(item.id);
     }
   });
 
