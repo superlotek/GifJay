@@ -25,56 +25,6 @@ $(document).ready(function() {
 // *** SCREENSAVER ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  Mousetrap.bind("shift+space", function() {
-
-    if(!screensaver) {
-
-      console.log('SCREENSAVER ON');
-      screensaver = 1;
-      roboScreen();
-
-    } else {
-
-      console.log('SCREENSAVER OFF');
-      screensaver = 0;
-      localStorage.setItem('killSwitch','killed');
-      localStorage.setItem('stg1Bank', currentScene.stage[0].bank);
-      localStorage.setItem('stg2Bank', currentScene.stage[1].bank);
-      localStorage.setItem('stg1Gif', currentScene.stage[0].name);
-      localStorage.setItem('stg2Gif', currentScene.stage[1].name);
-      localStorage.setItem('stg1Location', currentScene.stage[0].location);
-      localStorage.setItem('stg2Location', currentScene.stage[1].location);
-      localStorage.setItem('stg1BgSize', currentScene.stage[0].bgSize);
-      localStorage.setItem('stg2BgSize', currentScene.stage[1].bgSize);
-      localStorage.setItem('stg1Blend', currentScene.stage[0].blendMode);
-      localStorage.setItem('stg2Blend', currentScene.stage[1].blendMode);
-      localStorage.setItem('stg1Filter', currentScene.stage[0].filter);
-      localStorage.setItem('stg2Filter', currentScene.stage[1].filter);
-      localStorage.setItem('stg1Repeat', currentScene.stage[0].repeat);
-      localStorage.setItem('stg2Repeat', currentScene.stage[1].repeat);
-      stgStore = localStorage.getItem('killSwitch');
-      location.reload();
-
-
-
-      // localStorage.setItem('stg1Bank', currentScene.stage[0].bank);
-      // localStorage.setItem('stg2Bank', currentScene.stage[1].bank);
-      // localStorage.setItem('stg1Gif', currentScene.stage[0].name);
-      // localStorage.setItem('stg2Gif', currentScene.stage[1].name);
-      // localStorage.setItem('stg1Location', currentScene.stage[0].location);
-      // localStorage.setItem('stg2Location', currentScene.stage[1].location);
-      // localStorage.setItem('stg1BgSize', currentScene.stage[0].bgSize);
-      // localStorage.setItem('stg2BgSize', currentScene.stage[1].bgSize);
-      // localStorage.setItem('stg1Blend', currentScene.stage[0].blendMode);
-      // localStorage.setItem('stg2Blend', currentScene.stage[1].blendMode);
-      // localStorage.setItem('stg1Filter', currentScene.stage[0].filter);
-      // localStorage.setItem('stg2Filter', currentScene.stage[1].filter);
-      // localStorage.setItem('stg1Repeat', currentScene.stage[0].repeat);
-      // localStorage.setItem('stg2Repeat', currentScene.stage[1].repeat);
-
-    }
-  });
-
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** BANK & FX SELECTOR ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -259,7 +209,6 @@ Mousetrap.bind('alt+,', function() {
     $(s2).css('mix-blend-mode', 'screen');
   }
 
-
   } else {
     console.log('BLEND MODES: OFF');
   blendModesOn = !blendModesOn;
@@ -287,9 +236,6 @@ Mousetrap.bind('alt+/', function() {
     $(s2).css('mix-blend-mode', 'screen');
   }
 });
-
-
-
 
 // FILTER SAMPLE [ SHIFT ] [ RETURN ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -428,19 +374,16 @@ Mousetrap.bind('shift+return', function() {
   Mousetrap.bind("[", function() {
 
     if (!sceneFullscreenOn) {
-      console.log('SCENE FULLSCREEN: ON');
+      console.log("SCENE FULLSCREEN: ON", "\n---------------------------------");
       sceneFullscreenOn = 1;
 
-      if (sceneFullscreenOn) { screenFullscreen(); }
+      if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
     } else {
-      console.log('SCENE FULLSCREEN: OFF');
+      console.log("SCENE FULLSCREEN: OFF", "\n---------------------------------");
       sceneFullscreenOn = 0;
 
-      if (!sceneFullscreenOn) {
-        $(s1).css(st);
-        $(s2).css(st);
-      }
+      if (!sceneFullscreenOn) { $(s1).add(s2).css(st); }
 
     }
 
@@ -979,7 +922,7 @@ bankerStorageSet = new Set();
         $(s1).css({
           'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
-        if (sceneFullscreenOn) { screenFullscreen(); return false; }
+        if (sceneFullscreenOn) { Scene.screenFullscreen(); return false; }
         $(s1).css(this[randomizer(stageArray)]);
       });
 
@@ -989,7 +932,7 @@ bankerStorageSet = new Set();
         $(s2).css({
           'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
-        if (sceneFullscreenOn) { screenFullscreen(); return false; }
+        if (sceneFullscreenOn) { Scene.screenFullscreen(); return false; }
         $(s2).css(this[randomizer(stageArray)]);
       });
     });

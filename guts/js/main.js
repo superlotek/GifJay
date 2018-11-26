@@ -95,11 +95,11 @@ function stageSetup() {
 
 }
 
-function screenFullscreen() {
-  // console.log('SCENE FULLSCREEN');
-  $(s1).css(sf);
-  $(s2).css(sf);
-}
+// function screenFullscreen() {
+//   // console.log('SCENE FULLSCREEN');
+//   $(s1).css(sf);
+//   $(s2).css(sf);
+// }
 
 function setGPS() {
   console.log('GPS SET');
@@ -146,7 +146,7 @@ function sceneSetter(arrayName, banker1, banker2) {
       });
     });
 
-    if (sceneFullscreenOn) { screenFullscreen(); }
+    if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
   } else {
 
@@ -183,7 +183,7 @@ function sceneSetter(arrayName, banker1, banker2) {
 
   if (currentPlayMode != 'robomode') {
 
-        if (sceneFullscreenOn) { screenFullscreen(); }
+        if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
         // CHECKING FOR SCENE PAUSE
         if (scenePauseOn) {
@@ -195,7 +195,7 @@ function sceneSetter(arrayName, banker1, banker2) {
 
         // CHECKING FOR BANKER
         if (bankerOn) {
-          if (sceneFullscreenOn) { screenFullscreen(); }
+          if (sceneFullscreenOn) { Scene.screenFullscreen(); }
         }
 
         if (gifSelectorS1.gif === gifSelectorS2.gif) {
@@ -225,7 +225,7 @@ function sceneSetter(arrayName, banker1, banker2) {
         $(stgNotSelected).css(this[randomizer(stageArray)]);
         $(stgSelect).css(this[randomizer(stageArray)]);
 
-        if (sceneFullscreenOn) { screenFullscreen(); }
+        if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
   } else {
 
@@ -247,9 +247,8 @@ function sceneSetter(arrayName, banker1, banker2) {
         $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter });
         $(s1).css(this[randomizer(stageArray)]);
         $(s2).css(this[randomizer(stageArray)]);
-        // $(s2).css('opacity', '1');
 
-        if (sceneFullscreenOn) { screenFullscreen(); }
+        if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
   }
 
@@ -395,7 +394,7 @@ function playMode(playType) {
               'mix-blend-mode' : smpldScn.stages[1].blend
             });
 
-        if (sceneFullscreenOn) { screenFullscreen(); }
+        if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
       }
 
@@ -495,22 +494,4 @@ function clearBeatTime() {
   gpsTimer = setInterval(function() {
     startRobomode(beatTime);
   }, beatTime);
-}
-
-// SCREENSAVER
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-function roboScreen() {
-  console.log('INITIATING SCREENSAVER FUNCTION');
-  Mousetrap.trigger('space');
-  stageOneOn = 1;
-  $(s1).addClass('on');
-  $(s1).removeClass('off');
-  stageTwoOn = 1;
-  $(s2).addClass('on');
-  $(s2).removeClass('off');
-  $(s2).toggleClass('blend');
-  robomodeOn = 1;
-  startRobomode(beatTime);
-  clearBeatTime();
 }

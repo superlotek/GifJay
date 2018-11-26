@@ -20,6 +20,10 @@ const Scene = {
     currentScene.stage[0].bgSize = $(s1).css('background-size');
     currentScene.stage[1].bgSize = $(s2).css('background-size');
     return currentScene;
+  },
+
+  screenFullscreen() {
+    $(s1).add(s2).css(sf);
   }
 
 };
