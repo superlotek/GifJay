@@ -23,66 +23,52 @@ function numRan(ranNum) {
 
 function killSwitch() {
   localStorage.setItem('killSwitch','unkilled');
-  console.log('GifJay KILL SWITCH SUCCESSFUL');
+  console.log("KILL SWITCH: ENABLED", "\n---------------------------------");
   stageSetup();
   $(s1).add(s2).addClass('on');
   stageOneOn, stageTwoOn = 1;
-  $(s1).css('background', bankLocation + localStorage.getItem('stg1Bank') + '/' + localStorage.getItem('stg1Gif') + bgCenter);
-  $(s2).css('background', bankLocation + localStorage.getItem('stg2Bank') + '/' + localStorage.getItem('stg2Gif') + bgCenter);
-  $(s1).css('background-repeat', localStorage.getItem('stg1Repeat'));
-  $(s2).css('background-repeat', localStorage.getItem('stg2Repeat'));
-  $(s1).css('background-size', localStorage.getItem('stg1Size'));
-  $(s2).css('background-size', localStorage.getItem('stg2Size'));
+  $(s1).css('background', bankLocation + localStorage.getItem('stg1Location') + localStorage.getItem('stg1Gif') + bgCenter);
+  $(s2).css('background', bankLocation + localStorage.getItem('stg2Location') + localStorage.getItem('stg2Gif') + bgCenter);
   $(s1).css('mix-blend-mode', localStorage.getItem('stg1Blend'));
   $(s2).css('mix-blend-mode', localStorage.getItem('stg2Blend'));
+  $(s1).css('background-repeat', localStorage.getItem('stg1Repeat'));
+  $(s2).css('background-repeat', localStorage.getItem('stg2Repeat'));
+  $(s1).css('background-size', localStorage.getItem('stg1BgSize'));
+  $(s2).css('background-size', localStorage.getItem('stg2BgSize'));
   $(s2).addClass('blend');
 }
 
 function startup() {
-  banks.bank.forEach(function(gleep) {
-    if (gleep.enabled) {
-      banksInUse.push(gleep.id);
+  banks.bank.forEach(function(element) {
+    if (element.enabled) {
+      banksInUse.push(element.id);
     }
   });
 
   bankNumber = randomizer(banksInUse);
-  console.log('BANK NUMBER: ' + bankNumber);
+  console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 
   if(localStorage.getItem('killSwitch') == 'killed') {
     killSwitch();
   } else {
-    console.log('GifJay ' + version + ' Starting Up');
+    console.log('GIFJAY: ' + version + ' STARTING UP', "\n---------------------------------");
     $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('body');
-    $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow', function() { titlePage();  });
+    $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
   }
-}
-
-function titlePage() {
-
-  console.log('TITLE PAGE: ' + titlePageOn);
-
-  if(!titlePageOn) {
-    console.log('NO TITLE PAGE');
-    return;
-  } else {
-    console.log('TITLE PAGE COMING ON');
-    $('<div class="title-page"></div>').css('background-image','url(titles/' + titlePageName + ')').appendTo('body').fadeIn('slow');
-  }
-
 }
 
 function stageSetup() {
-  console.log('Stage 1 + 2 Setup');
+  console.log('STG1+2: SETUP', "\n---------------------------------");
 
-  banks.bank.forEach(function(gleep) {
-    if (gleep.enabled) {
-      banksInUse.push(gleep.id);
+  banks.bank.forEach(function(element) {
+    if (element.enabled) {
+      banksInUse.push(element.id);
     }
   });
-  console.log("BANKS IN USE: " + banksInUse);
+  console.log("BANKS IN USE: " + banksInUse, "\n---------------------------------");
 
   if(giy) {
-    console.log('BANK NUMBER : ' + bankNumber);
+    console.log('BANK NUMBER: ' + bankNumber, "\n---------------------------------");
     console.log('Setting up for GIY');
 
     if(!bankNumber) {
@@ -104,21 +90,13 @@ function stageSetup() {
     sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
   }
 
-    stageParameters();
-    console.log('bankSelectorS1: ' + bankSelectorS1);
-    console.log('bankSelectorS2: ' + bankSelectorS2);
+    console.log('BANK SELECTOR S1: ' + bankSelectorS1);
+    console.log('BANK SELECTOR S2: ' + bankSelectorS2);
 
-}
-
-function stageParameters() {
-  $(s1).attr({stage:1,bank:bankSelectorS1, location:gifSelectorS1.location, gif:gifSelectorS1.gif,repeat:$(s1).
-    css('background-repeat'),size:$(s1).css('background-size'),blend:$(s1).css('mix-blend-mode')});
-  $(s2).attr({stage:2,bank:bankSelectorS2, location:gifSelectorS2.location, gif:gifSelectorS2.gif,repeat:$(s2).
-    css('background-repeat'),size:$(s2).css('background-size'),blend:$(s2).css('mix-blend-mode')});
 }
 
 function screenFullscreen() {
-  console.log('SCENE FULLSCREEN');
+  // console.log('SCENE FULLSCREEN');
   $(s1).css(sf);
   $(s2).css(sf);
 }
@@ -221,12 +199,16 @@ function sceneSetter(arrayName, banker1, banker2) {
         }
 
         if (gifSelectorS1.gif === gifSelectorS2.gif) {
-          console.log("WE'VE GOT A DUPE!!!");
-          $(s1).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
-          $(s2).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-          $(s1).css('background-repeat', 'repeat');
-          $(s2).css('background-repeat', 'no-repeat');
-          $(s2).css('background-size', 'cover');
+          console.log("DUPLICATE GIFS");
+          $(s1).css({
+            "background" : bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter,
+            "background-repeat" : "repeat"
+          });
+          $(s2).css({
+            "background" : bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter,
+            "background-repeat" : "no-repeat",
+            "background-size" : "cover"
+          });
           return false;
         }
 
@@ -271,17 +253,7 @@ function sceneSetter(arrayName, banker1, banker2) {
 
   }
 
-  currentScene.stage[0].bank = bankSelectorS1;
-  currentScene.stage[1].bank = bankSelectorS2;
-  currentScene.stage[0].location = gifSelectorS1.location;
-  currentScene.stage[1].location = gifSelectorS2.location;
-  currentScene.stage[0].name = gifSelectorS1.gif;
-  currentScene.stage[1].name = gifSelectorS2.gif;
-  currentScene.stage[0].blendMode = $(s1).css('mix-blend-mode');
-  currentScene.stage[1].blendMode = $(s2).css('mix-blend-mode');
-  currentScene.stage[0].filter = $(s1).css('filter');
-  currentScene.stage[1].filter = $(s2).css('filter');
-
+  Scene.saveCurrentScene()
   Effects.fxChecker();
 
 }
@@ -469,8 +441,6 @@ function stageFlip() {
     sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
   }
 
-  stageParameters();
-
 }
 
 function startRobomode() {
@@ -499,7 +469,6 @@ function startRobomode() {
     playMode('default');
 
   }
-  stageParameters();
 
 // CHECKING FOR FX & FILTERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -509,9 +478,6 @@ function startRobomode() {
   if(hueShiftOn) { Filter.hueShift(); }
   if(blurryOn) { Filter.blurry(); }
   if(invertOn) { Filter.invert(); }
-
-  // add asset info to data-type attributes
-  stageParameters();
 
 }
 // END OF ROBOMODE

@@ -38,21 +38,40 @@ $(document).ready(function() {
       console.log('SCREENSAVER OFF');
       screensaver = 0;
       localStorage.setItem('killSwitch','killed');
-      stageParameters();
-      localStorage.setItem('stg1Bank',$(s1).attr('bank'));
-      localStorage.setItem('stg2Bank',$(s2).attr('bank'));
-      localStorage.setItem('stg1Gif',$(s1).attr('gif'));
-      localStorage.setItem('stg2Gif',$(s2).attr('gif'));
-      localStorage.setItem('stg1Repeat',$(s1).attr('repeat'));
-      localStorage.setItem('stg2Repeat',$(s2).attr('repeat'));
-      localStorage.setItem('stg1Size',$(s1).attr('size'));
-      localStorage.setItem('stg2Size',$(s2).attr('size'));
-      localStorage.setItem('stg1Blend',$(s1).attr('blend'));
-      localStorage.setItem('stg2Blend',$(s2).attr('blend'));
-
-      var bgSize2 = $(s2).attr('size');
+      localStorage.setItem('stg1Bank', currentScene.stage[0].bank);
+      localStorage.setItem('stg2Bank', currentScene.stage[1].bank);
+      localStorage.setItem('stg1Gif', currentScene.stage[0].name);
+      localStorage.setItem('stg2Gif', currentScene.stage[1].name);
+      localStorage.setItem('stg1Location', currentScene.stage[0].location);
+      localStorage.setItem('stg2Location', currentScene.stage[1].location);
+      localStorage.setItem('stg1BgSize', currentScene.stage[0].bgSize);
+      localStorage.setItem('stg2BgSize', currentScene.stage[1].bgSize);
+      localStorage.setItem('stg1Blend', currentScene.stage[0].blendMode);
+      localStorage.setItem('stg2Blend', currentScene.stage[1].blendMode);
+      localStorage.setItem('stg1Filter', currentScene.stage[0].filter);
+      localStorage.setItem('stg2Filter', currentScene.stage[1].filter);
+      localStorage.setItem('stg1Repeat', currentScene.stage[0].repeat);
+      localStorage.setItem('stg2Repeat', currentScene.stage[1].repeat);
       stgStore = localStorage.getItem('killSwitch');
       location.reload();
+
+
+
+      // localStorage.setItem('stg1Bank', currentScene.stage[0].bank);
+      // localStorage.setItem('stg2Bank', currentScene.stage[1].bank);
+      // localStorage.setItem('stg1Gif', currentScene.stage[0].name);
+      // localStorage.setItem('stg2Gif', currentScene.stage[1].name);
+      // localStorage.setItem('stg1Location', currentScene.stage[0].location);
+      // localStorage.setItem('stg2Location', currentScene.stage[1].location);
+      // localStorage.setItem('stg1BgSize', currentScene.stage[0].bgSize);
+      // localStorage.setItem('stg2BgSize', currentScene.stage[1].bgSize);
+      // localStorage.setItem('stg1Blend', currentScene.stage[0].blendMode);
+      // localStorage.setItem('stg2Blend', currentScene.stage[1].blendMode);
+      // localStorage.setItem('stg1Filter', currentScene.stage[0].filter);
+      // localStorage.setItem('stg2Filter', currentScene.stage[1].filter);
+      // localStorage.setItem('stg1Repeat', currentScene.stage[0].repeat);
+      // localStorage.setItem('stg2Repeat', currentScene.stage[1].repeat);
+
     }
   });
 
@@ -840,22 +859,20 @@ Mousetrap.bind('shift+return', function() {
     Mousetrap.bind("alt+ctrl+esc", function() {
       console.log('KILL SWITCH ENABLED');
       localStorage.setItem('killSwitch','killed');
-
-      stageParameters();
-
-      localStorage.setItem('stg1Bank',$(s1).attr('bank'));
-      localStorage.setItem('stg2Bank',$(s2).attr('bank'));
-      localStorage.setItem('stg1Gif',$(s1).attr('gif'));
-      localStorage.setItem('stg2Gif',$(s2).attr('gif'));
-      localStorage.setItem('stg1Repeat',$(s1).attr('repeat'));
-      localStorage.setItem('stg2Repeat',$(s2).attr('repeat'));
-      localStorage.setItem('stg1Size',$(s1).attr('size'));
-      localStorage.setItem('stg2Size',$(s2).attr('size'));
-      localStorage.setItem('stg1Blend',$(s1).attr('blend'));
-      localStorage.setItem('stg2Blend',$(s2).attr('blend'));
-
-      var bgSize2 = $(s2).attr('size');
-
+      localStorage.setItem('stg1Bank', currentScene.stage[0].bank);
+      localStorage.setItem('stg2Bank', currentScene.stage[1].bank);
+      localStorage.setItem('stg1Gif', currentScene.stage[0].name);
+      localStorage.setItem('stg2Gif', currentScene.stage[1].name);
+      localStorage.setItem('stg1Location', currentScene.stage[0].location);
+      localStorage.setItem('stg2Location', currentScene.stage[1].location);
+      localStorage.setItem('stg1BgSize', currentScene.stage[0].bgSize);
+      localStorage.setItem('stg2BgSize', currentScene.stage[1].bgSize);
+      localStorage.setItem('stg1Blend', currentScene.stage[0].blendMode);
+      localStorage.setItem('stg2Blend', currentScene.stage[1].blendMode);
+      localStorage.setItem('stg1Filter', currentScene.stage[0].filter);
+      localStorage.setItem('stg2Filter', currentScene.stage[1].filter);
+      localStorage.setItem('stg1Repeat', currentScene.stage[0].repeat);
+      localStorage.setItem('stg2Repeat', currentScene.stage[1].repeat);
       stgStore = localStorage.getItem('killSwitch');
       location.reload();
     });
