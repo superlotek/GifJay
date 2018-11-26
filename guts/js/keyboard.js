@@ -25,37 +25,6 @@ $(document).ready(function() {
 // *** SCREENSAVER ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  Mousetrap.bind("shift+space", function() {
-
-    if(!screensaver) {
-
-      console.log('SCREENSAVER ON');
-      screensaver = 1;
-      roboScreen();
-
-    } else {
-
-      console.log('SCREENSAVER OFF');
-      screensaver = 0;
-      localStorage.setItem('killSwitch','killed');
-      stageParameters();
-      localStorage.setItem('stg1Bank',$(s1).attr('bank'));
-      localStorage.setItem('stg2Bank',$(s2).attr('bank'));
-      localStorage.setItem('stg1Gif',$(s1).attr('gif'));
-      localStorage.setItem('stg2Gif',$(s2).attr('gif'));
-      localStorage.setItem('stg1Repeat',$(s1).attr('repeat'));
-      localStorage.setItem('stg2Repeat',$(s2).attr('repeat'));
-      localStorage.setItem('stg1Size',$(s1).attr('size'));
-      localStorage.setItem('stg2Size',$(s2).attr('size'));
-      localStorage.setItem('stg1Blend',$(s1).attr('blend'));
-      localStorage.setItem('stg2Blend',$(s2).attr('blend'));
-
-      var bgSize2 = $(s2).attr('size');
-      stgStore = localStorage.getItem('killSwitch');
-      location.reload();
-    }
-  });
-
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** BANK & FX SELECTOR ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -240,7 +209,6 @@ Mousetrap.bind('alt+,', function() {
     $(s2).css('mix-blend-mode', 'screen');
   }
 
-
   } else {
     console.log('BLEND MODES: OFF');
   blendModesOn = !blendModesOn;
@@ -268,9 +236,6 @@ Mousetrap.bind('alt+/', function() {
     $(s2).css('mix-blend-mode', 'screen');
   }
 });
-
-
-
 
 // FILTER SAMPLE [ SHIFT ] [ RETURN ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -409,19 +374,16 @@ Mousetrap.bind('shift+return', function() {
   Mousetrap.bind("[", function() {
 
     if (!sceneFullscreenOn) {
-      console.log('SCENE FULLSCREEN: ON');
+      console.log("SCENE FULLSCREEN: ON", "\n---------------------------------");
       sceneFullscreenOn = 1;
 
-      if (sceneFullscreenOn) { screenFullscreen(); }
+      if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
     } else {
-      console.log('SCENE FULLSCREEN: OFF');
+      console.log("SCENE FULLSCREEN: OFF", "\n---------------------------------");
       sceneFullscreenOn = 0;
 
-      if (!sceneFullscreenOn) {
-        $(s1).css(st);
-        $(s2).css(st);
-      }
+      if (!sceneFullscreenOn) { $(s1).add(s2).css(st); }
 
     }
 
@@ -492,232 +454,116 @@ Mousetrap.bind('shift+return', function() {
     }
   });
 
-<<<<<<< HEAD
-// BANKER SETS ON/OFF [ ' ]
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-/*
-
-function search(nameKey, myArray){
-    for (var i=0; i < myArray.length; i++) {
-        if (myArray[i].name === nameKey) {
-            return myArray[i];
-        }
-    }
-}
-var array = [
-    { name:"string 1", value:"this", other: "that" },
-    { name:"string 2", value:"this", other: "that" }
-];
-var resultObject = search("string 1", array);
-
-
-*/
-
-  findEnabledBanks();
-
-  /*
-    this goes through the bank object and
-    puts all the enabled banks into a new
-    array called ** arr_enabledBanks **
-  */
-  function findEnabledBanks() {
-    arr_enabledBanks = [];
-    console.log('FIND ENABLED BANKS');
-    bankAmount = banks.bank.length;
-    console.log('TOTAL BANK AMOUNT: ' + bankAmount);
-    banks.bank.forEach(function(element) {
-      if (element.enabled === true) {
-        arr_enabledBanks.push(element);
-      }
-    });
-    console.log('ENABLED BANKS AMOUNT: ' + arr_enabledBanks.length);
-    createTriggerArray(arr_enabledBanks);
-  }
-
-  /*
-  this one takes an array parameter ENABLEDBANKS
-  and filters out all the banker set key triggers
-  into a new array **triggerArray**
-  */
-  function createTriggerArray(array) {
-    alltriggerArray = new Set();
-    console.log('CREATIING KEY TRIGGER ARRAY');
-    for (i = 0; i < array.length; i++) {
-      for (j = 0; j < array[i].gifs.length; j++) {
-        array[i].gifs[j].bank = array[i].id;
-        // console.log('what is this?? ' + array[i].gifs[j].bank);
-        alltriggerArray.add(array[i].gifs[j].set);
-      }
-    }
-    triggerArray = [...alltriggerArray];
-    bankerSetKeyTriggers(arr_enabledBanks);
-  }
-
-  // multiBankerSetObject = {};
-  // multiBankerSetObject.multiBankerSetArray = []
-  /* creates an array of all the gifs for
-  the particular bank
-  */
-  function justMakeSoloKeyTrigger(key, array) {
-    singleBankerSet = [];
-    console.log('SOLO KEY MAKER');
-    console.log('THI SIS THE ARRAY: '+ arr_enabledBanks[0].id);
-
-    console.log('AND YOU CLICKED ' + key);
-    for (i = 0; i < array.length; i++) {
-      // console.log('ID or bank # ' + array[i].id);
-      for (j = 0; j < array[i].gifs.length; j++) {
-        // add gif bank number
-        array[i].gifs[j].bank = arr_enabledBanks[0].id;
-        if (array[i].gifs[j].set == key) {
-          setBank = array[i].id;
-          singleBankerSet.push(array[i].gifs[j]);
-        }
-      }
-
-      // console.log('singleBankerSet: ' + singleBankerSet.length);
-      // multiBankerSetObject.multiBankerSetArray.push(singleBankerSet);
-
-    }
-
-    if(!setOn) {
-      // setBank = singleBankerSet;
-      console.log(setBank);
-      setOn = 1;
-    } else {
-      console.log('BANKER SET: OFF');
-      setOn = 0;
-    }
-  }
-
-/*
-This function takes the triggerArray
-and makes key triggers for the available Banker Sets
-*/
-function bankerSetKeyTriggers(array) {
-
-  bankerSetStorage = new Set();
-    for(let i = 0; i < triggerArray.length; i++) {
-      Mousetrap.bind("alt+" + triggerArray[i], function() {
-        console.log('CLICK: BANKER SET ' + triggerArray[i]);
-        justMakeSoloKeyTrigger(triggerArray[i], arr_enabledBanks);
-        bankerSetStorage.add(triggerArray[i]);
-      });
-    }
-}
-=======
   // BANKER SETS ON/OFF [ ' ]
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  /*
-  function search(nameKey, myArray){
-      for (var i=0; i < myArray.length; i++) {
-          if (myArray[i].name === nameKey) {
-              return myArray[i];
-          }
-      }
-  }
-  var array = [
-      { name:"string 1", value:"this", other: "that" },
-      { name:"string 2", value:"this", other: "that" }
-  ];
-  var resultObject = search("string 1", array);
-  */
+   /*
+   function search(nameKey, myArray){
+       for (var i=0; i < myArray.length; i++) {
+           if (myArray[i].name === nameKey) {
+               return myArray[i];
+           }
+       }
+   }
+   var array = [
+       { name:"string 1", value:"this", other: "that" },
+       { name:"string 2", value:"this", other: "that" }
+   ];
+   var resultObject = search("string 1", array);
+   */
 
-    findEnabledBanks();
+     findEnabledBanks();
 
-    /*
-      this goes through the bank object and
-      puts all the enabled banks into a new
-      array called ** arr_enabledBanks **
-    */
-    function findEnabledBanks() {
-      arr_enabledBanks = [];
-      console.log('FIND ENABLED BANKS');
-      bankAmount = banks.bank.length;
-      console.log('TOTAL BANK AMOUNT: ' + bankAmount);
-      banks.bank.forEach(function(element) {
-        if (element.enabled === true) {
-          arr_enabledBanks.push(element);
-        }
-      });
-      console.log('ENABLED BANKS AMOUNT: ' + arr_enabledBanks.length);
-      createTriggerArray(arr_enabledBanks);
-    }
+     /*
+       this goes through the bank object and
+       puts all the enabled banks into a new
+       array called ** arr_enabledBanks **
+     */
+     function findEnabledBanks() {
+       arr_enabledBanks = [];
+       console.log('FIND ENABLED BANKS');
+       bankAmount = banks.bank.length;
+       console.log('TOTAL BANK AMOUNT: ' + bankAmount);
+       banks.bank.forEach(function(element) {
+         if (element.enabled === true) {
+           arr_enabledBanks.push(element);
+         }
+       });
+       console.log('ENABLED BANKS AMOUNT: ' + arr_enabledBanks.length);
+       createTriggerArray(arr_enabledBanks);
+     }
 
-    /*
-    this one takes an array parameter ENABLEDBANKS
-    and filters out all the banker set key triggers
-    into a new array **triggerArray**
-    */
-    function createTriggerArray(array) {
-      alltriggerArray = new Set();
-      console.log('CREATIING KEY TRIGGER ARRAY');
-      for (i = 0; i < array.length; i++) {
-        for (j = 0; j < array[i].gifs.length; j++) {
-          array[i].gifs[j].bank = array[i].id;
-          // console.log('what is this?? ' + array[i].gifs[j].bank);
-          alltriggerArray.add(array[i].gifs[j].set);
-        }
-      }
-      triggerArray = [...alltriggerArray];
-      bankerSetKeyTriggers(arr_enabledBanks);
-    }
+     /*
+     this one takes an array parameter ENABLEDBANKS
+     and filters out all the banker set key triggers
+     into a new array **triggerArray**
+     */
+     function createTriggerArray(array) {
+       alltriggerArray = new Set();
+       console.log('CREATIING KEY TRIGGER ARRAY');
+       for (i = 0; i < array.length; i++) {
+         for (j = 0; j < array[i].gifs.length; j++) {
+           array[i].gifs[j].bank = array[i].id;
+           // console.log('what is this?? ' + array[i].gifs[j].bank);
+           alltriggerArray.add(array[i].gifs[j].set);
+         }
+       }
+       triggerArray = [...alltriggerArray];
+       bankerSetKeyTriggers(arr_enabledBanks);
+     }
 
-    // multiBankerSetObject = {};
-    // multiBankerSetObject.multiBankerSetArray = []
-    /* creates an array of all the gifs for
-    the particular bank
-    */
-    function justMakeSoloKeyTrigger(key, array) {
-      singleBankerSet = [];
-      console.log('SOLO KEY MAKER');
-      console.log('THI SIS THE ARRAY: '+ arr_enabledBanks[0].id);
+     // multiBankerSetObject = {};
+     // multiBankerSetObject.multiBankerSetArray = []
+     /* creates an array of all the gifs for
+     the particular bank
+     */
+     function justMakeSoloKeyTrigger(key, array) {
+       singleBankerSet = [];
+       console.log('SOLO KEY MAKER');
+       console.log('THI SIS THE ARRAY: '+ arr_enabledBanks[0].id);
 
-      console.log('AND YOU CLICKED ' + key);
-      for (i = 0; i < array.length; i++) {
-        // console.log('ID or bank # ' + array[i].id);
-        for (j = 0; j < array[i].gifs.length; j++) {
-          // add gif bank number
-          array[i].gifs[j].bank = arr_enabledBanks[0].id;
-          if (array[i].gifs[j].set == key) {
-            setBank = array[i].id;
-            singleBankerSet.push(array[i].gifs[j]);
-          }
-        }
+       console.log('AND YOU CLICKED ' + key);
+       for (i = 0; i < array.length; i++) {
+         // console.log('ID or bank # ' + array[i].id);
+         for (j = 0; j < array[i].gifs.length; j++) {
+           // add gif bank number
+           array[i].gifs[j].bank = arr_enabledBanks[0].id;
+           if (array[i].gifs[j].set == key) {
+             setBank = array[i].id;
+             singleBankerSet.push(array[i].gifs[j]);
+           }
+         }
 
-        // console.log('singleBankerSet: ' + singleBankerSet.length);
-        // multiBankerSetObject.multiBankerSetArray.push(singleBankerSet);
+         // console.log('singleBankerSet: ' + singleBankerSet.length);
+         // multiBankerSetObject.multiBankerSetArray.push(singleBankerSet);
 
-      }
+       }
 
-      if(!setOn) {
-        // setBank = singleBankerSet;
-        console.log(setBank);
-        setOn = 1;
-      } else {
-        console.log('BANKER SET: OFF');
-        setOn = 0;
-      }
-    }
+       if(!setOn) {
+         // setBank = singleBankerSet;
+         console.log(setBank);
+         setOn = 1;
+       } else {
+         console.log('BANKER SET: OFF');
+         setOn = 0;
+       }
+     }
 
-  /*
-  This function takes the triggerArray
-  and makes key triggers for the available Banker Sets
-  */
-  function bankerSetKeyTriggers(array) {
+   /*
+   This function takes the triggerArray
+   and makes key triggers for the available Banker Sets
+   */
+   function bankerSetKeyTriggers(array) {
 
-    bankerSetStorage = new Set();
-      for(let i = 0; i < triggerArray.length; i++) {
-        Mousetrap.bind("alt+" + triggerArray[i], function() {
-          console.log('CLICK: BANKER SET ' + triggerArray[i]);
-          justMakeSoloKeyTrigger(triggerArray[i], arr_enabledBanks);
-          bankerSetStorage.add(triggerArray[i]);
-        });
-      }
-  }
->>>>>>> gifjay_1.9.41
+     bankerSetStorage = new Set();
+       for(let i = 0; i < triggerArray.length; i++) {
+         Mousetrap.bind("alt+" + triggerArray[i], function() {
+           console.log('CLICK: BANKER SET ' + triggerArray[i]);
+           justMakeSoloKeyTrigger(triggerArray[i], arr_enabledBanks);
+           bankerSetStorage.add(triggerArray[i]);
+         });
+       }
+   }
 
 // SAMPLER [ RETURN, ENTER ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -956,22 +802,20 @@ function bankerSetKeyTriggers(array) {
     Mousetrap.bind("alt+ctrl+esc", function() {
       console.log('KILL SWITCH ENABLED');
       localStorage.setItem('killSwitch','killed');
-
-      stageParameters();
-
-      localStorage.setItem('stg1Bank',$(s1).attr('bank'));
-      localStorage.setItem('stg2Bank',$(s2).attr('bank'));
-      localStorage.setItem('stg1Gif',$(s1).attr('gif'));
-      localStorage.setItem('stg2Gif',$(s2).attr('gif'));
-      localStorage.setItem('stg1Repeat',$(s1).attr('repeat'));
-      localStorage.setItem('stg2Repeat',$(s2).attr('repeat'));
-      localStorage.setItem('stg1Size',$(s1).attr('size'));
-      localStorage.setItem('stg2Size',$(s2).attr('size'));
-      localStorage.setItem('stg1Blend',$(s1).attr('blend'));
-      localStorage.setItem('stg2Blend',$(s2).attr('blend'));
-
-      var bgSize2 = $(s2).attr('size');
-
+      localStorage.setItem('stg1Bank', currentScene.stage[0].bank);
+      localStorage.setItem('stg2Bank', currentScene.stage[1].bank);
+      localStorage.setItem('stg1Gif', currentScene.stage[0].name);
+      localStorage.setItem('stg2Gif', currentScene.stage[1].name);
+      localStorage.setItem('stg1Location', currentScene.stage[0].location);
+      localStorage.setItem('stg2Location', currentScene.stage[1].location);
+      localStorage.setItem('stg1BgSize', currentScene.stage[0].bgSize);
+      localStorage.setItem('stg2BgSize', currentScene.stage[1].bgSize);
+      localStorage.setItem('stg1Blend', currentScene.stage[0].blendMode);
+      localStorage.setItem('stg2Blend', currentScene.stage[1].blendMode);
+      localStorage.setItem('stg1Filter', currentScene.stage[0].filter);
+      localStorage.setItem('stg2Filter', currentScene.stage[1].filter);
+      localStorage.setItem('stg1Repeat', currentScene.stage[0].repeat);
+      localStorage.setItem('stg2Repeat', currentScene.stage[1].repeat);
       stgStore = localStorage.getItem('killSwitch');
       location.reload();
     });
@@ -1078,7 +922,7 @@ bankerStorageSet = new Set();
         $(s1).css({
           'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
-        if (sceneFullscreenOn) { screenFullscreen(); return false; }
+        if (sceneFullscreenOn) { Scene.screenFullscreen(); return false; }
         $(s1).css(this[randomizer(stageArray)]);
       });
 
@@ -1088,7 +932,7 @@ bankerStorageSet = new Set();
         $(s2).css({
           'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
-        if (sceneFullscreenOn) { screenFullscreen(); return false; }
+        if (sceneFullscreenOn) { Scene.screenFullscreen(); return false; }
         $(s2).css(this[randomizer(stageArray)]);
       });
     });

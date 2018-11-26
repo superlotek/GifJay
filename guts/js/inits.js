@@ -1,4 +1,4 @@
-var version = "0.9.2";
+var version = "0.9.41";
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // INITS
@@ -23,8 +23,8 @@ var filterClear = {'-webkit-filter':'none'};
 
 var currentScene = {
 	"stage" : [
-		{ "bank": null, "location": null, "name": null, "filter": null, "blendMode": null },
-		{ "bank": null, "location": null, "name": null, "filter": null, "blendMode": null }
+		{ "bank": undefined, "location": undefined, "name": undefined, "filter": undefined, "blendMode": undefined, "repeat": undefined, "bgSize": undefined },
+		{ "bank": undefined, "location": undefined, "name": undefined, "filter": undefined, "blendMode": undefined, "repeat": undefined, "bgSize": undefined }
 	]
 };
 
