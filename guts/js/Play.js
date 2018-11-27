@@ -27,10 +27,6 @@ const Play = {
   },
 
   startRobomode() {
-    // $('body').css('background-image', 'repeating-linear-gradient(' + numRan(360) + 'deg, ' +
-    //   randomColorChange() + ' ' + numRan(100) + '%, ' +
-    //   randomColorChange() + ' ' + numRan(100) + '%, ' +
-    //   randomColorChange() + ' ' + numRan(100)+ '%)');
     robomodeBackground();
     if (bankerOn) { playMode('banker');
       } else if (samplerOn) { playMode('sampler');
