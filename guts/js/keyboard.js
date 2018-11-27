@@ -675,11 +675,11 @@ Mousetrap.bind('shift+return', function() {
         console.log('INITIAL STARTUP ENDS NOW');
         console.log('RoboMode ON');
         robomodeOn = 1;
-        startRobomode(beatTime);
-        clearBeatTime();
+        Play.startRobomode(beatTime);
+        Play.clearBeatTime();
       } else {
         giy = 1;
-        stopRobomode();
+        Play.stopRobomode();
         robomodeOn = 0;
       }
     });
@@ -688,7 +688,7 @@ Mousetrap.bind('shift+return', function() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind("<", function() {
-    setGPS();
+    Play.setGPS();
   });
 
 // GPS SPEEDS [ , ] [ . ] [ / ]
@@ -698,7 +698,7 @@ Mousetrap.bind('shift+return', function() {
     Mousetrap.bind(",", function() {
       if(robomodeOn == 1) {
         beatTime = (beatTime/2);
-        clearBeatTime();
+        Play.clearBeatTime();
         console.log('GPS[1/2] :' + beatTime);
       }
     });
@@ -712,11 +712,11 @@ Mousetrap.bind('shift+return', function() {
           beatTime = (beatTime / 8);
           console.log('previousGps: ' + previousGps);
           console.log('GPS - Super Fill ON :' + beatTime);
-          clearBeatTime();
+          Play.clearBeatTime();
         } else {
           roboFillOn = 0;
           beatTime = previousGps;
-          clearBeatTime();
+          Play.clearBeatTime();
           console.log('GPS - Super Fill OFF :' + beatTime);
           console.log('back to previousGps: ' + previousGps);
         }
@@ -727,7 +727,7 @@ Mousetrap.bind('shift+return', function() {
     Mousetrap.bind("/", function() {
       if(robomodeOn == 1) {
         beatTime = (beatTime*2);
-        clearBeatTime();
+        Play.clearBeatTime();
         console.log('GPS[x2] :' + beatTime);
       }
     });
@@ -741,8 +741,7 @@ Mousetrap.bind('shift+return', function() {
   kd.DOWN.down(function () {
     if (effectAmount >= blurAmount) { return false; }
     if (stgSelect == 'all') {
-      $(s1).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
-      $(s2).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
+      $(s1).add(s2).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
     } else {
       $(stgSelect).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
     }
@@ -755,8 +754,7 @@ Mousetrap.bind('shift+return', function() {
   kd.UP.down(function () {
     if (effectAmount >= saturateAmount) { return false; }
     if (stgSelect == 'all') {
-      $(s1).css('-webkit-filter','saturate(' + (effectAmount++) + ')');
-      $(s2).css('-webkit-filter','saturate(' + (effectAmount++) + ')');
+      $(s1).add(s2).css('-webkit-filter','saturate(' + (effectAmount++) + ')');
     } else {
       $(stgSelect).css('-webkit-filter','saturate('+ (effectAmount++) + ')');
     }
@@ -767,8 +765,7 @@ Mousetrap.bind('shift+return', function() {
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.RIGHT.down(function () {
     if (stgSelect == 'all') {
-      $(s1).css('-webkit-filter','invert(' + (effectAmount++) + ')');
-      $(s2).css('-webkit-filter','invert(' + (effectAmount++) + ')');
+      $(s1).add(s2).css('-webkit-filter','invert(' + (effectAmount++) + ')');
     } else {
       $(stgSelect).css('-webkit-filter','invert(' + (effectAmount++) + ')');
     }
@@ -780,8 +777,7 @@ Mousetrap.bind('shift+return', function() {
   kd.LEFT.down(function () {
     if (effectAmount >= 360) { return false; }
     if (stgSelect == 'all') {
-      $(s1).css('-webkit-filter','hue-rotate(' + (effectAmount++) + 'deg)');
-      $(s2).css('-webkit-filter','hue-rotate(' + (effectAmount++) + 'deg)');
+      $(s1).add(s2).css('-webkit-filter','hue-rotate(' + (effectAmount++) + 'deg)');
     } else {
       $(stgSelect).css('-webkit-filter','hue-rotate(' + (effectAmount++) + 'deg)');
     }

@@ -97,14 +97,14 @@ function stageSetup() {
 //   $(s2).css(sf);
 // }
 
-function setGPS() {
-  console.log('GPS SET');
-  var d = new Date();
-  var t = d.getTime();
-  beatTime = t - lastClick;
-  lastClick = t;
-  console.log('GPS: ' + beatTime)
-}
+// function setGPS() {
+//   console.log('GPS SET');
+//   var d = new Date();
+//   var t = d.getTime();
+//   beatTime = t - lastClick;
+//   lastClick = t;
+//   console.log('GPS: ' + beatTime)
+// }
 
 /*
 *********************************************
@@ -261,7 +261,7 @@ function playMode(playType) {
 
     // Banker
     case 'banker':
-      console.log('PLAY MODE: Banker');
+      // console.log('PLAY MODE: Banker');
       currentPlayMode = 'banker';
 
       if (samplerOn) {
@@ -279,7 +279,7 @@ function playMode(playType) {
 
     // Sets
     case 'sets':
-      console.log('PLAY MODE: Sets');
+      // console.log('PLAY MODE: Sets');
       currentPlayMode = 'sets';
       bankSelectorS1 = setBank; bankSelectorS2 = setBank;
       // sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
@@ -290,7 +290,7 @@ function playMode(playType) {
 
     // SEQUENCER
     case 'sequencer':
-      console.log('PLAY MODE: Sequencer');
+      // console.log('PLAY MODE: Sequencer');
       currentPlayMode = 'sequencer';
 
       if (sequenceNumber == sequencer.sequences[letterNumber].trigger ) {
@@ -337,7 +337,7 @@ function playMode(playType) {
 
     // SAMPLER LOVE
     case 'sampler':
-      console.log('PLAY MODE: Sampler');
+      // console.log('PLAY MODE: Sampler');
       currentPlayMode = 'sampler';
 
       if (scenePauseOn) {
@@ -399,7 +399,7 @@ function playMode(playType) {
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-
 
     default:
-      console.log('PLAY MODE: RoboMode');
+      // console.log('PLAY MODE: RoboMode');
       currentPlayMode = 'robomode';
       bankSelectorS1 = randomizer(banksInUse);
       bankSelectorS2 = randomizer(banksInUse);
@@ -438,56 +438,56 @@ function stageFlip() {
 
 }
 
-function startRobomode() {
+// function startRobomode() {
+//
+//   $('body').css('background-image', 'repeating-linear-gradient(' + numRan(360) + 'deg, ' +
+//     randomColorChange() + ' ' + numRan(100) + '%, ' +
+//     randomColorChange() + ' ' + numRan(100) + '%, ' +
+//     randomColorChange() + ' ' + numRan(100)+ '%)');
+//
+// // CHECKING PLAY MODE
+// // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//
+//   if (bankerOn) {
+//     playMode('banker');
+//
+//   } else if (samplerOn) {
+//     playMode('sampler');
+//
+//   } else if (sequencerOn) {
+//     playMode('sequencer');
+//
+//   } else if (setOn) {
+//     playMode('sets');
+//
+//   } else {
+//     playMode('default');
+//
+//   }
+//
+// // CHECKING FOR FX & FILTERS
+// // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//   if(stgFadeOn) { Effects.stgFade(); }
+//   if(saturateOn) { Filter.saturator(); }
+//   if(sameSameOn) { Effects.sameSame(); }
+//   if(hueShiftOn) { Filter.hueShift(); }
+//   if(blurryOn) { Filter.blurry(); }
+//   if(invertOn) { Filter.invert(); }
+//
+// }
+// // END OF ROBOMODE
 
-  $('body').css('background-image', 'repeating-linear-gradient(' + numRan(360) + 'deg, ' +
-    randomColorChange() + ' ' + numRan(100) + '%, ' +
-    randomColorChange() + ' ' + numRan(100) + '%, ' +
-    randomColorChange() + ' ' + numRan(100)+ '%)');
-
-// CHECKING PLAY MODE
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  if (bankerOn) {
-    playMode('banker');
-
-  } else if (samplerOn) {
-    playMode('sampler');
-
-  } else if (sequencerOn) {
-    playMode('sequencer');
-
-  } else if (setOn) {
-    playMode('sets');
-
-  } else {
-    playMode('default');
-
-  }
-
-// CHECKING FOR FX & FILTERS
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  if(stgFadeOn) { Effects.stgFade(); }
-  if(saturateOn) { Filter.saturator(); }
-  if(sameSameOn) { Effects.sameSame(); }
-  if(hueShiftOn) { Filter.hueShift(); }
-  if(blurryOn) { Filter.blurry(); }
-  if(invertOn) { Filter.invert(); }
-
-}
-// END OF ROBOMODE
-
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-function stopRobomode() {
-  clearInterval(gpsTimer);
-  robomodeOn = 0;
-  console.log('RoboMode OFF');
-}
-
-function clearBeatTime() {
-  clearInterval(gpsTimer);
-  gpsTimer = setInterval(function() {
-    startRobomode(beatTime);
-  }, beatTime);
-}
+// function stopRobomode() {
+//   clearInterval(gpsTimer);
+//   robomodeOn = 0;
+//   console.log('RoboMode OFF');
+// }
+//
+// function clearBeatTime() {
+//   clearInterval(gpsTimer);
+//   gpsTimer = setInterval(function() {
+//     startRobomode(beatTime);
+//   }, beatTime);
+// }
