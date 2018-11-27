@@ -21,10 +21,18 @@ function numRan(ranNum) {
   return ranNumGen;
 }
 
+function robomodeBackground() {
+  $('body').css('background-image', 'repeating-linear-gradient(' + numRan(360) + 'deg, ' +
+    randomColorChange() + ' ' + numRan(100) + '%, ' +
+    randomColorChange() + ' ' + numRan(100) + '%, ' +
+    randomColorChange() + ' ' + numRan(100) + '%, ' +
+    randomColorChange() + ' ' + numRan(100)+ '%)');
+}
+
 function killSwitch() {
   localStorage.setItem('killSwitch','unkilled');
   console.log("KILL SWITCH: ENABLED", "\n---------------------------------");
-  stageSetup();
+  Scene.stageSetup();
   $(s1).add(s2).addClass('on');
   stageOneOn, stageTwoOn = 1;
   $(s1).css('background', bankLocation + localStorage.getItem('stg1Location') + localStorage.getItem('stg1Gif') + bgCenter);
@@ -59,52 +67,6 @@ function startup() {
   bankNumber = randomizer(banksInUse);
   console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 }
-
-function stageSetup() {
-  console.log('STG1+2: SETUP', "\n---------------------------------");
-
-  if(giy) {
-    console.log('BANK NUMBER: ' + bankNumber, "\n---------------------------------");
-    console.log('Setting up for GIY');
-
-    if(!bankNumber) {
-      console.log('GIY: RANDOM BANKS');
-      bankSelectorS1 = randomizer(banksInUse);
-      bankSelectorS2 = randomizer(banksInUse);
-      sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
-
-    } else {
-      console.log('GIY: BANK NUMBER');
-      bankSelectorS1 = bankNumber;
-      bankSelectorS2 = bankNumber;
-      sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
-    }
-
-  } else {
-    bankSelectorS1 = randomizer(banksInUse);
-    bankSelectorS2 = randomizer(banksInUse);
-    sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
-  }
-
-    console.log('BANK SELECTOR S1: ' + bankSelectorS1);
-    console.log('BANK SELECTOR S2: ' + bankSelectorS2);
-
-}
-
-// function screenFullscreen() {
-//   // console.log('SCENE FULLSCREEN');
-//   $(s1).css(sf);
-//   $(s2).css(sf);
-// }
-
-// function setGPS() {
-//   console.log('GPS SET');
-//   var d = new Date();
-//   var t = d.getTime();
-//   beatTime = t - lastClick;
-//   lastClick = t;
-//   console.log('GPS: ' + beatTime)
-// }
 
 /*
 *********************************************
@@ -406,88 +368,3 @@ function playMode(playType) {
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
     }
 }
-
-// ROBOMODE
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-function stageFlip() {
-  console.log('CURRENT PLAY MODE: ' + currentPlayMode);
-  if (bankerOn) {
-    bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray);
-    sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
-
-  } else if (setOn) {
-    // setBank = bankerSets.set[i].bank;
-    console.log('AHH YEAH< YOU MADE IT');
-    console.log('SET BANK: ' + setBank);
-    console.log('SET BANK1: ' + bankSelectorS1);
-    console.log('SET BANK2: ' + bankSelectorS2);
-
-    // bankSelectorS1 = bankNumber; bankSelectorS2 = bankNumber;
-    sceneSetter(setsArray,bankSelectorS1,bankSelectorS2);
-
-  } else if (bankNumber) {
-
-    bankSelectorS1 = bankNumber; bankSelectorS2 = bankNumber;
-    sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
-
-  } else {
-    bankSelectorS1 = randomizer(banksInUse); bankSelectorS2 = randomizer(banksInUse);
-    sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
-  }
-
-}
-
-// function startRobomode() {
-//
-//   $('body').css('background-image', 'repeating-linear-gradient(' + numRan(360) + 'deg, ' +
-//     randomColorChange() + ' ' + numRan(100) + '%, ' +
-//     randomColorChange() + ' ' + numRan(100) + '%, ' +
-//     randomColorChange() + ' ' + numRan(100)+ '%)');
-//
-// // CHECKING PLAY MODE
-// // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-//
-//   if (bankerOn) {
-//     playMode('banker');
-//
-//   } else if (samplerOn) {
-//     playMode('sampler');
-//
-//   } else if (sequencerOn) {
-//     playMode('sequencer');
-//
-//   } else if (setOn) {
-//     playMode('sets');
-//
-//   } else {
-//     playMode('default');
-//
-//   }
-//
-// // CHECKING FOR FX & FILTERS
-// // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-//   if(stgFadeOn) { Effects.stgFade(); }
-//   if(saturateOn) { Filter.saturator(); }
-//   if(sameSameOn) { Effects.sameSame(); }
-//   if(hueShiftOn) { Filter.hueShift(); }
-//   if(blurryOn) { Filter.blurry(); }
-//   if(invertOn) { Filter.invert(); }
-//
-// }
-// // END OF ROBOMODE
-
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-// function stopRobomode() {
-//   clearInterval(gpsTimer);
-//   robomodeOn = 0;
-//   console.log('RoboMode OFF');
-// }
-//
-// function clearBeatTime() {
-//   clearInterval(gpsTimer);
-//   gpsTimer = setInterval(function() {
-//     startRobomode(beatTime);
-//   }, beatTime);
-// }

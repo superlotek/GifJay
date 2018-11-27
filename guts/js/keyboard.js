@@ -13,7 +13,7 @@ $(document).ready(function() {
     $('.logo a').click(function() {
       $(this).fadeOut(function() {
         $('.logo').remove();
-        stageSetup();
+        Scene.stageSetup();
       });
     });
 
@@ -647,7 +647,7 @@ Mousetrap.bind('shift+return', function() {
           console.log('STARTUP KEY IS STARTING THE APP', "\n---------------------------------");
           startUpKey = 1;
           giy = 1;
-          stageSetup();
+          Scene.stageSetup();
           $('.title-page').fadeOut('slow', function() { $(this).remove(); });
 
         } else {
@@ -660,8 +660,8 @@ Mousetrap.bind('shift+return', function() {
             return false;
           }
 
-          console.log('StageFlip');
-          stageFlip();
+          console.log('STAGE FLIPPED', "\n---------------------------------");
+          Play.stageFlip();
 
         }
     });
