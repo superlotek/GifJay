@@ -60,7 +60,7 @@ function handleMIDIMessage(event){
 
 if (event.data[1] == 48) {
   console.log('GIF TWIST');
-  var numberOfGifs = banks.bank[3].gifs.length - 1;
+  var numberOfGifs = banks.bank[0].gifs.length - 1;
   ogValue = 127 / numberOfGifs;
   var glrp = Math.floor(event.data[2] / ogValue);
   console.log(glrp);

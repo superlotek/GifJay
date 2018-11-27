@@ -28,6 +28,8 @@ var currentScene = {
 	]
 };
 
+var midiOn = false;
+
 var bankSelectkeyArray;
 
 var bankSelected = 0;
