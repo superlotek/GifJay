@@ -24,6 +24,35 @@ const Scene = {
 
   screenFullscreen() {
     $(s1).add(s2).css(sf);
+  },
+
+  stageSetup() {
+    console.log('STG1+2: SETUP', "\n---------------------------------");
+
+    if(giy) {
+      console.log('BANK NUMBER: ' + bankNumber, "\n---------------------------------");
+      console.log('SETTING UP: GIY');
+
+      if(!bankNumber) {
+        console.log('GIY: RANDOM BANKS');
+        bankSelectorS1 = randomizer(banksInUse);
+        bankSelectorS2 = randomizer(banksInUse);
+        sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
+
+      } else {
+        console.log('GIY: BANK NUMBER');
+        bankSelectorS1 = bankNumber;
+        bankSelectorS2 = bankNumber;
+        sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
+      }
+
+    } else {
+      bankSelectorS1 = randomizer(banksInUse);
+      bankSelectorS2 = randomizer(banksInUse);
+      sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
+    }
+      console.log('BANK SELECTOR S1: ' + bankSelectorS1);
+      console.log('BANK SELECTOR S2: ' + bankSelectorS2);
   }
 
 };
