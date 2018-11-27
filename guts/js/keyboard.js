@@ -436,12 +436,12 @@ Mousetrap.bind('shift+return', function() {
   Mousetrap.bind("'", function() {
 
     if(!bankerOn) {
-      console.log('CREATING BANKER');
+      console.log('BANKER: CREATING');
       initialStartUp = 0;
       bankerOn = 1;
       bankerArray = [];
     } else {
-      console.log('REMOVING BANKER');
+      console.log('BANKER: REMOVING');
       bankerOn = 0;
       bankerArray = [];
     }
@@ -551,7 +551,7 @@ Mousetrap.bind('shift+return', function() {
     bankerSetStorage = new Set();
       for(let i = 0; i < triggerArray.length; i++) {
         Mousetrap.bind("alt+" + triggerArray[i], function() {
-          console.log('CLICK: BANKER SET ' + triggerArray[i]);
+          console.log('CLICK: BANKER SET ' + triggerArray[i], "\n---------------------------------");
           justMakeSoloKeyTrigger(triggerArray[i], arr_enabledBanks);
           bankerSetStorage.add(triggerArray[i]);
         });
@@ -562,7 +562,7 @@ Mousetrap.bind('shift+return', function() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind('return', function() {
-    console.log('SCENE SAMPLED');
+    console.log('SCENE SAMPLED', "\n---------------------------------");
 
     if (samplerCounter == null ) { samplerCounter = 0; } else { ++samplerCounter; }
 
@@ -584,7 +584,7 @@ Mousetrap.bind('shift+return', function() {
     if (sampledScenes.scene.length && !samplerOn) {
     // if (!samplerOn) {
 
-      console.log('SAMPLER: ON');
+      console.log('SAMPLER: ON', "\n---------------------------------");
       samplerOn = 1;
       samplerIndex = -1;
     }
@@ -596,13 +596,13 @@ Mousetrap.bind('shift+return', function() {
   Mousetrap.bind(":", function() {
     samplerOn = 0;
     samplerIndex = -1;
-    console.log('SAMPLER: STOP');
+    console.log('SAMPLER: STOP', "\n---------------------------------");
   });
 
   Mousetrap.bind("alt+;", function() {
     samplerOn = 0;
     samplerIndex = -1;
-    console.log('SAMPLER: STOP & CLEAR');
+    console.log('SAMPLER: STOP & CLEAR', "\n---------------------------------");
     sampledScenes.scene = [];
   });
 
@@ -620,17 +620,17 @@ Mousetrap.bind('shift+return', function() {
 
   Mousetrap.bind("alt+'", function() {
     console.log('SEQUENCER MODE INITIATED');
-
-      if(!storyModeOn) {
-        console.log('SEQUENCER: ON');
-        storyModeOn = 1;
-      } else {
-        console.log('SEQUENCER: OFF');
-        storyModeOn = 0;
-        Mousetrap.trigger('"');
-        sequencerOn = 0;
-        curSequencerIndex = -1;
-      }
+    if(!storyModeOn) {
+      console.log('SEQUENCER: ON');
+      storyModeOn = 1;
+    } else {
+      console.log('SEQUENCER: OFF');
+      storyModeOn = 0;
+      Mousetrap.trigger('"');
+      sequencerOn = 0;
+      curSequencerIndex = -1;
+    }
+    console.log("---------------------------------");
   });
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -644,7 +644,7 @@ Mousetrap.bind('shift+return', function() {
 
         if(!startUpKey) {
 
-          console.log('STARTUP KEY IS STARTING THE APP');
+          console.log('STARTUP KEY IS STARTING THE APP', "\n---------------------------------");
           startUpKey = 1;
           giy = 1;
           stageSetup();

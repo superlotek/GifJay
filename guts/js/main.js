@@ -39,17 +39,8 @@ function killSwitch() {
 }
 
 function startup() {
-  
+
   $('body').css('background-color', randomColorChange());
-
-  banks.bank.forEach(function(item) {
-    if (item.enabled) {
-      banksInUse.push(item.id);
-    }
-  });
-
-  bankNumber = randomizer(banksInUse);
-  console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 
   if(localStorage.getItem('killSwitch') == 'killed') {
     killSwitch();
@@ -58,17 +49,19 @@ function startup() {
     $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('body');
     $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
   }
+
+  banks.bank.forEach(function(item) {
+    if (item.enabled) {
+      banksInUse.push(item.id);
+    }
+  });
+  console.log('BANKS IN USE: ' + banksInUse);
+  bankNumber = randomizer(banksInUse);
+  console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 }
 
 function stageSetup() {
   console.log('STG1+2: SETUP', "\n---------------------------------");
-
-  banks.bank.forEach(function(element) {
-    if (element.enabled) {
-      banksInUse.push(element.id);
-    }
-  });
-  console.log("BANKS IN USE: " + banksInUse, "\n---------------------------------");
 
   if(giy) {
     console.log('BANK NUMBER: ' + bankNumber, "\n---------------------------------");
