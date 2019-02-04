@@ -732,6 +732,26 @@ Mousetrap.bind('shift+return', function() {
       }
     });
 
+    // GPS NUDGE [ CTRL + , ] [ CTRL + . ]
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    Mousetrap.bind("ctrl+,", function() {
+      if(robomodeOn == 1) {
+        beatTime -=  gpsNudgeAmount;
+        Play.clearBeatTime();
+        console.log('GPS NUDGE: ' + beatTime);
+      }
+    });
+
+    Mousetrap.bind("ctrl+.", function() {
+      if(robomodeOn == 1) {
+        beatTime +=  gpsNudgeAmount;
+        Play.clearBeatTime();
+        console.log('GPS NUDGE: ' + beatTime);
+      }
+    });
+
+
+
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // CURSOR KEY EFFECTS [ UP ], [ DOWN ], [ LEFT ], [ RIGHT ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

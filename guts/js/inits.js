@@ -133,6 +133,7 @@ var scenePauseOn = 0;
 var sceneFullscreenOn = 0;
 var stageFlipOn = 0;
 var currentPlayMode = 'giy';
+var gpsNudgeAmount = 100;
 
 var overlayOn = 0;
 var stgStore;
