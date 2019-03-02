@@ -569,8 +569,8 @@ Mousetrap.bind('shift+return', function() {
     sampledScenes.scene.push(
       {
         stages: [
-  		    { "bank" : $(s1).attr('bank'), "location" : $(s1).attr('location'), "gif" : $(s1).attr('gif'), "size" : $(s1).attr('size'), "repeat" : $(s1).attr('repeat'), "blend" : $(s1).attr('blend') },
-          { "bank" : $(s2).attr('bank'), "location" : $(s2).attr('location'), "gif" : $(s2).attr('gif'), "size" : $(s2).attr('size'), "repeat" : $(s2).attr('repeat'), "blend" : $(s2).attr('blend') },
+  		    { "bank" : currentScene.stage[0].bank, "location" : currentScene.stage[0].location, "gif" : currentScene.stage[0].name, "size" : currentScene.stage[0].bgSize, "repeat" : currentScene.stage[0].repeat, "blend" : currentScene.stage[0].blendMode },
+          { "bank" : currentScene.stage[1].bank, "location" : currentScene.stage[1].location, "gif" : currentScene.stage[1].name, "size" : currentScene.stage[1].bgSize, "repeat" : currentScene.stage[1].repeat, "blend" : currentScene.stage[1].blendMode },
         ]
       }
     );
