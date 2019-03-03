@@ -56,6 +56,12 @@ var webcamOn = 0;
 var initialStartUp = 0;
 
 var bankerOn = 0;
+var bankerStageSetupOn = 0;
+var bankerStageSetupS1 = 0;
+var bankerStageSetupS2 = 0;
+var bankerArray = [];
+var bankerStageArrayS1 = [];
+var bankerStageArrayS2 = [];
 
 // Effects
 var opacity = 1;

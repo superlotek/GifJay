@@ -231,6 +231,28 @@ function playMode(playType) {
       } else {
         // if (stgSelect == s1 || s2) { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray); }
         // if (stgSelect == "all") { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray); }
+
+        if (bankerStageArrayS1.length && bankerStageArrayS2.length) {
+          bankSelectorS1 = randomizer(bankerStageArrayS1); bankSelectorS2 = randomizer(bankerStageArrayS2);
+          console.log('Weve got both!!!');
+          sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
+          return;
+        }
+
+        if (bankerStageArrayS1.length) {
+          bankSelectorS1 = randomizer(bankerStageArrayS1);
+          console.log("*** GOT STUFF IN BANKER ARRAY S1");
+          sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
+          return;
+        }
+        if (bankerStageArrayS2.length) {
+          bankSelectorS2 = randomizer(bankerStageArrayS2);
+          console.log("*** GOT STUFF IN BANKER ARRAY S2");
+          sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
+          return;
+        }
+
+
         bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray);
         sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
       }

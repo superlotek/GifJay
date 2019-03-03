@@ -253,12 +253,32 @@ Mousetrap.bind('shift+return', function() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind("-", function() {
+
+    if (bankerStageSetupOn) {
+        bankerStageSetupS1 = 1;
+        bankerStageSetupS2 = 0;
+
+        console.log('BANKER STAGE SETUP S1: SELECTED');
+        bankerStorageSet.clear();
+        return;
+    }
+
     console.log('STG1 SELECTED');
     stgSelect = s1;
     stgNotSelected = s2;
   });
 
   Mousetrap.bind("=", function() {
+
+    if (bankerStageSetupOn) {
+        bankerStageSetupS2 = 1;
+        bankerStageSetupS1 = 0;
+
+        console.log('BANKER STAGE SETUP S2: SELECTED');
+        bankerStorageSet.clear();
+        return;
+    }
+
     console.log('STG2 SELECTED');
     stgSelect = s2;
     stgNotSelected = s1;
@@ -444,8 +464,26 @@ Mousetrap.bind('shift+return', function() {
       console.log('BANKER: REMOVING');
       bankerOn = 0;
       bankerArray = [];
+      bankerStageArrayS1 = [];
+      bankerStageArrayS2 = [];
+      bankerStorageSet.clear();
+
     }
   });
+
+  // BANKER STAGE SETUP
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  Mousetrap.bind("ctrl+'", function() {
+    if(!bankerStageSetupOn) {
+      console.log('BANKER STAGE SETUP: ON');
+      bankerStageSetupOn = 1;
+    } else {
+      console.log('BANKER STAGE SETUP: OFF');
+      bankerStageSetupOn = 0;
+    }
+
+  });
+
 
   // BANKER SETS ON/OFF [ ' ]
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -856,7 +894,7 @@ Mousetrap.bind('shift+return', function() {
         var numberKey = bankNumber;
         createGiyTriggers(bankNumber);
 
-        if(bankerOn == 1) {
+        if(bankerOn || bankerStageSetupOn) {
 
           if (bankerStorageSet.has(bankNumber)) {
             bankerStorageSet.delete(bankNumber);
@@ -870,10 +908,34 @@ Mousetrap.bind('shift+return', function() {
             return false;
           }
 
-          bankerStorageSet.add(bankNumber);
-          bankerArray = [...bankerStorageSet];
+          // bankerStorageSet.add(bankNumber);
+
+
+          if(bankerStageSetupS1) {
+            bankerStorageSet.add(bankNumber);
+
+            console.log('BANKER ARRAY S1 IN EFFECT');
+            bankerStageArrayS1 = [...bankerStorageSet];
+          } else if(bankerStageSetupS2) {
+            bankerStorageSet.add(bankNumber);
+
+            console.log('BANKER ARRAY S2 IN EFFECT');
+            bankerStageArrayS2 = [...bankerStorageSet];
+          } else {
+            bankerStorageSet.add(bankNumber);
+
+            console.log('BANKER: ENABLED');
+            bankerArray = [...bankerStorageSet];
+          }
+
+
+
+          // bankerArray = [...bankerStorageSet];
           console.log('BANK ' + bankNumber + ': ADDED TO BANKER', "\n---------------------------------");;
-          console.log(bankerArray);
+          console.log('BANKER: ' + bankerArray);
+          console.log('BANKER S1 : ' + bankerStageArrayS1);
+          console.log('BANKER S2 : ' + bankerStageArrayS2);
+
 
         } else {
           console.log('BANK SELECTED: ' + bankNumber, "\n---------------------------------");

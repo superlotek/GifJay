@@ -123,7 +123,18 @@ const banks = {
 				{ 'trigger' : 'q', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_laurie_dancingOutlines_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_laurie_dancingWavyLines_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_laurie_dancingWavyLines_o_t', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_laurieDancingTransformation_o', 'set': 'm'}
+				{ 'trigger' : 'q', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_laurieDancingTransformation_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_discoDancers_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_jasonBumpingGlass_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_keyopDiscoDance_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_keyopDiscoDance2_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_markFlipping_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_markOnGlass_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_princessDiscoDance_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_princessDiscoDance2_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_princessDiscoDance3_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_princessDiscoDance4_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_princessFlipping_o', 'set': 'm'}
 
 			]
 		},
@@ -144,8 +155,9 @@ const banks = {
 				{ 'trigger' : 'q', 'location' : 'Archies/', 'name' : 'archies_thumping_heart_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'Jem/', 'name' : 'jem_flashing_stage_lights_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'Jem/', 'name' : 'jem_lips_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_crowd_cheer_o', 'set': 'm'}
-
+				{ 'trigger' : 'q', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_crowd_cheer_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_discoBallLight_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_spaceStarLight_o', 'set': 'm'}
 			]
 		},
 		{
@@ -191,7 +203,7 @@ const banks = {
 			"id" : 7,
 			"trigger": "&",
 			"name" : "MISC",
-			"enabled" : true,
+			"enabled" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'AnimatedBands/', 'name' : 'sabrinaTeenageWitch_floating_record_turntable_o', 'set': 'm'}
 			]
