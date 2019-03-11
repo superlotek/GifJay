@@ -32,7 +32,7 @@ function robomodeBackground() {
 function killSwitch() {
   localStorage.setItem('killSwitch','unkilled');
   console.log("KILL SWITCH: ENABLED", "\n---------------------------------");
-  Scene.stageSetup();
+  // Scene.stageSetup();
   $(s1).add(s2).addClass('on');
   stageOneOn, stageTwoOn = 1;
   $(s1).css('background', bankLocation + localStorage.getItem('stg1Location') + localStorage.getItem('stg1Gif') + bgCenter);
