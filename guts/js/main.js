@@ -32,7 +32,7 @@ function robomodeBackground() {
 function killSwitch() {
   localStorage.setItem('killSwitch','unkilled');
   console.log("KILL SWITCH: ENABLED", "\n---------------------------------");
-  Scene.stageSetup();
+  // Scene.stageSetup();
   $(s1).add(s2).addClass('on');
   stageOneOn, stageTwoOn = 1;
   $(s1).css('background', bankLocation + localStorage.getItem('stg1Location') + localStorage.getItem('stg1Gif') + bgCenter);
@@ -178,10 +178,22 @@ function sceneSetter(arrayName, banker1, banker2) {
         // $(s2).css('opacity', '1');
 
         // This setups up before RoboMode
-        $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
-        $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-        $(stgNotSelected).css(this[randomizer(stageArray)]);
-        $(stgSelect).css(this[randomizer(stageArray)]);
+
+        // Fixes the weird issue of using STG=ALL
+        if (stgSelect == "all") {
+          $(s1).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
+          $(s2).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
+        } else {
+          $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
+          $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
+          $(stgNotSelected).css(this[randomizer(stageArray)]);
+          $(stgSelect).css(this[randomizer(stageArray)]);
+        }
+
+        // $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
+        // $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
+        // $(stgNotSelected).css(this[randomizer(stageArray)]);
+        // $(stgSelect).css(this[randomizer(stageArray)]);
 
         if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
