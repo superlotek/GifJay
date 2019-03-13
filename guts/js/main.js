@@ -50,22 +50,43 @@ function startup() {
 
   $('body').css('background-color', randomColorChange());
 
-  if(localStorage.getItem('killSwitch') == 'killed') {
-    killSwitch();
-  } else {
-    console.log('GIFJAY: ' + version + ' STARTING UP', "\n---------------------------------");
-    $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('body');
-    $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
-  }
-
   banks.bank.forEach(function(item) {
     if (item.enabled) {
       banksInUse.push(item.id);
     }
   });
   console.log('BANKS IN USE: ' + banksInUse);
-  bankNumber = randomizer(banksInUse);
+
+  if (localStorage.getItem('killSwitch') == 'killed') {
+    console.log('KILL SWITCH BANK #: ' + localStorage.getItem('stg1Bank'));
+    killSwitch();
+    bankNumber = localStorage.getItem('stg1Bank');
+  } else {
+    console.log('GIFJAY: ' + version + ' STARTING UP', "\n---------------------------------");
+    $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('body');
+    $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
+    bankNumber = randomizer(banksInUse);
+  }
+
   console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
+
+  // if(localStorage.getItem('killSwitch') == 'killed') {
+  //   killSwitch();
+  // } else {
+  //   console.log('GIFJAY: ' + version + ' STARTING UP', "\n---------------------------------");
+  //   $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('body');
+  //   $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
+  // }
+
+  // banks.bank.forEach(function(item) {
+  //   if (item.enabled) {
+  //     banksInUse.push(item.id);
+  //   }
+  // });
+  // console.log('BANKS IN USE: ' + banksInUse);
+  // bankNumber = randomizer(banksInUse);
+  // console.log('KILL SWITCH BANK #: ' + localStorage.getItem('stg1Bank'));
+  // console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 }
 
 /*
