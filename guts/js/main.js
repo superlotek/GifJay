@@ -70,23 +70,6 @@ function startup() {
 
   console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 
-  // if(localStorage.getItem('killSwitch') == 'killed') {
-  //   killSwitch();
-  // } else {
-  //   console.log('GIFJAY: ' + version + ' STARTING UP', "\n---------------------------------");
-  //   $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('body');
-  //   $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
-  // }
-
-  // banks.bank.forEach(function(item) {
-  //   if (item.enabled) {
-  //     banksInUse.push(item.id);
-  //   }
-  // });
-  // console.log('BANKS IN USE: ' + banksInUse);
-  // bankNumber = randomizer(banksInUse);
-  // console.log('KILL SWITCH BANK #: ' + localStorage.getItem('stg1Bank'));
-  // console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 }
 
 /*
@@ -191,30 +174,16 @@ function sceneSetter(arrayName, banker1, banker2) {
           return false;
         }
 
-        // SET THE SCENE
-        // $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.name + bgCenter });
-        // $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.name + bgCenter });
-        // $(s1).css(this[randomizer(stageArray)]);
-        // $(s2).css(this[randomizer(stageArray)]);
-        // $(s2).css('opacity', '1');
-
-        // This setups up before RoboMode
-
-        // Fixes the weird issue of using STG=ALL
         if (stgSelect == "all") {
           $(s1).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
           $(s2).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
+          $(s1).add(s2).css(this[randomizer(stageArray)]);
         } else {
           $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
           $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
           $(stgNotSelected).css(this[randomizer(stageArray)]);
           $(stgSelect).css(this[randomizer(stageArray)]);
         }
-
-        // $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
-        // $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-        // $(stgNotSelected).css(this[randomizer(stageArray)]);
-        // $(stgSelect).css(this[randomizer(stageArray)]);
 
         if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
@@ -256,35 +225,29 @@ function playMode(playType) {
 
     // Banker
     case 'banker':
-      // console.log('PLAY MODE: Banker');
       currentPlayMode = 'banker';
 
       if (samplerOn) {
         playMode('sampler');
       } else {
-        // if (stgSelect == s1 || s2) { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray); }
-        // if (stgSelect == "all") { bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray); }
 
         if (bankerStageArrayS1.length && bankerStageArrayS2.length) {
           bankSelectorS1 = randomizer(bankerStageArrayS1); bankSelectorS2 = randomizer(bankerStageArrayS2);
-          console.log('Weve got both!!!');
           sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
           return;
         }
 
         if (bankerStageArrayS1.length) {
           bankSelectorS1 = randomizer(bankerStageArrayS1);
-          console.log("*** GOT STUFF IN BANKER ARRAY S1");
-          sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
-          return;
-        }
-        if (bankerStageArrayS2.length) {
-          bankSelectorS2 = randomizer(bankerStageArrayS2);
-          console.log("*** GOT STUFF IN BANKER ARRAY S2");
           sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
           return;
         }
 
+        if (bankerStageArrayS2.length) {
+          bankSelectorS2 = randomizer(bankerStageArrayS2);
+          sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
+          return;
+        }
 
         bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray);
         sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
