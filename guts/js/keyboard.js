@@ -610,8 +610,8 @@ Mousetrap.bind('shift+return', function() {
     sampledScenes.scene.push(
       {
         stages: [
-  		    { "bank" : currentScene.stage[0].bank, "location" : currentScene.stage[0].location, "gif" : currentScene.stage[0].name, "size" : currentScene.stage[0].bgSize, "repeat" : currentScene.stage[0].repeat, "blend" : currentScene.stage[0].blendMode },
-          { "bank" : currentScene.stage[1].bank, "location" : currentScene.stage[1].location, "gif" : currentScene.stage[1].name, "size" : currentScene.stage[1].bgSize, "repeat" : currentScene.stage[1].repeat, "blend" : currentScene.stage[1].blendMode },
+  		    { "bank" : currentScene.stage[0].bank, "location" : currentScene.stage[0].location, "gif" : currentScene.stage[0].name, "size" : currentScene.stage[0].bgSize, "repeat" : currentScene.stage[0].repeat, "blend" : currentScene.stage[0].blendMode, "filter" : currentScene.stage[0].filter },
+          { "bank" : currentScene.stage[1].bank, "location" : currentScene.stage[1].location, "gif" : currentScene.stage[1].name, "size" : currentScene.stage[1].bgSize, "repeat" : currentScene.stage[1].repeat, "blend" : currentScene.stage[1].blendMode, "filter" : currentScene.stage[1].filter },
         ]
       }
     );
@@ -625,7 +625,7 @@ Mousetrap.bind('shift+return', function() {
     if (sampledScenes.scene.length && !samplerOn) {
     // if (!samplerOn) {
 
-      console.log('SAMPLER: ON', "\n---------------------------------");
+      console.log('SAMPLES: PLAYING', "\n---------------------------------");
       samplerOn = 1;
       samplerIndex = -1;
     }
@@ -637,6 +637,7 @@ Mousetrap.bind('shift+return', function() {
   Mousetrap.bind(":", function() {
     samplerOn = 0;
     samplerIndex = -1;
+    $(s1).add(s2).css('filter','none');
     console.log('SAMPLER: STOP', "\n---------------------------------");
   });
 
@@ -645,6 +646,7 @@ Mousetrap.bind('shift+return', function() {
     samplerIndex = -1;
     console.log('SAMPLER: STOP & CLEAR', "\n---------------------------------");
     sampledScenes.scene = [];
+    $(s1).add(s2).css('filter','none');
   });
 
 // SEQUENCER ON/OFF [ SHIFT ] + [ ; ]
@@ -694,9 +696,8 @@ Mousetrap.bind('shift+return', function() {
         } else {
 
           if (samplerOn) {
-            console.log('THIS IS WHERE WE DELETE YOU');
             sampledScenes.scene.splice(samplerIndex,1);
-            console.log(sampledScenes);
+            // console.log(sampledScenes);
             --samplerIndex;
             return false;
           }

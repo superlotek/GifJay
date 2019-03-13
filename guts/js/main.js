@@ -315,7 +315,7 @@ function playMode(playType) {
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    // SAMPLER LOVE
+    // SAMPLER
     case 'sampler':
       // console.log('PLAY MODE: Sampler');
       currentPlayMode = 'sampler';
@@ -335,7 +335,7 @@ function playMode(playType) {
         ++samplerIndex;
       }
 
-      console.log("samplerIndex : " + samplerIndex);
+      // console.log("samplerIndex : " + samplerIndex);
       smpldScn = sampledScenes.scene[samplerIndex];
 
       if (kaleidoscopeOn) {
@@ -360,14 +360,16 @@ function playMode(playType) {
             'background' : bankLocation + smpldScn.stages[0].location + smpldScn.stages[0].gif + bgCenter,
             'background-repeat' : smpldScn.stages[0].repeat,
             'background-size' : smpldScn.stages[0].size,
-            'mix-blend-mode' : smpldScn.stages[0].blend
+            'mix-blend-mode' : smpldScn.stages[0].blend,
+             "filter" : smpldScn.stages[0].filter
           });
 
           $(s2).css({
               'background' : bankLocation + smpldScn.stages[1].location + smpldScn.stages[1].gif + bgCenter,
               'background-repeat' : smpldScn.stages[1].repeat,
               'background-size' : smpldScn.stages[1].size,
-              'mix-blend-mode' : smpldScn.stages[1].blend
+              'mix-blend-mode' : smpldScn.stages[1].blend,
+              "filter" : smpldScn.stages[1].filter
             });
 
         if (sceneFullscreenOn) { Scene.screenFullscreen(); }
