@@ -468,6 +468,7 @@ Mousetrap.bind('shift+return', function() {
       bankerStageArrayS2 = [];
       bankerStageSetupS1 = 0;
       bankerStageSetupS2 = 0;
+      bankerStageSetupOn = 0;
       bankerStorageSet.clear();
 
     }

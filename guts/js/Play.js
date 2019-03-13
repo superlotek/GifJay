@@ -44,9 +44,18 @@ const Play = {
 
   stageFlip() {
     // console.log('CURRENT PLAY MODE: ' + currentPlayMode);
-    if (bankerOn) {
+    if (bankerStageSetupOn) {
+      console.log('BANKER STAGE FLIP');
+      bankSelectorS1 = randomizer(bankerStageArrayS1); bankSelectorS2 = randomizer(bankerStageArrayS2);
+      sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
+      return;
+    } else if (bankerOn) {
+
       bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray);
       sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
+
+
+
     } else if (setOn) {
       console.log('SET BANK: ' + setBank.toUpperCase);
       console.log('SET BANK1: ' + bankSelectorS1);
