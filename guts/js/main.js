@@ -135,6 +135,11 @@ function sceneSetter(arrayName, banker1, banker2) {
   gifSelectorS2 = randomizer(bankBuilderS2);
 
   if (blendModeRandomOn) {
+
+    if (overlaySelected) {
+      $('#overlays').css('mix-blend-mode', blendModeSwitcherArray[numRan(blendModeSwitcherArray.length)]);
+    }
+
     $(s2).css('mix-blend-mode', blendModeSwitcherArray[numRan(blendModeSwitcherArray.length)]);
   }
 

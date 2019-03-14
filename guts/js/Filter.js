@@ -56,6 +56,17 @@ const Filter = {
     s2BlurValue = numRan(blurAmount);
     s1BlurString = "blur(" + s1BlurValue + "px)";
     s2BlurString = "blur(" + s2BlurValue + "px)";
+
+    if (overlaySelected) {
+      if (defaultBlurValue == 0) {
+        $('#overlays').css('-webkit-filter','blur(10px)');
+        defaultBlurValue = 10;
+      } else {
+        $('#overlays').css('-webkit-filter','blur(0px)');
+        defaultBlurValue = 0;
+      }
+    }
+
     if (stgSelect == "all") {
       console.log('FX BLURRY: STG 1+2');
       $(s1).css('-webkit-filter','blur(' + s1BlurValue + 'px');
@@ -76,6 +87,17 @@ const Filter = {
     s2InvertValue = 1;
     s1InvertString = "invert(" + s1InvertValue + ")";
     s2InvertString = "invert(" + s2InvertValue + ")";
+
+    if (overlaySelected) {
+      if (defaultInvertValue == 0) {
+        $('#overlays').css('-webkit-filter','invert(1)');
+        defaultInvertValue = 1;
+      } else {
+        $('#overlays').css('-webkit-filter','invert(0)');
+        defaultInvertValue = 0;
+      }
+    }
+
     if (stgSelect == "all") {
       console.log('FX INVERT: STG 1+2');
       $(s1).css('-webkit-filter','invert(' + s1InvertValue + ')');
@@ -102,6 +124,11 @@ const Filter = {
       blendCounter = 0;
       return false;
     }
+
+    if (overlaySelected) {
+      $('#overlays').css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
+    }
+
     $(s2).css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
   }
 

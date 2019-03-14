@@ -55,6 +55,11 @@ var webcamOn = 0;
 
 var initialStartUp = 0;
 
+var overlaySelected = 0;
+var defaultInvertValue = 0;
+var defaultBlurValue = 0;
+
+
 var bankerOn = 0;
 var bankerStageSetupOn = 0;
 var bankerStageSetupS1 = 0;

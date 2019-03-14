@@ -58,6 +58,17 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
         background-position: center center !important;
     }
 
+		#overlays {
+			display: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+		#overlays.on {
+			display: block;
+		}
+
+
     .overlays {
         /* background-size: 80vw !important;
         background-size: 80vh !important; */

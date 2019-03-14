@@ -114,6 +114,12 @@ $(document).ready(function() {
   /* Invert */
   if(app.settings.effects.invert.enabled) {
     Mousetrap.bind(app.settings.effects.invert.filterKey, function() {
+
+      if (overlaySelected) {
+        Filter.invert();
+        return;
+      }
+
       if(!invertOn) {
         invertOn = 1;
         console.log('FX: INVERT ON');
@@ -176,6 +182,12 @@ $(document).ready(function() {
   /* Blurry */
   if(app.settings.effects.blurry.enabled) {
     Mousetrap.bind(app.settings.effects.blurry.filterKey, function() {
+
+    if (overlaySelected) {
+      Filter.blurry();
+      return;
+    }
+
     if(!blurryOn) {
       blurryOn = 1;
       console.log('FX: BLURRY ON');
@@ -252,11 +264,20 @@ Mousetrap.bind('shift+return', function() {
 // OVERLAY [ - ] [ = ] [ DEL ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-Mousetrap.bind('alt+1', function() {
-  console.log('OVERLAY: SELECTED');
-  Overlays.applyOverlay();
-});
-
+for ( let o = 0; o < overlays.length; o++) {
+  Mousetrap.bind('alt+' + overlays[o].trigger, function() {
+    if(!overlayOn) {
+      Overlays.applyOverlay(o);
+      overlayOn = !overlayOn;
+      $('#overlays').toggleClass('on');
+      console.log('OVERLAY: ON');
+    } else {
+      overlayOn = !overlayOn;
+      console.log('OVERLAY: OFF');
+      $('#overlays').toggleClass('on');
+    }
+  });
+}
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** STAGE PARAMETERS ***
@@ -300,6 +321,17 @@ Mousetrap.bind('alt+1', function() {
   Mousetrap.bind("backspace", function() {
     console.log('All STG 1+2 SELECTED');
     stgSelect = "all";
+  });
+
+
+  Mousetrap.bind("ctrl+-", function() {
+    if (!overlaySelected) {
+      overlaySelected = 1;
+      console.log('OVERLAY: SELECTED');
+    } else {
+      console.log('OVERLAY: DESELECTED');
+      overlaySelected = 0;
+    }
   });
 
 // STAGE ON/OFF [ SHIFT ] + [ - ], [ = ], [ DEL ]
@@ -806,7 +838,6 @@ Mousetrap.bind('alt+1', function() {
     });
 
 
-
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // CURSOR KEY EFFECTS [ UP ], [ DOWN ], [ LEFT ], [ RIGHT ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -815,13 +846,19 @@ Mousetrap.bind('alt+1', function() {
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.DOWN.down(function () {
     if (effectAmount >= blurAmount) { return false; }
+
+    if (overlaySelected) {
+      $('#overlays').css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
+      return;
+    }
+
     if (stgSelect == 'all') {
       $(s1).add(s2).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
     } else {
       $(stgSelect).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
     }
   });
-  kd.DOWN.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
+  kd.DOWN.up(function () { $(s1).add(s2).add('#overlays').css(filterClear); effectAmount = 0; });
 
   // SATURATE - Up Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -839,13 +876,19 @@ Mousetrap.bind('alt+1', function() {
   // INVERT - Right Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.RIGHT.down(function () {
+
+    if (overlaySelected) {
+      $('#overlays').css('-webkit-filter','invert(' + (effectAmount++) + ')');
+      return;
+    }
+
     if (stgSelect == 'all') {
       $(s1).add(s2).css('-webkit-filter','invert(' + (effectAmount++) + ')');
     } else {
       $(stgSelect).css('-webkit-filter','invert(' + (effectAmount++) + ')');
     }
   });
-  kd.RIGHT.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
+  kd.RIGHT.up(function () { $(s1).add(s2).add('#overlays').css(filterClear); effectAmount = 0; });
 
   // HUE ROTATE - Left Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

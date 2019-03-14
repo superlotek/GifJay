@@ -5,8 +5,11 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 var midiOn = true;
 
-
-
+// OVERLAYS
+const overlays = [
+	{ 'trigger' : '1', 'location' : 'overlays', 'name' : 'doctorKa_logo_black_o.png'},
+	{ 'trigger' : '2', 'location' : 'overlays', 'name' : 'onymico_titles_1_t.gif'},
+]
 
 
 
