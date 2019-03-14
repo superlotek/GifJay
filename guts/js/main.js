@@ -50,6 +50,11 @@ function startup() {
 
   $('body').css('background-color', randomColorChange());
 
+  // if (overlaysEnabled) {
+  //   console.log('OVERLAY ENABLED!!!!');
+  //   enableOverlays();
+  // }
+
   banks.bank.forEach(function(item) {
     if (item.enabled) {
       banksInUse.push(item.id);
@@ -135,10 +140,6 @@ function sceneSetter(arrayName, banker1, banker2) {
   gifSelectorS2 = randomizer(bankBuilderS2);
 
   if (blendModeRandomOn) {
-
-    if (overlaySelected) {
-      $('#overlays').css('mix-blend-mode', blendModeSwitcherArray[numRan(blendModeSwitcherArray.length)]);
-    }
 
     $(s2).css('mix-blend-mode', blendModeSwitcherArray[numRan(blendModeSwitcherArray.length)]);
   }

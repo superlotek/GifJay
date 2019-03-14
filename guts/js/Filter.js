@@ -59,10 +59,10 @@ const Filter = {
 
     if (overlaySelected) {
       if (defaultBlurValue == 0) {
-        $('#overlays').css('-webkit-filter','blur(10px)');
+        $(ov).css('-webkit-filter','blur(10px)');
         defaultBlurValue = 10;
       } else {
-        $('#overlays').css('-webkit-filter','blur(0px)');
+        $(ov).css('-webkit-filter','blur(0px)');
         defaultBlurValue = 0;
       }
     }
@@ -90,10 +90,10 @@ const Filter = {
 
     if (overlaySelected) {
       if (defaultInvertValue == 0) {
-        $('#overlays').css('-webkit-filter','invert(1)');
+        $(ov).css('-webkit-filter','invert(1)');
         defaultInvertValue = 1;
       } else {
-        $('#overlays').css('-webkit-filter','invert(0)');
+        $(ov).css('-webkit-filter','invert(0)');
         defaultInvertValue = 0;
       }
     }
@@ -126,7 +126,7 @@ const Filter = {
     }
 
     if (overlaySelected) {
-      $('#overlays').css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
+      $(ov).css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
     }
 
     $(s2).css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);

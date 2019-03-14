@@ -16,6 +16,7 @@ var bankSelectKeyArray = [')','!','@','#','$','%','^','&','*','('];
 var s1 = '.stage-one';
 var s2 = '.stage-two';
 var wc = '#webcam-container';
+var ov = "#overlays";
 
 var sf = {'background-position':'center', 'background-size':'cover', 'backgroundRepeat':'no-repeat'}; // STAGE FullScreen
 var st = {'background-position':'center', 'background-size':'auto', 'backgroundRepeat':'repeat'}; // STAGE Tile

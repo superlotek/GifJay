@@ -4,6 +4,7 @@
 // USER SETTINGS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 var midiOn = true;
+var overlaysEnabled = true;
 
 // OVERLAYS
 const overlays = [

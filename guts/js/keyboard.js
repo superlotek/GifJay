@@ -264,20 +264,27 @@ Mousetrap.bind('shift+return', function() {
 // OVERLAY [ - ] [ = ] [ DEL ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-for ( let o = 0; o < overlays.length; o++) {
-  Mousetrap.bind('alt+' + overlays[o].trigger, function() {
-    if(!overlayOn) {
-      Overlays.applyOverlay(o);
-      overlayOn = !overlayOn;
-      $('#overlays').toggleClass('on');
-      console.log('OVERLAY: ON');
-    } else {
-      overlayOn = !overlayOn;
-      console.log('OVERLAY: OFF');
-      $('#overlays').toggleClass('on');
-    }
-  });
+if (overlaysEnabled) {
+  enableOverlays();
 }
+
+function enableOverlays() {
+  for ( let o = 0; o < overlays.length; o++) {
+    Mousetrap.bind('alt+' + overlays[o].trigger, function() {
+      if(!overlayOn) {
+        Overlays.applyOverlay(o);
+        overlayOn = !overlayOn;
+        $(ov).toggleClass('on');
+        console.log('OVERLAY: ON');
+      } else {
+        overlayOn = !overlayOn;
+        console.log('OVERLAY: OFF');
+        $(ov).toggleClass('on');
+      }
+    });
+  }
+}
+
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** STAGE PARAMETERS ***
@@ -847,18 +854,13 @@ for ( let o = 0; o < overlays.length; o++) {
   kd.DOWN.down(function () {
     if (effectAmount >= blurAmount) { return false; }
 
-    if (overlaySelected) {
-      $('#overlays').css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
-      return;
-    }
-
     if (stgSelect == 'all') {
       $(s1).add(s2).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
     } else {
       $(stgSelect).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
     }
   });
-  kd.DOWN.up(function () { $(s1).add(s2).add('#overlays').css(filterClear); effectAmount = 0; });
+  kd.DOWN.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
 
   // SATURATE - Up Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -878,7 +880,7 @@ for ( let o = 0; o < overlays.length; o++) {
   kd.RIGHT.down(function () {
 
     if (overlaySelected) {
-      $('#overlays').css('-webkit-filter','invert(' + (effectAmount++) + ')');
+      $(ov).css('-webkit-filter','invert(' + (effectAmount++) + ')');
       return;
     }
 
@@ -888,7 +890,7 @@ for ( let o = 0; o < overlays.length; o++) {
       $(stgSelect).css('-webkit-filter','invert(' + (effectAmount++) + ')');
     }
   });
-  kd.RIGHT.up(function () { $(s1).add(s2).add('#overlays').css(filterClear); effectAmount = 0; });
+  kd.RIGHT.up(function () { $(s1).add(s2).css(filterClear); effectAmount = 0; });
 
   // HUE ROTATE - Left Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
