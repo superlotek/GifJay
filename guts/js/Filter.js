@@ -10,6 +10,13 @@ var filters = {
   "string": ""
 }
 
+var someThing = [
+  {"filterName": "Saturator", "amount" : "saturate(50)"},
+  {"filterName": "HueRotate", "amount" : "hue-rotate(100deg)"},
+  {"filterName": "Blur", "amount" : "10px"}
+]
+
+
 /* hueShift 0deg
   SATURATE 100%
   invert 0%
@@ -31,11 +38,23 @@ const Filter = {
   addFilter() {
     // filtersOnString = "";
     // filtersOn[filterNum] = filterString;
-    filters.stage.forEach(function(element) {
-      filtersOnString += element + " ";
-    });
+    // filters.stage.forEach(function(element) {
+    //   filtersOnString += element + " ";
+    // });
 
-    console.log(filtersOnString);
+    // var someThing = [
+    //   {"filterName": "Saturator", "amount" : "saturate(50)"},
+    //   {"filterName": "HueRotate", "amount" : "hue-rotate(100deg)"},
+    //   {"filterName": "Blur", "amount" : "10px"}
+    // ]
+
+
+
+    glerp = someThing.map(function(elem){
+        elem.amount;
+    }).join(" ");
+
+    // console.log(filtersOnString);
     // console.log(filters.stage[0].string);
     // console.log(filters.stage[1].string);
 
@@ -43,6 +62,17 @@ const Filter = {
 
 
 /*
+
+
+var someThing = [
+  {"filterName": "Saturator", "amount" : "saturate(50)"},
+  {"filterName": "HueRotate", "amount" : "hue-rotate(100deg)"},
+  {"filterName": "Blur", "amount" : "blur(10px)"}
+]
+
+
+}
+
 
 
 [
@@ -79,11 +109,14 @@ const Filter = {
       filters.stage[1].saturation = "saturate(" + numRan(saturateAmount) + ")";
     }
 
-    $(s1).css('-webkit-filter', filters.stage[0].saturation);
-    $(s2).css('-webkit-filter', filters.stage[1].saturation);
+    someThing[0].amount = filters.stage[0].saturation = "saturate(" + numRan(saturateAmount) + ")";
+    this.addFilter();
 
-    filters.stage[0].string = filters.stage[0].saturation;
-    filters.stage[1].string = filters.stage[1].saturation;
+    // $(s1).css('-webkit-filter', filters.stage[0].saturation);
+    // $(s2).css('-webkit-filter', filters.stage[1].saturation);
+    //
+    // filters.stage[0].string = filters.stage[0].saturation;
+    // filters.stage[1].string = filters.stage[1].saturation;
 
     // this.addFilter()
     //   this.addFilter(0, s1SaturateString);
