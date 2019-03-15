@@ -52,9 +52,12 @@ $(document).ready(function() {
     } else {
       $(stgSelect).css('-webkit-filter', 'none');
     }
-    filtersOnString = "";
-    filtersOn = [];
     saturateOn = 0; hueShiftOn = 0; blurryOn = 0; invertOn = 0;
+    filtersRunning[0].amount = "";
+    filtersRunning[1].amount = "";
+    filtersRunning[2].amount = "";
+    filtersRunning[3].amount = "";
+    Filter.addFilter();
   });
 
   // function findEffectInArray(element) {
@@ -121,12 +124,16 @@ $(document).ready(function() {
       } else {
         console.log('FX: INVERT OFF');
         invertOn = 0;
-        $(s1).add(s2).css('-webkit-filter', 'none');
-        filtersOn[3] = "";
-        filtersOnString = "";
-        filtersOn.forEach(function(element) {
-          filtersOnString += element + " ";
-        });
+        $(s1).css('-webkit-filter', 'invert(0)');
+        filtersRunning[3].amount = "";
+        Filter.addFilter();
+
+        // $(s1).add(s2).css('-webkit-filter', 'none');
+        // filtersOn[3] = "";
+        // filtersOnString = "";
+        // filtersOn.forEach(function(element) {
+        //   filtersOnString += element + " ";
+        // });
       }
     });
   }
@@ -143,12 +150,15 @@ $(document).ready(function() {
       } else {
         console.log('FX: SATURATE OFF');
         saturateOn = 0;
-        $(s1).add(s2).css('-webkit-filter', 'none');
-        filtersOn[0] = "";
-        filtersOnString = "";
-        filtersOn.forEach(function(element) {
-          filtersOnString += element + " ";
-        });
+        // $(s1).add(s2).css('-webkit-filter', 'none');
+        $(s1).css('-webkit-filter', 'saturate(1)');
+        filtersRunning[0].amount = "";
+        Filter.addFilter();
+        // filtersOn[0] = "";
+        // filtersOnString = "";
+        // filtersOn.forEach(function(element) {
+        //   filtersOnString += element + " ";
+        // });
       }
     });
   }
@@ -163,12 +173,14 @@ $(document).ready(function() {
     } else {
       console.log('FX: HUESHIFT OFF');
       hueShiftOn = 0;
-      $(s1).add(s2).css('-webkit-filter', 'none');
-      filtersOn[1] = "";
-      filtersOnString = "";
-      filtersOn.forEach(function(element) {
-        filtersOnString += element + " ";
-      });
+      $(s1).css('-webkit-filter', 'hue-rotate(0deg)');
+      filtersRunning[1].amount = "";
+      Filter.addFilter();
+      // filtersOn[1] = "";
+      // filtersOnString = "";
+      // filtersOn.forEach(function(element) {
+      //   filtersOnString += element + " ";
+      // });
     }
   });
 }
@@ -183,12 +195,15 @@ $(document).ready(function() {
     } else {
       console.log('FX: BLURRY OFF');
       blurryOn = 0;
-      $(s1).add(s2).css('-webkit-filter', 'none');
-      filtersOn[2] = "";
-      filtersOnString = "";
-      filtersOn.forEach(function(element) {
-        filtersOnString += element + " ";
-      });
+      $(s1).css('-webkit-filter', 'blur(0px)');
+      filtersRunning[2].amount = "";
+      Filter.addFilter();
+      // $(s1).add(s2).css('-webkit-filter', 'none');
+      // filtersOn[2] = "";
+      // filtersOnString = "";
+      // filtersOn.forEach(function(element) {
+      //   filtersOnString += element + " ";
+      // });
     }
   });
 }
