@@ -853,7 +853,6 @@ function enableOverlays() {
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.DOWN.down(function () {
     if (effectAmount >= blurAmount) { return false; }
-
     if (stgSelect == 'all') {
       $(s1).add(s2).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
     } else {
@@ -878,12 +877,6 @@ function enableOverlays() {
   // INVERT - Right Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.RIGHT.down(function () {
-
-    if (overlaySelected) {
-      $(ov).css('-webkit-filter','invert(' + (effectAmount++) + ')');
-      return;
-    }
-
     if (stgSelect == 'all') {
       $(s1).add(s2).css('-webkit-filter','invert(' + (effectAmount++) + ')');
     } else {
