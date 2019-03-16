@@ -346,9 +346,17 @@ var beatTime = 2000;
 var beatSpeed = 1000;
 var titlePageOn = 0;
 var sameSameConstant = 2;
-var saturateAmount = 100;
-var blurAmount = 5;
 titlePageName = 'title-1.gif';
+
+// FILTER SETTINGS
+var saturateMin = 1;
+var saturateMax = 100;
+var blurMin = 0;
+var blurMax = 5;
+var invertMax = 1;
+var invertMin = 0;
+var hueRotateMin = 0;
+var hueRotateMax = 360;
 
 stageArray = ['sf', 'st'];
 shapeArray = ['circle','triangle','rhombus','octagon','close','frame','rabbet'];

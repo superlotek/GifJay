@@ -32,95 +32,79 @@ const filtersRunning = [
   { 'name' : 'Invert', 'amount' : ''}
 ]
 
-
-var saturateDefault = 1;
-
 const Filter = {
   addFilter() {
-    glerp = filtersRunning.map(function(elem){
+    filterString = filtersRunning.map(function(elem){
         return elem.amount;
     }).join(" ");
   },
-
 
   // FILTER FX : SATURATE
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   saturator() {
     if (stgSelect == s1) {
-      console.log("SATURATE: S1");
-      filtersRunning[0].amount = "saturate(" + numRan(saturateAmount) + ")";
+      filtersRunning[0].amount = "saturate(" + numRan(saturateMax) + ")";
       // filters[1].saturation = "saturate(" + saturateDefault + ")";
     } else if (stgSelect == s2) {
-      console.log("SATURATE: S2");
-      filters[0].saturation = "saturate(" + saturateDefault + ")";
-      filters[1].saturation = "saturate(" + numRan(saturateAmount) + ")";
+      filters[0].saturation = "saturate(" + saturateMin + ")";
+      filters[1].saturation = "saturate(" + numRan(saturateMax) + ")";
     } else {
-      console.log("SATURATE: S1+S2");
-      filters[0].saturation = "saturate(" + numRan(saturateAmount) + ")";
-      filters[1].saturation = "saturate(" + numRan(saturateAmount) + ")";
+      filters[0].saturation = "saturate(" + numRan(saturateMax) + ")";
+      filters[1].saturation = "saturate(" + numRan(saturateMax) + ")";
     }
     this.addFilter();
-    $(s1).css('-webkit-filter', glerp);
+    $(s1).css('-webkit-filter', filterString);
   },
 
   // FILTER FX : HUESHIFT
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   hueShift() {
     if (stgSelect == s1) {
-      console.log("HUESHIFT: S1");
-      filtersRunning[1].amount = "hue-rotate(" + numRan(360) + "deg)";
+      filtersRunning[1].amount = "hue-rotate(" + numRan(hueRotateMax) + "deg)";
       // filters.hueshift = "hue-rotate(" + numRan(0) + "deg)";
     } else if (stgSelect == s2) {
-      console.log("HUESHIFT: S2");
-      filters.hueshift = "hue-rotate(" + numRan(0) + "deg)";
-      filters.hueshift = "hue-rotate(" + numRan(360) + "deg)";
+      filters.hueshift = "hue-rotate(" + numRan(hueRotateMin) + "deg)";
+      filters.hueshift = "hue-rotate(" + numRan(hueRotateMax) + "deg)";
     } else {
-      console.log("HUESHIFT: S1+S2");
-      filters.hueshift = "hue-rotate(" + numRan(360) + "deg)";
-      filters.hueshift = "hue-rotate(" + numRan(360) + "deg)";
+      filters.hueshift = "hue-rotate(" + numRan(hueRotateMax) + "deg)";
+      filters.hueshift = "hue-rotate(" + numRan(hueRotateMax) + "deg)";
     }
     this.addFilter();
-    $(s1).css('-webkit-filter', glerp);
+    $(s1).css('-webkit-filter', filterString);
   },
 
   // FILTER FX : BLURRY
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   blurry() {
     if (stgSelect == s1) {
-      console.log("BLURRY: S1");
-      filtersRunning[2].amount = "blur(" + numRan(10) + "px)";
+      filtersRunning[2].amount = "blur(" + numRan(blurMax) + "px)";
       // filters.hueshift = "hue-rotate(" + numRan(0) + "deg)";
     } else if (stgSelect == s2) {
-      console.log("BLURRY: S2");
-      filters.blur = "blur(" + numRan(0) + "px)";
-      filters.hueshift = "blur(" + numRan(360) + "px)";
+      filters.blur = "blur(" + numRan(blurMin) + "px)";
+      filters.hueshift = "blur(" + numRan(blurMax) + "px)";
     } else {
-      console.log("BLURRY: S1+S2");
-      filters.hueshift = "blur(" + numRan(360) + "px)";
-      filters.hueshift = "blur(" + numRan(360) + "px)";
+      filters.hueshift = "blur(" + numRan(blurMax) + "px)";
+      filters.hueshift = "blur(" + numRan(blurMax) + "px)";
     }
     this.addFilter();
-    $(s1).css('-webkit-filter', glerp);
+    $(s1).css('-webkit-filter', filterString);
   },
 
   // FILTER FX : INVERT
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   invert() {
     if (stgSelect == s1) {
-      console.log("INVERT: S1");
-      filtersRunning[3].amount = "invert(1)";
+      filtersRunning[3].amount = "invert(" + invertMax + ")";
       // filters.hueshift = "hue-rotate(" + numRan(0) + "deg)";
     } else if (stgSelect == s2) {
-      console.log("INVERT: S2");
       filters.invert = "invert(0)";
-      filters.invert = "invert(" + 1 + ")";
+      filters.invert = "invert(" + invertMax + ")";
     } else {
-      console.log("INVERT: S1+S2");
-      filters.invert = "invert(" + 1 + ")";
-      filters.invert = "invert(" + 1 + ")";
+      filters.invert = "invert(" + invertMax + ")";
+      filters.invert = "invert(" + invertMax + ")";
     }
     this.addFilter();
-    $(s1).css('-webkit-filter', glerp);
+    $(s1).css('-webkit-filter', filterString);
   },
 
   // BLEND MODE SWITCHER

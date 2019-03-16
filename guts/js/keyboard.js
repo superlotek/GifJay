@@ -124,7 +124,7 @@ $(document).ready(function() {
       } else {
         console.log('FX: INVERT OFF');
         invertOn = 0;
-        $(s1).css('-webkit-filter', 'invert(0)');
+        $(s1).css('-webkit-filter', 'invert(' + invertMin + ')');
         filtersRunning[3].amount = "";
         Filter.addFilter();
 
@@ -151,7 +151,7 @@ $(document).ready(function() {
         console.log('FX: SATURATE OFF');
         saturateOn = 0;
         // $(s1).add(s2).css('-webkit-filter', 'none');
-        $(s1).css('-webkit-filter', 'saturate(1)');
+        $(s1).css('-webkit-filter', 'saturate(' + saturateMin + ')');
         filtersRunning[0].amount = "";
         Filter.addFilter();
         // filtersOn[0] = "";
@@ -173,7 +173,7 @@ $(document).ready(function() {
     } else {
       console.log('FX: HUESHIFT OFF');
       hueShiftOn = 0;
-      $(s1).css('-webkit-filter', 'hue-rotate(0deg)');
+      $(s1).css('-webkit-filter', 'hue-rotate(' + hueRotateMin + 'deg)');
       filtersRunning[1].amount = "";
       Filter.addFilter();
       // filtersOn[1] = "";
@@ -195,7 +195,7 @@ $(document).ready(function() {
     } else {
       console.log('FX: BLURRY OFF');
       blurryOn = 0;
-      $(s1).css('-webkit-filter', 'blur(0px)');
+      $(s1).css('-webkit-filter', 'blur(' + blurMin + 'px)');
       filtersRunning[2].amount = "";
       Filter.addFilter();
       // $(s1).add(s2).css('-webkit-filter', 'none');

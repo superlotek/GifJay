@@ -36,7 +36,7 @@ var startUpKey;
 var giy = 1;
 var screensaver = 0;
 
-// Stage
+// STAGE
 var stageOneLayout = 0;
 var stageTwoLayout = 0;
 var stageOneBankNumber = 1;
@@ -63,7 +63,7 @@ var bankerArray = [];
 var bankerStageArrayS1 = [];
 var bankerStageArrayS2 = [];
 
-// Effects
+// EFFECTS
 var opacity = 1;
 var opacity2 = 1;
 var effectAmount = 0;
@@ -81,15 +81,20 @@ var effectFillOn = 0;
 var stgFadeOn = 0;
 var verticalStacksOn = 0;
 var stageFlipOn = 0;
-var saturateOn = 0;
 var sameSameOn = 0;
 var switcherooOn = 0;
+
+// FILTERS
 var hueShiftOn = 0;
 var blurryOn = 0;
 var invertOn = 0;
 var filtersOnString = "";
 var sampledFilterOn = 0;
+var saturateOn = 0;
+var hueRotateAmount;
+var saturateAmount;
 
+// BLEND MODES
 var blendModesOn = 0;
 var blendCounter = null;
 var blendModeRandomOn = 0;
@@ -104,9 +109,6 @@ var borderSize = 10;
 
 var delayFXOn = 0;
 var fxModeOn = 0;
-
-var hueRotateAmount;
-var saturateAmount;
 
 var gifAmount = 26;
 
