@@ -53,10 +53,10 @@ $(document).ready(function() {
       $(stgSelect).css('-webkit-filter', 'none');
     }
     saturateOn = 0; hueShiftOn = 0; blurryOn = 0; invertOn = 0;
-    filtersRunning[0].amount = "";
-    filtersRunning[1].amount = "";
-    filtersRunning[2].amount = "";
-    filtersRunning[3].amount = "";
+    filterSettings[0].amount = "";
+    filterSettings[1].amount = "";
+    filterSettings[2].amount = "";
+    filterSettings[3].amount = "";
     Filter.addFilter();
   });
 
@@ -114,99 +114,99 @@ $(document).ready(function() {
     });
   }
 
-  /* Invert */
-  if(app.settings.effects.invert.enabled) {
-    Mousetrap.bind(app.settings.effects.invert.filterKey, function() {
-      if(!invertOn) {
-        invertOn = 1;
-        console.log('FX: INVERT ON');
-        Filter.invert();
-      } else {
-        console.log('FX: INVERT OFF');
-        invertOn = 0;
-        $(s1).css('-webkit-filter', 'invert(' + invertMin + ')');
-        filtersRunning[3].amount = "";
-        Filter.addFilter();
 
-        // $(s1).add(s2).css('-webkit-filter', 'none');
-        // filtersOn[3] = "";
-        // filtersOnString = "";
-        // filtersOn.forEach(function(element) {
-        //   filtersOnString += element + " ";
-        // });
-      }
-    });
+  // NEW FILTERS REFACTOR
+
+  var filterButtons = [7,8,9,0];
+  console.log('FILTERS: Starting Up');
+  for (let i=0; i < filterButtons.length; i++) {
+
+    if(filterSettings[i].enabled) {
+      Mousetrap.bind(filterSettings[i].trigger, function() {
+        if(!eval[filterSettings[i].name + "On"]) {
+          eval[filterSettings[i].name + "On"] = 1;
+          console.log('FX: ' + filterSettings[i].name.toUpperCase() + ' ON');
+          Filter.genericFilter(i);
+        } else {
+          console.log(filterString);
+          console.log('FX: ' + filterSettings[i].name.toUpperCase() + ' OFF');
+          eval[filterSettings[i].name + "On"] = 0;
+          $(s1).css('-webkit-filter', filterSettings[i].slugName + '(' + filterSettings[i].min + filterSettings[i].unit + ')');
+          filterSettings[i].value = "";
+          Filter.addFilter();
+        }
+      });
+    }
+
   }
 
-  // FILTERS
+  /* INVERT */
+  // if(filterSettings[0].enabled) {
+  //   Mousetrap.bind(filterSettings[0].trigger, function() {
+  //     if(!invertOn) {
+  //       invertOn = 1;
+  //       console.log('FX: ' + filterSettings[0].name.toUpperCase() + ' ON');
+  //       Filter.genericFilter(0);
+  //     } else {
+  //       console.log('FX: ' + filterSettings[0].name.toUpperCase() + ' OFF');
+  //       invertOn = 0;
+  //       $(s1).css('-webkit-filter', filterSettings[0].name + '(' + filterSettings[0].min + ')');
+  //       filterSettings[0].value = "";
+  //       Filter.addFilter();
+  //     }
+  //   });
+  // }
 
   // SATURATE
-  if(app.settings.effects.saturator.enabled) {
-    Mousetrap.bind(app.settings.effects.saturator.filterKey, function() {
-      if(!saturateOn) {
-        saturateOn = 1;
-        console.log('FX: SATURATE ON');
-        Filter.saturator();
-      } else {
-        console.log('FX: SATURATE OFF');
-        saturateOn = 0;
-        // $(s1).add(s2).css('-webkit-filter', 'none');
-        $(s1).css('-webkit-filter', 'saturate(' + saturateMin + ')');
-        filtersRunning[0].amount = "";
-        Filter.addFilter();
-        // filtersOn[0] = "";
-        // filtersOnString = "";
-        // filtersOn.forEach(function(element) {
-        //   filtersOnString += element + " ";
-        // });
-      }
-    });
-  }
+  // if(filterSettings[1].enabled) {
+  //   Mousetrap.bind(filterSettings[1].trigger, function() {
+  //     if(!saturateOn) {
+  //       saturateOn = 1;
+  //       console.log('FX: ' + filterSettings[1].name.toUpperCase() + ' ON');
+  //       Filter.genericFilter(1);
+  //     } else {
+  //       console.log('FX: ' + filterSettings[1].name.toUpperCase() + ' OFF');
+  //       saturateOn = 0;
+  //       $(s1).css('-webkit-filter', filterSettings[1].name + '(' + filterSettings[1].min + ')');
+  //       filterSettings[1].value = "";
+  //       Filter.addFilter();
+  //     }
+  //   });
+  // }
 
-  /* HueShift */
-  if(app.settings.effects.hueShift.enabled) {
-    Mousetrap.bind(app.settings.effects.hueShift.filterKey, function() {
-    if(!hueShiftOn) {
-      hueShiftOn = 1;
-      console.log('FX: HUESHIFT ON');
-      Filter.hueShift();
-    } else {
-      console.log('FX: HUESHIFT OFF');
-      hueShiftOn = 0;
-      $(s1).css('-webkit-filter', 'hue-rotate(' + hueRotateMin + 'deg)');
-      filtersRunning[1].amount = "";
-      Filter.addFilter();
-      // filtersOn[1] = "";
-      // filtersOnString = "";
-      // filtersOn.forEach(function(element) {
-      //   filtersOnString += element + " ";
-      // });
-    }
-  });
-}
+  /* HUE-ROTATE */
+//   if(filterSettings[2].enabled) {
+//     Mousetrap.bind(filterSettings[2].trigger, function() {
+//     if(!hueShiftOn) {
+//       hueShiftOn = 1;
+//       console.log('FX: ' + filterSettings[2].name.toUpperCase() + ' ON');
+//       Filter.genericFilter(2);
+//     } else {
+//       console.log('FX: ' + filterSettings[2].name.toUpperCase() + ' OFF');
+//       hueShiftOn = 0;
+//       $(s1).css('-webkit-filter', filterSettings[2].name + '(' + filterSettings[2].min + filterSettings[2].unit + ')');
+//       filterSettings[2].value = "";
+//       Filter.addFilter();
+//     }
+//   });
+// }
 
-  /* Blurry */
-  if(app.settings.effects.blurry.enabled) {
-    Mousetrap.bind(app.settings.effects.blurry.filterKey, function() {
-    if(!blurryOn) {
-      blurryOn = 1;
-      console.log('FX: BLURRY ON');
-      Filter.blurry();
-    } else {
-      console.log('FX: BLURRY OFF');
-      blurryOn = 0;
-      $(s1).css('-webkit-filter', 'blur(' + blurMin + 'px)');
-      filtersRunning[2].amount = "";
-      Filter.addFilter();
-      // $(s1).add(s2).css('-webkit-filter', 'none');
-      // filtersOn[2] = "";
-      // filtersOnString = "";
-      // filtersOn.forEach(function(element) {
-      //   filtersOnString += element + " ";
-      // });
-    }
-  });
-}
+  /* BLUR */
+//   if(filterSettings[3].enabled) {
+//     Mousetrap.bind(filterSettings[3].trigger, function() {
+//     if(!blurryOn) {
+//       blurryOn = 1;
+//       console.log('FX: ' + filterSettings[3].name.toUpperCase() + ' ON');
+//       Filter.genericFilter(3);
+//     } else {
+//       console.log('FX: ' + filterSettings[3].name.toUpperCase() + ' OFF');
+//       blurryOn = 0;
+//       $(s1).css('-webkit-filter', filterSettings[3].name + '(' + filterSettings[3].min + filterSettings[3].unit + ')');
+//       filterSettings[3].value = "";
+//       Filter.addFilter();
+//     }
+//   });
+// }
 
 // BLEND MODES SWITCHER
 Mousetrap.bind('alt+,', function() {

@@ -35,11 +35,12 @@ const Play = {
       } else { playMode('default');
     }
     if(stgFadeOn) { Effects.stgFade(); }
-    if(saturateOn) { Filter.saturator(); }
     if(sameSameOn) { Effects.sameSame(); }
-    if(hueShiftOn) { Filter.hueShift(); }
-    if(blurryOn) { Filter.blurry(); }
-    if(invertOn) { Filter.invert(); }
+
+    if(invertOn) { Filter.genericFilter(0); }
+    if(saturateOn) { Filter.genericFilter(1); }
+    if(hueRotateOn) { Filter.genericFilter(2); }
+    if(blurOn) { Filter.genericFilter(3); }
   },
 
   stageFlip() {

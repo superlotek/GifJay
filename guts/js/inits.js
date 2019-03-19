@@ -85,8 +85,8 @@ var sameSameOn = 0;
 var switcherooOn = 0;
 
 // FILTERS
-var hueShiftOn = 0;
-var blurryOn = 0;
+var hueRotateOn = 0;
+var blurOn = 0;
 var invertOn = 0;
 var filtersOnString = "";
 var sampledFilterOn = 0;
