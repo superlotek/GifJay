@@ -66,8 +66,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 		}
 		#overlays.on {
 			display: block;
+/*            mix-blend-mode: overlay;
+*/            opacity: .8;
 		}
-
 
     .overlays {
         /* background-size: 80vw !important;
