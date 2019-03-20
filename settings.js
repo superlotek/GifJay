@@ -341,15 +341,12 @@ var titlePageOn = 0;
 var sameSameConstant = 2;
 titlePageName = 'title-1.gif';
 
-// var filterSettings = [
-// 	{ "name": "invert", "min": 0, "slugName": "invert", "max": 1, "unit": "", "value" : "", "trigger": "7", "enabled": true, "on": 0 },
-// 	{ "name": "saturate", "min": 1, "slugName": "saturate", "max": 100, "unit": "", "value" : "", "trigger": "8", "enabled": true, "on": 0 },
-// 	{ "name": "hueRotate", "slugName": "hue-rotate", "min": 0, "max": 360, "unit": "deg", "value" : "", "trigger": "9", "enabled": true, "on": 0 },
-// 	{ "name": "blur", "min": 0, "slugName": "blur", "max": 5, "unit": "px", "value" : "", "trigger": "0", "enabled": true, "on": 0 }
-// ]
-
 filters = {
-  filter : [
+	"strings": [
+		{"value": ""},
+		{"value": ""}
+	],
+  "filter" : [
     {
       "name": "Invert",
       "slugName": "invert",
@@ -368,7 +365,7 @@ filters = {
       "name": "Saturate",
       "slugName": "saturate",
       "trigger": "8",
-      "min": 0,
+      "min": 1,
       "max": 100,
       "unit": "",
       "enabled": true,

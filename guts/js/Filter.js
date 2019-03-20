@@ -5,24 +5,43 @@
 const Filter = {
 
   addFilter() {
-    filterString = filters.filter.map(function(elem){
+    filters.strings[0].value = filters.filter.map(function(elem){
         return elem.stage[0].value;
     }).join(" ");
-    $(s1).css('-webkit-filter', filterString);
+    filters.strings[1].value = filters.filter.map(function(elem){
+        return elem.stage[1].value;
+    }).join(" ");
+    $(s1).css('-webkit-filter', filters.strings[0].value);
+    $(s2).css('-webkit-filter', filters.strings[1].value);
   },
 
-  genericFilter(filterNum) {
+  applyFilter(filterNum) {
     if (stgSelect == s1) {
       filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      // filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
+
       if (filterNum == 0) {
         filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].max + filters.filter[filterNum].unit + ")";
+        filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
       }
+
     } else if (stgSelect == s2) {
-      filters.filter[filterNum].value = filters.filter[filterNum].name + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
-      filters.filter[filterNum].value = filters.filter[filterNum].name + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      // filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+
+      if (filterNum == 0) {
+        filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
+        filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].max + filters.filter[filterNum].unit + ")";
+      }
+
     } else {
-      filters.filter[filterNum].value = filters.filter[filterNum].name + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
-      filters.filter[filterNum].value = filters.filter[filterNum].name + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+
+      if (filterNum == 0) {
+        filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].max + filters.filter[filterNum].unit + ")";
+        filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].max + filters.filter[filterNum].unit + ")";
+      }
     }
     this.addFilter();
   },

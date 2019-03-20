@@ -34,14 +34,13 @@ const Play = {
       } else if (setOn) { playMode('sets');
       } else { playMode('default');
     }
-    
+
     if(stgFadeOn) { Effects.stgFade(); }
     if(sameSameOn) { Effects.sameSame(); }
 
-    if(filters.filter[0].on) { Filter.genericFilter(0); }
-    if(filters.filter[1].on) { Filter.genericFilter(1); }
-    if(filters.filter[2].on) { Filter.genericFilter(2); }
-    if(filters.filter[3].on) { Filter.genericFilter(3); }
+    for (i=0; i < filters.filter.length; i++) {
+      if(filters.filter[i].on) { Filter.applyFilter(i); }
+    }
   },
 
   stageFlip() {

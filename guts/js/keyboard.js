@@ -55,7 +55,7 @@ $(document).ready(function() {
 
     for (i = 0; i < filters.filter.length; i++) {
       filters.filter[i].on = 0;
-      filters.filter[i].stage[0].value = ""; filters.filter[i].stage[1].value = "";
+      filters.filter[i].stage[i].value = "";
     }
 
     Filter.addFilter();
@@ -120,7 +120,7 @@ $(document).ready(function() {
         if(!filters.filter[i].on) {
           filters.filter[i].on = 1;
           console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' ON');
-          Filter.genericFilter(i);
+          Filter.applyFilter(i);
         } else {
           console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' OFF');
           filters.filter[i].on = 0;
