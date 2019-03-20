@@ -472,6 +472,51 @@ function enableOverlays() {
   // BANKER SETS ON/OFF [ ' ]
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+
+  // BANKER SETS ON/OFF [ ' ]
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+  gleep = [];
+  banks.bank[0].gifs.forEach(function(glip) {
+  	console.log(glip.set);
+  	if (glip.set == 'd') {
+  		gleep.push(glip.name);
+    }
+
+  });
+
+    bankerSets.set.forEach(function(durk, index) {
+      setsArray.push(durk.trigger);
+    });
+
+    for(let i = 0; i < setsArray.length; i++) {
+
+      Mousetrap.bind("ctrl+" + setsArray[i], function() {
+
+        if(!setOn) {
+          setBank = bankerSets.set[i].bank;
+
+          setArray = [];
+          bankerSets.set[i].gifs.forEach(function(slees) {
+            setArray.push(slees.name);
+          });
+
+          setOn = 1;
+
+          console.log('BANKER SET: [' + setsArray[i] +  '] LOADING');
+
+        } else {
+          console.log('BANKER SET: OFF');
+          setOn = 0;
+          setArray = [];
+        }
+      });
+
+    }
+
+
+
+
   /*
   function search(nameKey, myArray){
       for (var i=0; i < myArray.length; i++) {

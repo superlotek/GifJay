@@ -510,6 +510,22 @@ filters = {
   ]
 }
 
+bankerSets = {
+	"set" : [
+		{
+			"name" : "SET-NAME",
+			"trigger" : "a",
+			"bank" : 9,
+			"gifs" : [
+				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'robot_woman_head_back_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'electro_pyramid_zoom', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'eye_laser_sparkles_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'eye_lasers_1_o', 'set': 'm'}
+			]
+		}
+	]
+}
+
 stageArray = ['sf', 'st'];
 shapeArray = ['circle','triangle','rhombus','octagon','close','frame','rabbet'];
 flipArray = ['rotateX(180deg)','rotateX(-180deg)','rotateY(180deg)','rotateY(-180deg)'];

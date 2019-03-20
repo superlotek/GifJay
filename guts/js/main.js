@@ -93,6 +93,10 @@ function sceneSetter(arrayName, banker1, banker2) {
   bankBuilderS2 = [];
 
   if (setOn) {
+
+    gifSelectorS1 = randomizer(setArray);
+    gifSelectorS2 = randomizer(setArray);
+
     if(bankerOn) {
       console.log('NO NO BANKERS HERE');
       Mousetrap.trigger('\'');
@@ -117,23 +121,23 @@ function sceneSetter(arrayName, banker1, banker2) {
 
   } else {
 
-  banks.bank[bankSelectorS1].gifs.forEach(function(element) {
-    bankBuilderS1.push({
-      gif: element.name,
-      location: element.location,
-      type: element.type
+    banks.bank[bankSelectorS1].gifs.forEach(function(element) {
+      bankBuilderS1.push({
+        gif: element.name,
+        location: element.location,
+        type: element.type
+      });
     });
-  });
 
-  banks.bank[bankSelectorS2].gifs.forEach(function(element) {
-    bankBuilderS2.push({
-      gif: element.name,
-      location: element.location,
-      type: element.type
+    banks.bank[bankSelectorS2].gifs.forEach(function(element) {
+      bankBuilderS2.push({
+        gif: element.name,
+        location: element.location,
+        type: element.type
+      });
     });
-  });
 
-}
+  }
 
   // Selecting 2 random gifs
   gifSelectorS1 = randomizer(bankBuilderS1);
@@ -268,8 +272,8 @@ function playMode(playType) {
       // console.log('PLAY MODE: Sets');
       currentPlayMode = 'sets';
       bankSelectorS1 = setBank; bankSelectorS2 = setBank;
-      // sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
-      sceneSetter(singleBankerSet, bankSelectorS1, bankSelectorS2);
+      sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
+      // sceneSetter(singleBankerSet, bankSelectorS1, bankSelectorS2);
       break;
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-
