@@ -86,6 +86,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 				/* animation-iteration-count: infinite; */
 			animation: backgroundSizer 2s infinite;
 			background-position: center center;
+			background-repeat: repeat !important;
 		}
 
     @keyframes overlayScale {
