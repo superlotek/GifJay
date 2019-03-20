@@ -85,14 +85,15 @@ var sameSameOn = 0;
 var switcherooOn = 0;
 
 // FILTERS
-var hueRotateOn = 0;
-var blurOn = 0;
-var invertOn = 0;
+// var invertOn = 0;
+// var saturateOn = 0;
+// var hueRotateOn = 0;
+// var blurOn = 0;
+
 var filtersOnString = "";
 var sampledFilterOn = 0;
-var saturateOn = 0;
-var hueRotateAmount;
-var saturateAmount;
+// var hueRotateAmount;
+// var saturateAmount;
 
 // BLEND MODES
 var blendModesOn = 0;

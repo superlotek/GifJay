@@ -5,12 +5,6 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 var midiOn = true;
 
-
-
-
-
-
-
 // GIF BINS
 const banks = {
 	"bank" : [
@@ -283,7 +277,6 @@ const banks = {
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'eye_laser_sparkles_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'eye_lasers_1_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'fantasticVoyage_computer_flashing2_o', 'set': 'm'},
-				// { 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'fantasticVoyage_computer_flashing_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'fantasticVoyage_flashing_colorBars_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'fantasticVoyage_spinningStripes_disabledLasers_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'fantasticVoyage_spinningStripes_o', 'set': 'm'},
@@ -341,7 +334,7 @@ const banks = {
 setsArray = [];
 
 var effectsOn = [];
-var filtersOn = [];
+// var filtersOn = [];
 var beatTime = 2000;
 var beatSpeed = 1000;
 var titlePageOn = 0;
@@ -349,10 +342,10 @@ var sameSameConstant = 2;
 titlePageName = 'title-1.gif';
 
 var filterSettings = [
-	{ "name": "invert", "min": 0, "slugName": "invert", "max": 1, "unit": "", "value" : "", "trigger": "7", "enabled": true },
-	{ "name": "saturate", "min": 1, "slugName": "saturate", "max": 100, "unit": "", "value" : "", "trigger": "8", "enabled": true },
-	{ "name": "hueRotate", "slugName": "hue-rotate", "min": 0, "max": 360, "unit": "deg", "value" : "", "trigger": "9", "enabled": true },
-	{ "name": "blur", "min": 0, "slugName": "blur", "max": 5, "unit": "px", "value" : "", "trigger": "0", "enabled": true }
+	{ "name": "invert", "min": 0, "slugName": "invert", "max": 1, "unit": "", "value" : "", "trigger": "7", "enabled": true, "on": 0 },
+	{ "name": "saturate", "min": 1, "slugName": "saturate", "max": 100, "unit": "", "value" : "", "trigger": "8", "enabled": true, "on": 0 },
+	{ "name": "hueRotate", "slugName": "hue-rotate", "min": 0, "max": 360, "unit": "deg", "value" : "", "trigger": "9", "enabled": true, "on": 0 },
+	{ "name": "blur", "min": 0, "slugName": "blur", "max": 5, "unit": "px", "value" : "", "trigger": "0", "enabled": true, "on": 0 }
 ]
 
 stageArray = ['sf', 'st'];

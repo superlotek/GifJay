@@ -52,17 +52,15 @@ $(document).ready(function() {
     } else {
       $(stgSelect).css('-webkit-filter', 'none');
     }
-    saturateOn = 0; hueShiftOn = 0; blurryOn = 0; invertOn = 0;
-    filterSettings[0].amount = "";
-    filterSettings[1].amount = "";
-    filterSettings[2].amount = "";
-    filterSettings[3].amount = "";
-    Filter.addFilter();
-  });
 
-  // function findEffectInArray(element) {
-  //   return element.effect === effectName;
-  // }
+    for (i = 0; i < filterSettings.length; i++) {
+      filterSettings[i].on = 0;
+      filterSettings[i].value = "";
+    }
+
+    Filter.addFilter();
+
+  });
 
   // Kaleidoscope
   if(app.settings.effects.kaleidoscope.enabled) {
@@ -114,23 +112,19 @@ $(document).ready(function() {
     });
   }
 
-
   // NEW FILTERS REFACTOR
-
-  var filterButtons = [7,8,9,0];
   console.log('FILTERS: Starting Up');
-  for (let i=0; i < filterButtons.length; i++) {
+  for (let i=0; i < filterSettings.length; i++) {
 
     if(filterSettings[i].enabled) {
       Mousetrap.bind(filterSettings[i].trigger, function() {
-        if(!eval[filterSettings[i].name + "On"]) {
-          eval[filterSettings[i].name + "On"] = 1;
+        if(!filterSettings[i].on) {
+          filterSettings[i].on = 1;
           console.log('FX: ' + filterSettings[i].name.toUpperCase() + ' ON');
           Filter.genericFilter(i);
         } else {
-          console.log(filterString);
           console.log('FX: ' + filterSettings[i].name.toUpperCase() + ' OFF');
-          eval[filterSettings[i].name + "On"] = 0;
+          filterSettings[i].on = 0;
           $(s1).css('-webkit-filter', filterSettings[i].slugName + '(' + filterSettings[i].min + filterSettings[i].unit + ')');
           filterSettings[i].value = "";
           Filter.addFilter();
@@ -139,74 +133,6 @@ $(document).ready(function() {
     }
 
   }
-
-  /* INVERT */
-  // if(filterSettings[0].enabled) {
-  //   Mousetrap.bind(filterSettings[0].trigger, function() {
-  //     if(!invertOn) {
-  //       invertOn = 1;
-  //       console.log('FX: ' + filterSettings[0].name.toUpperCase() + ' ON');
-  //       Filter.genericFilter(0);
-  //     } else {
-  //       console.log('FX: ' + filterSettings[0].name.toUpperCase() + ' OFF');
-  //       invertOn = 0;
-  //       $(s1).css('-webkit-filter', filterSettings[0].name + '(' + filterSettings[0].min + ')');
-  //       filterSettings[0].value = "";
-  //       Filter.addFilter();
-  //     }
-  //   });
-  // }
-
-  // SATURATE
-  // if(filterSettings[1].enabled) {
-  //   Mousetrap.bind(filterSettings[1].trigger, function() {
-  //     if(!saturateOn) {
-  //       saturateOn = 1;
-  //       console.log('FX: ' + filterSettings[1].name.toUpperCase() + ' ON');
-  //       Filter.genericFilter(1);
-  //     } else {
-  //       console.log('FX: ' + filterSettings[1].name.toUpperCase() + ' OFF');
-  //       saturateOn = 0;
-  //       $(s1).css('-webkit-filter', filterSettings[1].name + '(' + filterSettings[1].min + ')');
-  //       filterSettings[1].value = "";
-  //       Filter.addFilter();
-  //     }
-  //   });
-  // }
-
-  /* HUE-ROTATE */
-//   if(filterSettings[2].enabled) {
-//     Mousetrap.bind(filterSettings[2].trigger, function() {
-//     if(!hueShiftOn) {
-//       hueShiftOn = 1;
-//       console.log('FX: ' + filterSettings[2].name.toUpperCase() + ' ON');
-//       Filter.genericFilter(2);
-//     } else {
-//       console.log('FX: ' + filterSettings[2].name.toUpperCase() + ' OFF');
-//       hueShiftOn = 0;
-//       $(s1).css('-webkit-filter', filterSettings[2].name + '(' + filterSettings[2].min + filterSettings[2].unit + ')');
-//       filterSettings[2].value = "";
-//       Filter.addFilter();
-//     }
-//   });
-// }
-
-  /* BLUR */
-//   if(filterSettings[3].enabled) {
-//     Mousetrap.bind(filterSettings[3].trigger, function() {
-//     if(!blurryOn) {
-//       blurryOn = 1;
-//       console.log('FX: ' + filterSettings[3].name.toUpperCase() + ' ON');
-//       Filter.genericFilter(3);
-//     } else {
-//       console.log('FX: ' + filterSettings[3].name.toUpperCase() + ' OFF');
-//       blurryOn = 0;
-//       $(s1).css('-webkit-filter', filterSettings[3].name + '(' + filterSettings[3].min + filterSettings[3].unit + ')');
-//       filterSettings[3].value = "";
-//       Filter.addFilter();
-//     }
-//   });
-// }
 
 // BLEND MODES SWITCHER
 Mousetrap.bind('alt+,', function() {
