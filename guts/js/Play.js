@@ -38,10 +38,10 @@ const Play = {
     if(stgFadeOn) { Effects.stgFade(); }
     if(sameSameOn) { Effects.sameSame(); }
 
-    if(filterSettings[0].on) { Filter.genericFilter(0); }
-    if(filterSettings[1].on) { Filter.genericFilter(1); }
-    if(filterSettings[2].on) { Filter.genericFilter(2); }
-    if(filterSettings[3].on) { Filter.genericFilter(3); }
+    if(filters.filter[0].on) { Filter.genericFilter(0); }
+    if(filters.filter[1].on) { Filter.genericFilter(1); }
+    if(filters.filter[2].on) { Filter.genericFilter(2); }
+    if(filters.filter[3].on) { Filter.genericFilter(3); }
   },
 
   stageFlip() {

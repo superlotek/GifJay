@@ -5,24 +5,24 @@
 const Filter = {
 
   addFilter() {
-    filterString = filterSettings.map(function(elem){
-        return elem.value;
+    filterString = filters.filter.map(function(elem){
+        return elem.stage[0].value;
     }).join(" ");
     $(s1).css('-webkit-filter', filterString);
   },
 
   genericFilter(filterNum) {
     if (stgSelect == s1) {
-      filterSettings[filterNum].value = filterSettings[filterNum].slugName + "(" + numRan(filterSettings[filterNum].max) + filterSettings[filterNum].unit + ")";
+      filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
       if (filterNum == 0) {
-        filterSettings[filterNum].value = filterSettings[filterNum].slugName + "(" + filterSettings[filterNum].max + filterSettings[filterNum].unit + ")";
+        filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].max + filters.filter[filterNum].unit + ")";
       }
     } else if (stgSelect == s2) {
-      filterSettings[filterNum].value = filterSettings[filterNum].name + "(" + filterSettings[filterNum].min + filterSettings[filterNum].unit + ")";
-      filterSettings[filterNum].value = filterSettings[filterNum].name + "(" + numRan(filterSettings[filterNum].max) + filterSettings[filterNum].unit + ")";
+      filters.filter[filterNum].value = filters.filter[filterNum].name + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].value = filters.filter[filterNum].name + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
     } else {
-      filterSettings[filterNum].value = filterSettings[filterNum].name + "(" + numRan(filterSettings[filterNum].max) + filterSettings[filterNum].unit + ")";
-      filterSettings[filterNum].value = filterSettings[filterNum].name + "(" + numRan(filterSettings[filterNum].max) + filterSettings[filterNum].unit + ")";
+      filters.filter[filterNum].value = filters.filter[filterNum].name + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].value = filters.filter[filterNum].name + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
     }
     this.addFilter();
   },

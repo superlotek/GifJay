@@ -53,9 +53,9 @@ $(document).ready(function() {
       $(stgSelect).css('-webkit-filter', 'none');
     }
 
-    for (i = 0; i < filterSettings.length; i++) {
-      filterSettings[i].on = 0;
-      filterSettings[i].value = "";
+    for (i = 0; i < filters.filter.length; i++) {
+      filters.filter[i].on = 0;
+      filters.filter[i].stage[0].value = ""; filters.filter[i].stage[1].value = "";
     }
 
     Filter.addFilter();
@@ -114,19 +114,18 @@ $(document).ready(function() {
 
   // NEW FILTERS REFACTOR
   console.log('FILTERS: Starting Up');
-  for (let i=0; i < filterSettings.length; i++) {
-
-    if(filterSettings[i].enabled) {
-      Mousetrap.bind(filterSettings[i].trigger, function() {
-        if(!filterSettings[i].on) {
-          filterSettings[i].on = 1;
-          console.log('FX: ' + filterSettings[i].name.toUpperCase() + ' ON');
+  for (let i=0; i < filters.filter.length; i++) {
+    if(filters.filter[i].enabled) {
+      Mousetrap.bind(filters.filter[i].trigger, function() {
+        if(!filters.filter[i].on) {
+          filters.filter[i].on = 1;
+          console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' ON');
           Filter.genericFilter(i);
         } else {
-          console.log('FX: ' + filterSettings[i].name.toUpperCase() + ' OFF');
-          filterSettings[i].on = 0;
-          $(s1).css('-webkit-filter', filterSettings[i].slugName + '(' + filterSettings[i].min + filterSettings[i].unit + ')');
-          filterSettings[i].value = "";
+          console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' OFF');
+          filters.filter[i].on = 0;
+          $(s1).css('-webkit-filter', filters.filter[i].slugName + '(' + filters.filter[i].min + filters.filter[i].unit + ')');
+          filters.filter[i].stage[0].value = ""; filters.filter[i].stage[1].value = "";
           Filter.addFilter();
         }
       });

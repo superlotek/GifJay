@@ -341,12 +341,73 @@ var titlePageOn = 0;
 var sameSameConstant = 2;
 titlePageName = 'title-1.gif';
 
-var filterSettings = [
-	{ "name": "invert", "min": 0, "slugName": "invert", "max": 1, "unit": "", "value" : "", "trigger": "7", "enabled": true, "on": 0 },
-	{ "name": "saturate", "min": 1, "slugName": "saturate", "max": 100, "unit": "", "value" : "", "trigger": "8", "enabled": true, "on": 0 },
-	{ "name": "hueRotate", "slugName": "hue-rotate", "min": 0, "max": 360, "unit": "deg", "value" : "", "trigger": "9", "enabled": true, "on": 0 },
-	{ "name": "blur", "min": 0, "slugName": "blur", "max": 5, "unit": "px", "value" : "", "trigger": "0", "enabled": true, "on": 0 }
-]
+// var filterSettings = [
+// 	{ "name": "invert", "min": 0, "slugName": "invert", "max": 1, "unit": "", "value" : "", "trigger": "7", "enabled": true, "on": 0 },
+// 	{ "name": "saturate", "min": 1, "slugName": "saturate", "max": 100, "unit": "", "value" : "", "trigger": "8", "enabled": true, "on": 0 },
+// 	{ "name": "hueRotate", "slugName": "hue-rotate", "min": 0, "max": 360, "unit": "deg", "value" : "", "trigger": "9", "enabled": true, "on": 0 },
+// 	{ "name": "blur", "min": 0, "slugName": "blur", "max": 5, "unit": "px", "value" : "", "trigger": "0", "enabled": true, "on": 0 }
+// ]
+
+filters = {
+  filter : [
+    {
+      "name": "Invert",
+      "slugName": "invert",
+      "trigger": "7",
+      "min": 0,
+      "max": 1,
+      "unit": "",
+      "enabled": true,
+      "on": 0,
+      "stage": [
+        { "value": "" },
+        { "value": "" }
+      ]
+    },
+    {
+      "name": "Saturate",
+      "slugName": "saturate",
+      "trigger": "8",
+      "min": 0,
+      "max": 100,
+      "unit": "",
+      "enabled": true,
+      "on": 0,
+      "stage": [
+        { "value": "" },
+        { "value": "" }
+      ]
+    },
+    {
+      "name": "Hue Rotate",
+      "slugName": "hue-rotate",
+      "trigger": "9",
+      "min": 0,
+      "max": 360,
+      "unit": "deg",
+      "enabled": true,
+      "on": 0,
+      "stage": [
+        { "value": "" },
+        { "value": "" }
+      ]
+    },
+    {
+      "name": "Blur",
+      "slugName": "blur",
+      "trigger": "0",
+      "min": 0,
+      "max": 5,
+      "unit": "px",
+      "enabled": true,
+      "on": 0,
+      "stage": [
+        { "value": "" },
+        { "value": "" }
+      ]
+    }
+  ]
+}
 
 stageArray = ['sf', 'st'];
 shapeArray = ['circle','triangle','rhombus','octagon','close','frame','rabbet'];
