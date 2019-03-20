@@ -93,7 +93,6 @@ function sceneSetter(arrayName, banker1, banker2) {
   bankBuilderS2 = [];
 
   if (setOn) {
-
     gifSelectorS1 = randomizer(setArray);
     gifSelectorS2 = randomizer(setArray);
 
@@ -271,7 +270,7 @@ function playMode(playType) {
     case 'sets':
       // console.log('PLAY MODE: Sets');
       currentPlayMode = 'sets';
-      bankSelectorS1 = setBank; bankSelectorS2 = setBank;
+      // bankSelectorS1 = setBank; bankSelectorS2 = setBank;
       sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
       // sceneSetter(singleBankerSet, bankSelectorS1, bankSelectorS2);
       break;

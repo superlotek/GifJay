@@ -513,14 +513,31 @@ filters = {
 bankerSets = {
 	"set" : [
 		{
-			"name" : "SET-NAME",
+			"name" : "Eyeballs",
 			"trigger" : "a",
-			"bank" : 9,
 			"gifs" : [
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'robot_woman_head_back_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'electro_pyramid_zoom', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'eye_laser_sparkles_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'eye_lasers_1_o', 'set': 'm'}
+				{'location' : '4thStreetVine/', 'name' : 'robot_woman_head_back_o' },
+				{'location' : '4thStreetVine/', 'name' : 'electro_pyramid_zoom' },
+				{'location' : '4thStreetVine/', 'name' : 'eye_laser_sparkles_o' },
+				{'location' : '4thStreetVine/', 'name' : 'eye_lasers_1_o' },
+				{'location' : 'BathBombs/', 'name' : 'bathbomb-boomerang_o'},
+				{'location' : 'BathBombs/', 'name' : 'bathbomb-galaxy-1_o'},
+				{'location' : 'BathBombs/', 'name' : 'bathbomb-galaxy-2_o'},
+				{'trigger' : 'q', 'location' : 'BathBombs/', 'name' : 'bathbomb-slow-1_o'}
+			]
+		},
+		{
+			"name" : "Hercules",
+			"trigger" : "b",
+			"gifs" : [
+				{'location' : 'Hercules/', 'name' : 'hercules_mermaid_eye_beams_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_movie_intro_eye2_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_shooting_star_crater_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_space_tunnel_explosion_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_woman_arms_beam_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_woman_space_trails_dance_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_women_sparkle_shower_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_women_sparkles_fadeOut_o'}
 			]
 		}
 	]

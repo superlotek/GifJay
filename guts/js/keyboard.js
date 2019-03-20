@@ -472,50 +472,31 @@ function enableOverlays() {
   // BANKER SETS ON/OFF [ ' ]
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-
-  // BANKER SETS ON/OFF [ ' ]
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  gleep = [];
-  banks.bank[0].gifs.forEach(function(glip) {
-  	console.log(glip.set);
-  	if (glip.set == 'd') {
-  		gleep.push(glip.name);
-    }
-
-  });
-
-    bankerSets.set.forEach(function(durk, index) {
-      setsArray.push(durk.trigger);
+    // Setting up triggers for key commands
+    bankerSets.set.forEach(function(element, index) {
+      setsArray.push(element.trigger);
     });
 
     for(let i = 0; i < setsArray.length; i++) {
-
       Mousetrap.bind("ctrl+" + setsArray[i], function() {
 
         if(!setOn) {
-          setBank = bankerSets.set[i].bank;
+          // setBank = bankerSets.set[i].bank;
 
           setArray = [];
-          bankerSets.set[i].gifs.forEach(function(slees) {
-            setArray.push(slees.name);
-          });
-
+          setArray = bankerSets.set[i].gifs;
           setOn = 1;
 
-          console.log('BANKER SET: [' + setsArray[i] +  '] LOADING');
+          console.log('BANKER SET: ' + setsArray[i].toUpperCase()  + ":" + bankerSets.set[i].name + ' RUNNING');
 
         } else {
-          console.log('BANKER SET: OFF');
+          console.log('BANKER SET: ' + setsArray[i].toUpperCase()  + ":" + bankerSets.set[i].name + ' OFF');
           setOn = 0;
           setArray = [];
         }
       });
 
     }
-
-
-
 
   /*
   function search(nameKey, myArray){
