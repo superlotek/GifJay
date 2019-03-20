@@ -215,7 +215,7 @@ const banks = {
 				{ 'trigger' : 'q', 'location' : 'Onymico/', 'name' : 'obama-circles-fx-o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'Onymico/', 'name' : 'tony-river-walk-bridge2-fx-o', 'set': 'm'}
 			]
-		},		
+		},
 
 		{
 			"id" : 5,
@@ -431,21 +431,84 @@ const banks = {
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'pbs-5_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_transform_constellation_o', 'set': 'm'}
 			]
-		},		
+		},
 	]
 }
 
 setsArray = [];
 
 var effectsOn = [];
-var filtersOn = [];
+// var filtersOn = [];
 var beatTime = 2000;
 var beatSpeed = 1000;
 var titlePageOn = 0;
 var sameSameConstant = 2;
-var saturateAmount = 100;
-var blurAmount = 5;
 titlePageName = 'title-1.gif';
+
+filters = {
+	"strings": [
+		{"value": ""},
+		{"value": ""}
+	],
+  "filter" : [
+    {
+      "name": "Invert",
+      "slugName": "invert",
+      "trigger": "7",
+      "min": 0,
+      "max": 1,
+      "unit": "",
+      "enabled": true,
+      "on": 0,
+      "stage": [
+        { "value": "" },
+        { "value": "" }
+      ]
+    },
+    {
+      "name": "Saturate",
+      "slugName": "saturate",
+      "trigger": "8",
+      "min": 1,
+      "max": 100,
+      "unit": "",
+      "enabled": true,
+      "on": 0,
+      "stage": [
+        { "value": "" },
+        { "value": "" }
+      ]
+    },
+    {
+      "name": "Hue Rotate",
+      "slugName": "hue-rotate",
+      "trigger": "9",
+      "min": 0,
+      "max": 360,
+      "unit": "deg",
+      "enabled": true,
+      "on": 0,
+      "stage": [
+        { "value": "" },
+        { "value": "" }
+      ]
+    },
+    {
+      "name": "Blur",
+      "slugName": "blur",
+      "trigger": "0",
+      "min": 0,
+      "max": 5,
+      "unit": "px",
+      "enabled": true,
+      "on": 0,
+      "stage": [
+        { "value": "" },
+        { "value": "" }
+      ]
+    }
+  ]
+}
 
 stageArray = ['sf', 'st'];
 shapeArray = ['circle','triangle','rhombus','octagon','close','frame','rabbet'];

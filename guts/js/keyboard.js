@@ -52,14 +52,16 @@ $(document).ready(function() {
     } else {
       $(stgSelect).css('-webkit-filter', 'none');
     }
-    filtersOnString = "";
-    filtersOn = [];
-    saturateOn = 0; hueShiftOn = 0; blurryOn = 0; invertOn = 0;
-  });
 
-  // function findEffectInArray(element) {
-  //   return element.effect === effectName;
-  // }
+    for (i = 0; i < filters.filter.length; i++) {
+      filters.filter[i].on = 0;
+      filters.filter[i].stage[0].value = ""; filters.filter[i].stage[1].value = "";
+
+    }
+
+    Filter.addFilter();
+
+  });
 
   // Kaleidoscope
   if(app.settings.effects.kaleidoscope.enabled) {
@@ -111,99 +113,26 @@ $(document).ready(function() {
     });
   }
 
-  /* Invert */
-  if(app.settings.effects.invert.enabled) {
-    Mousetrap.bind(app.settings.effects.invert.filterKey, function() {
-
-      if (overlaySelected) {
-        Filter.invert();
-        return;
-      }
-
-      if(!invertOn) {
-        invertOn = 1;
-        console.log('FX: INVERT ON');
-        Filter.invert();
-      } else {
-        console.log('FX: INVERT OFF');
-        invertOn = 0;
-        $(s1).add(s2).css('-webkit-filter', 'none');
-        filtersOn[3] = "";
-        filtersOnString = "";
-        filtersOn.forEach(function(element) {
-          filtersOnString += element + " ";
-        });
-      }
-    });
-  }
-
-  // FILTERS
-
-  // SATURATE
-  if(app.settings.effects.saturator.enabled) {
-    Mousetrap.bind(app.settings.effects.saturator.filterKey, function() {
-      if(!saturateOn) {
-        saturateOn = 1;
-        console.log('FX: SATURATE ON');
-        Filter.saturator();
-      } else {
-        console.log('FX: SATURATE OFF');
-        saturateOn = 0;
-        $(s1).add(s2).css('-webkit-filter', 'none');
-        filtersOn[0] = "";
-        filtersOnString = "";
-        filtersOn.forEach(function(element) {
-          filtersOnString += element + " ";
-        });
-      }
-    });
-  }
-
-  /* HueShift */
-  if(app.settings.effects.hueShift.enabled) {
-    Mousetrap.bind(app.settings.effects.hueShift.filterKey, function() {
-    if(!hueShiftOn) {
-      hueShiftOn = 1;
-      console.log('FX: HUESHIFT ON');
-      Filter.hueShift();
-    } else {
-      console.log('FX: HUESHIFT OFF');
-      hueShiftOn = 0;
-      $(s1).add(s2).css('-webkit-filter', 'none');
-      filtersOn[1] = "";
-      filtersOnString = "";
-      filtersOn.forEach(function(element) {
-        filtersOnString += element + " ";
+  // NEW FILTERS REFACTOR
+  console.log('FILTERS: Starting Up');
+  for (let i=0; i < filters.filter.length; i++) {
+    if(filters.filter[i].enabled) {
+      Mousetrap.bind(filters.filter[i].trigger, function() {
+        if(!filters.filter[i].on) {
+          filters.filter[i].on = 1;
+          console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' ON');
+          Filter.applyFilter(i);
+        } else {
+          console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' OFF');
+          filters.filter[i].on = 0;
+          $(s1).css('-webkit-filter', filters.filter[i].slugName + '(' + filters.filter[i].min + filters.filter[i].unit + ')');
+          filters.filter[i].stage[0].value = ""; filters.filter[i].stage[1].value = "";
+          Filter.addFilter();
+        }
       });
     }
-  });
-}
 
-  /* Blurry */
-  if(app.settings.effects.blurry.enabled) {
-    Mousetrap.bind(app.settings.effects.blurry.filterKey, function() {
-
-    if (overlaySelected) {
-      Filter.blurry();
-      return;
-    }
-
-    if(!blurryOn) {
-      blurryOn = 1;
-      console.log('FX: BLURRY ON');
-      Filter.blurry();
-    } else {
-      console.log('FX: BLURRY OFF');
-      blurryOn = 0;
-      $(s1).add(s2).css('-webkit-filter', 'none');
-      filtersOn[2] = "";
-      filtersOnString = "";
-      filtersOn.forEach(function(element) {
-        filtersOnString += element + " ";
-      });
-    }
-  });
-}
+  }
 
 // BLEND MODES SWITCHER
 Mousetrap.bind('alt+,', function() {

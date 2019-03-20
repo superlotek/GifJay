@@ -34,12 +34,13 @@ const Play = {
       } else if (setOn) { playMode('sets');
       } else { playMode('default');
     }
+
     if(stgFadeOn) { Effects.stgFade(); }
-    if(saturateOn) { Filter.saturator(); }
     if(sameSameOn) { Effects.sameSame(); }
-    if(hueShiftOn) { Filter.hueShift(); }
-    if(blurryOn) { Filter.blurry(); }
-    if(invertOn) { Filter.invert(); }
+
+    for (i=0; i < filters.filter.length; i++) {
+      if(filters.filter[i].on) { Filter.applyFilter(i); }
+    }
   },
 
   stageFlip() {
@@ -53,8 +54,6 @@ const Play = {
 
       bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray);
       sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
-
-
 
     } else if (setOn) {
       console.log('SET BANK: ' + setBank.toUpperCase);
