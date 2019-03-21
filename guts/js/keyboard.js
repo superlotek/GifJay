@@ -472,6 +472,32 @@ function enableOverlays() {
   // BANKER SETS ON/OFF [ ' ]
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+    // Setting up triggers for key commands
+    bankerSets.set.forEach(function(element, index) {
+      setsArray.push(element.trigger);
+    });
+
+    for(let i = 0; i < setsArray.length; i++) {
+      Mousetrap.bind("ctrl+" + setsArray[i], function() {
+
+        if(!setOn) {
+          // setBank = bankerSets.set[i].bank;
+
+          setArray = [];
+          setArray = bankerSets.set[i].gifs;
+          setOn = 1;
+
+          console.log('BANKER SET: ' + setsArray[i].toUpperCase()  + ":" + bankerSets.set[i].name + ' RUNNING');
+
+        } else {
+          console.log('BANKER SET: ' + setsArray[i].toUpperCase()  + ":" + bankerSets.set[i].name + ' OFF');
+          setOn = 0;
+          setArray = [];
+        }
+      });
+
+    }
+
   /*
   function search(nameKey, myArray){
       for (var i=0; i < myArray.length; i++) {

@@ -328,7 +328,40 @@ const banks = {
 				{ 'trigger' : 'q', 'location' : 'DancingTrails/', 'name' : 'dancingTrails_g', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'DancingTrails/', 'name' : 'dancingTrails_h', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'DancingTrails/', 'name' : 'dancingTrails_i', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'DancingTrails/', 'name' : 'dancingTrails_j', 'set': 'm'}
+				{ 'trigger' : 'q', 'location' : 'DancingTrails/', 'name' : 'dancingTrails_j', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_1', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_10', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_11', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_12', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_13', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_14', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_15', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_16', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_17', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_18', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_19', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_2', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_20', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_21', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_22', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_23', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_24', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_25', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_26', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_27', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_28', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_29', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_3', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_30', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_31', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_32', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_4', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_5', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_6', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_7', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_8', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_9', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_group1_o', 'set': 'm'}
 			]
 		},
 
@@ -508,6 +541,79 @@ filters = {
       ]
     }
   ]
+}
+
+bankerSets = {
+	"set" : [
+		{
+			"name" : "Eyeballs",
+			"trigger" : "a",
+			"gifs" : [
+				{'location' : '4thStreetVine/', 'name' : 'robot_woman_head_back_o' },
+				{'location' : '4thStreetVine/', 'name' : 'electro_pyramid_zoom' },
+				{'location' : '4thStreetVine/', 'name' : 'eye_laser_sparkles_o' },
+				{'location' : '4thStreetVine/', 'name' : 'eye_lasers_1_o' },
+				{'location' : 'BathBombs/', 'name' : 'bathbomb-boomerang_o'},
+				{'location' : 'BathBombs/', 'name' : 'bathbomb-galaxy-1_o'},
+				{'location' : 'BathBombs/', 'name' : 'bathbomb-galaxy-2_o'},
+				{'trigger' : 'q', 'location' : 'BathBombs/', 'name' : 'bathbomb-slow-1_o'}
+			]
+		},
+		{
+			"name" : "Hercules",
+			"trigger" : "b",
+			"gifs" : [
+				{'location' : 'Hercules/', 'name' : 'hercules_mermaid_eye_beams_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_movie_intro_eye2_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_shooting_star_crater_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_space_tunnel_explosion_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_woman_arms_beam_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_woman_space_trails_dance_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_women_sparkle_shower_o'},
+				{'location' : 'Hercules/', 'name' : 'hercules_women_sparkles_fadeOut_o'}
+			]
+		},
+		{
+			"name" : "Aerobics Competition",
+			"trigger" : "c",
+			"gifs" : [
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_1', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_10', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_11', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_12', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_13', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_14', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_15', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_16', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_17', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_18', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_19', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_2', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_20', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_21', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_22', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_23', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_24', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_25', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_26', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_27', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_28', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_29', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_3', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_30', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_31', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_32', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_4', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_5', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_6', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_7', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_8', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_9', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_group1', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_group1_o', 'set': 'm'}
+			]
+		},
+	]
 }
 
 stageArray = ['sf', 'st'];

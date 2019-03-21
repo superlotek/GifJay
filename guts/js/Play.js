@@ -59,10 +59,10 @@ const Play = {
 
     } else if (setOn) {
 
-      console.log('SET BANK: ' + setBank.toUpperCase);
-      console.log('SET BANK1: ' + bankSelectorS1);
-      console.log('SET BANK2: ' + bankSelectorS2);
-      sceneSetter(setsArray,bankSelectorS1,bankSelectorS2);
+      // console.log('SET BANK: ' + setBank.toUpperCase);
+      // console.log('SET BANK1: ' + bankSelectorS1);
+      // console.log('SET BANK2: ' + bankSelectorS2);
+      sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
 
     } else if (bankNumber) {
 
@@ -70,7 +70,7 @@ const Play = {
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
 
     } else {
-      
+
       bankSelectorS1 = randomizer(banksInUse); bankSelectorS2 = randomizer(banksInUse);
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
     }
