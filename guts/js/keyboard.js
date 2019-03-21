@@ -781,7 +781,7 @@ function enableOverlays() {
   // BLUR - Down Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.DOWN.down(function () {
-    if (effectAmount >= blurAmount) { return false; }
+    if (effectAmount >= filters.filter[3].max) { return false; }
     if (stgSelect == 'all') {
       $(s1).add(s2).css('-webkit-filter','blur(' + (effectAmount++) + 'px)');
     } else {
@@ -794,7 +794,7 @@ function enableOverlays() {
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   kd.UP.down(function () {
-    if (effectAmount >= saturateAmount) { return false; }
+    if (effectAmount >= filters.filter[1].max) { return false; }
     if (stgSelect == 'all') {
       $(s1).add(s2).css('-webkit-filter','saturate(' + (effectAmount++) + ')');
     } else {
@@ -817,7 +817,7 @@ function enableOverlays() {
   // HUE ROTATE - Left Arrow
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   kd.LEFT.down(function () {
-    if (effectAmount >= 360) { return false; }
+    if (effectAmount >= filters.filter[2].max) { return false; }
     if (stgSelect == 'all') {
       $(s1).add(s2).css('-webkit-filter','hue-rotate(' + (effectAmount++) + 'deg)');
     } else {
