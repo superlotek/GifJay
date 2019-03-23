@@ -286,16 +286,16 @@ function playMode(playType) {
         console.log('ITS A MATCH!!');
 
         var seqNum = sequencer.sequences[letterNumber].scenes.length;
-        var someGif = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage1.gif;
-        var someBank = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage1.bank;
-        var someLocation = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage1.location;
-        var someGif2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage2.gif;
-        var someBank2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage2.bank;
-        var someLocation2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage2.location;
-        var someParam = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage1.parameters.repeat;
-        var someParam2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage2.parameters.repeat;
-        var someFX = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage1.parameters.fx;
-        var someFX2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage2.parameters.fx;
+        var someGif = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage[0].gif;
+        var someBank = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage[0].bank;
+        var someLocation = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage[0].location;
+        var someGif2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage[1].gif;
+        var someBank2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage[1].bank;
+        var someLocation2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage[1].location;
+        // var someParam = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage[0].parameters.repeat;
+        // var someParam2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage[1].parameters.repeat;
+        // var someFX = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage[0].parameters.fx;
+        // var someFX2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage[1].parameters.fx;
 
         ++curSequencerIndex;
 
@@ -308,9 +308,9 @@ function playMode(playType) {
 
         } else {
 
-          $(s1).css('background', bankLocation + someBank + someLocation + someGif + bgCenter);
+          $(s1).css('background', bankLocation + someLocation + someGif + bgCenter);
           if(someParam == 'no-repeat') { $(s1).css(sf); } else { $(s1).css(st); }
-          $(s2).css('background', bankLocation + someBank2 + someLocation2 + someGif2 + bgCenter);
+          $(s2).css('background', bankLocation + someLocation2 + someGif2 + bgCenter);
           if(someParam2 == 'no-repeat') { $(s2).css(sf); } else { $(s2).css(st); }
 
         }

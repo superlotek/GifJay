@@ -478,6 +478,49 @@ var titlePageOn = 0;
 var sameSameConstant = 2;
 titlePageName = 'title-1.gif';
 
+sequencer = {
+  "sequence" : [
+    {
+      "name": "Eyes Breakdown",
+      "trigger": "q",
+      "enabled": true,
+      "scene": [
+      	{
+      		"stage": [
+						{ 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_kid_zap_robot_o' },
+						{ 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_robot_dance_o' },
+      		]
+      	},
+      	{
+      		"stage": [
+						{ 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_robot_walk_o' },
+						{ 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_robot_zap_o' }
+      		]
+      	}
+      ]
+    },
+    {
+      "name": "Dance Party",
+      "trigger": "b",
+      "enabled": true,
+      "scene": [
+      	{
+      		"stage": [
+						{ 'location' : '4thStreetVine/', 'name' : 'aerobics_1_o' },
+						{ 'location' : '4thStreetVine/', 'name' : 'aerobics_2_o' },
+      		]
+      	},
+      	{
+      		"stage": [
+						{ 'location' : '4thStreetVine/', 'name' : 'aerobics_4_o' },
+						{ 'location' : '4thStreetVine/', 'name' : 'aerobics_5_o' },
+      		]
+      	}
+      ]
+    }
+  ]
+}
+
 filters = {
 	"strings": [
 		{"value": ""},

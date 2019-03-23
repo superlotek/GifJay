@@ -960,6 +960,30 @@ function enableOverlays() {
 // GIY:  KEYBOARD TRIGGERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+  /* 
+        currentSequencerTriggers = [];
+        sequencer.sequences.forEach(function(seq) {
+          currentSequencerTriggers.push(seq.trigger);
+        });
+
+        if (storyModeOn) {
+          console.log('Start selecting Sequencer Keys');
+
+              sequencerOn = 1;
+              sequenceNumber = letterArray[i];
+              letterNumber = i;
+              console.log(sequenceNumber);
+              curSequencerIndex = 0;
+
+  */
+
+        currentSequencerTriggers = [];
+        sequencer.sequence.forEach(function(seq) {
+          currentSequencerTriggers.push(seq.trigger);
+        });
+
+
+
   createGiyTriggers(bankNumber);
 
   function createGiyTriggers(bankNumber) {
@@ -985,7 +1009,23 @@ function enableOverlays() {
     singleBankTriggerArray.forEach(function(element, index) {
 
       Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {
-        console.log('HI ' + singleBankTriggerArray[index].trigger);
+
+
+        if (storyModeOn) {
+          console.log('Start selecting Sequencer Keys');
+          sequencerOn = 1;
+          sequenceNumber = sequencer.sequence[index];
+          letterNumber = index;
+          console.log("SEQUENCE NUMBER: " + sequenceNumber);
+          curSequencerIndex = 0;
+
+          console.log(sequencer.sequence[1].scene[1].stage[0]);
+        }
+
+
+
+
+        console.log('KEY SELECTED: ' + singleBankTriggerArray[index].trigger);
         cacheBuster =  new Date().getTime();
         bgCenters = ".gif?" + cacheBuster + ") center center";
         $(s1).css({
