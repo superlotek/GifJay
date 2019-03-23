@@ -138,9 +138,18 @@ $(document).ready(function() {
 // BLEND MODES SWITCHER
 Mousetrap.bind('alt+,', function() {
   if(!blendModesOn) {
+  console.log('---------------------------------');
   console.log('BLEND MODES: ON');
+  console.log('BLEND MODES TOTAL: ' + blendModes.mix.length);
   blendModesOn = !blendModesOn;
-  Filter.blendModeSwitcher(0);
+  blendCounter = null;
+
+    // if(blendCounter == null) {
+    //   console.log('GOING FROM NULL TO 0');
+    //   blendCounter = 0;
+    // }
+
+  // Filter.blendModeSwitcher(0);
 
   // originalBlend[0].stage1 = $(s1).css('mix-blend-mode');
   // originalBlend[0].stage2 = $(s2).css('mix-blend-mode');
@@ -164,8 +173,12 @@ Mousetrap.bind('alt+,', function() {
 // BLEND MODES SWITCHER CYCLE
 Mousetrap.bind('alt+.', function() {
   if(blendModesOn) {
-    // blendCounter++;
     Filter.blendModeSwitcher(blendCounter++);
+    if (blendCounter === blendModes.mix.length) {
+      console.log('BLEND MODES: RESET');
+      blendCounter = 0;
+      return;
+    }
   }
 });
 
