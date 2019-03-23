@@ -143,7 +143,6 @@ function sceneSetter(arrayName, banker1, banker2) {
   gifSelectorS2 = randomizer(bankBuilderS2);
 
   if (blendModeRandomOn) {
-
     $(s2).css('mix-blend-mode', blendModeSwitcherArray[numRan(blendModeSwitcherArray.length)]);
   }
 
@@ -342,6 +341,10 @@ function playMode(playType) {
 
         if (samplerIndex == (sampledScenes.scene.length - 1)) { samplerIndex = -1; }
         ++samplerIndex;
+      }
+
+      if (blendModeRandomOn) {
+        $(s2).css('mix-blend-mode', blendModeSwitcherArray[numRan(blendModeSwitcherArray.length)]);
       }
 
       // console.log("samplerIndex : " + samplerIndex);

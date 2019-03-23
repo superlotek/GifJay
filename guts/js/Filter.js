@@ -59,6 +59,12 @@ const Filter = {
       $(ov).css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
     }
 
+    if (samplerOn) {
+      $(s2).css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
+      smpldScn.stages[1].blend = blendModeSwitcherArray[blendCounter];
+      return;
+    }
+
     $(s2).css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
   }
 

@@ -134,6 +134,7 @@ $(document).ready(function() {
 
   }
 
+
 // BLEND MODES SWITCHER
 Mousetrap.bind('alt+,', function() {
   if(!blendModesOn) {
@@ -141,17 +142,22 @@ Mousetrap.bind('alt+,', function() {
   blendModesOn = !blendModesOn;
   Filter.blendModeSwitcher(0);
 
+  // originalBlend[0].stage1 = $(s1).css('mix-blend-mode');
+  // originalBlend[0].stage2 = $(s2).css('mix-blend-mode');
+
   if (blendModeRandomOn) {
     blendModeRandomOn = !blendModeRandomOn;
     console.log('RANDOM BLEND MODE: OFF');
-    $(s2).css('mix-blend-mode', 'screen');
+    // $(s2).css('mix-blend-mode', 'screen');
   }
 
   } else {
     console.log('BLEND MODES: OFF');
-  blendModesOn = !blendModesOn;
-  $(s2).css('mix-blend-mode', 'screen');
-  blendCounter = null;
+    blendModesOn = !blendModesOn;
+    // $(s2).css('mix-blend-mode', 'screen');
+    blendCounter = null;
+    $(s1).css('mix-blend-mode', originalBlend[0].stage1);
+    $(s2).css('mix-blend-mode', originalBlend[0].stage2);
   }
 });
 
@@ -645,6 +651,8 @@ function enableOverlays() {
     samplerOn = 0;
     samplerIndex = -1;
     $(s1).add(s2).css('filter','none');
+    // $(s1).css('mix-blend-mode',originalBlend[0].stage1);
+    // $(s2).css('mix-blend-mode',originalBlend[0].stage2);
     console.log('SAMPLER: STOP', "\n---------------------------------");
   });
 
@@ -654,6 +662,8 @@ function enableOverlays() {
     console.log('SAMPLER: STOP & CLEAR', "\n---------------------------------");
     sampledScenes.scene = [];
     $(s1).add(s2).css('filter','none');
+    // $(s1).css('mix-blend-mode',originalBlend[0].stage1);
+    // $(s2).css('mix-blend-mode',originalBlend[0].stage2);
   });
 
 // SEQUENCER ON/OFF [ SHIFT ] + [ ; ]
