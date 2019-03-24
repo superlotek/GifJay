@@ -624,34 +624,26 @@ function enableOverlays() {
     );
   });
 
-// SAMPLER PLAY [ ; ]
+// SAMPLER PLAY TOGGLER [ SHIFT ] + [ ; ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  // INITIATE SAMPLER
-  Mousetrap.bind(';', function() {
+  Mousetrap.bind(";", function() {
     if (sampledScenes.scene.length && !samplerOn) {
-    // if (!samplerOn) {
-
       console.log('SAMPLES: PLAYING', "\n---------------------------------");
-      samplerOn = 1;
+      samplerOn = !samplerOn;
       samplerIndex = -1;
+    } else if (sampledScenes.scene.length && samplerOn) {
+      samplerOn = !samplerOn;
+      samplerIndex = -1;
+      $(s1).add(s2).css('filter','none');
+      console.log('SAMPLER: STOP', "\n---------------------------------");
     }
   });
 
-// SAMPLER OFF / CLEAR [ SHIFT ] + [ ; ]
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
   Mousetrap.bind(":", function() {
-    samplerOn = 0;
+    samplerOn = !samplerOn;
     samplerIndex = -1;
-    $(s1).add(s2).css('filter','none');
-    console.log('SAMPLER: STOP', "\n---------------------------------");
-  });
-
-  Mousetrap.bind("alt+;", function() {
-    samplerOn = 0;
-    samplerIndex = -1;
-    console.log('SAMPLER: STOP & CLEAR', "\n---------------------------------");
+    console.log('SAMPLER: CLEAR', "\n---------------------------------");
     sampledScenes.scene = [];
     $(s1).add(s2).css('filter','none');
   });
