@@ -464,15 +464,14 @@ function enableOverlays() {
 
   // BANKER STAGE SETUP
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  Mousetrap.bind("ctrl+'", function() {
+  Mousetrap.bind("alt+'", function() {
     if(!bankerStageSetupOn) {
-      console.log('BANKER STAGE SETUP: ON');
+      console.log('BANKER STAGE SELECT: ON');
       bankerStageSetupOn = 1;
     } else {
-      console.log('BANKER STAGE SETUP: OFF');
+      console.log('BANKER STAGE SELECT: OFF');
       bankerStageSetupOn = 0;
     }
-
   });
 
 
@@ -667,15 +666,14 @@ function enableOverlays() {
 // SEQUENCER > STORY MODE ON/OFF [ SHIFT ] + [ ' ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  Mousetrap.bind("alt+'", function() {
-    console.log('SEQUENCER MODE INITIATED');
+  Mousetrap.bind("alt+;", function() {
     if(!storyModeOn) {
       console.log('SEQUENCER: ON');
       storyModeOn = 1;
     } else {
       console.log('SEQUENCER: OFF');
       storyModeOn = 0;
-      Mousetrap.trigger('"');
+      // Mousetrap.trigger('"');
       sequencerOn = 0;
       curSequencerIndex = -1;
     }
