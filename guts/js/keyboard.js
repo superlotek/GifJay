@@ -435,25 +435,32 @@ function enableOverlays() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind("'", function() {
-
-    if(!bankerOn) {
-      console.log('BANKER: CREATING');
+    if (!bankerOn) {
+      bankerOn = !bankerOn;
+      console.log('BANKER: ON');
       initialStartUp = 0;
-      bankerOn = 1;
-      bankerArray = [];
     } else {
-      console.log('BANKER: REMOVING');
-      bankerOn = 0;
-      bankerArray = [];
-      bankerStageArrayS1 = [];
-      bankerStageArrayS2 = [];
-      bankerStageSetupS1 = 0;
-      bankerStageSetupS2 = 0;
-      bankerStageSetupOn = 0;
-      bankerStorageSet.clear();
-
+      bankerOn = !bankerOn;
+      console.log('BANKER: OFF');
+      console.log(bankerArray);
     }
   });
+
+  Mousetrap.bind("\"", function() {
+    console.log('BANKER: CLEAR');
+    bankerOn = true;
+    Mousetrap.trigger("'");
+    bankerArray = [];
+    bankerStageArrayS1 = [];
+    bankerStageArrayS2 = [];
+    bankerStageSetupS1 = 0;
+    bankerStageSetupS2 = 0;
+    bankerStageSetupOn = 0;
+    bankerStorageSet.clear();
+  });
+
+
+
 
   // BANKER STAGE SETUP
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
