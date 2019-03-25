@@ -335,7 +335,7 @@ function playMode(playType) {
 
         if (sampledScenes.scene.length === 0) {
           console.log('SWITCH TO ANOTHER MODE');
-          Mousetrap.trigger('alt+;');
+          Mousetrap.trigger(':');
           return false;
         }
 

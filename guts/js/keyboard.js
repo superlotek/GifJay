@@ -733,6 +733,7 @@ function enableOverlays() {
             sampledScenes.scene.splice(samplerIndex,1);
             // console.log(sampledScenes);
             --samplerIndex;
+            console.log("SAMPLE: REMOVED");
             return false;
           }
 
