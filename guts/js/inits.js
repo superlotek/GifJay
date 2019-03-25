@@ -105,6 +105,7 @@ var sampledFilterOn = 0;
 var blendModesOn = 0;
 var blendCounter = null;
 var blendModeRandomOn = 0;
+var originalBlend = [{"stage1": "", "stage2": ""}];
 
 // GLITCH
 var glitchOn = 0;

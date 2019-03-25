@@ -134,32 +134,51 @@ $(document).ready(function() {
 
   }
 
+
 // BLEND MODES SWITCHER
 Mousetrap.bind('alt+,', function() {
   if(!blendModesOn) {
+  console.log('---------------------------------');
   console.log('BLEND MODES: ON');
+  console.log('BLEND MODES TOTAL: ' + blendModes.mix.length);
   blendModesOn = !blendModesOn;
-  Filter.blendModeSwitcher(0);
+  blendCounter = null;
+
+    // if(blendCounter == null) {
+    //   console.log('GOING FROM NULL TO 0');
+    //   blendCounter = 0;
+    // }
+
+  // Filter.blendModeSwitcher(0);
+
+  // originalBlend[0].stage1 = $(s1).css('mix-blend-mode');
+  // originalBlend[0].stage2 = $(s2).css('mix-blend-mode');
 
   if (blendModeRandomOn) {
     blendModeRandomOn = !blendModeRandomOn;
     console.log('RANDOM BLEND MODE: OFF');
-    $(s2).css('mix-blend-mode', 'screen');
+    // $(s2).css('mix-blend-mode', 'screen');
   }
 
   } else {
     console.log('BLEND MODES: OFF');
-  blendModesOn = !blendModesOn;
-  $(s2).css('mix-blend-mode', 'screen');
-  blendCounter = null;
+    blendModesOn = !blendModesOn;
+    // $(s2).css('mix-blend-mode', 'screen');
+    blendCounter = null;
+    $(s1).css('mix-blend-mode', originalBlend[0].stage1);
+    $(s2).css('mix-blend-mode', originalBlend[0].stage2);
   }
 });
 
 // BLEND MODES SWITCHER CYCLE
 Mousetrap.bind('alt+.', function() {
   if(blendModesOn) {
-    // blendCounter++;
     Filter.blendModeSwitcher(blendCounter++);
+    if (blendCounter === blendModes.mix.length) {
+      console.log('BLEND MODES: RESET');
+      blendCounter = 0;
+      return;
+    }
   }
 });
 
@@ -647,11 +666,22 @@ function enableOverlays() {
   });
 
   Mousetrap.bind(":", function() {
-    samplerOn = !samplerOn;
+    samplerOn = 0;
+    samplerIndex = -1;
+    $(s1).add(s2).css('filter','none');
+    // $(s1).css('mix-blend-mode',originalBlend[0].stage1);
+    // $(s2).css('mix-blend-mode',originalBlend[0].stage2);
+    console.log('SAMPLER: STOP', "\n---------------------------------");
+  });
+
+  Mousetrap.bind("alt+;", function() {
+    samplerOn = 0;
     samplerIndex = -1;
     console.log('SAMPLER: CLEAR', "\n---------------------------------");
     sampledScenes.scene = [];
     $(s1).add(s2).css('filter','none');
+    // $(s1).css('mix-blend-mode',originalBlend[0].stage1);
+    // $(s2).css('mix-blend-mode',originalBlend[0].stage2);
   });
 
 // SEQUENCER ON/OFF [ SHIFT ] + [ ; ]

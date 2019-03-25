@@ -633,6 +633,24 @@ bankerSets = {
 	]
 }
 
+var blendModes = {
+	"mix" : [
+		{ "name": "multiply", "trigger": "1", "enabled": true },
+		{ "name": "darken", "trigger": "1", "enabled": true },
+		{ "name": "lighten", "trigger": "1", "enabled": true },
+		{ "name": "color-dodge", "trigger": "1", "enabled": true },
+		{ "name": "color-burn", "trigger": "1", "enabled": true },
+		{ "name": "hard-light", "trigger": "1", "enabled": true },
+		{ "name": "soft-light", "trigger": "1", "enabled": true },
+		{ "name": "difference", "trigger": "1", "enabled": true },
+		{ "name": "exclusion", "trigger": "1", "enabled": true },
+		{ "name": "hue", "trigger": "1", "enabled": true },
+		{ "name": "saturation", "trigger": "1", "enabled": true },
+		{ "name": "color", "trigger": "1", "enabled": true },
+		{ "name": "luminosity", "trigger": "1", "enabled": true }
+	]
+}
+
 stageArray = ['sf', 'st'];
 shapeArray = ['circle','triangle','rhombus','octagon','close','frame','rabbet'];
 flipArray = ['rotateX(180deg)','rotateX(-180deg)','rotateY(180deg)','rotateY(-180deg)'];
