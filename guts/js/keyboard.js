@@ -649,42 +649,31 @@ function enableOverlays() {
     );
   });
 
-// SAMPLER PLAY TOGGLER [ SHIFT ] + [ ; ]
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  // SAMPLER PLAY TOGGLER [ SHIFT ] + [ ; ]
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  Mousetrap.bind(";", function() {
-    if (sampledScenes.scene.length && !samplerOn) {
-      console.log('SAMPLES: PLAYING', "\n---------------------------------");
+    Mousetrap.bind(";", function() {
+      if (sampledScenes.scene.length && !samplerOn) {
+        console.log('SAMPLES: PLAYING', "\n---------------------------------");
+        samplerOn = !samplerOn;
+        samplerIndex = -1;
+      } else if (sampledScenes.scene.length && samplerOn) {
+        samplerOn = !samplerOn;
+        samplerIndex = -1;
+        $(s1).add(s2).css('filter','none');
+        console.log('SAMPLER: STOP', "\n---------------------------------");
+      }
+    });
+
+    Mousetrap.bind(":", function() {
       samplerOn = !samplerOn;
       samplerIndex = -1;
-    } else if (sampledScenes.scene.length && samplerOn) {
-      samplerOn = !samplerOn;
-      samplerIndex = -1;
+      console.log('SAMPLER: CLEAR', "\n---------------------------------");
+      sampledScenes.scene = [];
       $(s1).add(s2).css('filter','none');
-      console.log('SAMPLER: STOP', "\n---------------------------------");
-    }
-  });
+    });
 
-  Mousetrap.bind(":", function() {
-    samplerOn = 0;
-    samplerIndex = -1;
-    $(s1).add(s2).css('filter','none');
-    // $(s1).css('mix-blend-mode',originalBlend[0].stage1);
-    // $(s2).css('mix-blend-mode',originalBlend[0].stage2);
-    console.log('SAMPLER: STOP', "\n---------------------------------");
-  });
-
-  Mousetrap.bind("alt+;", function() {
-    samplerOn = 0;
-    samplerIndex = -1;
-    console.log('SAMPLER: CLEAR', "\n---------------------------------");
-    sampledScenes.scene = [];
-    $(s1).add(s2).css('filter','none');
-    // $(s1).css('mix-blend-mode',originalBlend[0].stage1);
-    // $(s2).css('mix-blend-mode',originalBlend[0].stage2);
-  });
-
-// SEQUENCER ON/OFF [ SHIFT ] + [ ; ]
+  // SEQUENCER ON/OFF [ SHIFT ] + [ ; ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   // Mousetrap.bind('"', function() {
