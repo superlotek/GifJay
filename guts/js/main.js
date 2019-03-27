@@ -395,8 +395,10 @@ function playMode(playType) {
     default:
       // console.log('PLAY MODE: RoboMode');
       currentPlayMode = 'robomode';
-      bankSelectorS1 = randomizer(banksInUse);
-      bankSelectorS2 = randomizer(banksInUse);
+      bankSelectorS1 = bankNumber;
+      bankSelectorS2 = bankNumber;
+      // bankSelectorS1 = randomizer(banksInUse);
+      // bankSelectorS2 = randomizer(banksInUse);
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
     }
 }
