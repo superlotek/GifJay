@@ -70,7 +70,7 @@ function startup() {
     console.log('GIFJAY: ' + version + ' STARTING UP', "\n---------------------------------");
     $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('body');
     $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
-    bankNumber = randomizer(banksInUse);
+    // bankNumber = randomizer(banksInUse);
   }
 
   console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");

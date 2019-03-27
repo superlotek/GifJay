@@ -70,8 +70,8 @@ const Play = {
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
 
     } else {
-
-      bankSelectorS1 = randomizer(banksInUse); bankSelectorS2 = randomizer(banksInUse);
+      bankSelectorS1 = bankNumber; bankSelectorS2 = bankNumber;
+      // bankSelectorS1 = randomizer(banksInUse); bankSelectorS2 = randomizer(banksInUse);
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
     }
   }

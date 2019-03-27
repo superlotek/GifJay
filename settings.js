@@ -5,6 +5,7 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 var midiOn = true;
 var overlaysEnabled = true;
+var bankNumber = 0;
 
 // OVERLAYS
 const overlays = [
