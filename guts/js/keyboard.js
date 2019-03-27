@@ -454,11 +454,11 @@ function enableOverlays() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind("'", function() {
-    if (!bankerOn) {
+    if (!bankerOn && bankerArray.length) {
       bankerOn = !bankerOn;
       console.log('BANKER: ON');
       initialStartUp = 0;
-    } else {
+    } else if (bankerOn && bankerArray.length ) {
       bankerOn = !bankerOn;
       console.log('BANKER: OFF');
       console.log(bankerArray);
