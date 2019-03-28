@@ -35,8 +35,8 @@ const Scene = {
 
       if(!bankNumber) {
         console.log('GIY: RANDOM BANKS');
-        // bankSelectorS1 = randomizer(banksInUse);
-        // bankSelectorS2 = randomizer(banksInUse);
+        // bankSelectorS1 = Init.randomizer(banksInUse);
+        // bankSelectorS2 = Init.randomizer(banksInUse);
         bankSelectorS1 = bankNumber;
         bankSelectorS2 = bankNumber;
         sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
@@ -49,8 +49,8 @@ const Scene = {
       }
 
     } else {
-      bankSelectorS1 = randomizer(banksInUse);
-      bankSelectorS2 = randomizer(banksInUse);
+      bankSelectorS1 = Init.randomizer(banksInUse);
+      bankSelectorS2 = Init.randomizer(banksInUse);
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
     }
       console.log('BANK SELECTOR S1: ' + bankSelectorS1);

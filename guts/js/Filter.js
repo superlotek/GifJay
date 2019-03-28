@@ -17,7 +17,7 @@ const Filter = {
 
   applyFilter(filterNum) {
     if (stgSelect == s1) {
-      filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + Init.numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
       // filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
 
       if (filterNum == 0) {
@@ -27,7 +27,7 @@ const Filter = {
 
     } else if (stgSelect == s2) {
       // filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
-      filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + Init.numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
 
       if (filterNum == 0) {
         filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
@@ -35,8 +35,8 @@ const Filter = {
       }
 
     } else {
-      filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
-      filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + Init.numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + Init.numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
 
       if (filterNum == 0) {
         filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].max + filters.filter[filterNum].unit + ")";

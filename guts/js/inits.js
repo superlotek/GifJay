@@ -153,3 +153,49 @@ var gpsNudgeAmount = 100;
 
 var overlayOn = 0;
 var stgStore;
+
+const Init = {
+
+	randomColorChange() {
+    return '#'+(Math.floor(Math.random()*16777216)&0xFFFFFF).toString(16);
+	},
+
+	randomizer(arrayName) {
+	  var randomArraySelector = arrayName[Math.floor(Math.random()*arrayName.length)];
+	  return randomArraySelector;
+	},
+
+	numRan(ranNum) {
+	  var ranNumGen = Math.floor(Math.random()*ranNum);
+	  return ranNumGen;
+	},
+
+	robomodeBackground() {
+	  $('body').css('background-image', 'repeating-linear-gradient(' + this.numRan(360) + 'deg, ' +
+	    this.randomColorChange() + ' ' + this.numRan(100) + '%, ' +
+	    this.randomColorChange() + ' ' + this.numRan(100) + '%, ' +
+	    this.randomColorChange() + ' ' + this.numRan(100) + '%, ' +
+	    this.randomColorChange() + ' ' + this.numRan(100)+ '%)');
+	},
+
+	killSwitch() {
+	  localStorage.setItem('killSwitch','unkilled');
+	  console.log("KILL SWITCH: ENABLED", "\n---------------------------------");
+	  // Scene.stageSetup();
+	  $(s1).add(s2).addClass('on');
+	  stageOneOn, stageTwoOn = 1;
+	  $(s1).css('background', bankLocation + localStorage.getItem('stg1Location') + localStorage.getItem('stg1Gif') + bgCenter);
+	  $(s2).css('background', bankLocation + localStorage.getItem('stg2Location') + localStorage.getItem('stg2Gif') + bgCenter);
+	  $(s1).css('mix-blend-mode', localStorage.getItem('stg1Blend'));
+	  $(s2).css('mix-blend-mode', localStorage.getItem('stg2Blend'));
+	  $(s1).css('background-repeat', localStorage.getItem('stg1Repeat'));
+	  $(s2).css('background-repeat', localStorage.getItem('stg2Repeat'));
+	  $(s1).css('background-size', localStorage.getItem('stg1BgSize'));
+	  $(s2).css('background-size', localStorage.getItem('stg2BgSize'));
+	  $(s2).addClass('blend');
+	}
+
+}
+
+
+
