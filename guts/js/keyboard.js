@@ -1003,24 +1003,25 @@ function enableOverlays() {
     singleBankTriggerArray.forEach(function(element, index) {
 
       Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {
-        console.log('HI ' + singleBankTriggerArray[index].trigger);
+        console.log('GIY CLICK S1: ' + singleBankTriggerArray[index].trigger);
         cacheBuster =  new Date().getTime();
         bgCenters = ".gif?" + cacheBuster + ") center center";
         $(s1).css({
           'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
         if (sceneFullscreenOn) { Scene.screenFullscreen(); return false; }
-        $(s1).css(this[randomizer(stageArray)]);
+        $(s1).css(this[Init.randomizer(stageArray)]);
       });
 
       Mousetrap.bind(singleBankTriggerArray[index].trigger.toUpperCase(), function() {
+        console.log('GIY CLICK S2: ' + singleBankTriggerArray[index].trigger);
         cacheBuster =  new Date().getTime();
         bgCenters = ".gif?" + cacheBuster + ") center center";
         $(s2).css({
           'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
         });
         if (sceneFullscreenOn) { Scene.screenFullscreen(); return false; }
-        $(s2).css(this[randomizer(stageArray)]);
+        $(s2).css(this[Init.randomizer(stageArray)]);
       });
     });
   }
