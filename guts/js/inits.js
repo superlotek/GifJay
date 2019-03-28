@@ -47,7 +47,6 @@ var bankNumberS1;
 var bankNumberS2;
 var stageOneOn = 0;
 var stageTwoOn = 0;
-var stageThreeOn = 0;
 var stgSelect = s1;
 var stgNotSelected = s2; //= s2;
 var lastBank;
@@ -75,17 +74,11 @@ var opacity2 = 1;
 var effectAmount = 0;
 var kaleidoscopeOn = 0;
 var shapeOn = 0;
-var roboChopOn = 0;
-var roboChopImgAmount = 25;
-var robostripImgAmount = 10;
-var robostripOn = 0;
-var roboSpinOn = 0;
 var textOn = 0;
 var glarp = -1;
 var effectFillOn = 0;
 
 var stgFadeOn = 0;
-var verticalStacksOn = 0;
 var stageFlipOn = 0;
 var sameSameOn = 0;
 var switcherooOn = 0;
@@ -106,17 +99,6 @@ var blendModesOn = 0;
 var blendCounter = null;
 var blendModeRandomOn = 0;
 var originalBlend = [{"stage1": "", "stage2": ""}];
-
-// GLITCH
-var glitchOn = 0;
-var screenHeight = 100;
-var randomNumberArray = [];
-var selectedNumber;
-var saturateLevel = 20;
-var borderSize = 10;
-
-var delayFXOn = 0;
-var fxModeOn = 0;
 
 var gifAmount = 26;
 
@@ -153,6 +135,24 @@ var gpsNudgeAmount = 100;
 
 var overlayOn = 0;
 var stgStore;
+
+
+$(document).ready(function() {
+
+	kd.run(function () { kd.tick(); });
+
+  // $('body').css('background-color', randomColorChange());
+
+    Init.startup();
+
+    $('.logo a').click(function() {
+      $(this).fadeOut(function() {
+        $('.logo').remove();
+        Scene.stageSetup();
+      });
+    });
+
+  });
 
 const Init = {
 
@@ -193,7 +193,35 @@ const Init = {
 	  $(s1).css('background-size', localStorage.getItem('stg1BgSize'));
 	  $(s2).css('background-size', localStorage.getItem('stg2BgSize'));
 	  $(s2).addClass('blend');
-	}
+	},
+
+	startup() {
+
+  $('body').css('background-color', Init.randomColorChange());
+
+  banks.bank.forEach(function(item) {
+    if (item.enabled) {
+      banksInUse.push(item.id);
+    }
+  });
+
+  // console.log('BANKS IN USE: ' + banksInUse);
+
+  if (localStorage.getItem('killSwitch') == 'killed') {
+    console.log('KILL SWITCH BANK #: ' + localStorage.getItem('stg1Bank'));
+    Init.killSwitch();
+    bankNumber = localStorage.getItem('stg1Bank');
+  } else {
+    console.log('GIFJAY: ' + version + ' STARTING UP', "\n---------------------------------");
+    $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('body');
+    $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
+    // bankNumber = Init.randomizer(banksInUse);
+  }
+
+  console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
+
+}
+
 
 }
 

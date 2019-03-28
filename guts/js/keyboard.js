@@ -2,20 +2,20 @@
 
 // used for Cursor Key FX
 // maybe find alternative to this, Mousetrap should work, right?
-kd.run(function () { kd.tick(); });
+// kd.run(function () { kd.tick(); });
 
-$(document).ready(function() {
+// $(document).ready(function() {
 
-  // $('body').css('background-color', randomColorChange());
+//   // $('body').css('background-color', randomColorChange());
 
-    startup();
+//     Init.startup();
 
-    $('.logo a').click(function() {
-      $(this).fadeOut(function() {
-        $('.logo').remove();
-        Scene.stageSetup();
-      });
-    });
+//     $('.logo a').click(function() {
+//       $(this).fadeOut(function() {
+//         $('.logo').remove();
+//         Scene.stageSetup();
+//       });
+//     });
 
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   // KEY INPUT (Mousetrap.js) https://craig.is/killing/mice
@@ -549,7 +549,7 @@ function enableOverlays() {
       arr_enabledBanks = [];
       console.log('FIND ENABLED BANKS');
       bankAmount = banks.bank.length;
-      console.log('TOTAL BANK AMOUNT: ' + bankAmount);
+      // console.log('TOTAL BANK AMOUNT: ' + bankAmount);
       banks.bank.forEach(function(element) {
         if (element.enabled === true) {
           arr_enabledBanks.push(element);
@@ -898,11 +898,12 @@ function enableOverlays() {
   // Check for enabled Banks
   createEnabledBankers();
   function createEnabledBankers() {
+    console.log('BANKS IN USE: ' + banksInUse);
     console.log('CHECKING FOR: ENABLED BANKS');
     banks.bank.forEach(function(element, index) {
 
       if (element.enabled === true) {
-        console.log('BANK ' + element.id + ': ENABLED');
+        // console.log('BANK ' + element.id + ': ENABLED');
         enabledBankersArray.push(element);
       }
 
@@ -1024,4 +1025,4 @@ function enableOverlays() {
     });
   }
 
-}); /* END DOM READY */
+// }); /* END DOM READY */

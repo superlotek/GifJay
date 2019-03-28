@@ -3,7 +3,7 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // USER SETTINGS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-var midiOn = true;
+var midiOn = false;
 var overlaysEnabled = true;
 var bankNumber = 0;
 
@@ -21,7 +21,7 @@ const banks = {
 			"id" : 0,
 			"trigger": ")",
 			"name" : "Backgrounds 1",
-			"enabled" : true,
+			"enabled" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-1_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-1_transparent_o', 'set': 'm'},
@@ -133,7 +133,7 @@ const banks = {
 			"id" : 3,
 			"trigger": "#",
 			"name" : "Foregrounds 1 - Dancing",
-			"enabled" : true,
+			"enabled" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'AnimatedBands/', 'name' : 'sabrinaTeenageWitch_friends_dancing_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'AnimatedBands/', 'name' : 'sabrinaTeenageWitch_sabrina_dances_withClone_o', 'set': 'm'},
