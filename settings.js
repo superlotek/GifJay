@@ -6,6 +6,7 @@
 var midiOn = false;
 var overlaysEnabled = true;
 var bankNumber = 0;
+var bankTrigger = "a";
 
 // OVERLAYS
 const overlays = [
@@ -28,9 +29,9 @@ const banks = {
 				{ 'trigger' : 'e', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-2_o', 'set': 'm'},
 				{ 'trigger' : 'r', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-2_transparent_o', 'set': 'm'},
 				{ 'trigger' : 't', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-3_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-3_transparent_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-4_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-4_transparent_o', 'set': 'm'},
+				{ 'trigger' : 'a', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-3_transparent_o', 'set': 'm'},
+				{ 'trigger' : 's', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-4_o', 'set': 'm'},
+				{ 'trigger' : 'd', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-4_transparent_o', 'set': 'm'},
 			]
 		},
 		{
@@ -65,7 +66,7 @@ const banks = {
 			"id" : 3,
 			"trigger": "d",
 			"name" : "Foregrounds 1 - Dancing",
-			"enabled" : false,
+			"enabled" : true,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_discoDancers_o', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_keyopDiscoDance_o', 'set': 'm'},
@@ -169,6 +170,18 @@ const banks = {
 				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0322.13.57', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0322.16.05', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0322.30.08', 'set': 'm'},
+			]
+		},
+		{
+			"id" : 10,
+			"trigger": "k",
+			"name" : "Foregrounds 7 - Mission Space Delta",
+			"enabled" : true,
+			"gifs" : [
+				{ 'trigger' : 'g', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_laurie_keyboards2_o', 'set': 'm'},
+				{ 'trigger' : 'z', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_fingers_keyboard_o', 'set': 'm'},
+				{ 'trigger' : 'x', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_keyboards_cu_o', 'set': 'm'},
+				{ 'trigger' : 'c', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_keyboards_o', 'set': 'm'},
 			]
 		}
 	]

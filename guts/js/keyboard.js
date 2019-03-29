@@ -546,7 +546,7 @@ function enableOverlays() {
         }
       }
       triggerArray = [...alltriggerArray];
-      bankerSetKeyTriggers(arr_enabledBanks);
+      // bankerSetKeyTriggers(arr_enabledBanks);
     }
 
     // multiBankerSetObject = {};
@@ -590,17 +590,17 @@ function enableOverlays() {
   This function takes the triggerArray
   and makes key triggers for the available Banker Sets
   */
-  function bankerSetKeyTriggers(array) {
+  // function bankerSetKeyTriggers(array) {
 
-    bankerSetStorage = new Set();
-      for(let i = 0; i < triggerArray.length; i++) {
-        Mousetrap.bind("alt+" + triggerArray[i], function() {
-          console.log('CLICK: BANKER SET ' + triggerArray[i], "\n---------------------------------");
-          justMakeSoloKeyTrigger(triggerArray[i], arr_enabledBanks);
-          bankerSetStorage.add(triggerArray[i]);
-        });
-      }
-  }
+  //   bankerSetStorage = new Set();
+  //     for(let i = 0; i < triggerArray.length; i++) {
+  //       Mousetrap.bind("alt+" + triggerArray[i], function() {
+  //         console.log('CLICK: BANKER SET ' + triggerArray[i], "\n---------------------------------");
+  //         justMakeSoloKeyTrigger(triggerArray[i], arr_enabledBanks);
+  //         bankerSetStorage.add(triggerArray[i]);
+  //       });
+  //     }
+  // }
 
 // SAMPLER [ RETURN, ENTER ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -888,9 +888,20 @@ function enableOverlays() {
   function enabledBankers() {
     for(let i = 0; i < enabledBankersArray.length; i++) {
       Mousetrap.bind('alt+' + enabledBankersArray[i].trigger, function() {
+
+        if (enabledBankersArray[i].trigger == bankTrigger) {
+          return;
+        }
+
         bankNumber = enabledBankersArray[i].id;
+        bankTrigger = enabledBankersArray[i].trigger;
+        // bankNumber = enabledBankersArray[i].trigger;
+
+
         console.log('S1 BANK SELECTED: ' + bankNumber);
-        var numberKey = bankNumber;
+        console.log('S1 BANK TRIGGER SELECTED: ' + bankTrigger);
+
+        // var numberKey = bankNumber;
         createGiyTriggers(bankNumber);
 
         if(bankerOn || bankerStageSetupOn) {
