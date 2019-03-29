@@ -199,7 +199,7 @@ const Init = {
 
   $('body').css('background-color', Init.randomColorChange());
 
-  banks.bank.forEach(function(item) {
+  appz.bank.forEach(function(item) {
     if (item.enabled) {
       banksInUse.push(item.id);
     }

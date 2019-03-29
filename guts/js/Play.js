@@ -48,13 +48,13 @@ const Play = {
     if (bankerStageSetupOn) {
 
       console.log('BANKER STAGE FLIP');
-      bankSelectorS1 = randomizer(bankerStageArrayS1); bankSelectorS2 = randomizer(bankerStageArrayS2);
+      bankSelectorS1 = Init.randomizer(bankerStageArrayS1); bankSelectorS2 = Init.randomizer(bankerStageArrayS2);
       sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
       return;
 
     } else if (bankerOn) {
 
-      bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray);
+      bankSelectorS1 = Init.randomizer(bankerArray); bankSelectorS2 = Init.randomizer(bankerArray);
       sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
 
     } else if (setOn) {
@@ -195,7 +195,7 @@ const Play = {
       }
 
       if (blendModeRandomOn) {
-        $(s2).css('mix-blend-mode', blendModeSwitcherArray[numRan(blendModeSwitcherArray.length)]);
+        $(s2).css('mix-blend-mode', blendModeSwitcherArray[Init.numRan(blendModeSwitcherArray.length)]);
       }
 
       // console.log("samplerIndex : " + samplerIndex);

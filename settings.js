@@ -16,7 +16,12 @@ const overlays = [
 ]
 
 // GIF BINS
-const banks = {
+const appz = {
+
+	"overlays" : [
+		{ 'trigger' : '1', 'location' : 'overlays', 'name' : 'clubMutoid_logo_ani.gif'},
+	],
+
 	"bank" : [
 		{
 			"id" : 0,
@@ -379,10 +384,10 @@ blendModeArray = ['screen','overlay'];
 effectArray = ['invert','saturation','brightness','hue-rotate','blur'];
 
 bankArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r'];
-bgPosA = ['top', 'bottom'];
-bgPosB = ['right', 'left'];
-repeatArray = ['repeat', 'no-repeat'];
-borderArray = ['dotted', 'dashed', 'double', 'solid', 'ridge'];
+// bgPosA = ['top', 'bottom'];
+// bgPosB = ['right', 'left'];
+// repeatArray = ['repeat', 'no-repeat'];
+// borderArray = ['dotted', 'dashed', 'double', 'solid', 'ridge'];
 
 var app = {
 	settings: {

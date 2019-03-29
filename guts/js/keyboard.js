@@ -519,9 +519,9 @@ function enableOverlays() {
     function findEnabledBanks() {
       arr_enabledBanks = [];
       console.log('FIND ENABLED BANKS');
-      bankAmount = banks.bank.length;
+      bankAmount = appz.bank.length;
       // console.log('TOTAL BANK AMOUNT: ' + bankAmount);
-      banks.bank.forEach(function(element) {
+      appz.bank.forEach(function(element) {
         if (element.enabled === true) {
           arr_enabledBanks.push(element);
         }
@@ -871,7 +871,7 @@ function enableOverlays() {
   function createEnabledBankers() {
     console.log('BANKS IN USE: ' + banksInUse);
     console.log('CHECKING FOR: ENABLED BANKS');
-    banks.bank.forEach(function(element, index) {
+    appz.bank.forEach(function(element, index) {
 
       if (element.enabled === true) {
         // console.log('BANK ' + element.id + ': ENABLED');
@@ -972,8 +972,8 @@ function enableOverlays() {
 
     singleBankTriggerArray = [];
 
-    banks.bank[bankNumber].gifs.forEach(function(element, index) {
-      if (banks.bank[bankNumber].gifs[index].trigger !== null) {
+    appz.bank[bankNumber].gifs.forEach(function(element, index) {
+      if (appz.bank[bankNumber].gifs[index].trigger !== null) {
         singleBankTriggerArray.push(element);
       }
     });
