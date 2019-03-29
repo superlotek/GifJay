@@ -1,4 +1,4 @@
-var version = "1.9.62";
+var version = "1.9.63";
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // INITS
@@ -157,6 +157,18 @@ $(document).ready(function() {
       });
     });
 
+		// findEnabledBanks();
+
+		createEnabledBankers();
+		enabledBankers();
+		// createTriggerArray(arr_enabledBanks);
+
+		createGiyTriggers(bankNumber);
+		filterBuild();
+		singleBankTriggers();
+
+		console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
+
   });
 
 const Init = {
@@ -204,11 +216,11 @@ const Init = {
 
   $('body').css('background-color', Init.randomColorChange());
 
-  appz.bank.forEach(function(item) {
-    if (item.enabled) {
-      banksInUse.push(item.id);
-    }
-  });
+  // appz.bank.forEach(function(item) {
+  //   if (item.enabled) {
+  //     banksInUse.push(item.id);
+  //   }
+  // });
 
   // console.log('BANKS IN USE: ' + banksInUse);
 
@@ -222,8 +234,6 @@ const Init = {
     $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
     // bankNumber = Init.randomizer(banksInUse);
   }
-
-  console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 
 }
 

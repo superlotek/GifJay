@@ -214,12 +214,12 @@ const appz = {
 			"enabled" : true,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_7', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_8', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_9', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_group1_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'aerobic-trails-1_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'aerobic-trails-2_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'aerobic-trails-3_o', 'set': 'm'},
+				{ 'trigger' : 'w', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_8', 'set': 'm'},
+				{ 'trigger' : 'e', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_9', 'set': 'm'},
+				{ 'trigger' : 'r', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_group1_o', 'set': 'm'},
+				{ 'trigger' : 'a', 'location' : '4thStreetVine/', 'name' : 'aerobic-trails-1_o', 'set': 'm'},
+				{ 'trigger' : 's', 'location' : '4thStreetVine/', 'name' : 'aerobic-trails-2_o', 'set': 'm'},
+				{ 'trigger' : 'd', 'location' : '4thStreetVine/', 'name' : 'aerobic-trails-3_o', 'set': 'm'},
 			]
 		},
 
