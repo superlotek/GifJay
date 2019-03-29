@@ -1,34 +1,5 @@
 // keyboard
 
-// used for Cursor Key FX
-// maybe find alternative to this, Mousetrap should work, right?
-// kd.run(function () { kd.tick(); });
-
-// $(document).ready(function() {
-
-//   // $('body').css('background-color', randomColorChange());
-
-//     Init.startup();
-
-//     $('.logo a').click(function() {
-//       $(this).fadeOut(function() {
-//         $('.logo').remove();
-//         Scene.stageSetup();
-//       });
-//     });
-
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  // KEY INPUT (Mousetrap.js) https://craig.is/killing/mice
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  // *** SCREENSAVER ***
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  // *** BANK & FX SELECTOR ***
-  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
   // FX MODE [ ` ]
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -916,7 +887,7 @@ function enableOverlays() {
 
   function enabledBankers() {
     for(let i = 0; i < enabledBankersArray.length; i++) {
-      Mousetrap.bind(enabledBankersArray[i].trigger, function() {
+      Mousetrap.bind('alt+' + enabledBankersArray[i].trigger, function() {
         bankNumber = enabledBankersArray[i].id;
         console.log('S1 BANK SELECTED: ' + bankNumber);
         var numberKey = bankNumber;
