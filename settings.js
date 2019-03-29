@@ -1,22 +1,103 @@
-// GifJay v.0.8.9
-
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-// USER SETTINGS
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-var midiOn = false;
-var overlaysEnabled = true;
-var bankNumber = 0;
-var bankTrigger = "a";
-
-// OVERLAYS
-const overlays = [
-	{ 'trigger' : '1', 'location' : 'overlays', 'name' : 'clubMutoid_logo_ani.gif'},
-	// { 'trigger' : '2', 'location' : 'overlays', 'name' : 'onymico_logo_black_ani.gif'},
-	// { 'trigger' : '3', 'location' : 'overlays', 'name' : 'manAMAchine_logo_black_ani.gif'},
-]
-
-// GIF BINS
 const appz = {
+	"midiOn" : false,
+	"defaultBeatTime" : 2000,
+	"beatSpeed": 1000,
+	"sameSameConstant" : 2,
+	"overlaysEnabled" : true,
+	"startupBankNumber" : 0,
+	"startupBankTrigger" : "a",
+
+	"stageArray" : ['sf', 'st'],
+	"blendModeArray" : ['screen','overlay'],
+
+	"blendModes" : {
+		"mix" : [
+			{ "name": "multiply", "trigger": "1", "enabled": true },
+			{ "name": "darken", "trigger": "1", "enabled": true },
+			{ "name": "lighten", "trigger": "1", "enabled": true },
+			{ "name": "color-dodge", "trigger": "1", "enabled": true },
+			{ "name": "color-burn", "trigger": "1", "enabled": true },
+			{ "name": "hard-light", "trigger": "1", "enabled": true },
+			{ "name": "soft-light", "trigger": "1", "enabled": true },
+			{ "name": "difference", "trigger": "1", "enabled": true },
+			{ "name": "exclusion", "trigger": "1", "enabled": true },
+			{ "name": "hue", "trigger": "1", "enabled": true },
+			{ "name": "saturation", "trigger": "1", "enabled": true },
+			{ "name": "color", "trigger": "1", "enabled": true },
+			{ "name": "luminosity", "trigger": "1", "enabled": true }
+		]
+	},
+
+	"filters" : {
+		"strings": [
+			{"value": ""},
+			{"value": ""}
+		],
+	  "filter" : [
+	    {
+	      "name": "Invert",
+	      "slugName": "invert",
+	      "trigger": "7",
+	      "min": 0,
+	      "max": 1,
+	      "unit": "",
+	      "enabled": true,
+	      "on": 0,
+	      "stage": [
+	        { "value": "" },
+	        { "value": "" }
+	      ]
+	    },
+	    {
+	      "name": "Saturate",
+	      "slugName": "saturate",
+	      "trigger": "8",
+	      "min": 1,
+	      "max": 100,
+	      "unit": "",
+	      "enabled": true,
+	      "on": 0,
+	      "stage": [
+	        { "value": "" },
+	        { "value": "" }
+	      ]
+	    },
+	    {
+	      "name": "Hue Rotate",
+	      "slugName": "hue-rotate",
+	      "trigger": "9",
+	      "min": 0,
+	      "max": 360,
+	      "unit": "deg",
+	      "enabled": true,
+	      "on": 0,
+	      "stage": [
+	        { "value": "" },
+	        { "value": "" }
+	      ]
+	    },
+	    {
+	      "name": "Blur",
+	      "slugName": "blur",
+	      "trigger": "0",
+	      "min": 0,
+	      "max": 5,
+	      "unit": "px",
+	      "enabled": true,
+	      "on": 0,
+	      "stage": [
+	        { "value": "" },
+	        { "value": "" }
+	      ]
+	    }
+	  ]
+	},
+
+	"effects": {
+		"kaleidoscope": { "name": 'kaleidoscope', "enabled": true, "trigger": "1" },
+		"sameSame": { "name": 'sameSame', "enabled": true, "trigger": "3" },
+		"stgFade": { "name": 'stgFade', "enabled": true, "trigger": "4" },
+	},
 
 	"overlays" : [
 		{ 'trigger' : '1', 'location' : 'overlays', 'name' : 'clubMutoid_logo_ani.gif'},
@@ -191,216 +272,3 @@ const appz = {
 		}
 	]
 }
-
-setsArray = [];
-
-var effectsOn = [];
-// var filtersOn = [];
-var beatTime = 2000;
-var beatSpeed = 1000;
-var titlePageOn = 0;
-var sameSameConstant = 2;
-titlePageName = 'title-1.gif';
-
-filters = {
-	"strings": [
-		{"value": ""},
-		{"value": ""}
-	],
-  "filter" : [
-    {
-      "name": "Invert",
-      "slugName": "invert",
-      "trigger": "7",
-      "min": 0,
-      "max": 1,
-      "unit": "",
-      "enabled": true,
-      "on": 0,
-      "stage": [
-        { "value": "" },
-        { "value": "" }
-      ]
-    },
-    {
-      "name": "Saturate",
-      "slugName": "saturate",
-      "trigger": "8",
-      "min": 1,
-      "max": 100,
-      "unit": "",
-      "enabled": true,
-      "on": 0,
-      "stage": [
-        { "value": "" },
-        { "value": "" }
-      ]
-    },
-    {
-      "name": "Hue Rotate",
-      "slugName": "hue-rotate",
-      "trigger": "9",
-      "min": 0,
-      "max": 360,
-      "unit": "deg",
-      "enabled": true,
-      "on": 0,
-      "stage": [
-        { "value": "" },
-        { "value": "" }
-      ]
-    },
-    {
-      "name": "Blur",
-      "slugName": "blur",
-      "trigger": "0",
-      "min": 0,
-      "max": 5,
-      "unit": "px",
-      "enabled": true,
-      "on": 0,
-      "stage": [
-        { "value": "" },
-        { "value": "" }
-      ]
-    }
-  ]
-}
-
-bankerSets = {
-	"set" : [
-		{
-			"name" : "Eyeballs",
-			"trigger" : "a",
-			"gifs" : [
-				{'location' : '4thStreetVine/', 'name' : 'robot_woman_head_back_o' },
-				{'location' : '4thStreetVine/', 'name' : 'electro_pyramid_zoom' },
-				{'location' : '4thStreetVine/', 'name' : 'eye_laser_sparkles_o' },
-				{'location' : '4thStreetVine/', 'name' : 'eye_lasers_1_o' },
-				{'location' : 'BathBombs/', 'name' : 'bathbomb-boomerang_o'},
-				{'location' : 'BathBombs/', 'name' : 'bathbomb-galaxy-1_o'},
-				{'location' : 'BathBombs/', 'name' : 'bathbomb-galaxy-2_o'},
-				{'trigger' : 'q', 'location' : 'BathBombs/', 'name' : 'bathbomb-slow-1_o'}
-			]
-		},
-		{
-			"name" : "Hercules",
-			"trigger" : "b",
-			"gifs" : [
-				{'location' : 'Hercules/', 'name' : 'hercules_mermaid_eye_beams_o'},
-				{'location' : 'Hercules/', 'name' : 'hercules_movie_intro_eye2_o'},
-				{'location' : 'Hercules/', 'name' : 'hercules_shooting_star_crater_o'},
-				{'location' : 'Hercules/', 'name' : 'hercules_space_tunnel_explosion_o'},
-				{'location' : 'Hercules/', 'name' : 'hercules_woman_arms_beam_o'},
-				{'location' : 'Hercules/', 'name' : 'hercules_woman_space_trails_dance_o'},
-				{'location' : 'Hercules/', 'name' : 'hercules_women_sparkle_shower_o'},
-				{'location' : 'Hercules/', 'name' : 'hercules_women_sparkles_fadeOut_o'}
-			]
-		},
-		{
-			"name" : "Aerobics Competition",
-			"trigger" : "c",
-			"gifs" : [
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_1', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_10', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_11', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_12', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_13', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_14', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_15', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_16', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_17', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_18', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_19', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_2', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_20', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_21', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_22', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_23', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_24', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_25', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_26', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_27', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_28', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_29', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_3', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_30', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_31', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_32', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_4', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_5', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_6', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_7', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_8', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_9', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_group1', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_group1_o', 'set': 'm'}
-			]
-		},
-		{
-			"name" : "Wonder Twins",
-			"trigger" : "d",
-			"gifs" : [
-				{ 'trigger' : 'q', 'location' : 'WonderTwins/', 'name' : 'wondertwins_downhillWagon', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'WonderTwins/', 'name' : 'wondertwins_fistBump1', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'WonderTwins/', 'name' : 'wondertwins_fistBump1_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'WonderTwins/', 'name' : 'wondertwins_fistBump2_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'WonderTwins/', 'name' : 'wondertwins_fistBump3', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'WonderTwins/', 'name' : 'wondertwins_fists_beach', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'WonderTwins/', 'name' : 'wondertwins_formOfWater_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'WonderTwins/', 'name' : 'wondertwins_jayna_transforms_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'WonderTwins/', 'name' : 'wondertwins_spiralSpin_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'WonderTwins/', 'name' : 'wondertwins_transforming', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'WonderTwins/', 'name' : 'wondertwins_transforming_o', 'set': 'm'},
-			]
-		},
-	]
-}
-
-var blendModes = {
-	"mix" : [
-		{ "name": "multiply", "trigger": "1", "enabled": true },
-		{ "name": "darken", "trigger": "1", "enabled": true },
-		{ "name": "lighten", "trigger": "1", "enabled": true },
-		{ "name": "color-dodge", "trigger": "1", "enabled": true },
-		{ "name": "color-burn", "trigger": "1", "enabled": true },
-		{ "name": "hard-light", "trigger": "1", "enabled": true },
-		{ "name": "soft-light", "trigger": "1", "enabled": true },
-		{ "name": "difference", "trigger": "1", "enabled": true },
-		{ "name": "exclusion", "trigger": "1", "enabled": true },
-		{ "name": "hue", "trigger": "1", "enabled": true },
-		{ "name": "saturation", "trigger": "1", "enabled": true },
-		{ "name": "color", "trigger": "1", "enabled": true },
-		{ "name": "luminosity", "trigger": "1", "enabled": true }
-	]
-}
-
-stageArray = ['sf', 'st'];
-shapeArray = ['circle','triangle','rhombus','octagon','close','frame','rabbet'];
-flipArray = ['rotateX(180deg)','rotateX(-180deg)','rotateY(180deg)','rotateY(-180deg)'];
-blendModeSwitcherArray = ['multiply','darken','lighten','color-dodge','color-burn',
-  'hard-light','soft-light','difference','exclusion','hue','saturation','color','luminosity'];
-blendModeArray = ['screen','overlay'];
-effectArray = ['invert','saturation','brightness','hue-rotate','blur'];
-
-bankArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r'];
-// bgPosA = ['top', 'bottom'];
-// bgPosB = ['right', 'left'];
-// repeatArray = ['repeat', 'no-repeat'];
-// borderArray = ['dotted', 'dashed', 'double', 'solid', 'ridge'];
-
-var app = {
-	settings: {
-		effects: {
-			kaleidoscope: { name: 'kaleidoscope', enabled: true, filterKey: "1" },
-			sameSame: { name: 'sameSame', enabled: true, filterKey: "3" },
-			stgFade: { name: 'stgFade', enabled: true, filterKey: "4" },
-			invert: { name: 'invert', enabled: true, filterKey: "7" },
-			saturator: { name: 'saturator', enabled: true, filterKey: "8" },
-			hueShift: { name: 'hueShift', enabled: true, filterKey: "9" },
-			blurry: { name: 'blurry', enabled: true, filterKey: "0" }
-		}
-	}
-}
-
-var appFX = app.settings.effects;

@@ -48,22 +48,22 @@ const Filter = {
 
   // BLEND MODE SWITCHER
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  
+
   blendModeSwitcher(blendCounter) {
     console.log('BLEND MODE SWITCHER');
 
     if (overlaySelected) {
-      $(ov).css('mix-blend-mode', blendModes.mix[blendCounter].name);
+      $(ov).css('mix-blend-mode', appz.blendModes.mix[blendCounter].name);
     }
 
     if (samplerOn) {
-      $(s2).css('mix-blend-mode', blendModes.mix[blendCounter].name);
-      smpldScn.stages[1].blend = blendModes.mix[blendCounter].name;
+      $(s2).css('mix-blend-mode', appz.blendModes.mix[blendCounter].name);
+      smpldScn.stages[1].blend = appz.blendModes.mix[blendCounter].name;
       return;
     }
 
-    $(s2).css('mix-blend-mode', blendModes.mix[blendCounter].name);
-    console.log('BLENDMODE: ' + blendModes.mix[blendCounter].name.toUpperCase(), blendCounter);
+    $(s2).css('mix-blend-mode', appz.blendModes.mix[blendCounter].name);
+    console.log('BLENDMODE: ' + appz.blendModes.mix[blendCounter].name.toUpperCase(), blendCounter);
 
   }
 

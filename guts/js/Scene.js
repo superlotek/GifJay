@@ -62,7 +62,7 @@ function sceneSetter(arrayName, banker1, banker2) {
   gifSelectorS2 = Init.randomizer(bankBuilderS2);
 
   if (blendModeRandomOn) {
-    $(s2).css('mix-blend-mode', blendModeSwitcherArray[Init.numRan(blendModeSwitcherArray.length)]);
+    $(s2).css('mix-blend-mode', appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name);
   }
 
   if (currentPlayMode == 'sampler') {
@@ -104,12 +104,12 @@ function sceneSetter(arrayName, banker1, banker2) {
         if (stgSelect == "all") {
           $(s1).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
           $(s2).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-          $(s1).add(s2).css(this[Init.randomizer(stageArray)]);
+          $(s1).add(s2).css(this[Init.randomizer(appz.stageArray)]);
         } else {
           $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
           $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-          $(stgNotSelected).css(this[Init.randomizer(stageArray)]);
-          $(stgSelect).css(this[Init.randomizer(stageArray)]);
+          $(stgNotSelected).css(this[Init.randomizer(appz.stageArray)]);
+          $(stgSelect).css(this[Init.randomizer(appz.stageArray)]);
         }
 
         if (sceneFullscreenOn) { Scene.screenFullscreen(); }
@@ -132,8 +132,8 @@ function sceneSetter(arrayName, banker1, banker2) {
         // SET THE SCENE
         $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter });
         $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter });
-        $(s1).css(this[Init.randomizer(stageArray)]);
-        $(s2).css(this[Init.randomizer(stageArray)]);
+        $(s1).css(this[Init.randomizer(appz.stageArray)]);
+        $(s2).css(this[Init.randomizer(appz.stageArray)]);
 
         if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 

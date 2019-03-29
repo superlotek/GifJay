@@ -35,10 +35,10 @@
   });
 
   // Kaleidoscope
-  if(app.settings.effects.kaleidoscope.enabled) {
-    Mousetrap.bind(app.settings.effects.kaleidoscope.filterKey, function() {
+  if(appz.effects.kaleidoscope.enabled) {
+    Mousetrap.bind(appz.effects.kaleidoscope.trigger, function() {
       if(!kaleidoscopeOn) {
-        console.log(appFX.kaleidoscope.name + ': ON');
+        console.log(appz.effects.kaleidoscope.name + ': ON');
         kaleidoscopeOn = 1;
         Effects.buildKaleidoscope();
         Effects.fxChecker();
@@ -46,7 +46,7 @@
         kaleidoscopeOn = 0;
         console.log('REMOVING KALEIDOSCOPE: ' + stgSelect);
         $(s1).add(s2)
-          .removeClass(app.settings.effects.kaleidoscope.name);
+          .removeClass(appz.effects.kaleidoscope.name);
         $(s1 + ' > div').add(s2 + ' > div')
           .detach().css('mix-blend-mode','normal');
           $(s2).css('mix-blend-mode','');
@@ -55,8 +55,8 @@
   }
 
   /* SameSame */
-  if(app.settings.effects.sameSame.enabled) {
-    Mousetrap.bind(app.settings.effects.sameSame.filterKey, function() {
+  if(appz.effects.sameSame.enabled) {
+    Mousetrap.bind(appz.effects.sameSame.trigger, function() {
       if(!sameSameOn) {
         sameSameOn = 1;
         console.log('FX: SAMESAME ON');
@@ -71,8 +71,8 @@
   }
 
   // STG FADE
-  if(app.settings.effects.stgFade.enabled) {
-    Mousetrap.bind(app.settings.effects.stgFade.filterKey, function() {
+  if(appz.effects.stgFade.enabled) {
+    Mousetrap.bind(appz.effects.stgFade.trigger, function() {
       if(!stgFadeOn) {
       console.log('FX: FADER ON');
       stgFadeOn = 1;
@@ -111,7 +111,7 @@ Mousetrap.bind('alt+,', function() {
   if(!blendModesOn) {
   console.log('---------------------------------');
   console.log('BLEND MODES: ON');
-  console.log('BLEND MODES TOTAL: ' + blendModes.mix.length);
+  console.log('BLEND MODES TOTAL: ' + appz.blendModes.mix.length);
   blendModesOn = !blendModesOn;
   blendCounter = null;
 
@@ -145,7 +145,7 @@ Mousetrap.bind('alt+,', function() {
 Mousetrap.bind('alt+.', function() {
   if(blendModesOn) {
     Filter.blendModeSwitcher(blendCounter++);
-    if (blendCounter === blendModes.mix.length) {
+    if (blendCounter === appz.blendModes.mix.length) {
       console.log('BLEND MODES: RESET');
       blendCounter = 0;
       return;
@@ -183,13 +183,13 @@ Mousetrap.bind('shift+return', function() {
 // OVERLAY [ - ] [ = ] [ DEL ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-if (overlaysEnabled) {
+if (appz.overlaysEnabled) {
   enableOverlays();
 }
 
 function enableOverlays() {
-  for ( let o = 0; o < overlays.length; o++) {
-    Mousetrap.bind('alt+' + overlays[o].trigger, function() {
+  for ( let o = 0; o < appz.overlays.length; o++) {
+    Mousetrap.bind('alt+' + appz.overlays[o].trigger, function() {
       if(!overlayOn) {
         Overlays.applyOverlay(o);
         overlayOn = !overlayOn;
@@ -468,31 +468,31 @@ function enableOverlays() {
   // BANKER SETS ON/OFF [ ' ]
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    // Setting up triggers for key commands
-    bankerSets.set.forEach(function(element, index) {
-      setsArray.push(element.trigger);
-    });
-
-    for(let i = 0; i < setsArray.length; i++) {
-      Mousetrap.bind("ctrl+" + setsArray[i], function() {
-
-        if(!setOn) {
-          // setBank = bankerSets.set[i].bank;
-
-          setArray = [];
-          setArray = bankerSets.set[i].gifs;
-          setOn = 1;
-
-          console.log('BANKER SET: ' + setsArray[i].toUpperCase()  + ":" + bankerSets.set[i].name + ' RUNNING');
-
-        } else {
-          console.log('BANKER SET: ' + setsArray[i].toUpperCase()  + ":" + bankerSets.set[i].name + ' OFF');
-          setOn = 0;
-          setArray = [];
-        }
-      });
-
-    }
+    // // Setting up triggers for key commands
+    // bankerSets.set.forEach(function(element, index) {
+    //   setsArray.push(element.trigger);
+    // });
+    //
+    // for(let i = 0; i < setsArray.length; i++) {
+    //   Mousetrap.bind("ctrl+" + setsArray[i], function() {
+    //
+    //     if(!setOn) {
+    //       // setBank = bankerSets.set[i].bank;
+    //
+    //       setArray = [];
+    //       setArray = bankerSets.set[i].gifs;
+    //       setOn = 1;
+    //
+    //       console.log('BANKER SET: ' + setsArray[i].toUpperCase()  + ":" + bankerSets.set[i].name + ' RUNNING');
+    //
+    //     } else {
+    //       console.log('BANKER SET: ' + setsArray[i].toUpperCase()  + ":" + bankerSets.set[i].name + ' OFF');
+    //       setOn = 0;
+    //       setArray = [];
+    //     }
+    //   });
+    //
+    // }
 
   /*
   function search(nameKey, myArray){

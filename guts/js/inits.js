@@ -4,6 +4,11 @@ var version = "1.9.62";
 // INITS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+beatTime = appz.defaultBeatTime;
+bankNumber = appz.startupBankNumber;
+bankTrigger = appz.startUpBankTrigger;
+filters = appz.filters;
+
 var banksInUse = [];
 var giyTriggerArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
@@ -224,6 +229,3 @@ const Init = {
 
 
 }
-
-
-

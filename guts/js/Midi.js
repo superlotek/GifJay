@@ -5,7 +5,7 @@
 var midi;
 var log = document.getElementById("midi-log");
 
-if (midiOn === true) {
+if (appz.midiOn === true) {
   init();
 }
 
