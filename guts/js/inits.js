@@ -15,7 +15,7 @@ var giyTriggerArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','
 // Declarations
 var bankLocation = "url(../../Bins/";
 var bgCenter = ".gif) center center";
-var enabledBankersArray = [];
+var enabledBanksArray = [];
 var bankSelectKeyArray = [')','!','@','#','$','%','^','&','*','('];
 
 var s1 = '.stage-one';
@@ -157,10 +157,8 @@ $(document).ready(function() {
       });
     });
 
-		// findEnabledBanks();
-
 		createEnabledBankers();
-		enabledBankers();
+		createBankTriggers();
 		// createTriggerArray(arr_enabledBanks);
 
 		createGiyTriggers(bankNumber);

@@ -124,7 +124,7 @@ const appz = {
 			"id" : 1,
 			"trigger": "b",
 			"name" : "Backgrounds 2",
-			"enabled" : true,
+			"enabled" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'forbidden_world_hyperspace2', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'forest-forgery-1-B-FX1_o', 'set': 'm'},
@@ -138,7 +138,7 @@ const appz = {
 			"id" : 2,
 			"trigger": "c",
 			"name" : "Backgrounds 3",
-			"enabled" : true,
+			"enabled" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'JapaneseAnims/', 'name' : 'japan_FileJul1814555AM', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'JapaneseAnims/', 'name' : 'japan_FileJul184611AM', 'set': 'm'},
@@ -211,7 +211,7 @@ const appz = {
 			"id" : 7,
 			"trigger": "h",
 			"name" : "Foregrounds 5 - Aerobics",
-			"enabled" : true,
+			"enabled" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_7', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_8', 'set': 'm'},
@@ -227,7 +227,7 @@ const appz = {
 			"id" : 8,
 			"trigger": "i",
 			"name" : "Foregrounds 6 - Hercules",
-			"enabled" : true,
+			"enabled" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_green_beams', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_head_swirlies', 'set': 'm'},

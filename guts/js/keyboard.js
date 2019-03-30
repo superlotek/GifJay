@@ -700,91 +700,16 @@ function enableOverlays() {
     }
   });
 
-    /*
-      this goes through the bank object and
-      puts all the enabled banks into a new
-      array called ** arr_enabledBanks **
-    */
-    // function findEnabledBanks() {
-    //   arr_enabledBanks = [];
-    //   console.log('ENABLED BANKS: CREATING');
-    //   bankAmount = appz.bank.length;
-    //   // console.log('TOTAL BANK AMOUNT: ' + bankAmount);
-    //   appz.bank.forEach(function(element) {
-    //     if (element.enabled === true) {
-    //       arr_enabledBanks.push(element);
-    //     }
-    //   });
-    //   console.log('ENABLED BANKS AMOUNT: ' + arr_enabledBanks.length, "\n---------------------------------");
-    //   // createTriggerArray(arr_enabledBanks);
-    // }
-
-    /*
-    this one takes an array parameter ENABLEDBANKS
-    and filters out all the banker set key triggers
-    into a new array **triggerArray**
-    */
-    // function createTriggerArray(array) {
-    //   alltriggerArray = new Set();
-    //   console.log('CREATIING: BANKER SET KEY TRIGGER ARRAY', "\n---------------------------------");
-    //   for (i = 0; i < array.length; i++) {
-    //     for (j = 0; j < array[i].gifs.length; j++) {
-    //       array[i].gifs[j].bank = array[i].id;
-    //       alltriggerArray.add(array[i].gifs[j].set);
-    //     }
-    //   }
-    //   triggerArray = [...alltriggerArray];
-    // }
-
-    // multiBankerSetObject = {};
-    // multiBankerSetObject.multiBankerSetArray = []
-    /* creates an array of all the gifs for
-    the particular bank
-    */
-
-    // function justMakeSoloKeyTrigger(key, array) {
-    //   singleBankerSet = [];
-    //   console.log('SOLO KEY MAKER');
-    //   console.log('THI SIS THE ARRAY: '+ arr_enabledBanks[0].id);
-    //
-    //   console.log('AND YOU CLICKED ' + key, "\n---------------------------------");
-    //   for (i = 0; i < array.length; i++) {
-    //     // console.log('ID or bank # ' + array[i].id);
-    //     for (j = 0; j < array[i].gifs.length; j++) {
-    //       // add gif bank number
-    //       array[i].gifs[j].bank = arr_enabledBanks[0].id;
-    //       if (array[i].gifs[j].set == key) {
-    //         setBank = array[i].id;
-    //         singleBankerSet.push(array[i].gifs[j]);
-    //       }
-    //     }
-    //
-    //     // console.log('singleBankerSet: ' + singleBankerSet.length);
-    //     // multiBankerSetObject.multiBankerSetArray.push(singleBankerSet);
-    //
-    //   }
-    //
-    //   if(!setOn) {
-    //     // setBank = singleBankerSet;
-    //     console.log(setBank);
-    //     setOn = 1;
-    //   } else {
-    //     console.log('BANKER SET: OFF', "\n---------------------------------");
-    //     setOn = 0;
-    //   }
-    // }
-
-
-
   // Check for enabled Banks
   // createEnabledBankers();
   function createEnabledBankers() {
+    console.log('SELECTING ENABLED BANKS');
     // console.log('BANKS IN USE: ' + banksInUse);
     // console.log('CHECKING FOR: ENABLED BANKS');
     appz.bank.forEach(function(element, index) {
       if (element.enabled === true) {
         // console.log('BANK ' + element.id + ': ENABLED');
-        enabledBankersArray.push(element);
+        enabledBanksArray.push(element);
       }
     });
     // enabledBankers();
@@ -793,24 +718,15 @@ function enableOverlays() {
 
   bankerStorageSet = new Set();
 
-  function enabledBankers() {
-    console.log('ENABLED BANKERS');
-    for(let i = 0; i < enabledBankersArray.length; i++) {
-      Mousetrap.bind('alt+' + enabledBankersArray[i].trigger, function() {
-
-        if (enabledBankersArray[i].trigger == bankTrigger) {
-          return;
-        }
-
-        bankNumber = enabledBankersArray[i].id;
-        bankTrigger = enabledBankersArray[i].trigger;
-        // bankNumber = enabledBankersArray[i].trigger;
-
-
-        console.log('S1 BANK SELECTED: ' + bankNumber);
-        console.log('S1 BANK TRIGGER SELECTED: ' + bankTrigger);
-
-        // var numberKey = bankNumber;
+  function createBankTriggers() {
+    console.log('BANK TRIGGERS: CREATED');
+    for(let i = 0; i < enabledBanksArray.length; i++) {
+      Mousetrap.bind('alt+' + enabledBanksArray[i].trigger, function() {
+        if (enabledBanksArray[i].trigger == bankTrigger) { return; }
+        bankNumber = enabledBanksArray[i].id;
+        bankTrigger = enabledBanksArray[i].trigger;
+        console.log('BANK SELECTED: ' + bankNumber, bankTrigger);
+        console.log('CREATING GIY TRIGGERS FOR: ', bankNumber);
         createGiyTriggers(bankNumber);
 
         if(bankerOn || bankerStageSetupOn) {
@@ -821,33 +737,26 @@ function enableOverlays() {
             bankerArray = [...bankerStorageSet];
             console.log(bankerArray);
 
-            if (bankerArray.length === 0) {
-              Mousetrap.trigger("'");
-            }
+            if (bankerArray.length === 0) { Mousetrap.trigger("'"); }
             return false;
+
           }
-
-          // bankerStorageSet.add(bankNumber);
-
 
           if(bankerStageSetupS1) {
             bankerStorageSet.add(bankNumber);
-
             console.log('BANKER ARRAY S1 IN EFFECT');
             bankerStageArrayS1 = [...bankerStorageSet];
+
           } else if(bankerStageSetupS2) {
             bankerStorageSet.add(bankNumber);
-
             console.log('BANKER ARRAY S2 IN EFFECT');
             bankerStageArrayS2 = [...bankerStorageSet];
+
           } else {
             bankerStorageSet.add(bankNumber);
-
             console.log('BANKER: ENABLED');
             bankerArray = [...bankerStorageSet];
           }
-
-
 
           // bankerArray = [...bankerStorageSet];
           console.log('BANK ' + bankNumber + ': ADDED TO BANKER', "\n---------------------------------");;
@@ -855,12 +764,10 @@ function enableOverlays() {
           console.log('BANKER S1 : ' + bankerStageArrayS1);
           console.log('BANKER S2 : ' + bankerStageArrayS2);
 
-
         } else {
           console.log('BANK SELECTED: ' + bankNumber, "\n---------------------------------");
           bankSelected = true;
         }
-
       });
     }
   }
@@ -879,9 +786,7 @@ function createGiyTriggers(bankNumber) {
     Mousetrap.unbind(giyTriggerArray[i]);
     Mousetrap.unbind(giyTriggerArray[i].toUpperCase());
   }
-
   singleBankTriggerArray = [];
-
   appz.bank[bankNumber].gifs.forEach(function(element, index) {
     if (appz.bank[bankNumber].gifs[index].trigger !== null) {
       singleBankTriggerArray.push(element);
@@ -892,11 +797,10 @@ function createGiyTriggers(bankNumber) {
 
 // BANK TRIGGERS
 function singleBankTriggers() {
-  console.log('BANK TRIGGERS: SETUP', "\n---------------------------------");
+  console.log('GIY TRIGGERS: SETUP', "\n---------------------------------");
   singleBankTriggerArray.forEach(function(element, index) {
-    console.log(singleBankTriggerArray.length);
     Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {
-      console.log('GIY CLICK S1: ' + singleBankTriggerArray[index].trigger);
+      console.log('GIY CLICK S1: ' + singleBankTriggerArray[index].trigger, bankNumber);
       cacheBuster =  new Date().getTime();
       bgCenters = ".gif?" + cacheBuster + ") center center";
       $(s1).css({
