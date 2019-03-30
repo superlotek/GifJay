@@ -430,6 +430,12 @@ function enableOverlays() {
     bankerStorageSet.clear();
   });
 
+    Mousetrap.bind("ctrl+'", function() {
+    console.log('BANKER: PLAY ALL');
+    bankerArray = allBankers;
+  });
+
+
 // SAMPLER [ RETURN, ENTER ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -703,6 +709,7 @@ function enableOverlays() {
   // Check for enabled Banks
   // createEnabledBankers();
   function createEnabledBankers() {
+    allBankers = [];
     console.log('SELECTING ENABLED BANKS');
     // console.log('BANKS IN USE: ' + banksInUse);
     // console.log('CHECKING FOR: ENABLED BANKS');
@@ -710,6 +717,7 @@ function enableOverlays() {
       if (element.enabled === true) {
         // console.log('BANK ' + element.id + ': ENABLED');
         enabledBanksArray.push(element);
+        allBankers.push(element.id);
       }
     });
     // enabledBankers();
@@ -727,7 +735,7 @@ function enableOverlays() {
         bankTrigger = enabledBanksArray[i].trigger;
         console.log('BANK SELECTED: ' + bankNumber, bankTrigger);
         console.log('CREATING GIY TRIGGERS FOR: ', bankNumber);
-        createGiyTriggers(bankNumber);
+        // createGiyTriggers(bankNumber);
 
         if(bankerOn || bankerStageSetupOn) {
 
@@ -766,6 +774,7 @@ function enableOverlays() {
 
         } else {
           console.log('BANK SELECTED: ' + bankNumber, "\n---------------------------------");
+          createGiyTriggers(bankNumber);
           bankSelected = true;
         }
       });
@@ -792,11 +801,11 @@ function createGiyTriggers(bankNumber) {
       singleBankTriggerArray.push(element);
     }
   });
-  // singleBankTriggers();
+  GiyTriggers();
 }
 
 // BANK TRIGGERS
-function singleBankTriggers() {
+function GiyTriggers() {
   console.log('GIY TRIGGERS: SETUP', "\n---------------------------------");
   singleBankTriggerArray.forEach(function(element, index) {
     Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {

@@ -127,11 +127,11 @@ const appz = {
 			"enabled" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'forbidden_world_hyperspace2', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'forest-forgery-1-B-FX1_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'forest-forgery-2-F2-FX_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'golden-flows_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'grid-open-doors_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'kaleidoscope_pointed_muted', 'set': 'm'},
+				{ 'trigger' : 'w', 'location' : '4thStreetVine/', 'name' : 'forest-forgery-1-B-FX1_o', 'set': 'm'},
+				{ 'trigger' : 'e', 'location' : '4thStreetVine/', 'name' : 'forest-forgery-2-F2-FX_o', 'set': 'm'},
+				{ 'trigger' : 'r', 'location' : '4thStreetVine/', 'name' : 'golden-flows_o', 'set': 'm'},
+				{ 'trigger' : 't', 'location' : '4thStreetVine/', 'name' : 'grid-open-doors_o', 'set': 'm'},
+				{ 'trigger' : 'a', 'location' : '4thStreetVine/', 'name' : 'kaleidoscope_pointed_muted', 'set': 'm'},
 			]
 		},
 		{
@@ -141,10 +141,10 @@ const appz = {
 			"enabled" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'JapaneseAnims/', 'name' : 'japan_FileJul1814555AM', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'JapaneseAnims/', 'name' : 'japan_FileJul184611AM', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'JapaneseAnims/', 'name' : 'japan_Jul1814018AM', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'JapaneseAnims/', 'name' : 'japan_Jul1814034AM', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'JapaneseAnims/', 'name' : 'japan_Jul1814415AM', 'set': 'm'},
+				{ 'trigger' : 'w', 'location' : 'JapaneseAnims/', 'name' : 'japan_FileJul184611AM', 'set': 'm'},
+				{ 'trigger' : 'e', 'location' : 'JapaneseAnims/', 'name' : 'japan_Jul1814018AM', 'set': 'm'},
+				{ 'trigger' : 'r', 'location' : 'JapaneseAnims/', 'name' : 'japan_Jul1814034AM', 'set': 'm'},
+				{ 'trigger' : 't', 'location' : 'JapaneseAnims/', 'name' : 'japan_Jul1814415AM', 'set': 'm'},
 			]
 		},
 
@@ -155,11 +155,11 @@ const appz = {
 			"enabled" : true,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_discoDancers_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_keyopDiscoDance_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_keyopDiscoDance2_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_markFlipping_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_markOnGlass_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_princessDiscoDance_o', 'set': 'm'},
+				{ 'trigger' : 'w', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_keyopDiscoDance_o', 'set': 'm'},
+				{ 'trigger' : 'e', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_keyopDiscoDance2_o', 'set': 'm'},
+				{ 'trigger' : 'r', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_markFlipping_o', 'set': 'm'},
+				{ 'trigger' : 't', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_markOnGlass_o', 'set': 'm'},
+				{ 'trigger' : 'a', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_princessDiscoDance_o', 'set': 'm'},
 			]
 		},
 		{
@@ -169,11 +169,11 @@ const appz = {
 			"enabled" : true,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'robot_woman_head_back_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'tvshow_man_floating_triangle_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_kid_zap_robot_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_robot_dance_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_robot_walk_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_robot_zap_o', 'set': 'm'},
+				{ 'trigger' : 'w', 'location' : '4thStreetVine/', 'name' : 'tvshow_man_floating_triangle_o', 'set': 'm'},
+				{ 'trigger' : 'e', 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_kid_zap_robot_o', 'set': 'm'},
+				{ 'trigger' : 'r', 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_robot_dance_o', 'set': 'm'},
+				{ 'trigger' : 't', 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_robot_walk_o', 'set': 'm'},
+				{ 'trigger' : 'a', 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_robot_zap_o', 'set': 'm'},
 			]
 		},
 
@@ -184,12 +184,12 @@ const appz = {
 			"enabled" : true,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'Eyes/', 'name' : 'eyes_s_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'eye_laser_sparkles_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'eye_lasers_1_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'walking-block-man', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'walking_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'crashing_cars_o', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'spinning-rainbow-person_o', 'set': 'm'},
+				{ 'trigger' : 'w', 'location' : '4thStreetVine/', 'name' : 'eye_laser_sparkles_o', 'set': 'm'},
+				{ 'trigger' : 'e', 'location' : '4thStreetVine/', 'name' : 'eye_lasers_1_o', 'set': 'm'},
+				{ 'trigger' : 'r', 'location' : '4thStreetVine/', 'name' : 'walking-block-man', 'set': 'm'},
+				{ 'trigger' : 't', 'location' : '4thStreetVine/', 'name' : 'walking_o', 'set': 'm'},
+				{ 'trigger' : 'a', 'location' : '4thStreetVine/', 'name' : 'crashing_cars_o', 'set': 'm'},
+				{ 'trigger' : 's', 'location' : '4thStreetVine/', 'name' : 'spinning-rainbow-person_o', 'set': 'm'},
 			]
 		},
 
@@ -199,11 +199,11 @@ const appz = {
 			"name" : "Foregrounds 4 - Bands",
 			"enabled" : true,
 			"gifs" : [
-				{ 'trigger' : 'f', 'location' : 'Jem/', 'name' : 'jem_drums_o', 'set': 'm'},
-				{ 'trigger' : 'g', 'location' : 'Jem/', 'name' : 'jem_hittingDrumPads_o', 'set': 'm'},
-				{ 'trigger' : 'z', 'location' : 'Bravestarr/', 'name' : 'bravestarr_man_drumming_o', 'set': 'm'},
-				{ 'trigger' : 'x', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_drumsticksPlaying_o', 'set': 'm'},
-				{ 'trigger' : 'c', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_drumsticksPlaying_o_t', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Jem/', 'name' : 'jem_drums_o', 'set': 'm'},
+				{ 'trigger' : 'w', 'location' : 'Jem/', 'name' : 'jem_hittingDrumPads_o', 'set': 'm'},
+				{ 'trigger' : 'e', 'location' : 'Bravestarr/', 'name' : 'bravestarr_man_drumming_o', 'set': 'm'},
+				{ 'trigger' : 'r', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_drumsticksPlaying_o', 'set': 'm'},
+				{ 'trigger' : 't', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_drumsticksPlaying_o_t', 'set': 'm'},
 			]
 		},
 
@@ -211,7 +211,7 @@ const appz = {
 			"id" : 7,
 			"trigger": "h",
 			"name" : "Foregrounds 5 - Aerobics",
-			"enabled" : false,
+			"enabled" : true,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_7', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_8', 'set': 'm'},
@@ -227,17 +227,17 @@ const appz = {
 			"id" : 8,
 			"trigger": "i",
 			"name" : "Foregrounds 6 - Hercules",
-			"enabled" : false,
+			"enabled" : true,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_green_beams', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_head_swirlies', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_hercules_transport', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_king', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_king_explosion', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_king_hercules_fight', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_king_hercules_fight2', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_king_laser_eyes', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_king_swing_beam', 'set': 'm'},
+				{ 'trigger' : 'w', 'location' : 'Hercules/', 'name' : 'hercules_head_swirlies', 'set': 'm'},
+				{ 'trigger' : 'e', 'location' : 'Hercules/', 'name' : 'hercules_hercules_transport', 'set': 'm'},
+				{ 'trigger' : 'r', 'location' : 'Hercules/', 'name' : 'hercules_king', 'set': 'm'},
+				{ 'trigger' : 't', 'location' : 'Hercules/', 'name' : 'hercules_king_explosion', 'set': 'm'},
+				{ 'trigger' : 'a', 'location' : 'Hercules/', 'name' : 'hercules_king_hercules_fight', 'set': 'm'},
+				{ 'trigger' : 's', 'location' : 'Hercules/', 'name' : 'hercules_king_hercules_fight2', 'set': 'm'},
+				{ 'trigger' : 'd', 'location' : 'Hercules/', 'name' : 'hercules_king_laser_eyes', 'set': 'm'},
+				{ 'trigger' : 'f', 'location' : 'Hercules/', 'name' : 'hercules_king_swing_beam', 'set': 'm'},
 			]
 		},
 		{
@@ -247,15 +247,15 @@ const appz = {
 			"enabled" : true,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.07.08', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.15.08', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.20.16', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.29.26', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.38.00', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0321.47.22', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0322.09.49', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0322.13.57', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0322.16.05', 'set': 'm'},
-				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0322.30.08', 'set': 'm'},
+				{ 'trigger' : 'w', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.15.08', 'set': 'm'},
+				{ 'trigger' : 'e', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.20.16', 'set': 'm'},
+				{ 'trigger' : 'r', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.29.26', 'set': 'm'},
+				{ 'trigger' : 't', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.38.00', 'set': 'm'},
+				{ 'trigger' : 'a', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0321.47.22', 'set': 'm'},
+				{ 'trigger' : 's', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0322.09.49', 'set': 'm'},
+				{ 'trigger' : 'd', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0322.13.57', 'set': 'm'},
+				{ 'trigger' : 'f', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0322.16.05', 'set': 'm'},
+				{ 'trigger' : 'g', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0322.30.08', 'set': 'm'},
 			]
 		},
 		{
@@ -264,10 +264,10 @@ const appz = {
 			"name" : "Foregrounds 7 - Mission Space Delta",
 			"enabled" : true,
 			"gifs" : [
-				{ 'trigger' : 'g', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_laurie_keyboards2_o', 'set': 'm'},
-				{ 'trigger' : 'z', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_fingers_keyboard_o', 'set': 'm'},
-				{ 'trigger' : 'x', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_keyboards_cu_o', 'set': 'm'},
-				{ 'trigger' : 'c', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_keyboards_o', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_laurie_keyboards2_o', 'set': 'm'},
+				{ 'trigger' : 'w', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_fingers_keyboard_o', 'set': 'm'},
+				{ 'trigger' : 'e', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_keyboards_cu_o', 'set': 'm'},
+				{ 'trigger' : 'r', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_keyboards_o', 'set': 'm'},
 			]
 		}
 	]
