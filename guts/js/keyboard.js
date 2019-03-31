@@ -491,12 +491,13 @@ function enableOverlays() {
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind("alt+;", function() {
-    if(!storyModeOn) {
+    if(!sequencerOn) {
       console.log('SEQUENCER: ON');
-      storyModeOn = 1;
+      // storyModeOn = 1;
+      sequencerOn = 1;
     } else {
       console.log('SEQUENCER: OFF');
-      storyModeOn = 0;
+      // storyModeOn = 0;
       // Mousetrap.trigger('"');
       sequencerOn = 0;
       curSequencerIndex = -1;
@@ -716,6 +717,7 @@ function enableOverlays() {
     appz.bank.forEach(function(element, index) {
       if (element.enabled === true) {
         // console.log('BANK ' + element.id + ': ENABLED');
+
         enabledBanksArray.push(element);
         allBankers.push(element.id);
       }
@@ -735,6 +737,12 @@ function enableOverlays() {
         bankTrigger = enabledBanksArray[i].trigger;
         console.log('BANK SELECTED: ' + bankNumber, bankTrigger);
         console.log('CREATING GIY TRIGGERS FOR: ', bankNumber);
+
+
+        if (enabledBanksArray[i].sequencer == true) {
+          console.log('THIS BANK HAS A SEQUENCER ENABLED'); 
+        }
+
         // createGiyTriggers(bankNumber);
 
         if(bankerOn || bankerStageSetupOn) {

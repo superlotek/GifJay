@@ -109,6 +109,7 @@ const appz = {
 			"trigger": "a",
 			"name" : "Backgrounds 1",
 			"enabled" : true,
+			"sequencer" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-1_o', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-1_transparent_o', 'set': 'm'},
@@ -125,6 +126,7 @@ const appz = {
 			"trigger": "b",
 			"name" : "Backgrounds 2",
 			"enabled" : false,
+			"sequencer" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'forbidden_world_hyperspace2', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : '4thStreetVine/', 'name' : 'forest-forgery-1-B-FX1_o', 'set': 'm'},
@@ -139,6 +141,7 @@ const appz = {
 			"trigger": "c",
 			"name" : "Backgrounds 3",
 			"enabled" : false,
+			"sequencer" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'JapaneseAnims/', 'name' : 'japan_FileJul1814555AM', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : 'JapaneseAnims/', 'name' : 'japan_FileJul184611AM', 'set': 'm'},
@@ -153,6 +156,7 @@ const appz = {
 			"trigger": "d",
 			"name" : "Foregrounds 1 - Dancing",
 			"enabled" : true,
+			"sequencer" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_discoDancers_o', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : 'BotP/', 'name' : 'battleOfThePlanets_keyopDiscoDance_o', 'set': 'm'},
@@ -167,6 +171,7 @@ const appz = {
 			"trigger": "e",
 			"name" : "Foregrounds 2 - Robots and Stuff",
 			"enabled" : true,
+			"sequencer" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'robot_woman_head_back_o', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : '4thStreetVine/', 'name' : 'tvshow_man_floating_triangle_o', 'set': 'm'},
@@ -182,6 +187,7 @@ const appz = {
 			"trigger": "f",
 			"name" : "Foregrounds 3",
 			"enabled" : true,
+			"sequencer" : true,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'Eyes/', 'name' : 'eyes_s_o', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : '4thStreetVine/', 'name' : 'eye_laser_sparkles_o', 'set': 'm'},
@@ -198,6 +204,7 @@ const appz = {
 			"trigger": "g",
 			"name" : "Foregrounds 4 - Bands",
 			"enabled" : true,
+			"sequencer" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'Jem/', 'name' : 'jem_drums_o', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : 'Jem/', 'name' : 'jem_hittingDrumPads_o', 'set': 'm'},
@@ -212,6 +219,7 @@ const appz = {
 			"trigger": "h",
 			"name" : "Foregrounds 5 - Aerobics",
 			"enabled" : true,
+			"sequencer" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_7', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : 'Aerobics/', 'name' : 'aerobicsCompetition_8', 'set': 'm'},
@@ -228,6 +236,7 @@ const appz = {
 			"trigger": "i",
 			"name" : "Foregrounds 6 - Hercules",
 			"enabled" : true,
+			"sequencer" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'Hercules/', 'name' : 'hercules_green_beams', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : 'Hercules/', 'name' : 'hercules_head_swirlies', 'set': 'm'},
@@ -245,6 +254,7 @@ const appz = {
 			"trigger": "j",
 			"name" : "Foregrounds 7 - Mission Space Delta",
 			"enabled" : true,
+			"sequencer" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.07.08', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.15.08', 'set': 'm'},
@@ -263,11 +273,58 @@ const appz = {
 			"trigger": "k",
 			"name" : "Foregrounds 7 - Mission Space Delta",
 			"enabled" : true,
+			"sequencer" : false,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_laurie_keyboards2_o', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_fingers_keyboard_o', 'set': 'm'},
 				{ 'trigger' : 'e', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_keyboards_cu_o', 'set': 'm'},
 				{ 'trigger' : 'r', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_keyboards_o', 'set': 'm'},
+			]
+		},
+		{
+			"id" : 11,
+			"trigger": "l",
+			"name" : "Open Seas",
+			"enabled" : true,
+			"sequencer" : false,
+			"gifs" : [
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.07.34', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.10.01', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.31.08', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.32.27', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-30 22.33.19', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.34.11', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.35.28', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.36.47', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.37.47', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.38.25', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.39.38', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.41.20', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.42.06', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.42.52', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.44.18', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.45.29', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3022.46.53', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.07.09', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.07.56', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.09.31', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.10.34', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.11.17', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.12.02', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.12.47', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.13.34', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.14.16', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.15.09', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.16.23', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.17.08', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.18.02', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.18.52', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.19.58', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.21.03', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.22.11', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.23.12', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.24.13', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ClubSurge/', 'name' : '2019-03-3023.25.06', 'set': 'm'},
 			]
 		}
 	]
