@@ -169,6 +169,7 @@ $(document).ready(function() {
 
 		console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 
+
   });
 
 const Init = {

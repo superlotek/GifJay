@@ -48,6 +48,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
  		opacity: 1;
   	}
 
+    .text { color: #fff; text-align: center; font-weight: bold; }
+    .scene { display: flex; display: flex; align-items: center; justify-content: center; min-height: 100%; }
+    #text-submit { display: none; }
  	.stage-one.on, .stage-two.on { display: block; }
  	.stage-two.blend { mix-blend-mode: screen; }
  	.stage-one.off, .stage-two.off { display: none; }
