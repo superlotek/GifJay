@@ -1,8 +1,15 @@
-var version = "1.9.6";
+var version = "1.9.63";
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // INITS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+beatTime = appz.defaultBeatTime;
+bankNumber = appz.startupBankNumber;
+bankTrigger = appz.startUpBankTrigger;
+filters = appz.filters;
+
+singleBankTriggerArray = [];
 
 var banksInUse = [];
 var giyTriggerArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
@@ -10,7 +17,7 @@ var giyTriggerArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','
 // Declarations
 var bankLocation = "url(../../Bins/";
 var bgCenter = ".gif) center center";
-var enabledBankersArray = [];
+var enabledBanksArray = [];
 var bankSelectKeyArray = [')','!','@','#','$','%','^','&','*','('];
 
 var s1 = '.stage-one';
@@ -47,7 +54,6 @@ var bankNumberS1;
 var bankNumberS2;
 var stageOneOn = 0;
 var stageTwoOn = 0;
-var stageThreeOn = 0;
 var stgSelect = s1;
 var stgNotSelected = s2; //= s2;
 var lastBank;
@@ -75,17 +81,11 @@ var opacity2 = 1;
 var effectAmount = 0;
 var kaleidoscopeOn = 0;
 var shapeOn = 0;
-var roboChopOn = 0;
-var roboChopImgAmount = 25;
-var robostripImgAmount = 10;
-var robostripOn = 0;
-var roboSpinOn = 0;
 var textOn = 0;
 var glarp = -1;
 var effectFillOn = 0;
 
 var stgFadeOn = 0;
-var verticalStacksOn = 0;
 var stageFlipOn = 0;
 var sameSameOn = 0;
 var switcherooOn = 0;
@@ -105,17 +105,7 @@ var sampledFilterOn = 0;
 var blendModesOn = 0;
 var blendCounter = null;
 var blendModeRandomOn = 0;
-
-// GLITCH
-var glitchOn = 0;
-var screenHeight = 100;
-var randomNumberArray = [];
-var selectedNumber;
-var saturateLevel = 20;
-var borderSize = 10;
-
-var delayFXOn = 0;
-var fxModeOn = 0;
+var originalBlend = [{"stage1": "", "stage2": ""}];
 
 var gifAmount = 26;
 
@@ -152,3 +142,100 @@ var gpsNudgeAmount = 100;
 
 var overlayOn = 0;
 var stgStore;
+
+
+$(document).ready(function() {
+
+	kd.run(function () { kd.tick(); });
+
+  // $('body').css('background-color', randomColorChange());
+
+    Init.startup();
+
+    $('.logo a').click(function() {
+      $(this).fadeOut(function() {
+        $('.logo').remove();
+        Scene.stageSetup();
+      });
+    });
+
+		createEnabledBankers();
+		createBankTriggers();
+		// createTriggerArray(arr_enabledBanks);
+
+		createGiyTriggers(bankNumber);
+		filterBuild();
+		// singleBankTriggers();
+
+		console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
+
+  });
+
+const Init = {
+
+	randomColorChange() {
+    return '#'+(Math.floor(Math.random()*16777216)&0xFFFFFF).toString(16);
+	},
+
+	randomizer(arrayName) {
+	  var randomArraySelector = arrayName[Math.floor(Math.random()*arrayName.length)];
+	  return randomArraySelector;
+	},
+
+	numRan(ranNum) {
+	  var ranNumGen = Math.floor(Math.random()*ranNum);
+	  return ranNumGen;
+	},
+
+	robomodeBackground() {
+	  $('body').css('background-image', 'repeating-linear-gradient(' + this.numRan(360) + 'deg, ' +
+	    this.randomColorChange() + ' ' + this.numRan(100) + '%, ' +
+	    this.randomColorChange() + ' ' + this.numRan(100) + '%, ' +
+	    this.randomColorChange() + ' ' + this.numRan(100) + '%, ' +
+	    this.randomColorChange() + ' ' + this.numRan(100)+ '%)');
+	},
+
+	killSwitch() {
+	  localStorage.setItem('killSwitch','unkilled');
+	  console.log("KILL SWITCH: ENABLED", "\n---------------------------------");
+	  // Scene.stageSetup();
+	  $(s1).add(s2).addClass('on');
+	  stageOneOn, stageTwoOn = 1;
+	  $(s1).css('background', bankLocation + localStorage.getItem('stg1Location') + localStorage.getItem('stg1Gif') + bgCenter);
+	  $(s2).css('background', bankLocation + localStorage.getItem('stg2Location') + localStorage.getItem('stg2Gif') + bgCenter);
+	  $(s1).css('mix-blend-mode', localStorage.getItem('stg1Blend'));
+	  $(s2).css('mix-blend-mode', localStorage.getItem('stg2Blend'));
+	  $(s1).css('background-repeat', localStorage.getItem('stg1Repeat'));
+	  $(s2).css('background-repeat', localStorage.getItem('stg2Repeat'));
+	  $(s1).css('background-size', localStorage.getItem('stg1BgSize'));
+	  $(s2).css('background-size', localStorage.getItem('stg2BgSize'));
+	  $(s2).addClass('blend');
+	},
+
+	startup() {
+
+  $('body').css('background-color', Init.randomColorChange());
+
+  // appz.bank.forEach(function(item) {
+  //   if (item.enabled) {
+  //     banksInUse.push(item.id);
+  //   }
+  // });
+
+  // console.log('BANKS IN USE: ' + banksInUse);
+
+  if (localStorage.getItem('killSwitch') == 'killed') {
+    console.log('KILL SWITCH BANK #: ' + localStorage.getItem('stg1Bank'));
+    Init.killSwitch();
+    bankNumber = localStorage.getItem('stg1Bank');
+  } else {
+    console.log('GIFJAY: ' + version + ' STARTING UP', "\n---------------------------------");
+    $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('body');
+    $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
+    // bankNumber = Init.randomizer(banksInUse);
+  }
+
+}
+
+
+}

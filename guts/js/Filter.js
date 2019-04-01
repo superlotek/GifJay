@@ -17,7 +17,7 @@ const Filter = {
 
   applyFilter(filterNum) {
     if (stgSelect == s1) {
-      filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + Init.numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
       // filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
 
       if (filterNum == 0) {
@@ -27,7 +27,7 @@ const Filter = {
 
     } else if (stgSelect == s2) {
       // filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
-      filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + Init.numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
 
       if (filterNum == 0) {
         filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
@@ -35,8 +35,8 @@ const Filter = {
       }
 
     } else {
-      filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
-      filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + Init.numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
+      filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + Init.numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";
 
       if (filterNum == 0) {
         filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].max + filters.filter[filterNum].unit + ")";
@@ -48,18 +48,23 @@ const Filter = {
 
   // BLEND MODE SWITCHER
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-  blendModeSwitcher(counter) {
-    console.log('BLEND MODE SWITCHER FUNCTION');
-    if (counter === blendModeSwitcherArray.length - 1) {
-      blendCounter = 0;
-      return false;
-    }
+
+  blendModeSwitcher(blendCounter) {
+    console.log('BLEND MODE SWITCHER');
 
     if (overlaySelected) {
-      $(ov).css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
+      $(ov).css('mix-blend-mode', appz.blendModes.mix[blendCounter].name);
     }
 
-    $(s2).css('mix-blend-mode', blendModeSwitcherArray[blendCounter]);
+    if (samplerOn) {
+      $(s2).css('mix-blend-mode', appz.blendModes.mix[blendCounter].name);
+      smpldScn.stages[1].blend = appz.blendModes.mix[blendCounter].name;
+      return;
+    }
+
+    $(s2).css('mix-blend-mode', appz.blendModes.mix[blendCounter].name);
+    console.log('BLENDMODE: ' + appz.blendModes.mix[blendCounter].name.toUpperCase(), blendCounter);
+
   }
 
 };

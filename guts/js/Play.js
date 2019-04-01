@@ -27,12 +27,12 @@ const Play = {
   },
 
   startRobomode() {
-    robomodeBackground();
-    if (bankerOn) { playMode('banker');
-      } else if (samplerOn) { playMode('sampler');
-      } else if (sequencerOn) { playMode('sequencer');
-      } else if (setOn) { playMode('sets');
-      } else { playMode('default');
+    Init.robomodeBackground();
+    if (bankerOn) { this.playMode('banker');
+      } else if (samplerOn) { this.playMode('sampler');
+      } else if (sequencerOn) { this.playMode('sequencer');
+      } else if (setOn) { this.playMode('sets');
+      } else { this.playMode('default');
     }
 
     if(stgFadeOn) { Effects.stgFade(); }
@@ -48,13 +48,13 @@ const Play = {
     if (bankerStageSetupOn) {
 
       console.log('BANKER STAGE FLIP');
-      bankSelectorS1 = randomizer(bankerStageArrayS1); bankSelectorS2 = randomizer(bankerStageArrayS2);
+      bankSelectorS1 = Init.randomizer(bankerStageArrayS1); bankSelectorS2 = Init.randomizer(bankerStageArrayS2);
       sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
       return;
 
     } else if (bankerOn) {
 
-      bankSelectorS1 = randomizer(bankerArray); bankSelectorS2 = randomizer(bankerArray);
+      bankSelectorS1 = Init.randomizer(bankerArray); bankSelectorS2 = Init.randomizer(bankerArray);
       sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
 
     } else if (setOn) {
@@ -70,10 +70,216 @@ const Play = {
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
 
     } else {
-
-      bankSelectorS1 = randomizer(banksInUse); bankSelectorS2 = randomizer(banksInUse);
+      bankSelectorS1 = bankNumber; bankSelectorS2 = bankNumber;
+      // bankSelectorS1 = randomizer(banksInUse); bankSelectorS2 = randomizer(banksInUse);
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
     }
-  }
+  },
+
+  playMode(playType) {
+
+  switch(playType) {
+
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+    // Banker
+    case 'banker':
+      currentPlayMode = 'banker';
+
+      if (samplerOn) {
+        this.playMode('sampler');
+      } else {
+
+        if (bankerStageArrayS1.length && bankerStageArrayS2.length) {
+          bankSelectorS1 = Init.randomizer(bankerStageArrayS1); bankSelectorS2 = Init.randomizer(bankerStageArrayS2);
+          sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
+          return;
+        }
+
+        if (bankerStageArrayS1.length) {
+          bankSelectorS1 = Init.randomizer(bankerStageArrayS1);
+          sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
+          return;
+        }
+
+        if (bankerStageArrayS2.length) {
+          bankSelectorS2 = Init.randomizer(bankerStageArrayS2);
+          sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
+          return;
+        }
+
+        bankSelectorS1 = Init.randomizer(bankerArray); bankSelectorS2 = Init.randomizer(bankerArray);
+        sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
+      }
+
+      break;
+
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+    // Sets
+    case 'sets':
+      // console.log('PLAY MODE: Sets');
+      currentPlayMode = 'sets';
+      // bankSelectorS1 = setBank; bankSelectorS2 = setBank;
+      sceneSetter(setArray,bankSelectorS1,bankSelectorS2);
+      // sceneSetter(singleBankerSet, bankSelectorS1, bankSelectorS2);
+      break;
+
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+    // SEQUENCER
+    case 'sequencer':
+      // console.log('PLAY MODE: Sequencer');
+      currentPlayMode = 'sequencer';
+
+      console.log('CHECKING FOR SEQUENCED BANKS');
+
+      // console.log(letterNumber);
+
+      console.log(bankLocation);
+       // console.log(someBank);
+      // console.log(someLocation);
+      // console.log(someGif);
+
+    $(s1).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
+    $(s2).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
+
+        bankSelectorS1 = Init.randomizer(bankerArray); bankSelectorS2 = Init.randomizer(bankerArray);
+        sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
+
+
+    $(s1).css('background', bankLocation + someBank + someLocation + someGif + bgCenter);
+    $(s2).css('background', bankLocation + someBank2 + someLocation2 + someGif2 + bgCenter);
+
+    ++curSequencerIndex;
+
+
+    if (curSequencerIndex == (seqNum)) {
+      curSequencerIndex = 0
+    }
+
+
+      // if (sequenceNumber == sequencer.sequences[letterNumber].trigger ) {
+      //   console.log('ITS A MATCH!!');
+
+      //   var seqNum = sequencer.sequences[letterNumber].scenes.length;
+      //   var someGif = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage1.gif;
+      //   var someBank = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage1.bank;
+      //   var someLocation = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage1.location;
+      //   var someGif2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage2.gif;
+      //   var someBank2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage2.bank;
+      //   var someLocation2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage2.location;
+      //   var someParam = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage1.parameters.repeat;
+      //   var someParam2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage2.parameters.repeat;
+      //   var someFX = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage1.parameters.fx;
+      //   var someFX2 = sequencer.sequences[letterNumber].scenes[curSequencerIndex].stage2.parameters.fx;
+
+      //   ++curSequencerIndex;
+
+      //   if (kaleidoscopeOn) {
+
+      //     $(s1 + '.kaleidoscope > div').css('background', bankLocation + someBank +
+      //       someLocation + someGif + bgCenter);
+      //     $(s2 + '.kaleidoscope > div').css('background', bankLocation + someBank2 +
+      //       someLocation2 + someGif2 + bgCenter);
+
+      //   } else {
+
+      //     $(s1).css('background', bankLocation + someBank + someLocation + someGif + bgCenter);
+      //     if(someParam == 'no-repeat') { $(s1).css(sf); } else { $(s1).css(st); }
+      //     $(s2).css('background', bankLocation + someBank2 + someLocation2 + someGif2 + bgCenter);
+      //     if(someParam2 == 'no-repeat') { $(s2).css(sf); } else { $(s2).css(st); }
+
+      //   }
+
+      //   if (curSequencerIndex == (seqNum)) {
+      //     curSequencerIndex = 0
+      //   }
+      // }
+
+      break;
+
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+    // SAMPLER
+    case 'sampler':
+      // console.log('PLAY MODE: Sampler');
+      currentPlayMode = 'sampler';
+
+      if (scenePauseOn) {
+        samplerIndex = pausedSamplerIndex;
+
+      } else {
+
+        if (sampledScenes.scene.length === 0) {
+          console.log('SWITCH TO ANOTHER MODE');
+          Mousetrap.trigger(':');
+          return false;
+        }
+
+        if (samplerIndex == (sampledScenes.scene.length - 1)) { samplerIndex = -1; }
+        ++samplerIndex;
+      }
+
+      if (blendModeRandomOn) {
+        $(s2).css('mix-blend-mode', blendModeSwitcherArray[Init.numRan(blendModeSwitcherArray.length)]);
+      }
+
+      // console.log("samplerIndex : " + samplerIndex);
+      smpldScn = sampledScenes.scene[samplerIndex];
+
+      if (kaleidoscopeOn) {
+
+        $(s1 + '.kaleidoscope > div').css({
+          'background' : bankLocation + smpldScn.stages[0].location + smpldScn.stages[0].gif + bgCenter,
+          'background-repeat' : smpldScn.stages[0].repeat,
+          'background-size' : smpldScn.stages[0].size
+        });
+        $(s2 + '.kaleidoscope > div').css({
+          'background' : bankLocation + smpldScn.stages[1].location + smpldScn.stages[1].gif + bgCenter,
+          'background-repeat' : smpldScn.stages[1].repeat,
+          'background-size' : smpldScn.stages[1].size
+        });
+        $(s2).css('background', 'none !important');
+        $(s2 + '.kaleidoscope').css('mix-blend-mode', Init.randomizer(blendModeArray));
+        $(s1 + '.kaleidoscope > div').add(s2 + '.kaleidoscope > div').css(sf);
+
+      } else {
+
+        $(s1).css({
+            'background' : bankLocation + smpldScn.stages[0].location + smpldScn.stages[0].gif + bgCenter,
+            'background-repeat' : smpldScn.stages[0].repeat,
+            'background-size' : smpldScn.stages[0].size,
+            'mix-blend-mode' : smpldScn.stages[0].blend,
+             "filter" : smpldScn.stages[0].filter
+          });
+
+          $(s2).css({
+              'background' : bankLocation + smpldScn.stages[1].location + smpldScn.stages[1].gif + bgCenter,
+              'background-repeat' : smpldScn.stages[1].repeat,
+              'background-size' : smpldScn.stages[1].size,
+              'mix-blend-mode' : smpldScn.stages[1].blend,
+              "filter" : smpldScn.stages[1].filter
+            });
+
+        if (sceneFullscreenOn) { Scene.screenFullscreen(); }
+
+      }
+
+      break;
+
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+    default:
+      // console.log('PLAY MODE: RoboMode');
+      currentPlayMode = 'robomode';
+      bankSelectorS1 = bankNumber;
+      bankSelectorS2 = bankNumber;
+      // bankSelectorS1 = Init.randomizer(banksInUse);
+      // bankSelectorS2 = Init.randomizer(banksInUse);
+      sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
+    }
+}
+
 
 };

@@ -12,12 +12,12 @@ const Effects = {
           $(s1 + '.kaleidoscope > div').css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
           $(s2 + '.kaleidoscope > div').css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
           $(s2).css('background', 'none !important');
-          $(s2 + '.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
+          $(s2 + '.kaleidoscope').css('mix-blend-mode', Init.randomizer(appz.blendModeArray));
           $(s1 + '.kaleidoscope > div').add(s2  + '.kaleidoscope > div').css(sf);
         } else {
           $(stgSelect + '.kaleidoscope > div').css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
           $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-          $('.kaleidoscope').css('mix-blend-mode', randomizer(blendModeArray));
+          $('.kaleidoscope').css('mix-blend-mode', Init.randomizer(appz.blendModeArray));
           $(stgSelect + '.kaleidoscope > div').css(sf);
         }
       }
@@ -53,11 +53,11 @@ const Effects = {
             .css({'background-repeat':'no-repeat', 'background-size':'cover'});
           $(s2).css({
             'background' : bankLocation + bankSelectorS1 + '/' + gifSelectorS1 + bgCenter,
-            'background-repeat':'round', 'background-size' : numRan(100) + '%',
+            'background-repeat':'round', 'background-size' : Init.numRan(100) + '%',
             'opacity' : '.75'
           });
-          var beatz = beatTime/beatSpeed;
-          $(s2).css('animation-duration', beatz * sameSameConstant + 's');
+          var beatz = beatTime/appz.beatSpeed;
+          $(s2).css('animation-duration', beatz * appz.sameSameConstant + 's');
       // }
     }
 
