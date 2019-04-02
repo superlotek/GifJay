@@ -37,11 +37,31 @@ Mousetrap.bind("ctrl+[", function() {
   console.log('TEXT: INCREASE FONT SIZE');
   $('.text h1').css(
     {
-      'font-size' : '12vw',
-      'line-height' : '22vh',
+      'font-size' : '10vw',
+      'line-height' : '15vh',
       'font-family' : '"' + Init.randomizer(appz.fontStyles) + '"',
       'color' : Init.randomColorChange(),
       'mix-blend-mode' : appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name
     }
   );
 });
+
+Mousetrap.bind("ctrl+]", function() {
+  console.log('TEXT: RESIZE??');
+  TweenMax.to(".text h1", beatTime/1000, {rotationX:360});
+  // someAnimation();
+  // $('.text h1').animate({fontSize: "20vw" }, beatTime, function() {
+  //   $(this).animate({fontSize: "10vw"}, beatTime);
+  // });
+  // $('.text h1').css('animation-name', 'example');
+  // $('.text h1').css('animation-duration', beatTime/1000 +'s');
+});
+
+function someAnimation() {
+  $('.text h1').animate({fontSize: "20vw" }, beatTime, function() {
+    $(this).animate({fontSize: "10vw"}, beatTime, function() {
+      // someAnimation();
+    });
+  });
+
+}
