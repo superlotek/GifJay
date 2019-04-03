@@ -271,6 +271,46 @@ const appz = {
 				{ 'trigger' : 'e', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_keyboards_cu_o', 'set': 'm'},
 				{ 'trigger' : 'r', 'location' : 'PartridgeFamilySpace/', 'name' : 'partridgeFamilySpace_shirley_keyboards_o', 'set': 'm'},
 			]
+		},
+		{
+			"id" : 11,
+			"trigger": "l",
+			"name" : "Men",
+			"enabled" : true,
+			"gifs" : [
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.24.30', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.25.29', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.26.51', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.27.29', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.28.19', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.30.04', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.33.40', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.34.51', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.35.58', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.36.58', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.39.10', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.39.45', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.40.53', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.41.49', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.45.03', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.45.58', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.47.15', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.48.01', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.54.13', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.55.05', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.55.53', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.56.45', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.57.42', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0200.59.12', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0201.05.14', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0201.06.02', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0201.07.08', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Men/', 'name' : '2019-04-0201.20.55', 'set': 'm'},
+			]
 		}
+
+
+
+
 	]
 }
