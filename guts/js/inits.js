@@ -141,7 +141,7 @@ var currentPlayMode = 'giy';
 var gpsNudgeAmount = 100;
 
 var overlayOn = 0;
-var textOn = 0;
+var textOverlayOn = 0;
 var overlayText = "";
 
 var stgStore;

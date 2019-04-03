@@ -10,7 +10,18 @@ const appz = {
 	"stageArray" : ['sf', 'st'],
 	"blendModeArray" : ['screen','overlay'],
 
-	"fontStyles" : ["Baloo Chettan", "Germania One", "Fascinate Inline", "Monoton", "Press Start 2P", "Spicy Rice"],
+	// "fontStyles" : ["Baloo Chettan", "Germania One", "Fascinate Inline", "Monoton", "Press Start 2P", "Spicy Rice"],
+
+	"fontStyles" : {
+		"font" : [
+			{ "name": "Baloo Chettan", "enabled": true, "sizes" : ["10vw", "12vw"], "sizeMin": "18vw" , "sizeMax": "18vw", "lineHeightMin": "22vh", "lineHeightMax": "20vh" },
+			{ "name": "Germania One", "enabled": true, "sizes" : ["10vw", "12vw"], "sizeMin": "18vw" , "sizeMax": "18vw", "lineHeightMin": "24vh", "lineHeightMax": "20vh" },
+			{ "name": "Fascinate Inline", "enabled": true, "sizes" : ["10vw", "12vw"], "sizeMin": "18vw" , "sizeMax": "18vw", "lineHeightMin": "22vh", "lineHeightMax": "22vh" },
+			{ "name": "Monoton", "enabled": true, "sizes" : ["10vw", "12vw"], "sizeMin": "18vw" , "sizeMax": "15vw", "lineHeightMin": "28vh", "lineHeightMax": "26vh" },
+			{ "name": "Press Start 2P", "enabled": true, "sizes" : ["10vw", "12vw"], "sizeMin": "14vw" , "sizeMax": "15vw", "lineHeightMin": "20vh", "lineHeightMax": "23vh" },
+			{ "name": "Spicy Rice", "enabled": true, "sizes" : ["10vw", "12vw"], "sizeMin": "18vw" , "sizeMax": "18vw", "lineHeightMin": "24vh", "lineHeightMax": "20vh" }
+		]
+	},
 
 	"blendModes" : {
 		"mix" : [
