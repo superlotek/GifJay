@@ -72,6 +72,8 @@ Mousetrap.bind("alt+\\", function() {
   $('.textOverlayContainer h1').css(
     {
       'font-family' : '"' + appz.fontStyles.font[fontCounter].name + '"',
+      'font-size' : appz.fontStyles.font[fontCounter].sizeMin,
+      'line-height' : appz.fontStyles.font[fontCounter].lineHeightMin
     }
   );
 });
@@ -82,6 +84,7 @@ Mousetrap.bind("ctrl+[", function() {
     {
       'font-family' : '"' + appz.fontStyles.font[fontCounter].name + '"',
       'color' : Init.randomColorChange(),
+      'text-shadow' : Init.randomColorChange() + " 14px 14px ",
       'mix-blend-mode' : appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name
     }
   );
@@ -90,8 +93,18 @@ Mousetrap.bind("ctrl+[", function() {
 Mousetrap.bind("ctrl+]", function() {
   console.log('TEXT: FX');
   var tl = new TimelineMax({repeat:-1, repeatDelay:0});
-  tl.to(".textOverlayContainer h1", beatTime/1000, {scale: 1.25, skewY: 12, rotationY: 360 });
+  // tl.to(".textOverlayContainer h1", beatTime/1000, {scale: 1.25, skewY: 12, rotationY: 360 });
+  tl.to(".textOverlayContainer h1", beatTime/2000, {color: Init.randomColorChange(), onUpdate: colorChange  });
+
 });
+
+function colorChange() {
+  $('.textOverlayContainer h1').css(
+    {
+      'color' : Init.randomColorChange(),
+    }
+  );
+}
 
 Mousetrap.bind("ctrl+\\", function() {
   console.log('ClEAR SOMETHING');
