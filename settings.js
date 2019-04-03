@@ -10,6 +10,8 @@ const appz = {
 	"stageArray" : ['sf', 'st'],
 	"blendModeArray" : ['screen','overlay'],
 
+	"fontStyles" : ["Baloo Chettan", "Germania One", "Fascinate Inline", "Monoton", "Press Start 2P", "Spicy Rice"],
+
 	"blendModes" : {
 		"mix" : [
 			{ "name": "multiply", "trigger": "1", "enabled": true },

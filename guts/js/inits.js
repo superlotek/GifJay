@@ -141,6 +141,9 @@ var currentPlayMode = 'giy';
 var gpsNudgeAmount = 100;
 
 var overlayOn = 0;
+var textOn = 0;
+var overlayText = "";
+
 var stgStore;
 
 
@@ -168,6 +171,7 @@ $(document).ready(function() {
 		// singleBankTriggers();
 
 		console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
+
 
   });
 

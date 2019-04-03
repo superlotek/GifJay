@@ -439,7 +439,11 @@ function enableOverlays() {
 // SAMPLER [ RETURN, ENTER ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+
+
+
   Mousetrap.bind('return', function() {
+
     console.log('SCENE SAMPLED', "\n---------------------------------");
 
     if (samplerCounter == null ) { samplerCounter = 0; } else { ++samplerCounter; }
