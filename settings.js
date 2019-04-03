@@ -105,6 +105,79 @@ const appz = {
 		{ 'trigger' : '1', 'location' : 'overlays', 'name' : 'clubMutoid_logo_ani.gif'},
 	],
 
+
+	"sequence" : [
+		{
+			"trigger": "a",
+			"name" : "Some sequence",
+			"enabled" : true,
+			"scene" : [
+				{
+					"gifs" : [
+						{ 'location' : 'BotP/', 'name' : 'battleOfThePlanets_keyopDiscoDance2_o' },
+						{ 'location' : 'BotP/', 'name' : 'battleOfThePlanets_markFlipping_o' },
+					]
+				},
+				{
+					"gifs" : [
+						{ 'location' : '4thStreetVine/', 'name' : 'forest-forgery-2-F2-FX_o' },
+						{ 'location' : '4thStreetVine/', 'name' : 'golden-flows_o' },
+					]
+				},
+				{
+					"gifs" : [
+						{ 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_kid_zap_robot_o' },
+						{ 'location' : '4thStreetVine/', 'name' : 'nintendo_gameboy_robot_dance_o' },
+					]
+				},
+				{
+					"gifs" : [
+						{ 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.29.26' },
+						{ 'location' : 'MissionSpatialeDelta2/', 'name' : 'msd_2018-03-0320.38.00' },
+					]
+				}
+			]
+		},
+		{
+			"trigger": "b",
+			"name" : "Another sequence",
+			"enabled" : false,
+			"scene" : [
+				{
+					"gifs" : [
+						{ 'location' : '4thStreetVine/', 'name' : 'robot_woman_head_back_o' },
+						{ 'location' : '4thStreetVine/', 'name' : 'tvshow_man_floating_triangle_o' },
+					]
+				},
+				{
+					"gifs" : [
+						{ 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-1_o' },
+						{ 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-1_transparent_o' }
+					]
+				}
+			]
+		},
+		{
+			"trigger": "c",
+			"name" : "Last sequence",
+			"enabled" : true,
+			"scene" : [
+				{
+					"gifs" : [
+						{ 'location' : '4thStreetVine/', 'name' : 'robot_woman_head_back_o' },
+						{ 'location' : '4thStreetVine/', 'name' : 'tvshow_man_floating_triangle_o' },
+					]
+				},
+				{
+					"gifs" : [
+						{ 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-1_o' },
+						{ 'location' : 'FullTimeTrumpet/', 'name' : 'full-time-trumpet-FX-1_transparent_o' }
+					]
+				}
+			]
+		}
+	],
+
 	"bank" : [
 		{
 			"id" : 0,

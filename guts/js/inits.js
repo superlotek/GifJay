@@ -19,6 +19,10 @@ var bankLocation = "url(../../Bins/";
 var bgCenter = ".gif) center center";
 var enabledBanksArray = [];
 var bankSelectKeyArray = [')','!','@','#','$','%','^','&','*','('];
+var enabledSequenceTriggers = [];
+
+var enabledBanksArray = [];
+abledSequences = [];
 
 var s1 = '.stage-one';
 var s2 = '.stage-two';
@@ -164,11 +168,9 @@ $(document).ready(function() {
 
 		createEnabledBankers();
 		createBankTriggers();
-		// createTriggerArray(arr_enabledBanks);
-
 		createGiyTriggers(bankNumber);
 		filterBuild();
-		// singleBankTriggers();
+		createSequenceTriggers();
 
 		console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 

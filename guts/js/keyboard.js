@@ -731,7 +731,6 @@ function enableOverlays() {
   }
 
   bankerStorageSet = new Set();
-
   function createBankTriggers() {
     console.log('BANK TRIGGERS: CREATED');
     for(let i = 0; i < enabledBanksArray.length; i++) {
@@ -743,9 +742,9 @@ function enableOverlays() {
         console.log('CREATING GIY TRIGGERS FOR: ', bankNumber);
 
 
-        if (enabledBanksArray[i].sequencer == true) {
-          console.log('THIS BANK HAS A SEQUENCER ENABLED');
-        }
+        // if (enabledBanksArray[i].sequencer == true) {
+        //   console.log('THIS BANK HAS A SEQUENCER ENABLED');
+        // }
 
         // createGiyTriggers(bankNumber);
 
@@ -759,7 +758,6 @@ function enableOverlays() {
 
             if (bankerArray.length === 0) { Mousetrap.trigger("'"); }
             return false;
-
           }
 
           if(bankerStageSetupS1) {
@@ -803,6 +801,7 @@ function enableOverlays() {
 function createGiyTriggers(bankNumber) {
   console.log('GIY TRIGGERS: SETUP', "\n---------------------------------");
   // Reset the trigger buttons (A-Z)
+
   for ( i = 0; i < giyTriggerArray.length; i++) {
     Mousetrap.unbind(giyTriggerArray[i]);
     Mousetrap.unbind(giyTriggerArray[i].toUpperCase());
@@ -819,8 +818,10 @@ function createGiyTriggers(bankNumber) {
 // BANK TRIGGERS
 function GiyTriggers() {
   console.log('GIY TRIGGERS: SETUP', "\n---------------------------------");
+
   singleBankTriggerArray.forEach(function(element, index) {
     Mousetrap.bind(singleBankTriggerArray[index].trigger, function() {
+
       console.log('GIY CLICK S1: ' + singleBankTriggerArray[index].trigger, bankNumber);
       cacheBuster =  new Date().getTime();
       bgCenters = ".gif?" + cacheBuster + ") center center";
@@ -843,4 +844,25 @@ function GiyTriggers() {
     });
     // createGiyTriggers(0)
   });
+}
+
+//  SEQUENCE TRIGGERS
+function createSequenceTriggers() {
+  var enabledSequences = [];
+  var enabledSequenceTriggers = [];
+  console.log('SELECTING ENABLED SEQUENCES');
+  appz.sequence.forEach(function(element, index) {
+    if (element.enabled === true) {
+      enabledSequences.push(element);
+      enabledSequenceTriggers.push(element.trigger);
+    }
+  });
+  console.log('enabledSequencesArray: ', enabledSequences);
+  console.log('enabledSequenceTriggers: ', enabledSequenceTriggers);
+
+  for ( let i = 0; i < enabledSequenceTriggers.length; i++) {
+    Mousetrap.bind("ctrl+" + enabledSequenceTriggers[i], function() {
+      console.log("SEQUENCE CLICKED " + enabledSequenceTriggers[i], enabledSequences[i].name );
+    });
+  }
 }
