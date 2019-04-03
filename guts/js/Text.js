@@ -69,24 +69,17 @@ Mousetrap.bind("alt+]", function(e) {
 Mousetrap.bind("alt+\\", function() {
   console.log('TEXT: CHANGE FONT');
   fontCounter = (fontCounter+1)%(appz.fontStyles.font.length);
-
   $('.textOverlayContainer h1').css(
     {
       'font-family' : '"' + appz.fontStyles.font[fontCounter].name + '"',
-      // 'font-size' : appz.fontStyles.font[fontCounter].sizeMin,
-      // 'line-height' : appz.fontStyles.font[fontCounter].lineHeightMin
     }
   );
-  // fontCounter = (fontCounter+1)%(appz.fontStyles.font.length);
 });
 
 Mousetrap.bind("ctrl+[", function() {
   console.log('TEXT: CHANGE COLOR');
-  // TweenMax.to($('.textOverlayContainer h1'), 5, {color:Init.randomColorChange() });
   $('.textOverlayContainer h1').css(
     {
-      // 'font-size' : appz.fontStyles.font[fontCounter].sizeMin,
-      // 'line-height' : appz.fontStyles.font[fontCounter].lineHeightMin,
       'font-family' : '"' + appz.fontStyles.font[fontCounter].name + '"',
       'color' : Init.randomColorChange(),
       'mix-blend-mode' : appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name
@@ -95,7 +88,11 @@ Mousetrap.bind("ctrl+[", function() {
 });
 
 Mousetrap.bind("ctrl+]", function() {
-  console.log('TEXT: RESIZE??');
-  TweenMax.to(".textOverlayContainer h1", beatTime/1000, {opacity:0, scale: 8});
-  TweenMax.to(".textOverlayContainer h1", beatTime/1000, {opacity:1, scale: 1, delay:beatTime/1000});
+  console.log('TEXT: FX');
+  var tl = new TimelineMax({repeat:-1, repeatDelay:0});
+  tl.to(".textOverlayContainer h1", beatTime/1000, {scale: 1.25, skewY: 12, rotationY: 360 });
+});
+
+Mousetrap.bind("ctrl+\\", function() {
+  console.log('ClEAR SOMETHING');
 });
