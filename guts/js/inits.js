@@ -17,6 +17,9 @@ var giyTriggerArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','
 // Declarations
 var bankLocation = "url(../../Bins/";
 var bgCenter = ".gif) center center";
+
+var stageArray = [{'background-position':'center', 'background-size':'cover', 'backgroundRepeat':'no-repeat'}, {'background-position':'center', 'background-size':'auto', 'backgroundRepeat':'repeat'}];
+
 var enabledBanksArray = [];
 var bankSelectKeyArray = [')','!','@','#','$','%','^','&','*','('];
 var enabledSequenceTriggers = [];

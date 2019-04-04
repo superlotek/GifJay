@@ -160,14 +160,30 @@ const Play = {
         return;
       }
 
+        if (scenePauseOn) {
+          // gifSelectorS1 = pausedStg1;
+          // gifSelectorS2 = pausedStg2;
+          // bankSelectorS1 = pausedBankStg1;
+          // bankSelectorS2 = pausedBankStg2;
+          return;
+        }
+
+
       $(s1).css('background', bankLocation + selectedSequence.scene[curSequencerIndex].gifs[0].location + selectedSequence.scene[curSequencerIndex].gifs[0].name + bgCenter);
       $(s2).css('background', bankLocation + selectedSequence.scene[curSequencerIndex].gifs[1].location + selectedSequence.scene[curSequencerIndex].gifs[1].name + bgCenter);
+      // vleep = Init.randomizer(stageArray);
+      // console.log(vleep);
+      $(s1).css(Init.randomizer(stageArray));
+      $(s2).css(Init.randomizer(stageArray));
 
       ++curSequencerIndex;
 
       if (curSequencerIndex == (seqNum)) {
         curSequencerIndex = 0
       }
+
+
+      if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
       break;
 

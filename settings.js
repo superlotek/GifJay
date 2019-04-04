@@ -7,7 +7,7 @@ const appz = {
 	"startupBankNumber" : 0,
 	"startupBankTrigger" : "a",
 
-	"stageArray" : ['sf', 'st'],
+	// "stageArray" : ['sf', 'st'],
 	"blendModeArray" : ['screen','overlay'],
 
 	"fontStyles" : ["Baloo Chettan", "Germania One", "Fascinate Inline", "Monoton", "Press Start 2P", "Spicy Rice"],

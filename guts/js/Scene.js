@@ -11,6 +11,11 @@ function sceneSetter(arrayName, banker1, banker2) {
   bankBuilderS1 = [];
   bankBuilderS2 = [];
 
+
+  if (sequencerOn) {
+    console.log('SAY HELLO');
+  }
+
   if (setOn) {
     gifSelectorS1 = Init.randomizer(setArray);
     gifSelectorS2 = Init.randomizer(setArray);
@@ -104,12 +109,12 @@ function sceneSetter(arrayName, banker1, banker2) {
         if (stgSelect == "all") {
           $(s1).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
           $(s2).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-          $(s1).add(s2).css(this[Init.randomizer(appz.stageArray)]);
+          $(s1).add(s2).css(this[Init.randomizer(stageArray)]);
         } else {
           $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
           $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-          $(stgNotSelected).css(this[Init.randomizer(appz.stageArray)]);
-          $(stgSelect).css(this[Init.randomizer(appz.stageArray)]);
+          $(stgNotSelected).css(Init.randomizer(stageArray));
+          $(stgSelect).css(Init.randomizer(stageArray));
         }
 
         if (sceneFullscreenOn) { Scene.screenFullscreen(); }
@@ -132,8 +137,8 @@ function sceneSetter(arrayName, banker1, banker2) {
         // SET THE SCENE
         $(s1).css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter });
         $(s2).css({'background':bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter });
-        $(s1).css(this[Init.randomizer(appz.stageArray)]);
-        $(s2).css(this[Init.randomizer(appz.stageArray)]);
+        $(s1).css(Init.randomizer(stageArray));
+        $(s2).css(Init.randomizer(stageArray));
 
         if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
