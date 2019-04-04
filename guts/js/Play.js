@@ -139,6 +139,14 @@ const Play = {
       console.log('curSequencerIndex', curSequencerIndex);
       console.log(seqNum);
 
+      if (randomOn) {
+        rando = Init.numRan(seqNum);
+        console.log("rando", rando);
+        $(s1).css('background', bankLocation + selectedSequence.scene[rando].gifs[0].location + selectedSequence.scene[rando].gifs[0].name + bgCenter);
+        $(s2).css('background', bankLocation + selectedSequence.scene[rando].gifs[1].location + selectedSequence.scene[rando].gifs[1].name + bgCenter);
+        return;
+      }
+
       $(s1).css('background', bankLocation + selectedSequence.scene[curSequencerIndex].gifs[0].location + selectedSequence.scene[curSequencerIndex].gifs[0].name + bgCenter);
       $(s2).css('background', bankLocation + selectedSequence.scene[curSequencerIndex].gifs[1].location + selectedSequence.scene[curSequencerIndex].gifs[1].name + bgCenter);
 

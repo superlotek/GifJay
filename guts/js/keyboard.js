@@ -500,6 +500,18 @@ function enableOverlays() {
     console.log("---------------------------------");
   });
 
+  Mousetrap.bind("ctrl+;", function() {
+    if(!randomOn) {
+      console.log('RANDOM: ON');
+      randomOn = !randomOn;
+    } else {
+      console.log('RANDOM: OFF');
+      randomOn = !randomOn;
+    }
+    console.log("---------------------------------");
+  });
+
+
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** ROBOMODE ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

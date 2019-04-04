@@ -132,6 +132,7 @@ var curSequencerIndex = 0;
 var selectedSequence = {};
 var storyModeOn = 0;
 var setOn = 0;
+var randomOn = 0;
 
 // RoboMode
 var lastClick = 0;
