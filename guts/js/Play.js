@@ -185,6 +185,14 @@ const Play = {
       }
 
       // console.log("samplerIndex : " + samplerIndex);
+
+      if (randomOn) {
+        console.log('RANDOM ON???');
+        samplerIndex = Init.numRan(sampledScenes.scene.length);
+      } else {
+        smpldScn = sampledScenes.scene[samplerIndex];
+      }
+
       smpldScn = sampledScenes.scene[samplerIndex];
 
       if (kaleidoscopeOn) {
