@@ -128,7 +128,8 @@ bankerSetStorage = {};
 bankerSetStorage.scenes = [];
 
 var sequencerOn = 0;
-var curSequencerIndex;
+var curSequencerIndex = 0;
+var selectedSequence = {};
 var storyModeOn = 0;
 var setOn = 0;
 

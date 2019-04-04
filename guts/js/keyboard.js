@@ -482,16 +482,7 @@ function enableOverlays() {
       $(s1).add(s2).css('filter','none');
     });
 
-  // SEQUENCER ON/OFF [ SHIFT ] + [ ; ]
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-  // Mousetrap.bind('"', function() {
-  //   sequencerOn = 0;
-  //   curSequencerIndex = -1;
-  //   console.log('SEQUENCER STOP!!');
-  // });
-
-// SEQUENCER > STORY MODE ON/OFF [ SHIFT ] + [ ' ]
+  // SEQUENCER TOGGLE ON/OFF [ SHIFT ] + [ ; ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
   Mousetrap.bind("alt+;", function() {
@@ -850,19 +841,21 @@ function GiyTriggers() {
 function createSequenceTriggers() {
   var enabledSequences = [];
   var enabledSequenceTriggers = [];
-  console.log('SELECTING ENABLED SEQUENCES');
+  console.log('CREATING ENABLED SEQUENCES', "\n---------------------------------");
   appz.sequence.forEach(function(element, index) {
     if (element.enabled === true) {
       enabledSequences.push(element);
       enabledSequenceTriggers.push(element.trigger);
     }
   });
-  console.log('enabledSequencesArray: ', enabledSequences);
-  console.log('enabledSequenceTriggers: ', enabledSequenceTriggers);
+  // console.log('enabledSequencesArray: ', enabledSequences);
+  // console.log('enabledSequenceTriggers: ', enabledSequenceTriggers);
 
   for ( let i = 0; i < enabledSequenceTriggers.length; i++) {
     Mousetrap.bind("ctrl+" + enabledSequenceTriggers[i], function() {
-      console.log("SEQUENCE CLICKED " + enabledSequenceTriggers[i], enabledSequences[i].name );
+      console.log("SEQUENCE SELECTED: " + enabledSequenceTriggers[i].toUpperCase(), "/", enabledSequences[i].name, "\n---------------------------------");
+      selectedSequence = enabledSequences[i];
+      curSequencerIndex = 0;
     });
   }
 }
