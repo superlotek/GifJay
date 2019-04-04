@@ -57,6 +57,19 @@ const Play = {
       bankSelectorS1 = Init.randomizer(bankerArray); bankSelectorS2 = Init.randomizer(bankerArray);
       sceneSetter(bankerArray,bankSelectorS1,bankSelectorS2);
 
+    } else if (sequencerOn) {
+
+      console.log('STAGEFLIP: SEQUENCER');
+      seqNum = selectedSequence.scene.length;
+
+      $(s1).css('background', bankLocation + selectedSequence.scene[curSequencerIndex].gifs[0].location + selectedSequence.scene[curSequencerIndex].gifs[0].name + bgCenter);
+      $(s2).css('background', bankLocation + selectedSequence.scene[curSequencerIndex].gifs[1].location + selectedSequence.scene[curSequencerIndex].gifs[1].name + bgCenter);
+      ++curSequencerIndex;
+      if (curSequencerIndex == (seqNum)) {
+        curSequencerIndex = 0
+      }
+
+
     } else if (setOn) {
 
       // console.log('SET BANK: ' + setBank.toUpperCase);
