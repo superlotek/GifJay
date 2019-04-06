@@ -1,4 +1,39 @@
+function displayToggle(overlay) {
+	console.log('anything happenign here');
+	console.log(overlay);
+	$(overlay).toggle();
+}
+
+function changeBlend(overlay) {
+	console.log('BLEND MODE FUNC');
+	console.log(overlay);
+	$(overlay).css({'mix-blend-mode' : 'difference'});
+}
+
+function changeFilter(overlay) {
+	console.log('BLEND MODE FUNC');
+	console.log(overlay);
+	$(overlay).css({'filter' : 'saturate(100)'});
+}
+
+
 const appz = {
+
+
+	someFunction : function() {
+		alert('H!! SOME FUNCTION');
+	},
+
+	anotherFunction : function() {
+		alert('H!! ANOTHER FUNCTION');
+	},
+
+	// displayToggle : function(overlay) {
+	// 	console.log('anything happenign here');
+	// 	console.log(overlay);
+	// 	$(overlay).toggle();
+	// },
+
 	"midiOn" : false,
 	"defaultBeatTime" : 2000,
 	"beatSpeed": 1000,
@@ -28,11 +63,34 @@ const appz = {
 			"name" : "Overlay",
 			"trigger" : "{",
 			"enabled" : true,
+			"id" : "#overlays",
 			"features" : [
-				{ "name" : "display", "trigger" : "", "properties" : ["on", "off"]},
-				{ "name" : "blends", "trigger" : "", "properties" : ["difference", "screen", "overlay"]},
-				{ "name" : "filters", "trigger" : "", "properties" : ["saturation", "hue-rotate", "inverse"]},
-				{ "name" : "transforms", "trigger" : "", "properties" : ["rotate", "scale", "3d"]}
+				{
+					"name" : "display",
+					"trigger" : "",
+					"properties" : ["on", "off"],
+					"func" : displayToggle,
+					"param" : "#overlays"
+				},
+				{
+					"name" : "blends",
+					"trigger" : "",
+					"properties" : ["difference", "screen", "overlay"],
+					"func" : changeBlend,
+					"param" : "#overlays"
+				},
+				{
+					"name" : "filters",
+					"trigger" : "",
+					"properties" : ["saturation", "hue-rotate", "inverse"],
+					"func" : changeFilter,
+					"param" : "#overlays"
+				},
+				{
+					"name" : "transforms",
+					"trigger" : "",
+					"properties" : ["rotate", "scale", "3d"]
+				}
 			]
 		},
 		{ 

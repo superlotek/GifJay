@@ -16,10 +16,13 @@ var textOverlayFormString =
     <input id="textOverlaySubmit" type="submit" />\
   </form>';
 
+var inFeatures = 0;
+var inProperties = 0;
 var modeCounter = 0;
 var featuresCounter = 0;
 var propertyCounter = 0;
 
+// ===== MODE =====
 var modeLength = appz.modes.length;
 for (let i = 0; i < modeLength; i++) {
   Mousetrap.bind(appz.modes[i].trigger, function() {
@@ -28,90 +31,68 @@ for (let i = 0; i < modeLength; i++) {
     mode = appz.modes[modeCounter].name;
     console.log("MODE SELECT: " + mode.toUpperCase());
     featuresCounter = 0;
+    propertyCounter = 0;
+    inFeatures = 0;
+    inProperties = 0;
   });
-
 }
 
-// Mousetrap.bind(appz.modes[0].trigger, function() {
-//   modeCounter = 0;
-//   console.log(appz.modes[modeCounter].name.toUpperCase() + ": SELECT");
-//   mode = appz.modes[modeCounter].name;
-// });
-
-// Mousetrap.bind(appz.modes[1].trigger, function() {
-//   modeCounter = 1;
-//   console.log(appz.modes[1].name.toUpperCase() + ": SELECT");
-//   mode = appz.modes[modeCounter].name;
-// });
-
-// Mousetrap.bind(appz.modes[2].trigger, function() {
-//   modeCounter = 2;
-//   console.log(appz.modes[modeCounter].name.toUpperCase() + ": SELECT");
-//   mode = appz.modes[modeCounter].name;
-// });
-
+// ===== FEATURE =====
 Mousetrap.bind("alt+[", function() {
-  // console.log('MODE: ' + mode);
   var featuresLength = appz.modes[modeCounter].features.length;
   console.log("------------------------------");
   console.log(mode.toUpperCase() + " FEATURES CYCLER (" + featuresLength + ")");
-  console.log('FEATURES COUNTER: ' + featuresCounter);
-  console.log("FEATURE SELECTED: " + appz.modes[modeCounter].features[featuresCounter].name.toUpperCase());
-
-  // console.log("# OF FEATURES: " + featuresLength);
-
-  featuresCounter = (featuresCounter+1)%(featuresLength);
-  propertyCounter = 0;
-
-
-    // var featuresLength = appz.modes[0].features.length;
-
-
-  // if (mode == appz.modes[0].name) {
-  //   console.log("MODE: " + appz.modes[0].name.toUpperCase() + " / FEATURES CYCLER");
-  //   // var featuresLength = appz.modes[0].features.length;
-  //   console.log("# OF FEATURES: " + featuresLength);
-  //   console.log(appz.modes[0].features[featuresCounter].name, '\n-----------------');
-  //   // modeCounter = (modeCounter+1)%(featuresLength);
-  // }
-  // if (mode == appz.modes[1].name) {
-  //   console.log("MODE: " + appz.modes[1].name.toUpperCase() + " / FEATURES CYCLER");
-  //   // var featuresLength = appz.modes[1].features.length;
-  //   console.log("# OF FEATURES: " + appz.modes[1].features.length);
-  //   console.log(appz.modes[1].features[featuresCounter].name);
-  // }
-  // if (mode == appz.modes[2].name) {
-  //   console.log("MODE: " + appz.modes[2].name.toUpperCase() + " / FEATURES CYCLER");
-  //   // var featuresLength = appz.modes[2].features.length;
-  //   console.log("# OF FEATURES: " + appz.modes[2].features.length);
-  //   console.log(appz.modes[2].features[featuresCounter].name);
-  // }
-  // featuresCounter = (featuresCounter+1)%(featuresLength);
-
+  if (!inFeatures) {
+    console.log('HELLO, FIRST TIME TO FEATURES!!');
+    inFeatures = !inFeatures;
+    propertyCounter = 0;
+    console.log('FEATURES COUNTER: ' + featuresCounter);
+    console.log("FEATURE SELECTED: " + appz.modes[modeCounter].features[featuresCounter].name.toUpperCase());
+  } else {
+    featuresCounter = (featuresCounter+1)%(featuresLength);
+    console.log('HEY, Youve been here before');
+    console.log('FEATURES COUNTER: ' + featuresCounter);
+    console.log("FEATURE SELECTED: " + appz.modes[modeCounter].features[featuresCounter].name.toUpperCase());
+  }
 });
 
+// ===== PROPERTY =====
 Mousetrap.bind("alt+]", function() {
-  console.log("PROPERTIES: SELECTED");
-  console.log('modeCounter: ' + modeCounter);
-  console.log('featuresCounter: ' + featuresCounter);
-  console.log('propertyCounter: ' + propertyCounter)
-  console.log("MODE: " + appz.modes[modeCounter].name.toUpperCase() + " / PROPERTY CYCLER");
+      console.log('PROPERTY COUNTER: ' + propertyCounter);
+
   var propertyLength = appz.modes[modeCounter].features[featuresCounter].properties.length;
-  console.log("# OF PROPERTIES: " + propertyLength);
-  console.log(appz.modes[modeCounter].features[featuresCounter].properties[propertyCounter]);
-    console.log("------------------------------");
-  propertyCounter = (propertyCounter+1)%(propertyLength);
+  console.log("------------------------------");
+  console.log(mode.toUpperCase() + " / " + appz.modes[modeCounter].features[featuresCounter].name.toUpperCase() + " PROPERTIES CYCLER (" + propertyLength + ")");
+  if (!inProperties) {
+    console.log('HELLO, FIRST TIME TO PROPERTIES!!');
+    inProperties = !inProperties;
+    propertyCounter = 0;
+    console.log('PROPERTY COUNTER: ' + propertyCounter);
+    console.log("PROPERTY SELECTED: " + appz.modes[modeCounter].features[featuresCounter].properties[propertyCounter].toUpperCase());
+    console.log('modeCounter: ' + modeCounter);
+    console.log('featuresCounter: ' + featuresCounter);
+  } else {
+    propertyCounter = (propertyCounter+1)%(propertyLength);
+    console.log('HEY, Youve been here before');
+    console.log('PROPERTY COUNTER: ' + propertyCounter);
+    console.log("PROPERTY SELECTED: " + appz.modes[modeCounter].features[featuresCounter].properties[propertyCounter].toUpperCase());
+    console.log('modeCounter: ' + modeCounter);
+    console.log('featuresCounter: ' + featuresCounter);
+  }
 });
 
+// ===== DONE / SUBMIT =====
 Mousetrap.bind("alt+\\", function() {
-  console.log('modeCounter: ' + modeCounter);
-  console.log('featuresCounter: ' + featuresCounter);
-  console.log('propertyCounter: ' + propertyCounter)
-  console.log("MODE: " + appz.modes[modeCounter].name.toUpperCase() + " / PROPERTY CYCLER");
-    console.log("------------------------------");
-
-
-  alert(appz.modes[modeCounter].features[featuresCounter].properties[propertyCounter]);
+  console.log("------------------------------");
+  console.log('SUBMITTED / DONE');
+  // console.log('modeCounter: ' + modeCounter);
+  // console.log('featuresCounter: ' + featuresCounter);
+  // console.log('propertyCounter: ' + propertyCounter)
+  // console.log("MODE: " + appz.modes[modeCounter].name.toUpperCase() + " / PROPERTY CYCLER");
+  // appz.modes[modeCounter].features[featuresCounter].glip();
+  // appz.displayToggle('#overlays');
+  appz.modes[modeCounter].features[featuresCounter].func(appz.modes[modeCounter].id);
+  // alert(appz.modes[modeCounter].features[featuresCounter].properties[propertyCounter]);
 });
 
 // Mousetrap.bind("alt+[", function() {
