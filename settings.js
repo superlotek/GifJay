@@ -23,13 +23,63 @@ const appz = {
 		]
 	},
 
-	"textOverlays" : {
-		"phrase" : [
-			{ "text" : "Floppy Disco", "font" : "Press Start 2P", "color" : "green", "size" : "12vw", "lineHeight" : "18vh" },
-			{ "text" : "The Lunar Saloon", "font" : "Baloo Chettan", "color" : "pink", "size" : "14vw", "lineHeight" : "18vh" },
-			{ "text" : "KLBP 99.1 FM In Long Beach", "font" : "Monoton", "color" : "cyan", "size" : "12vw", "lineHeight" : "18vh" }
-		]
-	},
+	"modes" : [
+		{ 
+			"name" : "Overlay",
+			"trigger" : "{",
+			"enabled" : true,
+			"features" : [
+				{ "name" : "display", "trigger" : "", "properties" : ["on", "off"]},
+				{ "name" : "blends", "trigger" : "", "properties" : ["difference", "screen", "overlay"]},
+				{ "name" : "filters", "trigger" : "", "properties" : ["saturation", "hue-rotate", "inverse"]},
+				{ "name" : "transforms", "trigger" : "", "properties" : ["rotate", "scale", "3d"]}
+			]
+		},
+		{ 
+			"name" : "Text Overlay",
+			"trigger" : "}",
+			"enabled" : true,
+			"features" : [
+				{ "name" : "display", "trigger" : "", "properties" : ["on", "off"]},
+				{ "name" : "phrases", "trigger" : "", "properties" : ["hello", "goodbye"]},
+				{ "name" : "font", "trigger" : "", "properties" : ["courier", "helvetica", "arial"]},
+				{ "name" : "color", "trigger" : "", "properties" : ["red", "green", "blue"]},
+				{ "name" : "size", "trigger" : "", "properties" : ["small", "medium", "large"]},
+				{ "name" : "transforms", "trigger" : "", "properties" : ["rotate", "scale", "3d"]},
+				{ "name" : "entry", "trigger" : "", "properties" : ["custom"]}
+			]
+		},
+		{ 
+			"name" : "Shapes",
+			"trigger" : "|",
+			"enabled" : true,
+			"features" : [
+				{ "name" : "display", "trigger" : "", "properties" : ["on", "off"]},
+				{ "name" : "color", "trigger" : "", "properties" : ["red", "green", "blue"]},
+				{ "name" : "transforms", "trigger" : "", "properties" : ["rotate", "scale", "3d"]},
+				{ "name" : "patterns", "trigger" : "", "properties" : ["square", "circle"]},
+				{ "name" : "blends", "trigger" : "", "properties" : ["difference", "screen", "overlay"]},
+				{ "name" : "filters", "trigger" : "", "properties" : ["saturation", "hue-rotate", "inverse"]}
+
+			]
+		}
+	],
+
+	// "textOverlays" : {
+	// 	"phrase" : [
+	// 		{ "text" : "Floppy Disco", "font" : "Press Start 2P", "color" : "green", "size" : "12vw", "lineHeight" : "18vh" },
+	// 		{ "text" : "The Lunar Saloon", "font" : "Baloo Chettan", "color" : "pink", "size" : "14vw", "lineHeight" : "18vh" },
+	// 		{ "text" : "KLBP 99.1 FM In Long Beach", "font" : "Monoton", "color" : "cyan", "size" : "12vw", "lineHeight" : "18vh" }
+	// 	]
+	// },
+
+	// "textOverlayOptions" : {
+	// 	"feature" : [
+	// 		{ "name" : "phrases", "trigger" : "", "properties" : ["one", "two"]},
+	// 		{ "name" : "font", "trigger" : "", "properties" : ["one", "two"]},
+	// 		{ "name" : "color", "trigger" : "", "properties" : ["one", "two"]}
+	// 	]
+	// },
 
 	"blendModes" : {
 		"mix" : [
