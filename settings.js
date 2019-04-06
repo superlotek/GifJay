@@ -23,6 +23,14 @@ const appz = {
 		]
 	},
 
+	"textOverlays" : {
+		"phrase" : [
+			{ "text" : "Floppy Disco", "font" : "Press Start 2P", "color" : "green", "size" : "12vw", "lineHeight" : "18vh" },
+			{ "text" : "The Lunar Saloon", "font" : "Baloo Chettan", "color" : "pink", "size" : "14vw", "lineHeight" : "18vh" },
+			{ "text" : "KLBP 99.1 FM In Long Beach", "font" : "Monoton", "color" : "cyan", "size" : "12vw", "lineHeight" : "18vh" }
+		]
+	},
+
 	"blendModes" : {
 		"mix" : [
 			{ "name": "multiply", "trigger": "1", "enabled": true },

@@ -8,6 +8,7 @@ const Text = {
 };
 
 var fontCounter = 0;
+var phraseCounter = 0;
 var maxCharLimit = 20;
 var textOverlayFormString =
   '<form id="textOverlayForm">\
@@ -107,5 +108,23 @@ function colorChange() {
 }
 
 Mousetrap.bind("ctrl+\\", function() {
-  console.log('ClEAR SOMETHING');
+  console.log('PRESET PHRASE SELECTOR');
+  console.log(appz.textOverlays.phrase[phraseCounter].text);
+
+  $('.textOverlayContainer h1').css(
+    {
+      'font-family' : '"' + appz.textOverlays.phrase[phraseCounter].font + '"',
+      'color' : appz.textOverlays.phrase[phraseCounter].color,
+      'font-size' : appz.textOverlays.phrase[phraseCounter].size,
+      'line-height' : appz.textOverlays.phrase[phraseCounter].lineHeight,
+      'text-shadow' : Init.randomColorChange() + " 14px 14px ",
+      'mix-blend-mode' : appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name
+    }
+  );
+
+  textOverlayStringParsed = appz.textOverlays.phrase[phraseCounter].text;
+  $('.textOverlayContainer h1').html(appz.textOverlays.phrase[phraseCounter].text);
+  phraseCounter = (phraseCounter+1)%(appz.textOverlays.phrase.length);
+
+
 });
