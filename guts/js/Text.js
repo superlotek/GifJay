@@ -21,6 +21,7 @@ var inProperties = 0;
 var modeCounter = 0;
 var featuresCounter = 0;
 var propertyCounter = 0;
+var daProps = "";
 
 // ===== MODE =====
 var modeLength = appz.modes.length;
@@ -79,6 +80,7 @@ Mousetrap.bind("alt+]", function() {
     console.log('modeCounter: ' + modeCounter);
     console.log('featuresCounter: ' + featuresCounter);
   }
+  daProps = appz.modes[modeCounter].features[featuresCounter].properties[propertyCounter];
 });
 
 // ===== DONE / SUBMIT =====
@@ -91,7 +93,11 @@ Mousetrap.bind("alt+\\", function() {
   // console.log("MODE: " + appz.modes[modeCounter].name.toUpperCase() + " / PROPERTY CYCLER");
   // appz.modes[modeCounter].features[featuresCounter].glip();
   // appz.displayToggle('#overlays');
-  appz.modes[modeCounter].features[featuresCounter].func(appz.modes[modeCounter].id);
+  appz.modes[modeCounter].features[featuresCounter].func(
+    appz.modes[modeCounter].id,
+    appz.modes[modeCounter].features[featuresCounter].param,
+    appz.modes[modeCounter].features[featuresCounter].key,
+    appz.modes[modeCounter].features[featuresCounter].properties[propertyCounter]);
   // alert(appz.modes[modeCounter].features[featuresCounter].properties[propertyCounter]);
 });
 

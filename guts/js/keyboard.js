@@ -124,10 +124,13 @@ Mousetrap.bind('alt+,', function() {
   } else {
     console.log('BLEND MODES: OFF');
     blendModesOn = !blendModesOn;
+    overlaySelected = !overlaySelected;
     // $(s2).css('mix-blend-mode', 'screen');
     blendCounter = null;
     $(s1).css('mix-blend-mode', originalBlend[0].stage1);
     $(s2).css('mix-blend-mode', originalBlend[0].stage2);
+    $(ov).css('mix-blend-mode', originalBlend[0].stage2);
+
   }
 });
 

@@ -1,38 +1,49 @@
+daProps = "";
+var overlayOnBlends = 0;
+
 function displayToggle(overlay) {
 	console.log('anything happenign here');
 	console.log(overlay);
 	$(overlay).toggle();
 }
 
-function changeBlend(overlay) {
-	console.log('BLEND MODE FUNC');
-	console.log(overlay);
-	$(overlay).css({'mix-blend-mode' : 'difference'});
+function changeCss(overlay, object, key, props) {
+	console.log('CHANGE CSS FUNC');
+	console.log('daProps: ' + props);
+	$(overlay).css(object).css(key, props);
+
+	// $(overlay).css('mix-blend-mode', props);
 }
 
-function changeFilter(overlay) {
-	console.log('BLEND MODE FUNC');
-	console.log(overlay);
-	$(overlay).css({'filter' : 'saturate(100)'});
+function changeTransform(overlay, object, key, props) {
+	console.log('CHANGE TRANSFORM FUNC');
+	TweenMax.to(overlay, 2, object);
 }
+
+function overlaySelect(overlay, object, key, props) {
+	console.log('OVERLAY SELECT FUNC');
+	overlaySelected = 1;
+}
+
+
+function showTextOverlay(overlay, object, key, props) {
+	console.log('SHOW TEXT OVERLAY FUNC');
+	$(overlay).html(object).toggle();
+  $(overlay).css(
+    {
+      'font-family' : '"' + appz.textOverlays.phrase[1].font + '"',
+      'color' : appz.textOverlays.phrase[1].color,
+      'font-size' : appz.textOverlays.phrase[1].size,
+      'line-height' : appz.textOverlays.phrase[1].lineHeight,
+      'text-shadow' : Init.randomColorChange() + " 14px 14px ",
+      'mix-blend-mode' : appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name
+    }
+  );
+}
+
 
 
 const appz = {
-
-
-	someFunction : function() {
-		alert('H!! SOME FUNCTION');
-	},
-
-	anotherFunction : function() {
-		alert('H!! ANOTHER FUNCTION');
-	},
-
-	// displayToggle : function(overlay) {
-	// 	console.log('anything happenign here');
-	// 	console.log(overlay);
-	// 	$(overlay).toggle();
-	// },
 
 	"midiOn" : false,
 	"defaultBeatTime" : 2000,
@@ -44,8 +55,6 @@ const appz = {
 
 	"stageArray" : ['sf', 'st'],
 	"blendModeArray" : ['screen','overlay'],
-
-	// "fontStyles" : ["Baloo Chettan", "Germania One", "Fascinate Inline", "Monoton", "Press Start 2P", "Spicy Rice"],
 
 	"fontStyles" : {
 		"font" : [
@@ -68,28 +77,32 @@ const appz = {
 				{
 					"name" : "display",
 					"trigger" : "",
-					"properties" : ["on", "off"],
+					"properties" : [""],
 					"func" : displayToggle,
 					"param" : "#overlays"
 				},
 				{
 					"name" : "blends",
 					"trigger" : "",
-					"properties" : ["difference", "screen", "overlay"],
-					"func" : changeBlend,
-					"param" : "#overlays"
+					"properties" : ["multiply","darken","lighten","color-dodge","color-burn","hard-light","soft-light","difference", "exclusion","hue","saturation","color","luminosity"],
+					"func" : overlaySelect,
+					"key" : "",
+					"param" : {}
 				},
 				{
 					"name" : "filters",
 					"trigger" : "",
-					"properties" : ["saturation", "hue-rotate", "inverse"],
-					"func" : changeFilter,
-					"param" : "#overlays"
+					"properties" : ["saturate(100)", "hue-rotate(200deg)", "invert(1)"],
+					"func" : changeCss,
+					"key" : "filter",
+					"param" : {}
 				},
 				{
 					"name" : "transforms",
 					"trigger" : "",
-					"properties" : ["rotate", "scale", "3d"]
+					"properties" : ["rotate", "scale", "3d"],
+					"func" : changeTransform,
+					"param" : {'x' : '500', 'y' : '500'}
 				}
 			]
 		},
@@ -97,13 +110,40 @@ const appz = {
 			"name" : "Text Overlay",
 			"trigger" : "}",
 			"enabled" : true,
+			"id" : '.textOverlayContainer h1',
 			"features" : [
-				{ "name" : "display", "trigger" : "", "properties" : ["on", "off"]},
+				{
+					"name" : "display",
+					"trigger" : "",
+					"properties" : ["on", "off"],
+					"func" : showTextOverlay,
+					"param" : "Floppy Disco"
+				},
+				{
+					"name" : "blends",
+					"trigger" : "",
+					"properties" : ["difference", "screen", "overlay"],
+					"func" : changeCss,
+					"param" : {'mix-blend-mode' : 'propertySelected'}
+				},
+				{
+					"name" : "filters",
+					"trigger" : "",
+					"properties" : ["saturation", "hue-rotate", "inverse"],
+					"func" : changeCss,
+					"param" : {'filter' : 'saturate(100)'}
+				},
+				{
+					"name" : "transforms",
+					"trigger" : "",
+					"properties" : ["rotate", "scale", "3d"],
+					"func" : changeTransform,
+					"param" : {'x' : '500', 'y' : '500'}
+				},
 				{ "name" : "phrases", "trigger" : "", "properties" : ["hello", "goodbye"]},
 				{ "name" : "font", "trigger" : "", "properties" : ["courier", "helvetica", "arial"]},
 				{ "name" : "color", "trigger" : "", "properties" : ["red", "green", "blue"]},
 				{ "name" : "size", "trigger" : "", "properties" : ["small", "medium", "large"]},
-				{ "name" : "transforms", "trigger" : "", "properties" : ["rotate", "scale", "3d"]},
 				{ "name" : "entry", "trigger" : "", "properties" : ["custom"]}
 			]
 		},
@@ -112,24 +152,47 @@ const appz = {
 			"trigger" : "|",
 			"enabled" : true,
 			"features" : [
-				{ "name" : "display", "trigger" : "", "properties" : ["on", "off"]},
+				{
+					"name" : "display",
+					"trigger" : "",
+					"properties" : ["on", "off"],
+					"func" : displayToggle,
+					"param" : "#overlays"
+				},
+				{
+					"name" : "blends",
+					"trigger" : "",
+					"properties" : ["difference", "screen", "overlay"],
+					"func" : changeCss,
+					"param" : {'mix-blend-mode' : 'difference'}
+				},
+				{
+					"name" : "filters",
+					"trigger" : "",
+					"properties" : ["saturation", "hue-rotate", "inverse"],
+					"func" : changeCss,
+					"param" : {'filter' : 'saturate(100)'}
+				},
+				{
+					"name" : "transforms",
+					"trigger" : "",
+					"properties" : ["rotate", "scale", "3d"],
+					"func" : changeTransform,
+					"param" : {'x' : '500', 'y' : '500'}
+				},
 				{ "name" : "color", "trigger" : "", "properties" : ["red", "green", "blue"]},
-				{ "name" : "transforms", "trigger" : "", "properties" : ["rotate", "scale", "3d"]},
-				{ "name" : "patterns", "trigger" : "", "properties" : ["square", "circle"]},
-				{ "name" : "blends", "trigger" : "", "properties" : ["difference", "screen", "overlay"]},
-				{ "name" : "filters", "trigger" : "", "properties" : ["saturation", "hue-rotate", "inverse"]}
-
+				{ "name" : "patterns", "trigger" : "", "properties" : ["square", "circle"]}
 			]
 		}
 	],
 
-	// "textOverlays" : {
-	// 	"phrase" : [
-	// 		{ "text" : "Floppy Disco", "font" : "Press Start 2P", "color" : "green", "size" : "12vw", "lineHeight" : "18vh" },
-	// 		{ "text" : "The Lunar Saloon", "font" : "Baloo Chettan", "color" : "pink", "size" : "14vw", "lineHeight" : "18vh" },
-	// 		{ "text" : "KLBP 99.1 FM In Long Beach", "font" : "Monoton", "color" : "cyan", "size" : "12vw", "lineHeight" : "18vh" }
-	// 	]
-	// },
+	"textOverlays" : {
+		"phrase" : [
+			{ "text" : "Floppy Disco", "font" : "Press Start 2P", "color" : "green", "size" : "12vw", "lineHeight" : "18vh" },
+			{ "text" : "The Lunar Saloon", "font" : "Baloo Chettan", "color" : "pink", "size" : "14vw", "lineHeight" : "18vh" },
+			{ "text" : "KLBP 99.1 FM In Long Beach", "font" : "Monoton", "color" : "cyan", "size" : "12vw", "lineHeight" : "18vh" }
+		]
+	},
 
 	// "textOverlayOptions" : {
 	// 	"feature" : [
@@ -253,7 +316,7 @@ const appz = {
 			"id" : 1,
 			"trigger": "b",
 			"name" : "Backgrounds 2",
-			"enabled" : false,
+			"enabled" : true,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : '4thStreetVine/', 'name' : 'forbidden_world_hyperspace2', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : '4thStreetVine/', 'name' : 'forest-forgery-1-B-FX1_o', 'set': 'm'},
@@ -267,7 +330,7 @@ const appz = {
 			"id" : 2,
 			"trigger": "c",
 			"name" : "Backgrounds 3",
-			"enabled" : false,
+			"enabled" : true,
 			"gifs" : [
 				{ 'trigger' : 'q', 'location' : 'JapaneseAnims/', 'name' : 'japan_FileJul1814555AM', 'set': 'm'},
 				{ 'trigger' : 'w', 'location' : 'JapaneseAnims/', 'name' : 'japan_FileJul184611AM', 'set': 'm'},

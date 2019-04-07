@@ -54,6 +54,7 @@ const Filter = {
 
     if (overlaySelected) {
       $(ov).css('mix-blend-mode', appz.blendModes.mix[blendCounter].name);
+      return;
     }
 
     if (textOn) {
