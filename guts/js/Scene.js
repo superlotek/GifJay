@@ -109,7 +109,7 @@ function sceneSetter(arrayName, banker1, banker2) {
         if (stgSelect == "all") {
           $(s1).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
           $(s2).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);
-          $(s1).add(s2).css(this[Init.randomizer(stageArray)]);
+          $(s1).add(s2).css(Init.randomizer(stageArray));
         } else {
           $(stgSelect).css('background', bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter);
           $(stgNotSelected).css('background', bankLocation + gifSelectorS2.location + gifSelectorS2.gif + bgCenter);

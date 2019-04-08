@@ -832,7 +832,7 @@ function GiyTriggers() {
         'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
       });
       if (sceneFullscreenOn) { Scene.screenFullscreen(); return false; }
-      $(s1).css(this[Init.randomizer(appz.stageArray)]);
+      $(s1).css(Init.randomizer(stageArray));
     });
 
     Mousetrap.bind(singleBankTriggerArray[index].trigger.toUpperCase(), function() {
@@ -843,7 +843,7 @@ function GiyTriggers() {
         'background': bankLocation + singleBankTriggerArray[index].location + singleBankTriggerArray[index].name + bgCenters
       });
       if (sceneFullscreenOn) { Scene.screenFullscreen(); return false; }
-      $(s2).css(this[Init.randomizer(appz.stageArray)]);
+      $(s2).css(Init.randomizer(stageArray));
     });
     // createGiyTriggers(0)
   });

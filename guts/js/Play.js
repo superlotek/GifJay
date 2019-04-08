@@ -237,7 +237,7 @@ const Play = {
           'background-size' : smpldScn.stages[1].size
         });
         $(s2).css('background', 'none !important');
-        $(s2 + '.kaleidoscope').css('mix-blend-mode', Init.randomizer(blendModeArray));
+        $(s2 + '.kaleidoscope').css('mix-blend-mode', Init.randomizer(appz.blendModeArray));
         $(s1 + '.kaleidoscope > div').add(s2 + '.kaleidoscope > div').css(sf);
 
       } else {
