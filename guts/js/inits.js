@@ -96,6 +96,7 @@ var stgFadeOn = 0;
 var stageFlipOn = 0;
 var sameSameOn = 0;
 var switcherooOn = 0;
+var mutatorOn = 0;
 
 // FILTERS
 // var invertOn = 0;

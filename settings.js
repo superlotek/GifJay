@@ -97,6 +97,7 @@ const appz = {
 
 	"effects": {
 		"kaleidoscope": { "name": 'kaleidoscope', "enabled": true, "trigger": "1" },
+		"mutator": { "name": 'mutator', "enabled": true, "trigger": "2" },
 		"sameSame": { "name": 'sameSame', "enabled": true, "trigger": "3" },
 		"stgFade": { "name": 'stgFade', "enabled": true, "trigger": "4" },
 	},

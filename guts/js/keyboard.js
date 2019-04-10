@@ -84,6 +84,32 @@
     });
   }
 
+  // MUTATOR
+  if(appz.effects.mutator.enabled) {
+    Mousetrap.bind(appz.effects.mutator.trigger, function() {
+      if(!mutatorOn) {
+        console.log('FX: MUTATOR ON');
+        mutatorOn = !mutatorOn;
+        Mousetrap.trigger("'");
+        Mousetrap.trigger("ctrl+'");
+        Mousetrap.trigger('alt+/');
+        prevStgSelect = stgSelect;
+      } else {
+        console.log('FX: MUTATOR OFF');
+        mutatorOn = !mutatorOn;
+        Mousetrap.trigger('"');
+        Mousetrap.trigger("ctrl+'");
+        Mousetrap.trigger('alt+/');
+        Mousetrap.trigger('~');
+        if (kaleidoscopeOn) { console.log('kALEID');Mousetrap.trigger('1') }
+        if (sameSameOn) { console.log('SAMESAME');Mousetrap.trigger('3') }
+        if (stgFadeOn) { console.log('STFFADE');Mousetrap.trigger('4') }
+        stgSelect = prevStgSelect;
+      }
+    });
+  }
+
+
   function filterBuild() {
     console.log('FILTERS: SETUP', "\n---------------------------------");
     for (let i=0; i < filters.filter.length; i++) {

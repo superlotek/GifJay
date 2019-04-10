@@ -59,6 +59,32 @@ const Effects = {
           var beatz = beatTime/appz.beatSpeed;
           $(s2).css('animation-duration', beatz * appz.sameSameConstant + 's');
       // }
-    }
+    },
 
+  // FX : MUTATOR
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+    mutator() {
+      var durpo = [s1, s2, 'all'];
+
+      if (mutatorOn) {
+        console.log('MUTATOR RUNNING');
+        stgSelect = Init.randomizer(durpo);
+        console.log(stgSelect);
+        Math.random(1) > 0.5 ? Mousetrap.trigger('1') : null;
+        Math.random(1) > 0.5 ? Mousetrap.trigger('4') : null;
+        Math.random(1) > 0.5 ? Mousetrap.trigger('3') : null;
+        Math.random(1) > 0.5 ? Mousetrap.trigger('6') : null;
+        Math.random(1) > 0.5 ? Mousetrap.trigger('7') : null;
+        Math.random(1) > 0.5 ? Mousetrap.trigger('8') : null;
+        Math.random(1) > 0.5 ? Mousetrap.trigger('9') : null;
+        Math.random(1) > 0.5 ? Mousetrap.trigger('[') : null;
+      } else {
+        console.log('MUTATOR TURNING DOWN');
+        if (kaleidoscopeOn) { console.log('kALEID');Mousetrap.trigger('1') }
+        if (sameSameOn) { console.log('SAMESAME');Mousetrap.trigger('3') }
+        if (stgFadeOn) { console.log('STFFADE');Mousetrap.trigger('4') }
+        return;
+      }
+    }
 };

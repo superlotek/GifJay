@@ -35,6 +35,7 @@ const Play = {
       } else { this.playMode('default');
     }
 
+    if(mutatorOn) { Effects.mutator(); }
     if(stgFadeOn) { Effects.stgFade(); }
     if(sameSameOn) { Effects.sameSame(); }
 
