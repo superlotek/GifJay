@@ -90,16 +90,17 @@
       if(!mutatorOn) {
         console.log('FX: MUTATOR ON');
         mutatorOn = !mutatorOn;
-        Mousetrap.trigger("'");
-        Mousetrap.trigger("ctrl+'");
+        // Mousetrap.trigger("'");
+        // Mousetrap.trigger("ctrl+'");
         Mousetrap.trigger('alt+/');
         prevStgSelect = stgSelect;
       } else {
         console.log('FX: MUTATOR OFF');
         mutatorOn = !mutatorOn;
-        Mousetrap.trigger('"');
-        Mousetrap.trigger("ctrl+'");
+        // Mousetrap.trigger('"');
+        // Mousetrap.trigger("ctrl+'");
         Mousetrap.trigger('alt+/');
+        stgSlect = 'all';
         Mousetrap.trigger('~');
         if (kaleidoscopeOn) { console.log('kALEID');Mousetrap.trigger('1') }
         if (sameSameOn) { console.log('SAMESAME');Mousetrap.trigger('3') }

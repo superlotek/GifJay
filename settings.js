@@ -489,6 +489,40 @@ const appz = {
 				{ 'trigger' : 'q', 'location' : 'ClubSurge/HuntingForPearls/', 'name' : '2019-04-0401.41.13', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'ClubSurge/HuntingForPearls/', 'name' : '2019-04-0401.43.26', 'set': 'm'},
 			]
-		}
+		},
+		{
+			"id" : 14,
+			"trigger": "o",
+			"name" : "Action USA",
+			"enabled" : true,
+			"sequencer" : true,
+			"gifs" : [
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.11.53', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.14.21', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.14.48', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.17.00', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.18.02', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.18.42', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.20.26', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.21.38', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.22.21', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.23.09', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.24.52', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.26.40', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.27.42', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.28.49', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.30.48', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.34.30', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.36.04', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.38.01', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.38.36', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.40.37', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.43.33', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.46.02', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.48.02', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-1101.50.03', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'ActionUSA/', 'name' : 'actionUSA_2019-04-11201.32.47', 'set': 'm'}
+			]
+		},
 	]
 }
