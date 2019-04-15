@@ -542,6 +542,23 @@ const appz = {
 				{ 'trigger' : 'q', 'location' : 'Matter/', 'name' : 'matterOne_2019-04-1300.46.07_t', 'set': 'm'},
 				{ 'trigger' : 'q', 'location' : 'Matter/', 'name' : 'matterOne_2019-04-1300.46.55_t', 'set': 'm'}
 			]
+		},
+		{
+			"id" : 16,
+			"trigger": "q",
+			"name" : "Matter Two",
+			"enabled" : true,
+			"sequencer" : true,
+			"gifs" : [
+				{ 'trigger' : 'q', 'location' : 'Matter/', 'name' : 'matterTwo_2019-04-13-15.11.23_t', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Matter/', 'name' : 'matterTwo_2019-04-13-15.12.09_t', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Matter/', 'name' : 'matterTwo_2019-04-13-15.17.55_2t', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Matter/', 'name' : 'matterTwo_2019-04-13-15.17.55_t', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Matter/', 'name' : 'matterTwo_2019-04-14-01.27.54', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Matter/', 'name' : 'matterTwo_2019-04-14-01.27.54_t', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Matter/', 'name' : 'matterTwo_2019-04-14-16.35.15', 'set': 'm'},
+				{ 'trigger' : 'q', 'location' : 'Matter/', 'name' : 'matterTwo_2019-04-14-16.35.15_t', 'set': 'm'},
+			]
 		}
 	]
 }
