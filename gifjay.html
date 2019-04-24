@@ -24,15 +24,23 @@
     <script src="guts/js/Filter.js"></script>
     <script src="guts/js/Effects.js"></script>
     <script src="guts/js/Text.js"></script>
+    <script src="guts/js/maptastic.min.js"></script>
+
 
   </head>
 
   <body>
-    <div class="scene">
-        <div class="stage-one"></div>
-        <div class="stage-two"></div>
+    <div class="scene" id="scene">
+        <div id="s1" class="stage-one"></div>
+        <div id="s2" class="stage-two"></div>
         <div id="overlays"></div>
         <div class="text"><h1></h1></div>
     </div>
+
+    <script>
+  		Maptastic("s1", "s2");
+  	</script>
+
+
   </body>
 </html>
