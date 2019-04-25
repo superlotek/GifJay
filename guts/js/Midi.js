@@ -61,34 +61,79 @@ function handleMIDIMessage(event){
 // }
 
 
+if (event.data[1] == 99) {
+  Mousetrap.trigger("<");
+}
+
+if (event.data[1] == 98) {
+  Mousetrap.trigger(">");
+}
+
+if (event.data[1] == 127) {
+  Mousetrap.trigger("alt+ctrl+esc");
+}
+
+if (event.data[1] == 101) {
+  Mousetrap.trigger(",");
+}
+if (event.data[1] == 102) {
+  Mousetrap.trigger(".");
+}
+if (event.data[1] == 100) {
+  Mousetrap.trigger("/");
+}
+if (event.data[1] == 146) {
+  Mousetrap.trigger(",");
+}
+if (event.data[1] == 102) {
+  Mousetrap.trigger(".");
+}
+if (event.data[1] == 100) {
+  Mousetrap.trigger("/");
+}
 if (event.data[1] == 48) {
-  console.log('GIF TWIST');
-  var numberOfGifs = banks.bank[0].gifs.length - 1;
-  ogValue = 127 / numberOfGifs;
-  var glrp = Math.floor(event.data[2] / ogValue);
-  console.log(glrp);
-  cacheBuster =  new Date().getTime();
-  bgCenters = ".gif?) center center";
-
-  $(s1).css({
-    'background': bankLocation + singleBankTriggerArray[glrp].location + singleBankTriggerArray[glrp].name + bgCenters
-  });
+  Mousetrap.trigger("1");
 }
-
 if (event.data[1] == 49) {
-  console.log('BLEND MODES');
-  // console.log(event.data[2]);
-  var numberOfBlendModes = blendModeSwitcherArray.length - 1;
-  ogValue = 127 / numberOfBlendModes;
-  var glrp = Math.floor(event.data[2] / ogValue);
-  console.log(blendModeSwitcherArray[glrp]);
-  // cacheBuster =  new Date().getTime();
-  bgCenters = ".gif?) center center";
-
-  $(s2).css({
-    'mix-blend-mode' : blendModeSwitcherArray[glrp]
-  });
+  Mousetrap.trigger("2");
 }
+if (event.data[1] == 50) {
+  Mousetrap.trigger("3");
+}
+if (event.data[1] == 51) {
+  Mousetrap.trigger("4");
+}
+
+
+
+// if (event.data[1] == 48) {
+//   console.log('GIF TWIST');
+//   var numberOfGifs = banks.bank[0].gifs.length - 1;
+//   ogValue = 127 / numberOfGifs;
+//   var glrp = Math.floor(event.data[2] / ogValue);
+//   console.log(glrp);
+//   cacheBuster =  new Date().getTime();
+//   bgCenters = ".gif?) center center";
+//
+//   $(s1).css({
+//     'background': bankLocation + singleBankTriggerArray[glrp].location + singleBankTriggerArray[glrp].name + bgCenters
+//   });
+// }
+//
+// if (event.data[1] == 49) {
+//   console.log('BLEND MODES');
+//   // console.log(event.data[2]);
+//   var numberOfBlendModes = blendModeSwitcherArray.length - 1;
+//   ogValue = 127 / numberOfBlendModes;
+//   var glrp = Math.floor(event.data[2] / ogValue);
+//   console.log(blendModeSwitcherArray[glrp]);
+//   // cacheBuster =  new Date().getTime();
+//   bgCenters = ".gif?) center center";
+//
+//   $(s2).css({
+//     'mix-blend-mode' : blendModeSwitcherArray[glrp]
+//   });
+// }
 
 
 
