@@ -113,6 +113,35 @@ function handleMIDIMessage(event){
 
   // console.log(event.data);
 
+  if (event.data[1] == 1) { Mousetrap.trigger("alt+q"); }
+  if (event.data[1] == 2) { Mousetrap.trigger("alt+w"); }
+  if (event.data[1] == 3) { Mousetrap.trigger("alt+e"); }
+  if (event.data[1] == 4) { Mousetrap.trigger("alt+r"); }
+  if (event.data[1] == 5) { Mousetrap.trigger("alt+t"); }
+  if (event.data[1] == 6) { Mousetrap.trigger("alt+y"); }
+  if (event.data[1] == 7) { Mousetrap.trigger("alt+u"); }
+  if (event.data[1] == 8) { Mousetrap.trigger("alt+i"); }
+  if (event.data[1] == 9) { Mousetrap.trigger("alt+o"); }
+  if (event.data[1] == 10) { Mousetrap.trigger("alt+p"); }
+  if (event.data[1] == 11) { Mousetrap.trigger("alt+a"); }
+  if (event.data[1] == 12) { Mousetrap.trigger("alt+s"); }
+  if (event.data[1] == 13) { Mousetrap.trigger("alt+d"); }
+  if (event.data[1] == 14) { Mousetrap.trigger("alt+f"); }
+  if (event.data[1] == 15) { Mousetrap.trigger("alt+g"); }
+  if (event.data[1] == 16) { Mousetrap.trigger("alt+h"); }
+  if (event.data[1] == 17) { Mousetrap.trigger("alt+j"); }
+  if (event.data[1] == 18) { Mousetrap.trigger("alt+k"); }
+  if (event.data[1] == 19) { Mousetrap.trigger("alt+l"); }
+  if (event.data[1] == 20) { Mousetrap.trigger("alt+z"); }
+  if (event.data[1] == 21) { Mousetrap.trigger("alt+x"); }
+  if (event.data[1] == 22) { Mousetrap.trigger("alt+c"); }
+  if (event.data[1] == 23) { Mousetrap.trigger("alt+v"); }
+  if (event.data[1] == 24) { Mousetrap.trigger("alt+b"); }
+  if (event.data[1] == 25) { Mousetrap.trigger("alt+n"); }
+  if (event.data[1] == 26) { Mousetrap.trigger("alt+m"); }
+
+
+
 
   if (event.data[1] == 99) { Mousetrap.trigger("<"); }
   if (event.data[1] == 98) { Mousetrap.trigger(">"); }
@@ -133,9 +162,35 @@ function handleMIDIMessage(event){
 
   if (event.data[1] == 52) { Mousetrap.trigger("7"); }
   if (event.data[1] == 53) { Mousetrap.trigger("8"); }
+
+if (event.data[1] == 57) {
+  // saturateString = "saturate(" + Math.floor(appz.filters.filter[1].max / event.data[2] * 100) + ")";
+  var string = "saturate(" + event.data[2] + ")";
+  $(stgSelect).css('-webkit-filter', string);
+  console.log(event.data[2]);
+}
+if (event.data[1] == 58) {
+  // saturateString = "saturate(" + Math.floor(appz.filters.filter[1].max / event.data[2] * 100) + ")";
+  var string = "hue-rotate(" + event.data[2] * 3.6 + "deg)";
+  $(stgSelect).css('-webkit-filter', string);
+  console.log(event.data[2]);
+}
+if (event.data[1] == 59) {
+  // saturateString = "saturate(" + Math.floor(appz.filters.filter[1].max / event.data[2] * 100) + ")";
+  var string = "blur(" + event.data[2] / appz.filters.filter[3].max + "px)";
+  $(stgSelect).css('-webkit-filter', string);
+  console.log(event.data[2]);
+}
+
+
+
   if (event.data[1] == 54) { Mousetrap.trigger("9"); }
   if (event.data[1] == 55) { Mousetrap.trigger("0"); }
   if (event.data[1] == 56) { Mousetrap.trigger("~"); }
+
+  if (event.data[1] == 60) { Mousetrap.trigger("alt+,"); }
+  if (event.data[1] == 61) { Mousetrap.trigger("alt+."); }
+  if (event.data[1] == 62) { Mousetrap.trigger("alt+/"); }
 
   if (event.data[1] == 70) { Mousetrap.trigger("-"); }
   if (event.data[1] == 71) { Mousetrap.trigger("="); }
@@ -144,7 +199,8 @@ function handleMIDIMessage(event){
   if (event.data[1] == 80) { Mousetrap.trigger("]"); }
   if (event.data[1] == 81) { Mousetrap.trigger("["); }
   if (event.data[1] == 82) { Mousetrap.trigger("'"); }
-  if (event.data[1] == 83) { Mousetrap.trigger("ctrl+'"); }
+  if (event.data[1] == 83) { Mousetrap.trigger('"'); }
+  if (event.data[1] == 84) { Mousetrap.trigger("ctrl+'"); }
 
   if (event.data[1] == 90) { Mousetrap.trigger("space"); }
 
