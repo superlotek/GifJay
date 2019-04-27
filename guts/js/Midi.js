@@ -140,7 +140,26 @@ function handleMIDIMessage(event){
   if (event.data[1] == 25) { Mousetrap.trigger("alt+n"); }
   if (event.data[1] == 26) { Mousetrap.trigger("alt+m"); }
 
+  if (event.data[1] == 29) { Mousetrap.trigger("alt+backspace"); }
 
+  if (event.data[1] == 30) { Mousetrap.trigger("_"); }
+  if (event.data[1] == 31) { Mousetrap.trigger("+"); }
+  if (event.data[1] == 32) { Mousetrap.trigger("shift+backspace"); }
+
+
+  if (event.data[1] == 34) {
+    $(s1).css('opacity', event.data[2] * .01);
+    console.log(event.data[2]);
+  }
+
+  if (event.data[1] == 35) {
+    $(s2).css('opacity', event.data[2] * .01);
+    console.log(event.data[2]);
+  }
+
+  if (event.data[1] == 40) { Mousetrap.trigger("return"); }
+  if (event.data[1] == 41) { Mousetrap.trigger(";"); }
+  if (event.data[1] == 42) { Mousetrap.trigger(":"); }
 
 
   if (event.data[1] == 99) { Mousetrap.trigger("<"); }
@@ -201,8 +220,10 @@ if (event.data[1] == 59) {
   if (event.data[1] == 82) { Mousetrap.trigger("'"); }
   if (event.data[1] == 83) { Mousetrap.trigger('"'); }
   if (event.data[1] == 84) { Mousetrap.trigger("ctrl+'"); }
+  if (event.data[1] == 85) { Mousetrap.trigger("alt+'"); }
 
   if (event.data[1] == 90) { Mousetrap.trigger("space"); }
+
 
   /*
   Loop through all the simple MIDI commands
@@ -223,5 +244,3 @@ if (event.data[1] == 59) {
 
 
 }
-
-
