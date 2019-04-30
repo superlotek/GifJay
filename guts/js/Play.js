@@ -211,10 +211,8 @@ const Play = {
       }
 
       if (blendModeRandomOn) {
-        $(s2).css('mix-blend-mode', blendModeSwitcherArray[Init.numRan(blendModeSwitcherArray.length)]);
+        // need to find way to add Blend Mode
       }
-
-      // console.log("samplerIndex : " + samplerIndex);
 
       if (randomOn) {
         console.log('RANDOM ON???');
