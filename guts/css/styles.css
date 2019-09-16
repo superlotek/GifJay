@@ -35,7 +35,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
  	.stage-one,
     .stage-two,
     .title-page,
-    #overlays {
+    #overlays, .screen {
  		width: 100%;
  		height: 100%;
  		position: fixed;
@@ -48,6 +48,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
  		opacity: 1;
   	}
 
+    .screen { display: block; background: url(../../overlays/dot_overlay.gif) center center repeat; }
 		/* OVERLAYS & TEXT */
 
 		#text-fx {
@@ -74,14 +75,17 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 
 		#overlays {
 			display: none;
-			background-size: contain;
+/*			background-size: contain;
 			background-repeat: no-repeat;
 			background-position: center center;
-		}
+*/		}
 		#overlays.on {
 			display: block;
 /*            mix-blend-mode: overlay;
-*/            opacity: .8;
+*/            /*opacity: .8;*/
+            background-size: cover;
+            background-position: center center;
+
 		}
 
     .overlays {
