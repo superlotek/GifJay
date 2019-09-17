@@ -425,6 +425,30 @@ function enableOverlays() {
     }
   });
 
+  // BAR TENDER [ SHIFT ] + [ ] ]
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+  Mousetrap.bind("}", function() {
+
+    // NEW STAGE PAUSE
+    if(!barTenderOn) {
+      if (!scenePauseOn) {
+        Mousetrap.trigger(']');
+      }
+        barTenderOn = 1;
+        console.log('BAR TENDER: ON');
+        console.log("BAR LENGTH: " + barLength);
+        barTenderCounter++;
+    } else {
+      barTenderOn = !barTenderOn;
+      console.log('BAR TENDER: OFF');
+      barTenderCounter = 0;
+
+    }
+
+  });
+
+
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** SEQUENCERS, BANKER & SETS ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -581,6 +605,8 @@ function enableOverlays() {
         giy = 1;
         Play.stopRobomode();
         robomodeOn = 0;
+        barTenderCounter = 0;
+        barTenderOn = 0;
       }
     });
 
@@ -763,8 +789,10 @@ function enableOverlays() {
   bankerStorageSet = new Set();
   function createBankTriggers() {
     console.log('BANK TRIGGERS: CREATED');
+    keyModifier = 'alt';
+    if (performanceModeOn) { keyModifier = ''; }
     for(let i = 0; i < enabledBanksArray.length; i++) {
-      Mousetrap.bind('alt+' + enabledBanksArray[i].trigger, function() {
+      Mousetrap.bind(keyModifier + "+" + enabledBanksArray[i].trigger, function() {
         if (enabledBanksArray[i].trigger == bankTrigger) { return; }
         bankNumber = enabledBanksArray[i].id;
         bankTrigger = enabledBanksArray[i].trigger;

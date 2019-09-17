@@ -5,6 +5,7 @@ var version = "1.9.7";
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 beatTime = appz.defaultBeatTime;
+barLength = appz.barLength;
 bankNumber = appz.startupBankNumber;
 bankTrigger = appz.startUpBankTrigger;
 filters = appz.filters;
@@ -42,6 +43,8 @@ var currentScene = {
 		{ "bank": undefined, "location": undefined, "name": undefined, "filter": undefined, "blendMode": undefined, "repeat": undefined, "bgSize": undefined }
 	]
 };
+
+var performanceModeOn = 0;
 
 var bankSelectkeyArray;
 
@@ -145,6 +148,10 @@ var roboFillOn = 0;
 var gpsTimer;
 var gpsTimer2;
 var scenePauseOn = 0;
+var barTenderOn = 0;
+var barLength = 8;
+var barTenderCounter = 0;
+
 var sceneFullscreenOn = 0;
 var stageFlipOn = 0;
 var currentPlayMode = 'giy';

@@ -81,6 +81,7 @@ function sceneSetter(arrayName, banker1, banker2) {
 
         // CHECKING FOR SCENE PAUSE
         if (scenePauseOn) {
+
           gifSelectorS1 = pausedStg1;
           gifSelectorS2 = pausedStg2;
           bankSelectorS1 = pausedBankStg1;
@@ -122,6 +123,12 @@ function sceneSetter(arrayName, banker1, banker2) {
   } else {
 
         if (scenePauseOn) {
+
+          if (barTenderOn) {
+            console.log('initiating Bar Tender + Screen Pause');
+            return;
+          }
+          
           gifSelectorS1 = pausedStg1;
           gifSelectorS2 = pausedStg2;
           bankSelectorS1 = pausedBankStg1;

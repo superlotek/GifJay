@@ -2,6 +2,16 @@
 // *** EFFECTS ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+function triggerReset() {
+  Mousetrap.trigger(']');
+  // Mousetrap.trigger('alt+1');
+}
+
+function overlayAutomation() {
+  Mousetrap.trigger(']');
+  Mousetrap.trigger('alt+1');
+}
+
 const Effects = {
 
   fxChecker() {
@@ -21,6 +31,18 @@ const Effects = {
           $(stgSelect + '.kaleidoscope > div').css(sf);
         }
       }
+  },
+
+  barTender() {
+   ++barTenderCounter;
+    console.log('BAR COUNTER: ' + barTenderCounter);
+    if (barTenderCounter > barLength - 1 ) {
+      barTenderCounter = 1;
+      console.log('RESTARTING THE BAR TENDER');
+      Mousetrap.trigger(']');
+      // Mousetrap.trigger('alt+1');
+      setTimeout(triggerReset, beatTime);
+    }
   },
 
   // FX : KALEIDOSCOPE
@@ -84,6 +106,7 @@ const Effects = {
         if (kaleidoscopeOn) { console.log('kALEID');Mousetrap.trigger('1') }
         if (sameSameOn) { console.log('SAMESAME');Mousetrap.trigger('3') }
         if (stgFadeOn) { console.log('STFFADE');Mousetrap.trigger('4') }
+        Mousetrap.trigger('~');
         return;
       }
     }
