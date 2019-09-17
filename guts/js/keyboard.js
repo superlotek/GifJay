@@ -204,6 +204,10 @@ if (appz.overlaysEnabled) {
   enableOverlays();
 }
 
+// if (appz.automatedOverlaysEnabled) {
+//   automatedOverlaysEnabled();
+// }
+
 function enableOverlays() {
   for ( let o = 0; o < appz.overlays.length; o++) {
     Mousetrap.bind('alt+' + appz.overlays[o].trigger, function() {
@@ -221,6 +225,70 @@ function enableOverlays() {
   }
 }
 
+
+function displayOverlay() {
+  console.log("displayOverlay");
+  var glerp = Math.ceil(Math.random() * appz.overlays.length);
+  console.log(glerp);
+  Mousetrap.trigger("alt+" + glerp);
+  setTimeout(hideOverlay, overlayDuration )
+}
+
+function hideOverlay() {
+  console.log("hideOverlay");
+  Mousetrap.trigger("alt+" + 1);
+  setTimeout(waitOverlay, overlayFrequency )
+}
+
+function waitOverlay() {
+  console.log("waitOverlay");
+  displayOverlay();
+}
+
+// function waitingAround() {
+//   console.log('WAITING');
+//   Mousetrap.trigger("alt+" + Init.numRan((4-1) + 1));
+//   // setTimeout(overlayTimer, overlayFrequency )
+//   console.log('DISPLAYING OVERLAY FOR: ', overlayFrequency);
+//   myVar = setInterval(overlayTimer, overlayFrequency);
+// }
+
+
+// function overlayTimer() {
+//   console.log('OVERLAY TIMER: ON');
+//   Mousetrap.trigger("alt+" + Init.numRan((4-1) + 1));
+//   setTimeout(waitingAround, overlayDuration);
+// }
+
+// function myStopFunction() {
+//   clearInterval(myVar);
+//   console.log('hitting myStopFunction');
+// }
+
+// function startAutoOverlay() {
+//   Mousetrap.trigger("alt+" + Init.numRan((4-1) + 1));
+
+//   console.log('startAutoOverlay: ON');
+//   console.log('overlay is showing for the overlayDuration');
+//   setTimeout(waitingAround, overlayDuration )
+// };
+
+// var myVar = setInterval(myTimer, 1000);
+
+
+Mousetrap.bind('!', function() {
+  if(!autoOverlayOn) {
+    autoOverlayOn = !autoOverlayOn;
+    console.log('AUTO OVERLAY: ON');
+    displayOverlay();
+  } else {
+    console.log('AUTO OVERLAY: OFF');
+    autoOverlayOn = !autoOverlayOn;
+    myStopFunction();
+    // Mousetrap.trigger("alt+2");
+
+  }
+});
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // *** STAGE PARAMETERS ***

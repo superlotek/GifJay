@@ -45,6 +45,9 @@ var currentScene = {
 };
 
 var performanceModeOn = 0;
+var autoOverlayOn = 0;
+var overlayDuration = 10000;
+var overlayFrequency = 60000;
 
 var bankSelectkeyArray;
 
