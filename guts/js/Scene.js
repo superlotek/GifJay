@@ -44,7 +44,7 @@ function sceneSetter(arrayName, banker1, banker2) {
 
   } else {
 
-    appz.bank[bankSelectorS1].gifs.forEach(function(element) {
+    playlist.bank[bankSelectorS1].gifs.forEach(function(element) {
       bankBuilderS1.push({
         gif: element.name,
         location: element.location,
@@ -52,7 +52,7 @@ function sceneSetter(arrayName, banker1, banker2) {
       });
     });
 
-    appz.bank[bankSelectorS2].gifs.forEach(function(element) {
+    playlist.bank[bankSelectorS2].gifs.forEach(function(element) {
       bankBuilderS2.push({
         gif: element.name,
         location: element.location,

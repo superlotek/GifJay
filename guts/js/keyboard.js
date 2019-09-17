@@ -748,7 +748,7 @@ function enableOverlays() {
     console.log('SELECTING ENABLED BANKS');
     // console.log('BANKS IN USE: ' + banksInUse);
     // console.log('CHECKING FOR: ENABLED BANKS');
-    appz.bank.forEach(function(element, index) {
+    playlist.bank.forEach(function(element, index) {
       if (element.enabled === true) {
         // console.log('BANK ' + element.id + ': ENABLED');
 
@@ -837,8 +837,8 @@ function createGiyTriggers(bankNumber) {
     Mousetrap.unbind(giyTriggerArray[i].toUpperCase());
   }
   singleBankTriggerArray = [];
-  appz.bank[bankNumber].gifs.forEach(function(element, index) {
-    if (appz.bank[bankNumber].gifs[index].trigger !== null) {
+  playlist.bank[bankNumber].gifs.forEach(function(element, index) {
+    if (playlist.bank[bankNumber].gifs[index].trigger !== null) {
       singleBankTriggerArray.push(element);
     }
   });
