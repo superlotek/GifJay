@@ -225,9 +225,6 @@ function enableOverlays() {
   }
 }
 
-var myvar;
-var myvar2;
-
 function displayOverlay() {
   var overlayTrigger = Math.ceil(Math.random() * appz.overlays.length);
   Mousetrap.trigger("alt+" + overlayTrigger);
@@ -236,7 +233,6 @@ function displayOverlay() {
 
 function hideOverlay() {
   Mousetrap.trigger("alt+" + 1);
-  // overlayInterval = setInterval(waitOverlay, (overlayFrequency + overlayDuration) );
   myvar2 = setTimeout(waitOverlay, (beatTime * 64));
 }
 
@@ -258,8 +254,6 @@ Mousetrap.bind('!', function() {
     console.log('AUTO OVERLAY: OFF');
     autoOverlayOn = !autoOverlayOn;
     stopFunction();
-    // Mousetrap.trigger("alt+2");
-
   }
 });
 
