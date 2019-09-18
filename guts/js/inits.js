@@ -46,8 +46,8 @@ var currentScene = {
 
 var performanceModeOn = 0;
 var autoOverlayOn = 0;
-var overlayDuration = 10000;
-var overlayFrequency = 60000;
+var overlayDuration = 1000;
+var overlayFrequency = 6000;
 
 var bankSelectkeyArray;
 

@@ -225,66 +225,39 @@ function enableOverlays() {
   }
 }
 
+var myvar;
+var myvar2;
 
 function displayOverlay() {
-  console.log("displayOverlay");
-  var glerp = Math.ceil(Math.random() * appz.overlays.length);
-  console.log(glerp);
-  Mousetrap.trigger("alt+" + glerp);
-  setTimeout(hideOverlay, overlayDuration )
+  var overlayTrigger = Math.ceil(Math.random() * appz.overlays.length);
+  Mousetrap.trigger("alt+" + overlayTrigger);
+  myvar = setTimeout(hideOverlay, (beatTime * 8) )
 }
 
 function hideOverlay() {
-  console.log("hideOverlay");
   Mousetrap.trigger("alt+" + 1);
-  setTimeout(waitOverlay, overlayFrequency )
+  // overlayInterval = setInterval(waitOverlay, (overlayFrequency + overlayDuration) );
+  myvar2 = setTimeout(waitOverlay, (beatTime * 64));
 }
 
 function waitOverlay() {
-  console.log("waitOverlay");
   displayOverlay();
 }
 
-// function waitingAround() {
-//   console.log('WAITING');
-//   Mousetrap.trigger("alt+" + Init.numRan((4-1) + 1));
-//   // setTimeout(overlayTimer, overlayFrequency )
-//   console.log('DISPLAYING OVERLAY FOR: ', overlayFrequency);
-//   myVar = setInterval(overlayTimer, overlayFrequency);
-// }
-
-
-// function overlayTimer() {
-//   console.log('OVERLAY TIMER: ON');
-//   Mousetrap.trigger("alt+" + Init.numRan((4-1) + 1));
-//   setTimeout(waitingAround, overlayDuration);
-// }
-
-// function myStopFunction() {
-//   clearInterval(myVar);
-//   console.log('hitting myStopFunction');
-// }
-
-// function startAutoOverlay() {
-//   Mousetrap.trigger("alt+" + Init.numRan((4-1) + 1));
-
-//   console.log('startAutoOverlay: ON');
-//   console.log('overlay is showing for the overlayDuration');
-//   setTimeout(waitingAround, overlayDuration )
-// };
-
-// var myVar = setInterval(myTimer, 1000);
-
+function stopFunction() {
+  clearTimeout(myvar);
+  clearTimeout(myvar2);
+}
 
 Mousetrap.bind('!', function() {
   if(!autoOverlayOn) {
     autoOverlayOn = !autoOverlayOn;
-    console.log('AUTO OVERLAY: ON');
+    console.log('AUTO OVERLAY: ON');``
     displayOverlay();
   } else {
     console.log('AUTO OVERLAY: OFF');
     autoOverlayOn = !autoOverlayOn;
-    myStopFunction();
+    stopFunction();
     // Mousetrap.trigger("alt+2");
 
   }
