@@ -439,9 +439,9 @@ Mousetrap.bind('!', function() {
     if(!scenePauseOn) {
         scenePauseOn = 1;
         console.log('SCENE PAUSE: ON');
-        console.log('SAMPLER INDEX: ' + samplerIndex);
+        // console.log('SAMPLER INDEX: ' + samplerIndex);
         pausedSamplerIndex = samplerIndex;
-        console.log('PAUSED SAMPLER INDEX: ' + pausedSamplerIndex, "\n---------------------------------");
+        // console.log('PAUSED SAMPLER INDEX: ' + pausedSamplerIndex, "\n---------------------------------");
         pausedStg1 = gifSelectorS1;
         pausedStg2 = gifSelectorS2;
         pausedBankStg1 = bankSelectorS1;
@@ -469,7 +469,7 @@ Mousetrap.bind('!', function() {
   // BAR TENDER [ SHIFT ] + [ ] ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  Mousetrap.bind("}", function() {
+  Mousetrap.bind(!performanceModeOn ? "}" : "\\", function() {
 
     // NEW STAGE PAUSE
     if(!barTenderOn) {
@@ -497,7 +497,7 @@ Mousetrap.bind('!', function() {
 // BANKER ON/OFF/CLEAR [ ' ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  Mousetrap.bind("'", function() {
+  Mousetrap.bind(!performanceModeOn ? "'" : ";", function() {
     if (!bankerOn) {
       bankerOn = !bankerOn;
       console.log('BANKER: ON');
@@ -534,7 +534,7 @@ Mousetrap.bind('!', function() {
 
 
 
-  Mousetrap.bind('return', function() {
+  Mousetrap.bind(!performanceModeOn ? "return" : "", function() {
 
     console.log('SCENE SAMPLED', "\n---------------------------------");
 
@@ -553,7 +553,7 @@ Mousetrap.bind('!', function() {
   // SAMPLER PLAY TOGGLER [ SHIFT ] + [ ; ]
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    Mousetrap.bind(";", function() {
+    Mousetrap.bind(!performanceModeOn ? ";" : "", function() {
       if (sampledScenes.scene.length && !samplerOn) {
         console.log('SAMPLES: PLAYING', "\n---------------------------------");
         samplerOn = !samplerOn;
@@ -634,27 +634,28 @@ Mousetrap.bind('!', function() {
 // ROBOMODE [ SHIFT ] + [ . ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-    Mousetrap.bind(">", function() {
-      if(!robomodeOn) {
-        giy = 0;
-        console.log('INITIAL STARTUP ENDS NOW');
-        console.log('RoboMode ON');
-        robomodeOn = 1;
-        Play.startRobomode(beatTime);
-        Play.clearBeatTime();
-      } else {
-        giy = 1;
-        Play.stopRobomode();
-        robomodeOn = 0;
-        barTenderCounter = 0;
-        barTenderOn = 0;
-      }
-    });
+      Mousetrap.bind(!performanceModeOn ? ">" : "'", function() {
+        if(!robomodeOn) {
+          giy = 0;
+          console.log('INITIAL STARTUP ENDS NOW');
+          console.log('RoboMode ON');
+          robomodeOn = 1;
+          Play.startRobomode(beatTime);
+          Play.clearBeatTime();
+        } else {
+          giy = 1;
+          Play.stopRobomode();
+          robomodeOn = 0;
+          barTenderCounter = 0;
+          barTenderOn = 0;
+        }
+      });
+
 
 // GPS SET [ SHIFT ] + [ . ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  Mousetrap.bind("<", function() {
+  Mousetrap.bind(!performanceModeOn ? "<" : "return", function() {
     Play.setGPS();
   });
 
