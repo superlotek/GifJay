@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <title>GifJay : Settings</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="guts/css/styles.css" media="all" rel="stylesheet" />
+
+    <script src="guts/js/jquery-2.1.4.min.js"></script>
+    <script src="guts/js/mousetrap.min.js"></script>
+    <script src="guts/js/keydrown.js"></script>
+    <script src="settings.js"></script>
+    <script src="guts/js/Inits.js"></script>
+    <script src="guts/js/Keyboard.js"></script>
+    <script src="guts/js/Midi.js"></script>
+    <script src="guts/js/Scene.js"></script>
+    <script src="guts/js/Play.js"></script>
+    <script src="guts/js/Overlays.js"></script>
+    <script src="guts/js/Filter.js"></script>
+    <script src="guts/js/Effects.js"></script>
+    <script src="guts/js/Text.js"></script>
+    <script src="playlist.js"></script>
+
+  </head>
+
+  <body>
+    <h1>Settings</h1>
+
+    <h3 id="beatTime">Beat Time: <span></span></h3>
+    <h3 id="performanceMode">Performance Mode: <span></span></h3>
+    <input type="range" id="beatTime-slider" name="volume" value="2000" step="100" min="100" max="10000">
+    <div id="demo"></div>
+    <button id="save-btn">Save settings</button>
+    <button id="clear-btn">Clear settings</button>
+
+    <script>
+        // let defaultBeatTime = appz.defaultBeatTime;
+        // localStorage.setItem('defaultBeatTime', appz.defaultBeatTime);
+        // localStorage.setItem('performanceMode', performanceModeOn);
+
+        // lerp = localStorage.getItem('defaultBeatTime');
+        glerp = localStorage.getItem('performanceMode');
+
+
+        if (localStorage.getItem("defaultBeatTime") === null) {
+            beatTime = appz.defaultBeatTime;
+        } else {
+            beatTime = localStorage.getItem('defaultBeatTime');
+        }
+
+        $('#beatTime span').text(beatTime);
+        $('#performanceMode span').text(glerp);
+
+        $('#beatTime-slider').attr('value', localStorage.getItem('defaultBeatTime') );
+        $("#beatTime-slider").on("input change", function() { console.log($(this).attr('value')); } );
+        var slider = document.getElementById("beatTime-slider");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value; // Display the default slider value
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+           $('#beatTime span').text(this.value);
+        }
+
+        $('#save-btn').on('click', function() {
+            console.log('settings saved');
+            localStorage.setItem('defaultBeatTime', slider.value);
+            localStorage.setItem('performanceMode', performanceModeOn);
+        });
+        $('#clear-btn').on('click', function() {
+            console.log('settings cleared');
+            localStorage.clear();
+        });
+
+    </script>
+  </body>
+</html>

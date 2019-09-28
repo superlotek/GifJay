@@ -4,7 +4,14 @@ var version = "1.9.7";
 // INITS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-beatTime = appz.defaultBeatTime;
+// beatTime = appz.defaultBeatTime;
+
+if (localStorage.getItem("defaultBeatTime") === null) {
+	beatTime = appz.defaultBeatTime;
+} else {
+	beatTime = localStorage.getItem('defaultBeatTime');
+}
+
 barLength = appz.barLength;
 bankNumber = appz.startupBankNumber;
 bankTrigger = appz.startUpBankTrigger;
@@ -44,7 +51,7 @@ var currentScene = {
 	]
 };
 
-var performanceModeOn = 1;
+var performanceModeOn = false;
 var autoOverlayOn = 0;
 var overlayDuration = 1000;
 var overlayFrequency = 6000;
@@ -169,7 +176,7 @@ var stgStore;
 
 $(document).ready(function() {
 
-	kd.run(function () { kd.tick(); });
+	//kd.run(function () { kd.tick(); });
 
   // $('body').css('background-color', randomColorChange());
 
