@@ -44,7 +44,7 @@ var currentScene = {
 	]
 };
 
-var performanceModeOn = 1;
+var performanceModeOn = 0;
 var autoOverlayOn = 0;
 var overlayDuration = 1000;
 var overlayFrequency = 6000;

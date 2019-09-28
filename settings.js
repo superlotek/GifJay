@@ -95,12 +95,11 @@ const appz = {
   },
 
   overlays: [
-    // { trigger: "1", location: "overlays", name: "dot_overlay.gif" },
-    // { trigger: "2", location: "overlays", name: "scanlines_overlay.gif" },
-    { trigger: "1", location: "overlays", name: "beerBelly_logo_white.png" },
-    { trigger: "2", location: "overlays", name: "beerBelly_logo_black.png" },
-    { trigger: "3", location: "overlays", name: "incidentalBeats_logo_white.png" },
-    { trigger: "4", location: "overlays", name: "incidentalBeats_logo_black.png" },
+    { trigger: "1", location: "overlays", name: "clubMutoid_logo_ani.gif" },
+    // { trigger: "1", location: "overlays", name: "beerBelly_logo_white.png" },
+    // { trigger: "2", location: "overlays", name: "beerBelly_logo_black.png" },
+    // { trigger: "3", location: "overlays", name: "incidentalBeats_logo_white.png" },
+    // { trigger: "4", location: "overlays", name: "incidentalBeats_logo_black.png" },
   ],
 
   sequence: [

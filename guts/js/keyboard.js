@@ -477,6 +477,8 @@ Mousetrap.bind('!', function() {
     } else {
       barTenderOn = !barTenderOn;
       console.log('BAR TENDER: OFF');
+      Mousetrap.trigger(']');
+
       barTenderCounter = 0;
 
     }
