@@ -25,40 +25,117 @@
     <script src="guts/js/Text.js"></script>
     <script src="playlist.js"></script>
 
+    <style>
+        input[type=checkbox]{
+            height: 0;
+            width: 0;
+            visibility: hidden;
+        }
+
+        label {
+            cursor: pointer;
+            text-indent: -9999px;
+            width: 200px;
+            height: 100px;
+            background: grey;
+            display: block;
+            border-radius: 100px;
+            position: relative;
+        }
+
+        label:after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 90px;
+            height: 90px;
+            background: #fff;
+            border-radius: 90px;
+            transition: 0.3s;
+        }
+
+        input:checked + label {
+            background: #bada55;
+        }
+
+        input:checked + label:after {
+            left: calc(100% - 5px);
+            transform: translateX(-100%);
+        }
+
+        label:active:after {
+            width: 130px;
+        }
+    </style>
+
   </head>
 
   <body>
     <h1>Settings</h1>
 
     <h3 id="beatTime">Beat Time: <span></span></h3>
-    <h3 id="performanceMode">Performance Mode: <span></span></h3>
     <input type="range" id="beatTime-slider" name="volume" value="2000" step="100" min="100" max="10000">
-    <div id="demo"></div>
-    <button id="save-btn">Save settings</button>
-    <button id="clear-btn">Clear settings</button>
+    <div id="demo"></div><br>
+
+    <h3 id="barLength">BarTender Length: <span></span></h3>
+    <input type="range" id="barLength-slider" name="barlength" value="8" step="2" min="0" max="64">
+
+    <h3 id="saturationAmount">Saturation Amount: <span></span></h3>
+    <input type="range" id="saturationAmount-slider" name="saturation" value="50" step="1" min="0" max="128">
+
+    <h3 id="performanceMode">Performance Mode: <span></span></h3>
+<!--     <input type="checkbox" id="perf-check" onchange="doalert(this)">
+ -->    <input type="checkbox" id="perf-check" onchange="doalert(this)" /><label for="perf-check">Performance Mode</label>
+
+    <div>
+        <button id="save-btn">Save settings</button>
+        <button id="clear-btn">Clear settings</button>
+    </div>
 
     <script>
-        // let defaultBeatTime = appz.defaultBeatTime;
-        // localStorage.setItem('defaultBeatTime', appz.defaultBeatTime);
-        // localStorage.setItem('performanceMode', performanceModeOn);
 
-        // lerp = localStorage.getItem('defaultBeatTime');
-        glerp = localStorage.getItem('performanceMode');
-
-
-        if (localStorage.getItem("defaultBeatTime") === null) {
-            beatTime = appz.defaultBeatTime;
-        } else {
-            beatTime = localStorage.getItem('defaultBeatTime');
-        }
+        // CHECK FOR LOCAL STORAGE
+        // ======================================
+        if (!localStorage.length) { console.log('Nothing in Storage'); }
 
         $('#beatTime span').text(beatTime);
-        $('#performanceMode span').text(glerp);
+        $('#beatTime-slider').val(beatTime );
+        $('#barLength span').text(barLength);
+        $('#barLength-slider').val(barLength );
+        $('#saturationAmount span').text(saturationAmount);
+        $('#saturationAmount-slider').val(saturationAmount );
+
+        if (performanceModeOn === true) {
+            $('#perf-check').prop('checked', true)
+        }
+
+        // CHECK FOR CHECKBOX
+        // ======================================
+        function doalert(checkboxElem) {
+          if (checkboxElem.checked) {
+            console.log("checked");
+            performanceModeOn = true;
+          } else {
+            console.log("unchecked");
+            performanceModeOn = false;
+          }
+        }
 
         $('#beatTime-slider').attr('value', localStorage.getItem('defaultBeatTime') );
         $("#beatTime-slider").on("input change", function() { console.log($(this).attr('value')); } );
         var slider = document.getElementById("beatTime-slider");
         var output = document.getElementById("demo");
+
+        $('#barLength-slider').attr('value', localStorage.getItem('barTenderLength') );
+        $("#barLength-slider").on("input change", function() { console.log($(this).attr('value')); } );
+        var slider2 = document.getElementById("barLength-slider");
+
+        $('#saturationAmount-slider').attr('value', localStorage.getItem('saturationAmount') );
+        $("#saturationAmount-slider").on("input change", function() { console.log($(this).attr('value')); } );
+        var slider3 = document.getElementById("saturationAmount-slider");
+
+
         output.innerHTML = slider.value; // Display the default slider value
 
         // Update the current slider value (each time you drag the slider handle)
@@ -66,15 +143,28 @@
           output.innerHTML = this.value;
            $('#beatTime span').text(this.value);
         }
+        slider2.oninput = function() {
+           $('#barLength span').text(this.value);
+        }
 
+        slider3.oninput = function() {
+           $('#saturationAmount span').text(this.value);
+        }
+
+        // SAVE / CLEAR SETTINGS
+        // ======================================
         $('#save-btn').on('click', function() {
             console.log('settings saved');
             localStorage.setItem('defaultBeatTime', slider.value);
-            localStorage.setItem('performanceMode', performanceModeOn);
+            localStorage.setItem('barTenderLength', slider2.value);
+            localStorage.setItem('saturationAmount', slider3.value);
+			localStorage.setItem('performanceMode', JSON.parse(performanceModeOn));
         });
+
         $('#clear-btn').on('click', function() {
             console.log('settings cleared');
             localStorage.clear();
+
         });
 
     </script>

@@ -1,4 +1,4 @@
-var version = "1.9.7";
+var version = "1.9.71";
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // INITS
@@ -12,7 +12,26 @@ if (localStorage.getItem("defaultBeatTime") === null) {
 	beatTime = localStorage.getItem('defaultBeatTime');
 }
 
-barLength = appz.barLength;
+if (localStorage.getItem("defaultBeatTime") === null) {
+	performanceModeOn = false;
+} else {
+	performanceModeOn = JSON.parse(localStorage.getItem('performanceMode'));
+}
+
+if (localStorage.getItem("barTenderLength") === null) {
+	barLength = 8;
+} else {
+	barLength = JSON.parse(localStorage.getItem('barTenderLength'));
+}
+
+if (localStorage.getItem("saturationAmount") === null) {
+	saturationAmount = appz.filters.filter[1].max;
+} else {
+	saturationAmount = JSON.parse(localStorage.getItem('saturationAmount'));
+	appz.filters.filter[1].max = saturationAmount;
+}
+
+// barLength = appz.barLength;
 bankNumber = appz.startupBankNumber;
 bankTrigger = appz.startUpBankTrigger;
 filters = appz.filters;
@@ -51,7 +70,7 @@ var currentScene = {
 	]
 };
 
-var performanceModeOn = false;
+// var performanceModeOn = false;
 var autoOverlayOn = 0;
 var overlayDuration = 1000;
 var overlayFrequency = 6000;
@@ -159,7 +178,7 @@ var gpsTimer;
 var gpsTimer2;
 var scenePauseOn = 0;
 var barTenderOn = 0;
-var barLength = 8;
+// var barLength = 8;
 var barTenderCounter = 0;
 
 var sceneFullscreenOn = 0;
