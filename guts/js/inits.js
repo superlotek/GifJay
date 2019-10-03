@@ -31,6 +31,23 @@ if (localStorage.getItem("saturationAmount") === null) {
 	appz.filters.filter[1].max = saturationAmount;
 }
 
+if (localStorage.getItem("colorPaletteOpacity") === null) {
+	colorPaletteOpacity = .25;
+} else {
+	colorPaletteOpacity = JSON.parse(localStorage.getItem('colorPaletteOpacity'));
+}
+
+
+if (localStorage.getItem("startupBankNumber") === null) {
+	startupBankNumber = 1;
+	bankNumber = startupBankNumber;
+} else {
+	startupBankNumber = JSON.parse(localStorage.getItem('startupBankNumber'));
+	bankNumber = startupBankNumber;
+	appz.startupBankNumber = startupBankNumber;
+}
+
+
 // barLength = appz.barLength;
 bankNumber = appz.startupBankNumber;
 bankTrigger = appz.startUpBankTrigger;

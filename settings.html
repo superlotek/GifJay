@@ -81,8 +81,15 @@
     <h3 id="barLength">BarTender Length: <span></span></h3>
     <input type="range" id="barLength-slider" name="barlength" value="8" step="2" min="0" max="64">
 
+    <h3 id="startupBankNumber">Startup Bank Number: <span></span></h3>
+    <input type="range" id="startupBankNumber-slider" name="startupBankNumber" value="18" step="1" min="0" max="25">
+
     <h3 id="saturationAmount">Saturation Amount: <span></span></h3>
     <input type="range" id="saturationAmount-slider" name="saturation" value="50" step="1" min="0" max="128">
+
+    <h3 id="colorPaletteOpacity">Color Palette Opacity: <span></span></h3>
+    <input type="range" id="colorPaletteOpacity-slider" name="colorPaletteOpacity" value=".25" step=".01" min="0" max=".9">
+
 
     <h3 id="performanceMode">Performance Mode: <span></span></h3>
 <!--     <input type="checkbox" id="perf-check" onchange="doalert(this)">
@@ -105,6 +112,10 @@
         $('#barLength-slider').val(barLength );
         $('#saturationAmount span').text(saturationAmount);
         $('#saturationAmount-slider').val(saturationAmount );
+        $('#startupBankNumber span').text(startupBankNumber + " : " + playlist.bank[startupBankNumber].trigger.toUpperCase());
+        $('#startupBankNumber-slider').val(startupBankNumber);
+        $('#colorPaletteOpacity span').text(colorPaletteOpacity);
+        $('#colorPaletteOpacity-slider').val(colorPaletteOpacity);
 
         if (performanceModeOn === true) {
             $('#perf-check').prop('checked', true)
@@ -135,6 +146,16 @@
         $("#saturationAmount-slider").on("input change", function() { console.log($(this).attr('value')); } );
         var slider3 = document.getElementById("saturationAmount-slider");
 
+        $('#startupBankNumber-slider').attr('value', localStorage.getItem('startupBankNumber') );
+        $("#startupBankNumber-slider").on("input change", function() { console.log($(this).attr('value')); } );
+        var slider4 = document.getElementById("startupBankNumber-slider");
+
+        $('#colorPaletteOpacity-slider').attr('value', localStorage.getItem('colorPaletteOpacity') );
+        $("#colorPaletteOpacity-slider").on("input change", function() { console.log($(this).attr('value')); } );
+        var slider5 = document.getElementById("colorPaletteOpacity-slider");
+
+
+
 
         output.innerHTML = slider.value; // Display the default slider value
 
@@ -150,15 +171,24 @@
         slider3.oninput = function() {
            $('#saturationAmount span').text(this.value);
         }
+        slider4.oninput = function() {
+           $('#startupBankNumber span').text(this.value + " : " + playlist.bank[this.value].trigger.toUpperCase());
+        }
+
+        slider5.oninput = function() {
+           $('#colorPaletteOpacity span').text(this.value);
+        }
 
         // SAVE / CLEAR SETTINGS
         // ======================================
         $('#save-btn').on('click', function() {
             console.log('settings saved');
+            localStorage.setItem('performanceMode', JSON.parse(performanceModeOn));
             localStorage.setItem('defaultBeatTime', slider.value);
             localStorage.setItem('barTenderLength', slider2.value);
             localStorage.setItem('saturationAmount', slider3.value);
-			localStorage.setItem('performanceMode', JSON.parse(performanceModeOn));
+            localStorage.setItem('startupBankNumber', slider4.value);
+            localStorage.setItem('colorPaletteOpacity', slider5.value);
         });
 
         $('#clear-btn').on('click', function() {

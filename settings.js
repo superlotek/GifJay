@@ -1,10 +1,10 @@
 const appz = {
   midiOn: false,
-  defaultBeatTime: 2000,
+  // defaultBeatTime: 2000,
   beatSpeed: 1000,
   sameSameConstant: 2,
   overlaysEnabled: true,
-  startupBankNumber: 18,
+  // startupBankNumber: 1,
   startupBankTrigger: "a",
 
   // "stageArray" : ['sf', 'st'],

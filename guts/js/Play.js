@@ -268,6 +268,15 @@ const Play = {
 
     default:
       // console.log('PLAY MODE: RoboMode');
+
+      if ("colorPalette" in playlist.bank[bankNumber]) {
+        $('.color-palette').css('backgroundColor', playlist.bank[bankNumber].colorPalette[Init.numRan(playlist.bank[bankNumber].colorPalette.length)]);
+        $('.color-palette').css('opacity', colorPaletteOpacity);
+      } else {
+        $('.color-palette').css('backgroundColor', 'rgba(0,0,0,0)');
+      }
+
+
       currentPlayMode = 'robomode';
       bankSelectorS1 = bankNumber;
       bankSelectorS2 = bankNumber;
