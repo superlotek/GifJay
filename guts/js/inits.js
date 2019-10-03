@@ -44,12 +44,12 @@ if (localStorage.getItem("startupBankNumber") === null) {
 } else {
 	startupBankNumber = JSON.parse(localStorage.getItem('startupBankNumber'));
 	bankNumber = startupBankNumber;
-	appz.startupBankNumber = startupBankNumber;
+	// bankNumber = startupBankNumber;
 }
 
 
 // barLength = appz.barLength;
-bankNumber = appz.startupBankNumber;
+// bankNumber = appz.startupBankNumber;
 bankTrigger = appz.startUpBankTrigger;
 filters = appz.filters;
 

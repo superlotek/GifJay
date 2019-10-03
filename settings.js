@@ -101,6 +101,8 @@ const appz = {
     { trigger: "2", location: "overlays", name: "beerBelly_logo_black.png" },
     { trigger: "3", location: "overlays", name: "incidentalBeats_logo_white.png" },
     { trigger: "4", location: "overlays", name: "incidentalBeats_logo_black.png" },
+    { trigger: "5", location: "overlays", name: "fiftytwovista_logo_white.png" },
+    { trigger: "6", location: "overlays", name: "fiftytwovista_logo_black.png" },
   ],
 
   sequence: [
