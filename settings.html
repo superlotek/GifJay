@@ -86,7 +86,7 @@
 
     <h3 id="performanceMode">Performance Mode: <span></span></h3>
 <!--     <input type="checkbox" id="perf-check" onchange="doalert(this)">
- -->    <input type="checkbox" id="perf-check" onchange="doalert(this)" /><label for="perf-check">Performance Mode</label>
+ -->    <input type="checkbox" id="perf-check" onchange="doalert(this-)" /><label for="perf-check">Performance Mode</label>
 
     <div>
         <button id="save-btn">Save settings</button>
@@ -121,6 +121,9 @@
             performanceModeOn = false;
           }
         }
+
+
+
 
         $('#beatTime-slider').attr('value', localStorage.getItem('defaultBeatTime') );
         $("#beatTime-slider").on("input change", function() { console.log($(this).attr('value')); } );
