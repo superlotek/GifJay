@@ -95,6 +95,11 @@
 <!--     <input type="checkbox" id="perf-check" onchange="doalert(this)">
  -->    <input type="checkbox" id="perf-check" onchange="doalert(this)" /><label for="perf-check">Performance Mode</label>
 
+    <h3 id="overlayTexture">Overlay Texture: <span></span></h3>
+<!--     <input type="checkbox" id="perf-check" onchange="doalert(this)">
+ -->    <input type="checkbox" id="texture-check" onchange="doalert2(this)" /><label for="texture-check">Overlay Texture</label>
+
+
     <div>
         <button id="save-btn">Save settings</button>
         <button id="clear-btn">Clear settings</button>
@@ -121,6 +126,10 @@
             $('#perf-check').prop('checked', true)
         }
 
+        if (overlayTextureOn === true) {
+            $('#texture-check').prop('checked', true)
+        }
+
         // CHECK FOR CHECKBOX
         // ======================================
         function doalert(checkboxElem) {
@@ -130,6 +139,16 @@
           } else {
             console.log("unchecked");
             performanceModeOn = false;
+          }
+        }
+
+        function doalert2(checkboxElem) {
+          if (checkboxElem.checked) {
+            console.log("checked");
+            overlayTextureOn = true;
+          } else {
+            console.log("unchecked");
+            overlayTextureOn = false;
           }
         }
 
@@ -184,6 +203,7 @@
         $('#save-btn').on('click', function() {
             console.log('settings saved');
             localStorage.setItem('performanceMode', JSON.parse(performanceModeOn));
+            localStorage.setItem('overlayTexture', JSON.parse(overlayTextureOn));
             localStorage.setItem('beatTime', slider.value);
             localStorage.setItem('barTenderLength', slider2.value);
             localStorage.setItem('saturationAmount', slider3.value);

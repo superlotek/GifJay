@@ -9,3 +9,9 @@ const Overlays = {
   }
 
 };
+
+
+// if (overlayTextureOn === false) {
+// 	console.log('texttire!!!');
+// 	$('.texture').css('background', 'none !important');
+// }

@@ -18,6 +18,13 @@ if (localStorage.getItem("performanceMode") === null) {
 	performanceModeOn = JSON.parse(localStorage.getItem('performanceMode'));
 }
 
+if (localStorage.getItem("overlayTexture") === null) {
+	overlayTextureOn = true;
+} else {
+	overlayTextureOn = JSON.parse(localStorage.getItem('overlayTexture'));
+}
+
+
 if (localStorage.getItem("barTenderLength") === null) {
 	barLength = 8;
 } else {
@@ -74,7 +81,7 @@ abledSequences = [];
 var s1 = '.stage-one';
 var s2 = '.stage-two';
 var wc = '#webcam-container';
-var ov = "#overlays";
+var ov = ".branding";
 
 var sf = {'background-position':'center', 'background-size':'cover', 'backgroundRepeat':'no-repeat'}; // STAGE FullScreen
 var st = {'background-position':'center', 'background-size':'auto', 'backgroundRepeat':'repeat'}; // STAGE Tile
@@ -214,6 +221,12 @@ $(document).ready(function() {
 	//kd.run(function () { kd.tick(); });
 
   // $('body').css('background-color', randomColorChange());
+
+    if (!overlayTextureOn) {
+      console.log('Texture Is here!!');
+      $('.texture').css('background', 'none !important');
+      $('.texture').css('display', 'none');
+    }
 
     Init.startup();
 

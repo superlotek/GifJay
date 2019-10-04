@@ -183,6 +183,13 @@ const Scene = {
   stageSetup() {
     console.log('STG1+2: SETUP', "\n---------------------------------");
 
+    // if (!overlayTextureOn) {
+    //   console.log('Texture Is here!!');
+    //   $('.texture').css('background', 'none !important');
+    //   $('.texture').css('display', 'none');
+
+    // }
+
     if(giy) {
       console.log('BANK NUMBER: ' + bankNumber, "\n---------------------------------");
       console.log('SETTING UP: GIY');
