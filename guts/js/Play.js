@@ -47,6 +47,9 @@ const Play = {
 
   stageFlip() {
     // console.log('CURRENT PLAY MODE: ' + currentPlayMode);
+
+    Filter.colorPalette();
+
     if (bankerStageSetupOn) {
 
       console.log('BANKER STAGE FLIP');
@@ -126,6 +129,8 @@ const Play = {
         bankSelectorS1 = Init.randomizer(bankerArray); bankSelectorS2 = Init.randomizer(bankerArray);
         sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
       }
+
+      Filter.colorPalette();
 
       break;
 
@@ -268,6 +273,9 @@ const Play = {
 
     default:
       // console.log('PLAY MODE: RoboMode');
+
+      Filter.colorPalette();
+
       currentPlayMode = 'robomode';
       bankSelectorS1 = bankNumber;
       bankSelectorS2 = bankNumber;

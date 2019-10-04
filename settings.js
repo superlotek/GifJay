@@ -1,10 +1,10 @@
 const appz = {
   midiOn: false,
-  defaultBeatTime: 2000,
+  // defaultBeatTime: 2000,
   beatSpeed: 1000,
   sameSameConstant: 2,
   overlaysEnabled: true,
-  startupBankNumber: 18,
+  // startupBankNumber: 1,
   startupBankTrigger: "a",
 
   // "stageArray" : ['sf', 'st'],
@@ -101,6 +101,8 @@ const appz = {
     { trigger: "2", location: "overlays", name: "beerBelly_logo_black.png" },
     { trigger: "3", location: "overlays", name: "incidentalBeats_logo_white.png" },
     { trigger: "4", location: "overlays", name: "incidentalBeats_logo_black.png" },
+    { trigger: "5", location: "overlays", name: "fiftytwovista_logo_white.png" },
+    { trigger: "6", location: "overlays", name: "fiftytwovista_logo_black.png" },
   ],
 
   sequence: [
