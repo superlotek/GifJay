@@ -47,6 +47,9 @@ const Play = {
 
   stageFlip() {
     // console.log('CURRENT PLAY MODE: ' + currentPlayMode);
+
+    Filter.colorPalette();
+
     if (bankerStageSetupOn) {
 
       console.log('BANKER STAGE FLIP');
@@ -126,6 +129,8 @@ const Play = {
         bankSelectorS1 = Init.randomizer(bankerArray); bankSelectorS2 = Init.randomizer(bankerArray);
         sceneSetter(bankerArray, bankSelectorS1, bankSelectorS2);
       }
+
+      Filter.colorPalette();
 
       break;
 
@@ -269,13 +274,7 @@ const Play = {
     default:
       // console.log('PLAY MODE: RoboMode');
 
-      if ("colorPalette" in playlist.bank[bankNumber]) {
-        // $('.color-palette').css('backgroundColor', playlist.bank[bankNumber].colorPalette[Init.numRan(playlist.bank[bankNumber].colorPalette.length)]);
-        $('.color-palette').css('background', 'linear-gradient(' + Init.numRan(360) + 'deg,' + playlist.bank[bankNumber].colorPalette[Init.numRan(playlist.bank[bankNumber].colorPalette.length)] + ',' +  playlist.bank[bankNumber].colorPalette[Init.numRan(playlist.bank[bankNumber].colorPalette.length)] + ')');
-        $('.color-palette').css('opacity', colorPaletteOpacity);
-      } else {
-        $('.color-palette').css('backgroundColor', 'rgba(0,0,0,0)');
-      }
+      Filter.colorPalette();
 
       currentPlayMode = 'robomode';
       bankSelectorS1 = bankNumber;

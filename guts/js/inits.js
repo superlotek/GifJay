@@ -6,13 +6,13 @@ var version = "1.9.71";
 
 // beatTime = appz.defaultBeatTime;
 
-if (localStorage.getItem("defaultBeatTime") === null) {
-	beatTime = appz.defaultBeatTime;
+if (localStorage.getItem("beatTime") === null) {
+	beatTime = 2000;
 } else {
-	beatTime = localStorage.getItem('defaultBeatTime');
+	beatTime = localStorage.getItem('beatTime');
 }
 
-if (localStorage.getItem("defaultBeatTime") === null) {
+if (localStorage.getItem("performanceMode") === null) {
 	performanceModeOn = false;
 } else {
 	performanceModeOn = JSON.parse(localStorage.getItem('performanceMode'));
