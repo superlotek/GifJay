@@ -85,6 +85,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 */            /*opacity: .8;*/
             background-size: cover;
             background-position: center center;
+            z-index: 9999;
 
 		}
 
@@ -98,6 +99,15 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
         animation-timing-function: linear;
         animation-iteration-count: infinite;
     }
+
+
+.color-palette {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    content: "";
+    opacity: inherit;
+}
 
 		.same-same {
 			animation-timing-function: linear;

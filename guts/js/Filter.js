@@ -15,6 +15,24 @@ const Filter = {
     $(s2).css('-webkit-filter', filters.strings[1].value);
   },
 
+  colorPalette() {
+    var bankColorPalette = playlist.bank[bankNumber].colorPalette;
+    $('.color-palette').css('backgroundColor', 'rgba(0,0,0,0)');
+    $('.color-palette').css('background', 'rgba(0,0,0,0)');
+    if ("colorPalette" in playlist.bank[bankNumber]) {
+      // console.log('Color Palette ahead!');
+      var colorAmt = bankColorPalette.length;
+      if (playlist.bank[bankNumber].gradient) {
+        // console.log('gradient alert');
+        $('.color-palette').css('background', 'linear-gradient(' + Init.numRan(360) + 'deg,' + bankColorPalette[Init.numRan(colorAmt)] + ',' +  bankColorPalette[Init.numRan(colorAmt)] + ')');
+      } else {
+        // console.log('no gradient');
+        $('.color-palette').css('backgroundColor', bankColorPalette[Init.numRan(colorAmt)]);
+      }
+      $('.color-palette').css('opacity', colorPaletteOpacity);
+    }
+  },
+
   applyFilter(filterNum) {
     if (stgSelect == s1) {
       filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + Init.numRan(filters.filter[filterNum].max) + filters.filter[filterNum].unit + ")";

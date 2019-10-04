@@ -1,12 +1,55 @@
-var version = "1.9.7";
+var version = "1.9.71";
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // INITS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-beatTime = appz.defaultBeatTime;
-barLength = appz.barLength;
-bankNumber = appz.startupBankNumber;
+// beatTime = appz.defaultBeatTime;
+
+if (localStorage.getItem("beatTime") === null) {
+	beatTime = 2000;
+} else {
+	beatTime = localStorage.getItem('beatTime');
+}
+
+if (localStorage.getItem("performanceMode") === null) {
+	performanceModeOn = false;
+} else {
+	performanceModeOn = JSON.parse(localStorage.getItem('performanceMode'));
+}
+
+if (localStorage.getItem("barTenderLength") === null) {
+	barLength = 8;
+} else {
+	barLength = JSON.parse(localStorage.getItem('barTenderLength'));
+}
+
+if (localStorage.getItem("saturationAmount") === null) {
+	saturationAmount = appz.filters.filter[1].max;
+} else {
+	saturationAmount = JSON.parse(localStorage.getItem('saturationAmount'));
+	appz.filters.filter[1].max = saturationAmount;
+}
+
+if (localStorage.getItem("colorPaletteOpacity") === null) {
+	colorPaletteOpacity = .25;
+} else {
+	colorPaletteOpacity = JSON.parse(localStorage.getItem('colorPaletteOpacity'));
+}
+
+
+if (localStorage.getItem("startupBankNumber") === null) {
+	startupBankNumber = 1;
+	bankNumber = startupBankNumber;
+} else {
+	startupBankNumber = JSON.parse(localStorage.getItem('startupBankNumber'));
+	bankNumber = startupBankNumber;
+	// bankNumber = startupBankNumber;
+}
+
+
+// barLength = appz.barLength;
+// bankNumber = appz.startupBankNumber;
 bankTrigger = appz.startUpBankTrigger;
 filters = appz.filters;
 
@@ -44,7 +87,6 @@ var currentScene = {
 	]
 };
 
-var performanceModeOn = 0;
 var autoOverlayOn = 0;
 var overlayDuration = 1000;
 var overlayFrequency = 6000;
@@ -152,7 +194,7 @@ var gpsTimer;
 var gpsTimer2;
 var scenePauseOn = 0;
 var barTenderOn = 0;
-var barLength = 8;
+// var barLength = 8;
 var barTenderCounter = 0;
 
 var sceneFullscreenOn = 0;
@@ -169,7 +211,7 @@ var stgStore;
 
 $(document).ready(function() {
 
-	kd.run(function () { kd.tick(); });
+	//kd.run(function () { kd.tick(); });
 
   // $('body').css('background-color', randomColorChange());
 
