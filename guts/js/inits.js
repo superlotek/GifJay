@@ -244,7 +244,7 @@ $(document).ready(function() {
 		createSequenceTriggers();
 
 		console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
-
+		Filter.colorPalette();
 
   });
 
