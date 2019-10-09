@@ -46,7 +46,7 @@ if (localStorage.getItem("colorPaletteOpacity") === null) {
 
 
 if (localStorage.getItem("startupBankNumber") === null) {
-	startupBankNumber = 1;
+	startupBankNumber = 0;
 	bankNumber = startupBankNumber;
 } else {
 	startupBankNumber = JSON.parse(localStorage.getItem('startupBankNumber'));
