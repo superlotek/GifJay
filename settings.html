@@ -87,6 +87,11 @@
     <h3 id="saturationAmount">Saturation Amount: <span></span></h3>
     <input type="range" id="saturationAmount-slider" name="saturation" value="50" step="1" min="0" max="128">
 
+    <h3 id="overlayFrequency">Overlay Frequency: <span></span></h3>
+    <input type="range" id="overlayFrequency-slider" name="overlayFrequency" value="64" step="1" min="1" max="100">
+    <h3 id="overlayDuration">Overlay Duration: <span></span></h3>
+    <input type="range" id="overlayDuration-slider" name="overlayDuration" value="8" step="1" min="1" max="100">
+
     <h3 id="colorPaletteOpacity">Color Palette Opacity: <span></span></h3>
     <input type="range" id="colorPaletteOpacity-slider" name="colorPaletteOpacity" value=".25" step=".01" min="0" max=".9">
 
@@ -117,6 +122,10 @@
         $('#barLength-slider').val(barLength );
         $('#saturationAmount span').text(saturationAmount);
         $('#saturationAmount-slider').val(saturationAmount );
+        $('#overlayFrequency span').text(overlayFrequency);
+        $('#overlayFrequency-slider').val(overlayFrequency );
+        $('#overlayDuration span').text(overlayDuration);
+        $('#overlayDuration-slider').val(overlayDuration );
         $('#startupBankNumber span').text(startupBankNumber + " : " + playlist.bank[startupBankNumber].trigger.toUpperCase() + " : " + playlist.bank[startupBankNumber].name);
         $('#startupBankNumber-slider').val(startupBankNumber);
         $('#colorPaletteOpacity span').text(colorPaletteOpacity);
@@ -173,6 +182,12 @@
         $("#colorPaletteOpacity-slider").on("input change", function() { console.log($(this).attr('value')); } );
         var slider5 = document.getElementById("colorPaletteOpacity-slider");
 
+        $('#overlayFrequency-slider').attr('value', localStorage.getItem('overlayFrequency') );
+        $("#overlayFrequency-slider").on("input change", function() { console.log($(this).attr('value')); } );
+        var slider6 = document.getElementById("overlayFrequency-slider");
+        $('#overlayDuration-slider').attr('value', localStorage.getItem('overlayDuration') );
+        $("#overlayDuration-slider").on("input change", function() { console.log($(this).attr('value')); } );
+        var slider7 = document.getElementById("overlayDuration-slider");
 
 
 
@@ -198,6 +213,14 @@
            $('#colorPaletteOpacity span').text(this.value);
         }
 
+        slider6.oninput = function() {
+           $('#overlayFrequency span').text(this.value);
+        }
+        slider7.oninput = function() {
+           $('#overlayDuration span').text(this.value);
+        }
+
+
         // SAVE / CLEAR SETTINGS
         // ======================================
         $('#save-btn').on('click', function() {
@@ -209,6 +232,8 @@
             localStorage.setItem('saturationAmount', slider3.value);
             localStorage.setItem('startupBankNumber', slider4.value);
             localStorage.setItem('colorPaletteOpacity', slider5.value);
+            localStorage.setItem('overlayFrequency', slider6.value);
+            localStorage.setItem('overlayDuration', slider7.value);
         });
 
         $('#clear-btn').on('click', function() {

@@ -41,12 +41,12 @@ const Overlays = {
 			Mousetrap.trigger("alt+" + overlayTrigger);
 
 		}
-		myvar = setTimeout(Overlays.hideOverlay, (beatTime * 8) );
+		myvar = setTimeout(Overlays.hideOverlay, (beatTime * overlayDuration) );
 	},
 
 	hideOverlay() {
 	  Mousetrap.trigger("alt+" + 1);
-	  myvar2 = setTimeout(Overlays.waitOverlay, (beatTime * 64));
+	  myvar2 = setTimeout(Overlays.waitOverlay, (beatTime * overlayFrequency));
 	},
 
 	waitOverlay() {
