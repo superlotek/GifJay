@@ -1592,6 +1592,10 @@ const playlist = {
       name: "Foreground - Skateboarding",
       colorPalette: ['#f5c600', '#d8460b', '#c21703', '#9b4923', '#007291'],
       gradient: true,
+      overlays: [
+        { trigger: "7", location: "overlays", name: "manAMachine_logo_white.png" },
+        { trigger: "8", location: "overlays", name: "doctorKa_logo_black_o.png" }
+      ],
       enabled: true,
       gifs: [
         { 'trigger' : 'q', 'location' : 'Skateboarding/', 'name' : 'skateboarding_01'},
@@ -2122,8 +2126,12 @@ const playlist = {
       id: 23,
       trigger: "b",
       name: "Battle",
-      colorPalette: ['#6899ba', '#ddccba', '#cc7667', '#432233', '#b89b97'],
+      colorPalette: ['#344261', '#4B665F', '#7C8F74', '#8A7D37', '#566A6B','#856F5D','#6B6B6B','#858585','#332A42'],
       gradient: true,
+      overlays: [
+        { trigger: "5", location: "overlays", name: "fiftytwovista_logo_white.png" },
+        { trigger: "6", location: "overlays", name: "fiftytwovista_logo_black.png" },
+      ],
       enabled: true,
       gifs: [
         // { trigger: "q", location: "WonderTwins/", name: "wondertwins_downhillWagon" },

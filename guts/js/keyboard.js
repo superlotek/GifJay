@@ -200,60 +200,15 @@ Mousetrap.bind('shift+return', function() {
 // OVERLAY [ - ] [ = ] [ DEL ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-if (appz.overlaysEnabled) {
-  enableOverlays();
-}
-
-// if (appz.automatedOverlaysEnabled) {
-//   automatedOverlaysEnabled();
-// }
-
-function enableOverlays() {
-  for ( let o = 0; o < appz.overlays.length; o++) {
-    Mousetrap.bind('alt+' + appz.overlays[o].trigger, function() {
-      if(!overlayOn) {
-        Overlays.applyOverlay(o);
-        overlayOn = !overlayOn;
-        $(ov).toggleClass('on');
-        console.log('OVERLAY: ON');
-      } else {
-        overlayOn = !overlayOn;
-        console.log('OVERLAY: OFF');
-        $(ov).toggleClass('on');
-      }
-    });
-  }
-}
-
-function displayOverlay() {
-  var overlayTrigger = Math.ceil(Math.random() * appz.overlays.length);
-  Mousetrap.trigger("alt+" + overlayTrigger);
-  myvar = setTimeout(hideOverlay, (beatTime * 8) )
-}
-
-function hideOverlay() {
-  Mousetrap.trigger("alt+" + 1);
-  myvar2 = setTimeout(waitOverlay, (beatTime * 64));
-}
-
-function waitOverlay() {
-  displayOverlay();
-}
-
-function stopFunction() {
-  clearTimeout(myvar);
-  clearTimeout(myvar2);
-}
-
 Mousetrap.bind('!', function() {
   if(!autoOverlayOn) {
     autoOverlayOn = !autoOverlayOn;
     console.log('AUTO OVERLAY: ON');``
-    displayOverlay();
+    Overlays.displayOverlay();
   } else {
     console.log('AUTO OVERLAY: OFF');
     autoOverlayOn = !autoOverlayOn;
-    stopFunction();
+    Overlays.stopFunction();
   }
 });
 
