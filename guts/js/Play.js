@@ -35,7 +35,7 @@ const Play = {
       } else { this.playMode('default');
     }
 
-    if(barTenderOn && scenePauseOn) { Effects.barTender(); }
+    if(barTenderOn && scenePauseOn) { Effects.barTender(); console.log('right here') }
     if(mutatorOn) { Effects.mutator(); }
     if(stgFadeOn) { Effects.stgFade(); }
     if(sameSameOn) { Effects.sameSame(); }
