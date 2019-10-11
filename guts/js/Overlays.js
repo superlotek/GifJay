@@ -28,14 +28,13 @@ const Overlays = {
 	displayOverlay() {
 		if (playlist.bank[bankNumber].overlays) {
 			console.log('OVERLAYS PRESENT IN BANK');
-			var overlayTrigger = Math.ceil(Math.random() * playlist.bank[bankNumber].overlays.length - 1);
+			var overlayTrigger = Init.numRan(playlist.bank[bankNumber].overlays.length);
+			console.log("overlay trigger ", overlayTrigger);
 			Mousetrap.trigger("alt+" + playlist.bank[bankNumber].overlays[overlayTrigger].trigger);
 		} else {
-
 			var brandOverlays = appz.overlays.filter(function(overlay) {
   				return overlay.type === "brand";
 			});
-
 			console.log('NO OVERLAYS IN BANK, PLAY BRAND OVERLAYS');
 			var overlayTrigger = Math.ceil(Math.random() * brandOverlays.length - 1);
 			Mousetrap.trigger("alt+" + overlayTrigger);
