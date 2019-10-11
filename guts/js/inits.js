@@ -38,6 +38,21 @@ if (localStorage.getItem("saturationAmount") === null) {
 	appz.filters.filter[1].max = saturationAmount;
 }
 
+if (localStorage.getItem("overlayFrequency") === null) {
+	overlayFrequency = 64;
+
+} else {
+	overlayFrequency = JSON.parse(localStorage.getItem('overlayFrequency'));
+}
+
+if (localStorage.getItem("overlayDuration") === null) {
+	overlayDuration = 8;
+
+} else {
+	overlayDuration = JSON.parse(localStorage.getItem('overlayDuration'));
+}
+
+
 if (localStorage.getItem("colorPaletteOpacity") === null) {
 	colorPaletteOpacity = .25;
 } else {
@@ -95,8 +110,8 @@ var currentScene = {
 };
 
 var autoOverlayOn = 0;
-var overlayDuration = 1000;
-var overlayFrequency = 6000;
+// var overlayDuration = 1000;
+// var overlayFrequency = 6000;
 
 var bankSelectkeyArray;
 
@@ -307,7 +322,7 @@ const Init = {
     bankNumber = localStorage.getItem('stg1Bank');
   } else {
     console.log('GIFJAY: ' + version + ' STARTING UP', "\n---------------------------------");
-    $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('body');
+    $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('#overlays');
     $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
     // bankNumber = Init.randomizer(banksInUse);
   }

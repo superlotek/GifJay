@@ -1,5 +1,5 @@
 const playlist = {
- 
+  
   bank: [
     {
       id: 0,
@@ -7,7 +7,7 @@ const playlist = {
       name: "Foreground - Information Super Highway",
       enabled: true,
       gifs: [
-        { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.09.45'},
+        { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.09.45', 'tag': 'computer'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.10.48'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.23.51'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.24.43'},
@@ -21,7 +21,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.38.07'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.41.16'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.42.54'},
-        { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.43.49'},
+        { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.43.49', 'tag': 'computer'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.46.57'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.49.41'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1823.51.27'},
@@ -32,7 +32,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1900.06.10'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1900.07.34'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1900.09.44'},
-        { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1900.11.41'},
+        { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1900.11.41', 'tag': 'computer'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1900.25.43'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1900.28.43'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1900.38.39'},
@@ -43,7 +43,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1900.59.16'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1901.00.52'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-1901.02.10'},
-        { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-2123.19.58'},
+        { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-2123.19.58', 'tag': 'computer'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-2123.21.55'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-2123.23.27'},
         { 'trigger' : 'q', 'location' : 'InformationSuperHighway/', 'name' : '2019-09-2123.26.48'},
@@ -76,15 +76,15 @@ const playlist = {
         // { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_explosing_balls_o_t" },
         // { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_orb_drags_rainbowRings_o" },
         // { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_orb_glowing_o_t" },
- 
+  
         // { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0316.43.01" },
         // { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0316.48.12" },
- 
- 
+  
+  
         // { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0317.05.28" },
         // { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0317.23.44" },
         // { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0317.53.28" },
- 
+  
         // { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0318.16.34" },
         // { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0319.18.23" },
         // { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0319.20.22" },
@@ -141,17 +141,17 @@ const playlist = {
         // { 'trigger' : 'q', 'location' : 'KidNPlay/', 'name' : 'kidNPlay_7'},
         // { 'trigger' : 'q', 'location' : 'KidNPlay/', 'name' : 'kidNPlay_8'},
         // { 'trigger' : 'q', 'location' : 'KidNPlay/', 'name' : 'kidNPlay_9'},
- 
+  
         { 'trigger' : 'q', 'location' : 'LandOfTheLost/', 'name' : 'landOfTheLost_1'},
         { 'trigger' : 'q', 'location' : 'LandOfTheLost/', 'name' : 'landOfTheLost_2'},
         { 'trigger' : 'q', 'location' : 'LandOfTheLost/', 'name' : 'landOfTheLost_3'},
         { 'trigger' : 'q', 'location' : 'LandOfTheLost/', 'name' : 'landOfTheLost_4'},
         { 'trigger' : 'q', 'location' : 'LandOfTheLost/', 'name' : 'landOfTheLost_5'},
         { 'trigger' : 'q', 'location' : 'LandOfTheLost/', 'name' : 'landOfTheLost_6'},
- 
+  
         { 'trigger' : 'q', 'location' : 'MyLittlePony/', 'name' : 'myLittlePony_rainbow'},
         { 'trigger' : 'q', 'location' : 'MyLittlePony/', 'name' : 'myLittlePony_waterfall'},
- 
+  
         { 'trigger' : 'q', 'location' : 'ComputerWarriors/', 'name' : 'computerWarriors_1'},
         { 'trigger' : 'q', 'location' : 'ComputerWarriors/', 'name' : 'computerWarriors_10'},
         { 'trigger' : 'q', 'location' : 'ComputerWarriors/', 'name' : 'computerWarriors_11'},
@@ -178,7 +178,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'ComputerWarriors/', 'name' : 'computerWarriors_7'},
         { 'trigger' : 'q', 'location' : 'ComputerWarriors/', 'name' : 'computerWarriors_8'},
         { 'trigger' : 'q', 'location' : 'ComputerWarriors/', 'name' : 'computerWarriors_9'},
- 
+  
         { 'trigger' : 'q', 'location' : 'Bibleman/', 'name' : 'bibleman_1'},
         { 'trigger' : 'q', 'location' : 'Bibleman/', 'name' : 'bibleman_10'},
         { 'trigger' : 'q', 'location' : 'Bibleman/', 'name' : 'bibleman_2'},
@@ -189,7 +189,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'Bibleman/', 'name' : 'bibleman_7'},
         { 'trigger' : 'q', 'location' : 'Bibleman/', 'name' : 'bibleman_8'},
         { 'trigger' : 'q', 'location' : 'Bibleman/', 'name' : 'bibleman_9'},
- 
+  
       ]
     },
     {
@@ -285,7 +285,7 @@ const playlist = {
         { trigger: "q", location: "Aerobics/Jazzercise/", name: "jazzercise_2019-04-2711.07.55" },
         { trigger: "q", location: "Aerobics/Jazzercise/", name: "jazzercise_2019-04-2711.09.27" },
         { trigger: "q", location: "Aerobics/Jazzercise/", name: "jazzercise_2019-04-2711.15.38" },
- 
+  
         { 'trigger' : 'q', 'location' : 'Men/Exercise/', 'name' : 'menExercise_2019-04-2701.31.44'},
         { 'trigger' : 'q', 'location' : 'Men/Exercise/', 'name' : 'menExercise_2019-04-2701.34.32'},
         { 'trigger' : 'q', 'location' : 'Men/Exercise/', 'name' : 'menExercise_2019-04-2701.36.16'},
@@ -411,12 +411,12 @@ const playlist = {
         { trigger: "q", location: "Robots/", name: "digitalDance_seq2_o" },
         { trigger: "q", location: "Robots/", name: "digitalDance_seq3_o" },
         { trigger: "q", location: "Robots/", name: "digitalDance_seq4_o" },
- 
+  
         { 'trigger' : 'q', 'location' : 'KidVideos/', 'name' : 'hulk-step-walk_o'},
         { 'trigger' : 'q', 'location' : 'KidVideos/', 'name' : 'dancing-hulk_o'},
         { 'trigger' : 'q', 'location' : 'KidVideos/', 'name' : 'superhero-toilet-dance_o'},
         { trigger: "q", location: "BotP/", name: "battleOfThePlanets_markOnGlass_o" },
- 
+  
         { 'trigger' : 'q', 'location' : 'VideoKids/', 'name' : 'videokids_4'},
         { 'trigger' : 'q', 'location' : 'VideoKids/', 'name' : 'videokids_5'},
         { 'trigger' : 'q', 'location' : 'VideoKids/', 'name' : 'videokids_7'},
@@ -427,7 +427,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'VideoKids/', 'name' : 'videokids_15'},
         { 'trigger' : 'q', 'location' : 'VideoKids/', 'name' : 'videokids_16'},
         { 'trigger' : 'q', 'location' : 'VideoKids/', 'name' : 'videokids_17'},
- 
+  
         { trigger: "q", location: "Hammerman/", name: "hammerman_hammerDancing2_o" },
         { trigger: "q", location: "Hammerman/", name: "hammerman_hammerDancing3_o" },
         { trigger: "q", location: "Hammerman/", name: "hammerman_hammerDancing4_o" },
@@ -438,18 +438,18 @@ const playlist = {
         { trigger: "q", location: "Hammerman/", name: "hammerman_hammer_twoFemaleDancers_o" },
         { trigger: "q", location: "Hammerman/", name: "hammerman_intro_shoes_o" },
         { trigger: "q", location: "Hammerman/", name: "hammerman_kidsDancing_o" },
- 
+  
         { trigger: "q", location: "BotP/", name: "battleOfThePlanets_discoBallLight_o" },
         { trigger: "q", location: "BotP/", name: "battleOfThePlanets_discoDancers_o" },
         { trigger: "q", location: "BotP/", name: "battleOfThePlanets_keyopDiscoDance_o" },
- 
+  
         { 'trigger' : 'q', 'location' : 'SillySymphoniesPiedPiper/', 'name' : 'piedPiper_childrenSkipping'},
         { 'trigger' : 'q', 'location' : 'SillySymphoniesPiedPiper/', 'name' : 'piedPiper_crowdChant'},
- 
+  
         { 'trigger' : 'q', 'location' : 'MultiplicationRap/', 'name' : 'multiplicationRap_19'},
         { 'trigger' : 'q', 'location' : 'MultiplicationRap/', 'name' : 'multiplicationRap_20'},
         { 'trigger' : 'q', 'location' : 'MultiplicationRap/', 'name' : 'multiplicationRap_3'},
- 
+  
         { trigger: "q", location: "DancingTrails/", name: "dancingTrails_a" },
         { trigger: "q", location: "DancingTrails/", name: "dancingTrails_b" },
         { trigger: "q", location: "DancingTrails/", name: "dancingTrails_c" },
@@ -460,15 +460,15 @@ const playlist = {
         { trigger: "q", location: "DancingTrails/", name: "dancingTrails_h" },
         { trigger: "q", location: "DancingTrails/", name: "dancingTrails_i" },
         { trigger: "q", location: "DancingTrails/", name: "dancingTrails_j" },
- 
+  
         { trigger: "q", location: "JosiePussycatsSpace/", name: "josiePussycatsSpace_robotDancing_o" },
         { trigger: "q", location: "JosiePussycatsSpace/", name: "josiePussycatsSpace_robotHandOnHead_o" },
- 
+  
         { trigger: "q", location: "BotP/", name: "battleOfThePlanets_princessDiscoDance2_o" },
         { trigger: "q", location: "BotP/", name: "battleOfThePlanets_princessDiscoDance3_o" },
         { trigger: "q", location: "BotP/", name: "battleOfThePlanets_princessDiscoDance4_o" },
         { trigger: "q", location: "BotP/", name: "battleOfThePlanets_princessDiscoDance_o" },
- 
+  
         { 'trigger' : 'q', 'location' : 'AmericanPop/', 'name' : 'americanPop_6'},
         { 'trigger' : 'q', 'location' : 'AmericanPop/', 'name' : 'americanPop_7'},
         { 'trigger' : 'q', 'location' : 'AmericanPop/', 'name' : 'americanPop_14'},
@@ -490,11 +490,11 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'AmericanPop/', 'name' : 'americanPop_36'},
         { 'trigger' : 'q', 'location' : 'AmericanPop/', 'name' : 'americanPop_38'},
         { 'trigger' : 'q', 'location' : 'AmericanPop/', 'name' : 'americanPop_39'},
- 
+  
         { trigger: "q", location: "AnimatedBands/", name: "jerryLewis_flamenco_dance1_o" },
         { trigger: "q", location: "AnimatedBands/", name: "jerryLewis_flamenco_dance2_o" },
         { trigger: "q", location: "AnimatedBands/", name: "jerryLewis_runningAroungScreen_o" },
- 
+  
         { trigger: "q", location: "Misc/", name: "orbots_girls_dance_o" },
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'Righeira_musicVideo'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'Righeira_musicVideo2'},
@@ -506,12 +506,12 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'computerAnimation_dinerDancers'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'computerAnimation_ducksMarch'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'computerAnimation_ducksMarch2'},
- 
+  
         { 'trigger' : 'q', 'location' : 'TheApple/', 'name' : 'TheApple_bim_dancing1'},
         { 'trigger' : 'q', 'location' : 'TheApple/', 'name' : 'TheApple_bim_dancing2'},
         { 'trigger' : 'q', 'location' : 'TheApple/', 'name' : 'TheApple_bim_dancing3'},
         { 'trigger' : 'q', 'location' : 'TheApple/', 'name' : 'TheApple_bim_dancing4'},
- 
+  
         { 'trigger' : 'q', 'location' : 'YoyoMan/', 'name' : 'yoyoMan_1'},
         { 'trigger' : 'q', 'location' : 'YoyoMan/', 'name' : 'yoyoMan_10'},
         { 'trigger' : 'q', 'location' : 'YoyoMan/', 'name' : 'yoyoMan_11'},
@@ -530,7 +530,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'YoyoMan/', 'name' : 'yoyoMan_7'},
         { 'trigger' : 'q', 'location' : 'YoyoMan/', 'name' : 'yoyoMan_8'},
         { 'trigger' : 'q', 'location' : 'YoyoMan/', 'name' : 'yoyoMan_9'},
- 
+  
         { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_traag_dance-beam-shoot2_REDO'},
         { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_traag_dance2_REDO'},
         { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_traag_dance3_REDO'},
@@ -538,7 +538,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_traag_dance_REDO'},
         { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_traag_dance_shoot2_REDO'},
         { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_draag_dance_shoot_REDO'},
- 
+  
         { trigger: "q", location: "JosiePussycatsSpace/", name: "josiePussycats_hulaDance1_o" },
         { trigger: "q", location: "JosiePussycatsSpace/", name: "josiePussycats_hulaDance2_o" },
         { trigger: "q", location: "JacksonFive/", name: "jackson5_flashing_circle_dancing_silhouettes_o" },
@@ -601,7 +601,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'AmericanPop/', 'name' : 'americanPop_5'},
         { 'trigger' : 'q', 'location' : 'SpongeBob/', 'name' : 'spongeBob_liftingGuitar_o'},
         { 'trigger' : 'q', 'location' : 'SpongeBob/', 'name' : 'spongeBob_sandy_guitar_o'},
- 
+  
         { 'trigger' : 'q', 'location' : 'TheApple/', 'name' : 'TheApple_bim_guitar1'},
         { 'trigger' : 'q', 'location' : 'TheApple/', 'name' : 'TheApple_bim_guitar3'},
         { 'trigger' : 'q', 'location' : 'TheApple/', 'name' : 'TheApple_bim_guitar4'},
@@ -652,7 +652,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'Bravestarr/', 'name' : 'bravestarr_man_drumming_o'},
       ]
     },
- 
+  
     {
       id: 6,
       trigger: "u",
@@ -751,7 +751,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'MultiplicationRap/', 'name' : 'multiplicationRap_18'},
         { 'trigger' : 'q', 'location' : 'MultiplicationRap/', 'name' : 'multiplicationRap_21'},
         { 'trigger' : 'q', 'location' : 'MultiplicationRap/', 'name' : 'multiplicationRap_22'},
- 
+  
         { trigger: "q", location: "AnimatedBands/", name: "sabrinaTeenageWitch_floating_record_turntable_o" },
         { trigger: "q", location: "Jem/", name: "jem_flashing_stage_lights_o" },
         { 'trigger' : 'q', 'location' : 'SpongeBob/', 'name' : 'spongeBob_crowdWithLighters_o'},
@@ -777,10 +777,10 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'musicNote_hopping'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'musicNote_road'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'musicNote_road2'},
- 
+  
       ]
     },
- 
+  
     {
       id: 8,
       trigger: "o",
@@ -837,7 +837,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'SuperSeven/', 'name' : 'superSeven_superStretch_arrow_transform'},
         { 'trigger' : 'q', 'location' : 'SuperSeven/', 'name' : 'superSeven_superStretch_face'},
         { 'trigger' : 'q', 'location' : 'SuperSeven/', 'name' : 'superSeven_superStretch_jump'},
- 
+  
         { trigger: "q", location: "JosiePussycatsSpace/", name: "josiePussycats_hopping_o" },
         { trigger: "q", location: "JosiePussycatsSpace/", name: "josiePussycats_badGuys_running_upStairs" },
         { trigger: "q", location: "JosiePussycatsSpace/", name: "josiePussycats_going_through_the_ringer" },
@@ -920,7 +920,7 @@ const playlist = {
         { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0400.26.49" },
       ]
     },
- 
+  
     {
       id: 10,
       trigger: "a",
@@ -1012,7 +1012,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : '2019-05-2923.34.45'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : '2019-05-2923.36.24'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : '2019-05-2923.38.13'},
- 
+  
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'spinning_eggPeople1'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'spinning_eggPeople2'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'spinning_eggPeople3'},
@@ -1036,7 +1036,7 @@ const playlist = {
         { trigger: "q", location: "JacksonFive/", name: "jackson5_monster_tornado_o" },
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'computerAnimation_mermaid1'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'computerAnimation_mermaid2'},
- 
+  
         { 'trigger' : 'q', 'location' : 'KidVideos/', 'name' : 'cat-pooping_o'},
         { 'trigger' : 'q', 'location' : 'KidVideos/', 'name' : 'dinosaur-spinning-heads_o'},
         { 'trigger' : 'q', 'location' : 'KidVideos/', 'name' : 'garage-gorilla_o'},
@@ -1100,15 +1100,19 @@ const playlist = {
         { trigger: "q", location: "Matter/", name: "matterTwo_2019-04-14-16.35.15_t" },
         { trigger: "q", location: "Misc/", name: "forest-forgery-1-B-FX1_o" },
         { trigger: "q", location: "Misc/", name: "forest-forgery-2-F2-FX_o" },
- 
+  
       ]
     },
     {
       id: 12,
       trigger: "d",
-      name: "Background - Rainbow",
+      name: "Wild Western",
       colorPalette: ['#6899ba', '#ddccba', '#cc7667', '#432233', '#b89b97'],
       gradient: true,
+      overlays: [
+        { trigger: "6", location: "overlays", name: "floppydisco_western1_black.png" },
+        { trigger: "7", location: "overlays", name: "floppydisco_western1_white.png" },
+      ],
       enabled: true,
       gifs: [
         // { trigger: "q", location: "Rainbow/", name: "a" },
@@ -1132,7 +1136,7 @@ const playlist = {
         // { trigger: "q", location: "Rainbow/", name: "rainbow-checker-tunnel" },
         // { trigger: "q", location: "Rainbow/", name: "rainbow-gradients" },
         // { trigger: "q", location: "Rainbow/", name: "spinning-checkered-pyramid" },
-
+ 
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desert_01'},
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desert_02'},
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desert_03'},
@@ -1166,7 +1170,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desert_32'},
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desert_33'},
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desert_34'},
-
+ 
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_01'},
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_02'},
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_03'},
@@ -1260,6 +1264,18 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_91'},
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_92'},
         { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_93'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_94'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_95'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_96'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_97'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_98'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_99'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_100'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_101'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_102'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_103'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_104'},
+        { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'desertAnimals_105'},
         // { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'wildWest_01'},
         // { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'wildWest_02'},
         // { 'trigger' : 'q', 'location' : 'WildWest/', 'name' : 'wildWest_03'},
@@ -1441,7 +1457,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'Motorcycles/', 'name' : '2019-09-2400.03.16'},
         { 'trigger' : 'q', 'location' : 'Motorcycles/', 'name' : '2019-09-2400.05.17'},
         { 'trigger' : 'q', 'location' : 'Motorcycles/', 'name' : '2019-09-2400.07.22'},
- 
+  
         { 'trigger' : 'q', 'location' : 'CrashTestDummies/', 'name' : '2019-09-2322.27.31'},
         { 'trigger' : 'q', 'location' : 'CrashTestDummies/', 'name' : '2019-09-2322.28.12'},
         { 'trigger' : 'q', 'location' : 'CrashTestDummies/', 'name' : '2019-09-2322.30.43'},
@@ -1471,7 +1487,7 @@ const playlist = {
       colorPalette: ['#e27d60','#85dcb','#e8a87c','#c38d9e','#41b3a3'],
       enabled: true,
       gifs: [
- 
+  
         { trigger: "q", location: "CFD/", name: "cfd_1" },
         { trigger: "q", location: "CFD/", name: "cfd_2" },
         { trigger: "q", location: "CFD/", name: "cfd_3" },
@@ -1525,65 +1541,65 @@ const playlist = {
       name: "Vintage Cartoons",
       enabled: true,
       gifs: [
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.28.08" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.32.11" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.33.32" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.35.29" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.39.57" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.42.21" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.46.56" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.49.54" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.51.19" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.52.17" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.53.07" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.54.32" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.55.43" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.57.16" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.58.25" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.01.27" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.02.21" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.03.51" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.04.42" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.05.33" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.06.46" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.08.58" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.12.25" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.13.20" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.14.15" },
-        // { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.15.11" },
- 
-        // { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.21.35" },
-        // { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.22.54" },
-        // { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.28.29" },
-        // { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.30.07" },
-        // { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.36.00" },
-        // { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.42.10" },
-        // { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.44.22" },
-        // { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.45.48" },
-        // { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.51.16" },
- 
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesPiedPiper/', 'name' : 'piedPiper_ratsEatingBananas'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesPiedPiper/', 'name' : 'piedPiper_ratsInCheese'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_insideIsleOfJazz'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_insideIsleOfJazz2'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_isleOfJazzAlarm'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_isleOfJazzAlarm2'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_isleOfJazzShooting'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_isleOfJazzShooting2'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_landOfSymphony'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_metronomeCell'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeChasingPrincess'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeFlipsOutside'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeHatsOff'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeRowingRaftBombed'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeRunning'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeSailsOnRaft'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeSailsOnRaft2'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princessBlushes2'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princessHitInBoat'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_queenFiresWeapons'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_queenFiresWeapons2'},
-        // { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_weddingBellsRing'},
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.28.08" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.32.11" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.33.32" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.35.29" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.39.57" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.42.21" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.46.56" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.49.54" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.51.19" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.52.17" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.53.07" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.54.32" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.55.43" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.57.16" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1922.58.25" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.01.27" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.02.21" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.03.51" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.04.42" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.05.33" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.06.46" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.08.58" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.12.25" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.13.20" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.14.15" },
+        { trigger: "q", location: "BumbleBoogie/", name: "bumbleBoogie_2019-04-1923.15.11" },
+  
+        { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.21.35" },
+        { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.22.54" },
+        { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.28.29" },
+        { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.30.07" },
+        { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.36.00" },
+        { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.42.10" },
+        { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.44.22" },
+        { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.45.48" },
+        { trigger: "q", location: "PlasticsInventor/", name: "plasticsInventor_2019-04-2200.51.16" },
+  
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesPiedPiper/', 'name' : 'piedPiper_ratsEatingBananas'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesPiedPiper/', 'name' : 'piedPiper_ratsInCheese'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_insideIsleOfJazz'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_insideIsleOfJazz2'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_isleOfJazzAlarm'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_isleOfJazzAlarm2'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_isleOfJazzShooting'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_isleOfJazzShooting2'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_landOfSymphony'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_metronomeCell'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeChasingPrincess'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeFlipsOutside'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeHatsOff'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeRowingRaftBombed'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeRunning'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeSailsOnRaft'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princeSailsOnRaft2'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princessBlushes2'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_princessHitInBoat'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_queenFiresWeapons'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_queenFiresWeapons2'},
+        { 'trigger' : 'q', 'location' : 'SillySymphoniesMusicLand/', 'name' : 'musicLand_weddingBellsRing'},
       ]
     },
     {
@@ -1592,6 +1608,10 @@ const playlist = {
       name: "Foreground - Skateboarding",
       colorPalette: ['#f5c600', '#d8460b', '#c21703', '#9b4923', '#007291'],
       gradient: true,
+      overlays: [
+        { trigger: "6", location: "overlays", name: "floppydisco_western1_black.png" },
+        { trigger: "7", location: "overlays", name: "floppydisco_western1_white.png" },
+      ],
       enabled: true,
       gifs: [
         { 'trigger' : 'q', 'location' : 'Skateboarding/', 'name' : 'skateboarding_01'},
@@ -1661,7 +1681,7 @@ const playlist = {
         { trigger: "q", location: "JacksonFive/", name: "jackson5_flashingSun_o" },
       ]
     },
- 
+  
     {
       id: 19,
       trigger: "z",
@@ -1870,14 +1890,14 @@ const playlist = {
 { 'trigger' : 'q', 'location' : 'GalaxyRangers/', 'name' : 'galaxyRangers_tortunaRock_63'},
 { 'trigger' : 'q', 'location' : 'GalaxyRangers/', 'name' : 'galaxyRangers_tortunaRock_64'},
 { 'trigger' : 'q', 'location' : 'GalaxyRangers/', 'name' : 'galaxyRangers_tortunaRock_65'},
- 
+  
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_collar_making_machine4_REDO'},
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_collar_making_machine5_REDO'},
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_creature_blood_bath_REDO'},
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_creature_tongue2_o_boom1'},
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_creature_tongue_REDO'},
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_de-om-balls_REDO'},
- 
+  
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_de-om-rockets2_REDO'},
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_de-om-rockets_REDO'},
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_deomizer-1_REDO'},
@@ -1893,15 +1913,15 @@ const playlist = {
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_transformation2_REDO'},
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_transformation_REDO'},
         // { 'trigger' : 'q', 'location' : 'FantasticPlanet/', 'name' : 'fp_om_hit_box2_REDO'},
- 
+  
         // { trigger: "q", location: "Hercules/", name: "hercules_fire_people_cu_o" },
         // { trigger: "q", location: "Hercules/", name: "hercules_head_swirlies" },
         // { trigger: "q", location: "Hercules/", name: "hercules_hercules_transport" },
- 
+  
         // { trigger: "q", location: "Hercules/", name: "hercules_mermaid_eye_beams_o" },
         // { trigger: "q", location: "Hercules/", name: "hercules_shooting_star_crater_o" },
         // { trigger: "q", location: "Hercules/", name: "hercules_space_two_women_o" },
- 
+  
         // { trigger: "q", location: "Hercules/", name: "hercules_woman_space_trails" },
         // { trigger: "q", location: "Hercules/", name: "hercules_woman_space_trails_arms2" },
         // { trigger: "q", location: "Hercules/", name: "hercules_woman_space_trails_arms_o" },
@@ -2062,7 +2082,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'HangGliding/', 'name' : 'hangGliding_7'},
         { 'trigger' : 'q', 'location' : 'HangGliding/', 'name' : 'hangGliding_8'},
         { 'trigger' : 'q', 'location' : 'HangGliding/', 'name' : 'hangGliding_9'},
- 
+  
         { 'trigger' : 'q', 'location' : 'RollerBlade/', 'name' : 'rollerBlade_1'},
         { 'trigger' : 'q', 'location' : 'RollerBlade/', 'name' : 'rollerBlade_10'},
         { 'trigger' : 'q', 'location' : 'RollerBlade/', 'name' : 'rollerBlade_11'},
@@ -2100,7 +2120,7 @@ const playlist = {
         { trigger: "q", location: "ActionUSA/", name: "actionUSA_2019-04-1101.48.02" },
         { trigger: "q", location: "ActionUSA/", name: "actionUSA_2019-04-1101.50.03" },
         { trigger: "q", location: "ActionUSA/", name: "actionUSA_2019-04-11201.32.47" },
- 
+  
         { trigger: "q", location: "AnimatedShorts/", name: "crashing_cars_o" },
         { 'trigger' : 'q', 'location' : 'KidVideos/', 'name' : 'flying-trucks2_o'},
         { 'trigger' : 'q', 'location' : 'KidVideos/', 'name' : 'bus-jump-ramp_o'},
@@ -2109,7 +2129,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'KidVideos/', 'name' : 'spinning-trucks_o'},
         { 'trigger' : 'q', 'location' : 'KidVideos/', 'name' : 'superhero-banana-car-fx_o'},
         { 'trigger' : 'q', 'location' : 'MultiplicationRap/', 'name' : 'multiplicationRap_carChange'},
- 
+  
         { 'trigger' : 'q', 'location' : 'Men/', 'name' : 'Men_2019-04-0200.24.30'},
         { 'trigger' : 'q', 'location' : 'Men/', 'name' : 'Men_2019-04-0200.25.29'},
         { 'trigger' : 'q', 'location' : 'Men/', 'name' : 'Men_2019-04-0200.26.51'},
@@ -2122,8 +2142,12 @@ const playlist = {
       id: 23,
       trigger: "b",
       name: "Battle",
-      colorPalette: ['#6899ba', '#ddccba', '#cc7667', '#432233', '#b89b97'],
+      colorPalette: ['#344261', '#4B665F', '#7C8F74', '#8A7D37', '#566A6B','#856F5D','#6B6B6B','#858585','#332A42'],
       gradient: true,
+      overlays: [
+        { trigger: "4", location: "overlays", name: "fiftytwovista_logo_white.png" },
+        { trigger: "5", location: "overlays", name: "fiftytwovista_logo_black.png" },
+      ],
       enabled: true,
       gifs: [
         // { trigger: "q", location: "WonderTwins/", name: "wondertwins_downhillWagon" },
@@ -2134,7 +2158,7 @@ const playlist = {
         // { trigger: "q", location: "WonderTwins/", name: "wondertwins_formOfWater_o" },
         // { trigger: "q", location: "WonderTwins/", name: "wondertwins_jayna_transforms_o" },
         // { trigger: "q", location: "WonderTwins/", name: "wondertwins_transforming_o" },
- 
+  
         // { trigger: "q", location: "SpiralZone/", name: "spiralZone_2019-01-2600.53.36" },
         // { trigger: "q", location: "SpiralZone/", name: "spiralZone_2019-01-2600.55.41" },
         // { trigger: "q", location: "SpiralZone/", name: "spiralZone_2019-01-2600.56.46" },
@@ -2144,7 +2168,7 @@ const playlist = {
         // { trigger: "q", location: "SpiralZone/", name: "spiralZone_2019-01-2601.08.46" },
         // { trigger: "q", location: "SpiralZone/", name: "spiralZone_2019-01-2601.09.51" },
         // { trigger: "q", location: "SpiralZone/", name: "spiralZone_2019-01-2603.17.53" },
- 
+  
         // { trigger: "q", location: "Hercules/", name: "hercules_dinosaur_hercules_sword_twirl" },
         // { trigger: "q", location: "Hercules/", name: "hercules_dinosaur_transform" },
         // { trigger: "q", location: "Hercules/", name: "hercules_gorilla_dinosaur_fight" },
@@ -2169,7 +2193,7 @@ const playlist = {
         // { trigger: "q", location: "Hercules/", name: "hercules_shield_block_beam" },
         // { trigger: "q", location: "Hercules/", name: "hercules_shield_block_beam2_o" },
         // { trigger: "q", location: "Hercules/", name: "hercules_woman_arms_beam_o" },
- 
+  
         // { 'trigger' : 'q', 'location' : 'Blackstar/', 'name' : 'blackstar_mara_hand_energy'},
         // { 'trigger' : 'q', 'location' : 'Blackstar/', 'name' : 'blackstar_overlord_glowing_eyes'},
         // { 'trigger' : 'q', 'location' : 'Blackstar/', 'name' : 'blackstar_swords'},
@@ -2195,7 +2219,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'Fiftytwovista/EV/', 'name' : 'stranger'},
         { 'trigger' : 'q', 'location' : 'Fiftytwovista/EV/', 'name' : 'time stratch'},
         { 'trigger' : 'q', 'location' : 'Fiftytwovista/EV/', 'name' : 'wacy colors'},
-
+ 
         { 'trigger' : 'q', 'location' : 'Fiftytwovista/Modern/', 'name' : 'Book'},
         { 'trigger' : 'q', 'location' : 'Fiftytwovista/Modern/', 'name' : 'Bust'},
         { 'trigger' : 'q', 'location' : 'Fiftytwovista/Modern/', 'name' : 'Check'},
@@ -2269,11 +2293,11 @@ const playlist = {
         { trigger: "q", location: "JosiePussycatsSpace/", name: "josiePussycatsSpace_intro_rocketFlying2_o" },
         { trigger: "q", location: "JosiePussycatsSpace/", name: "josiePussycatsSpace_intro_rocketFlying_o" },
         { trigger: "q", location: "JosiePussycatsSpace/", name: "josiePussycatsSpace_space_comets_o" },
- 
+  
         { 'trigger' : 'q', 'location' : 'Unarius/', 'name' : 'unarious_13'},
         { 'trigger' : 'q', 'location' : 'Unarius/', 'name' : 'unarious_19'},
         { 'trigger' : 'q', 'location' : 'Unarius/', 'name' : 'unarious_20'},
- 
+  
         { 'trigger' : 'q', 'location' : 'Unarius/', 'name' : 'unarious_8'},
         { 'trigger' : 'q', 'location' : 'Unarius/', 'name' : 'unarious_9'},
         { 'trigger' : 'q', 'location' : 'Unarius/', 'name' : 'unarious_23'},
@@ -2289,9 +2313,9 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'Unarius/', 'name' : 'unarious_35'},
         { 'trigger' : 'q', 'location' : 'Unarius/', 'name' : 'unarious_36'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'trippy_psycheDude'},
- 
+  
         { 'trigger' : 'q', 'location' : 'MultiplicationRap/', 'name' : 'multiplicationRap_disappearingKid'},
- 
+  
         { 'trigger' : 'q', 'location' : 'Peeps/', 'name' : 'misc_01'},
         { 'trigger' : 'q', 'location' : 'Peeps/', 'name' : 'misc_03'},
         { 'trigger' : 'q', 'location' : 'Peeps/', 'name' : 'misc_04'},
@@ -2300,13 +2324,13 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'Peeps/', 'name' : 'misc_07'},
         { 'trigger' : 'q', 'location' : 'Peeps/', 'name' : 'misc_08'},
         { 'trigger' : 'q', 'location' : 'Peeps/', 'name' : 'misc_09'},
- 
+  
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : '2019-05-2818.21.35'}, // weird 3d
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : '2019-05-2818.32.51'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : '2019-05-2818.33.56'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : '2019-05-2818.34.56'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : '2019-05-2818.35.58'},
- 
+  
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'Righeira_musicVideo1'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'Righeira_musicVideo6'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'Righeira_musicVideo7'},
@@ -2314,7 +2338,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'Righeira_musicVideo11'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'parachuting_man'},
         { 'trigger' : 'q', 'location' : 'NewGifs/', 'name' : 'shockingTransformSuperhero'},
- 
+  
         { trigger: "q", location: "Misc/", name: "bw_striped_cube_spin_o" },
         { trigger: "q", location: "Misc/", name: "bw_stripes_spin_o" },
         { trigger: "q", location: "Misc/", name: "candyBar_happyFace_o" },
