@@ -10,7 +10,15 @@ const Play = {
     var t = d.getTime();
     beatTime = t - lastClick;
     lastClick = t;
+
+    if (beatTime < 1000) {
+      console.log('GPS TOO LOW');
+      beatTime = beatTimeMinimum;
+    }
+
     console.log('GPS: ' + beatTime, "\n---------------------------------");
+
+
   },
 
   clearBeatTime() {

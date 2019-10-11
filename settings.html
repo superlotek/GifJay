@@ -81,6 +81,10 @@
     <h3 id="barLength">BarTender Length: <span></span></h3>
     <input type="range" id="barLength-slider" name="barlength" value="8" step="2" min="0" max="64">
 
+    <h3 id="beatTimeMinimum">BeatTime Threshold Minimum: <span></span></h3>
+    <input type="range" id="beatTimeMinimum-slider" name="beatTimeMinimum" value="1000" step="10" min="0" max="1000">
+
+
     <h3 id="startupBankNumber">Startup Bank Number: <span></span></h3>
     <input type="range" id="startupBankNumber-slider" name="startupBankNumber" value="0" step="1" min="0" max="25">
 
@@ -120,6 +124,9 @@
         $('#beatTime-slider').val(beatTime );
         $('#barLength span').text(barLength);
         $('#barLength-slider').val(barLength );
+
+        $('#beatTimeMinimum span').text(beatTimeMinimum);
+        $('#beatTimeMinimum-slider').val(beatTimeMinimum );
         $('#saturationAmount span').text(saturationAmount);
         $('#saturationAmount-slider').val(saturationAmount );
         $('#overlayFrequency span').text(overlayFrequency);
@@ -189,6 +196,9 @@
         $("#overlayDuration-slider").on("input change", function() { console.log($(this).attr('value')); } );
         var slider7 = document.getElementById("overlayDuration-slider");
 
+        $('#beatTimeMinimum-slider').attr('value', localStorage.getItem('beatTimeMinimum') );
+        $("#beatTimeMinimum-slider").on("input change", function() { console.log($(this).attr('value')); } );
+        var slider8 = document.getElementById("beatTimeMinimum-slider");
 
 
         // output.innerHTML = slider.value; // Display the default slider value
@@ -219,6 +229,9 @@
         slider7.oninput = function() {
            $('#overlayDuration span').text(this.value);
         }
+        slider8.oninput = function() {
+           $('#beatTimeMinimum span').text(this.value);
+        }
 
 
         // SAVE / CLEAR SETTINGS
@@ -234,6 +247,7 @@
             localStorage.setItem('colorPaletteOpacity', slider5.value);
             localStorage.setItem('overlayFrequency', slider6.value);
             localStorage.setItem('overlayDuration', slider7.value);
+            localStorage.setItem('beatTimeMinimum', slider8.value);
         });
 
         $('#clear-btn').on('click', function() {

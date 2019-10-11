@@ -1,4 +1,4 @@
-var version = "1.9.71";
+var version = "1.9.73";
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // INITS
@@ -69,11 +69,19 @@ if (localStorage.getItem("startupBankNumber") === null) {
 	// bankNumber = startupBankNumber;
 }
 
+if (localStorage.getItem("beatTimeMinimum") === null) {
+	beatTimeMinimum = 1000;
+} else {
+	beatTimeMinimum = JSON.parse(localStorage.getItem('beatTimeMinimum'));
+}
+
 
 // barLength = appz.barLength;
 // bankNumber = appz.startupBankNumber;
 bankTrigger = appz.startUpBankTrigger;
 filters = appz.filters;
+
+// beatTimeMinimum = 1000;
 
 singleBankTriggerArray = [];
 
