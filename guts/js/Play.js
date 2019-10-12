@@ -11,7 +11,7 @@ const Play = {
     beatTime = t - lastClick;
     lastClick = t;
 
-    if (beatTime < 1000) {
+    if (beatTime < beatTimeMinimum) {
       console.log('GPS TOO LOW');
       beatTime = beatTimeMinimum;
     }

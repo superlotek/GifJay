@@ -70,7 +70,7 @@ if (localStorage.getItem("startupBankNumber") === null) {
 }
 
 if (localStorage.getItem("beatTimeMinimum") === null) {
-	beatTimeMinimum = 1000;
+	beatTimeMinimum = 500;
 } else {
 	beatTimeMinimum = JSON.parse(localStorage.getItem('beatTimeMinimum'));
 }
