@@ -100,12 +100,13 @@
 
 
     <h3 id="performanceMode">Performance Mode: <span></span></h3>
-<!--     <input type="checkbox" id="perf-check" onchange="doalert(this)">
- -->    <input type="checkbox" id="perf-check" onchange="doalert(this)" /><label for="perf-check">Performance Mode</label>
+    <input type="checkbox" id="perf-check" onchange="doalert(this)" /><label for="perf-check">Performance Mode</label>
 
     <h3 id="overlayTexture">Overlay Texture: <span></span></h3>
-<!--     <input type="checkbox" id="perf-check" onchange="doalert(this)">
- -->    <input type="checkbox" id="texture-check" onchange="doalert2(this)" /><label for="texture-check">Overlay Texture</label>
+    <input type="checkbox" id="texture-check" onchange="doalert2(this)" /><label for="texture-check">Overlay Texture</label>
+
+    <h3 id="overlayTexture">Random Overlays: <span></span></h3>
+    <input type="checkbox" id="randomOverlay-check" onchange="doalert3(this)" /><label for="randomOverlay-check">Random Overlays</label>
 
 
     <div>
@@ -145,6 +146,10 @@
             $('#texture-check').prop('checked', true)
         }
 
+        if (randomOverlayOn === true) {
+            $('#randomOverlay-check').prop('checked', true)
+        }
+
         // CHECK FOR CHECKBOX
         // ======================================
         function doalert(checkboxElem) {
@@ -164,6 +169,16 @@
           } else {
             console.log("unchecked");
             overlayTextureOn = false;
+          }
+        }
+
+        function doalert3(checkboxElem) {
+          if (checkboxElem.checked) {
+            console.log("checked");
+            randomOverlayOn = true;
+          } else {
+            console.log("unchecked");
+            randomOverlayOn = false;
           }
         }
 
@@ -239,6 +254,7 @@
             console.log('settings saved');
             localStorage.setItem('performanceMode', JSON.parse(performanceModeOn));
             localStorage.setItem('overlayTexture', JSON.parse(overlayTextureOn));
+            localStorage.setItem('randomOverlay', JSON.parse(randomOverlayOn));
             localStorage.setItem('beatTime', slider.value);
             localStorage.setItem('barTenderLength', slider2.value);
             localStorage.setItem('saturationAmount', slider3.value);

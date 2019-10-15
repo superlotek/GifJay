@@ -22,42 +22,55 @@ const Overlays = {
 	},
 
 	applyOverlay(overlayNumber) {
-		console.log('FUNCTION: applyOverlay');
 		$(ov).css('background-image', 'url(' + appz.overlays[overlayNumber].location + '/' + appz.overlays[overlayNumber].name + ')');
 	},
 
 	displayOverlay() {
-		console.log('FUNCTION: displayOverlay');
+		// Selected Bank Overlays
 		if (playlist.bank[bankNumber].overlays) {
 			console.log('OVERLAYS PRESENT IN BANK');
 			var overlayTrigger = Init.numRan(playlist.bank[bankNumber].overlays.length);
 			console.log("overlay trigger ", overlayTrigger);
 			Mousetrap.trigger("alt+" + playlist.bank[bankNumber].overlays[overlayTrigger].trigger);
+
+		// Global Overlays
 		} else {
+
+			// Create a Brand Only Array
 			var brandOverlays = appz.overlays.filter(function(overlay) {
   				return overlay.type === "brand";
 			});
-			console.log('NO OVERLAYS IN BANK, PLAY BRAND OVERLAYS');
-			var overlayTrigger = Math.ceil(Math.random() * brandOverlays.length - 1);
-			Mousetrap.trigger("alt+" + overlayTrigger);
+
+			console.log('NO ARTIST OVERLAYS IN BANK, PLAY BRAND OVERLAYS');
+			if (randomOverlayOn) {
+				console.log('SHOWING RANDOM OVERLAYS');
+				var overlayTrigger = Math.ceil(Math.random() * brandOverlays.length - 1);
+				Mousetrap.trigger("alt+" + overlayTrigger);
+
+			} else {
+				console.log('THIS SHOULD BE NO RANDOM OVERLAYS');
+				console.log('this is how many', brandOverlays.length);
+				Mousetrap.trigger("alt+" + overlayCounter);
+				console.log('OVERLAY COUNTER: ', overlayCounter);
+				overlayCounter++;
+				if (overlayCounter >= brandOverlays.length ) { overlayCounter = 0; }
+			}
 
 		}
+
 		myvar = setTimeout(Overlays.hideOverlay, (beatTime * overlayDuration) );
 	},
 
 	hideOverlay() {
-		console.log('FUNCTION: hideOverlay');
 	  Mousetrap.trigger("alt+" + 1);
 	  myvar2 = setTimeout(Overlays.waitOverlay, (beatTime * overlayFrequency));
 	},
 
 	waitOverlay() {
-		console.log('FUNCTION:waitOverlay');
 	  Overlays.displayOverlay();
 	},
 
 	stopFunction() {
-		console.log('FUNCTION: stopOverlay');
 	  clearTimeout(myvar);
 	  clearTimeout(myvar2);
 	}

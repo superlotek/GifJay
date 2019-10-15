@@ -208,6 +208,7 @@ Mousetrap.bind('!', function() {
   } else {
     console.log('AUTO OVERLAY: OFF');
     autoOverlayOn = !autoOverlayOn;
+    Overlays.hideOverlay();
     Overlays.stopFunction();
   }
 });

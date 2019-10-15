@@ -96,18 +96,18 @@ const appz = {
 
   overlays: [
 
-    { trigger: "0", location: "overlays", type: "brand", name: "clubSurge_logo_gold.gif" },
-    { trigger: "1", location: "overlays", type: "brand", name: "clubSurge_logo_white.gif" },
-    // { trigger: "0", location: "overlays", type: "brand", name: "beerBelly_logo_white.png" },
-    // { trigger: "1", location: "overlays", type: "brand", name: "beerBelly_logo_black.png" },
-    // { trigger: "2", location: "overlays", type: "brand", name: "incidentalBeats_logo_white.png" },
-    // { trigger: "3", location: "overlays", type: "brand", name: "incidentalBeats_logo_black.png" },
-    // { trigger: "4", location: "overlays", type: "artist", name: "fiftytwovista_logo_white.png" },
-    // { trigger: "5", location: "overlays", type: "artist", name: "fiftytwovista_logo_black.png" },
-    // { trigger: "6", location: "overlays", type: "artist", name: "floppydisco_western1_black.png" },
-    // { trigger: "7", location: "overlays", type: "artist", name: "floppydisco_western1_white.png" },
-    // { trigger: "8", location: "overlays", type: "artist", name: "nprevail_logo_white.png" },
-    // { trigger: "9", location: "overlays", type: "artist", name: "nprevail_logo_black.png" }
+    // { trigger: "0", location: "overlays", type: "brand", name: "clubSurge_logo_gold.gif" },
+    // { trigger: "1", location: "overlays", type: "brand", name: "clubSurge_logo_white.gif" },
+    { trigger: "0", location: "overlays", type: "brand", name: "beerBelly_logo_white.png" },
+    { trigger: "1", location: "overlays", type: "brand", name: "beerBelly_logo_black.png" },
+    { trigger: "2", location: "overlays", type: "brand", name: "incidentalBeats_logo_white.png" },
+    { trigger: "3", location: "overlays", type: "brand", name: "incidentalBeats_logo_black.png" },
+    { trigger: "4", location: "overlays", type: "artist", name: "fiftytwovista_logo_white.png" },
+    { trigger: "5", location: "overlays", type: "artist", name: "fiftytwovista_logo_black.png" },
+    { trigger: "6", location: "overlays", type: "artist", name: "floppydisco_western1_black.png" },
+    { trigger: "7", location: "overlays", type: "artist", name: "floppydisco_western1_white.png" },
+    { trigger: "8", location: "overlays", type: "artist", name: "nprevail_logo_white.png" },
+    { trigger: "9", location: "overlays", type: "artist", name: "nprevail_logo_black.png" }
   ],
 
   sequence: [
