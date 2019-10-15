@@ -123,6 +123,18 @@ const playlist = {
       name: "",
       enabled: true,
       gifs: [
+        { 'trigger' : 'q', 'location' : 'Halloween/Masks/', 'name' : 'creepy-mask-kids'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Masks/', 'name' : 'woman-mask-face'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Lightning/', 'name' : 'lightning copy'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Lightning/', 'name' : 'lightning'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Dracula/', 'name' : 'dracula-blood-eyes'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Dracula/', 'name' : 'dracula-eyes'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Blood/', 'name' : 'bloody-body'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Blood/', 'name' : 'head-chop'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Blood/', 'name' : 'headless-squirting'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Blood/', 'name' : 'woman-sliced-throat'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Aliens/', 'name' : 'alien-creature-eyes'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Aliens/', 'name' : 'alien-monster-hands'},
       ]
     },
     {
@@ -131,6 +143,14 @@ const playlist = {
       name: "",
       enabled: true,
       gifs: [
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs/Pumpkins/', 'name' : '8-bit-spinning-pumpkin'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs/Pumpkins/', 'name' : 'animated-pumpkin'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs/Pumpkins/', 'name' : 'flashing-pumpkin-face'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs/Pumpkins/', 'name' : 'flashing-pumpkin'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs/Pumpkins/', 'name' : 'ghost-in-pumpkin'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs/Pumpkins/', 'name' : 'pumpkin-face-2'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs/Pumpkins/', 'name' : 'scary-pumpkin'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs/Pumpkins/', 'name' : 'spinning-pumpkins'},
       ]
     },
     {
@@ -139,13 +159,51 @@ const playlist = {
       name: "",
       enabled: true,
       gifs: [
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : '3d-creeping-skeleton'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : '3d-friendly-ghost'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : '3d-walking-zombie'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'Pump'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'blood-dripping'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'bowl-of-fire'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'cauldron-with-fire'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'crow-and-skull'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'dripping-blood-line'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'flying-bat'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'green-ghost'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'lightning-2'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'line-of-flames'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'pacing-cat'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'spectre-eyes-flashing'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'vampire-color-changing'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'witch-crystal-ball'},
+        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'witch-on-broom'},
       ]
     },    {
       id: 7,
       trigger: "i",
       name: "",
-      enabled: false,
+      enabled: true,
       gifs: [
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_01'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_02'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_03'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_04'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_05'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_06'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_07'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_08'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_09'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_10'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_11'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_12'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_13'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_14'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_15'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_16'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_17'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_18'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_19'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_20'},
       ]
     },
   
@@ -153,8 +211,35 @@ const playlist = {
       id: 8,
       trigger: "o",
       name: "",
-      enabled: false,
+      enabled: true,
       gifs: [
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'anime-split-fingers'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'bleeding-candle'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'bride-of-frankenstein'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'candles-blown-out'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'ceiling-crawl'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'creatures-from-ground'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'creepy-clown-hands'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'creepy-eyes'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'four-eyes-zoom-in'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'lightning-scary-house'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'mutilated-monster-face'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'one-eyed-monster'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'red-eyes'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'scared-woman'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'scary-doll'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'scary-woman-blowing-out-candle'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'skeleton-with-smoke'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'speeding-scary-forest'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'the-fly-eyes'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'three-people-creepy-masks'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'upside-eye'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'ventriliquist-dummy'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'weird-old-man'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'wolf-man'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'woman-arched-back'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'woman-vampire'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'zoom-in-scary-woman'},
       ]
     },
     {
@@ -170,7 +255,7 @@ const playlist = {
       id: 10,
       trigger: "a",
       name: "",
-      enabled: true,
+      enabled: false,
       gifs: [
       ]
     },
@@ -178,6 +263,7 @@ const playlist = {
       id: 11,
       trigger: "s",
       name: "",
+      enabled: false,
       gifs: [ 
       ]
     },
@@ -185,6 +271,7 @@ const playlist = {
       id: 12,
       trigger: "d",
       name: "",
+      enabled: false,
       gifs: [
       ]
     },
@@ -192,7 +279,7 @@ const playlist = {
       id: 13,
       trigger: "f",
       name: "",
-      enabled: true,
+      enabled: false,
       gifs: [
       ]
     },
@@ -200,7 +287,7 @@ const playlist = {
       id: 14,
       trigger: "g",
       name: "",
-      enabled: true,
+      enabled: false,
       gifs: [
       ]
     },
@@ -208,7 +295,7 @@ const playlist = {
       id: 15,
       trigger: "h",
       name: "",
-      enabled: true,
+      enabled: false,
       gifs: [
       ]
     },
@@ -216,7 +303,7 @@ const playlist = {
       id: 16,
       trigger: "j",
       name: "",
-      enabled: true,
+      enabled: false,
       gifs: [
       ]
     },
@@ -224,7 +311,7 @@ const playlist = {
       id: 17,
       trigger: "k",
       name: "",
-      enabled: true,
+      enabled: false,
       gifs: [
       ]
     },
@@ -241,7 +328,7 @@ const playlist = {
       id: 19,
       trigger: "z",
       name: "",
-      enabled: true,
+      enabled: false,
       gifs: [
 
       ]
@@ -250,7 +337,7 @@ const playlist = {
       id: 20,
       trigger: "x",
       name: "",
-      enabled: true,
+      enabled: false,
       gifs: [
       ]
     },

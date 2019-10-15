@@ -22,10 +22,12 @@ const Overlays = {
 	},
 
 	applyOverlay(overlayNumber) {
+		console.log('FUNCTION: applyOverlay');
 		$(ov).css('background-image', 'url(' + appz.overlays[overlayNumber].location + '/' + appz.overlays[overlayNumber].name + ')');
 	},
 
 	displayOverlay() {
+		console.log('FUNCTION: displayOverlay');
 		if (playlist.bank[bankNumber].overlays) {
 			console.log('OVERLAYS PRESENT IN BANK');
 			var overlayTrigger = Init.numRan(playlist.bank[bankNumber].overlays.length);
@@ -44,17 +46,20 @@ const Overlays = {
 	},
 
 	hideOverlay() {
+		console.log('FUNCTION: hideOverlay');
 	  Mousetrap.trigger("alt+" + 1);
 	  myvar2 = setTimeout(Overlays.waitOverlay, (beatTime * overlayFrequency));
 	},
 
 	waitOverlay() {
+		console.log('FUNCTION:waitOverlay');
 	  Overlays.displayOverlay();
 	},
 
 	stopFunction() {
-	  clearTimeout(this.myvar);
-	  clearTimeout(this.myvar2);
+		console.log('FUNCTION: stopOverlay');
+	  clearTimeout(myvar);
+	  clearTimeout(myvar2);
 	}
 };
 
