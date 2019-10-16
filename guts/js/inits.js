@@ -301,6 +301,7 @@ const Init = {
 	  // Scene.stageSetup();
 	  $(s1).add(s2).addClass('on');
 	  stageOneOn, stageTwoOn = 1;
+	  bankNumber = localStorage.getItem('bankNumber');
 	  $(s1).css('background', bankLocation + localStorage.getItem('stg1Location') + localStorage.getItem('stg1Gif') + bgCenter);
 	  $(s2).css('background', bankLocation + localStorage.getItem('stg2Location') + localStorage.getItem('stg2Gif') + bgCenter);
 	  $(s1).css('mix-blend-mode', localStorage.getItem('stg1Blend'));
@@ -325,13 +326,18 @@ const Init = {
   // console.log('BANKS IN USE: ' + banksInUse);
 
   if (localStorage.getItem('killSwitch') == 'killed') {
+  	  	bankNumber = localStorage.getItem('bankNumber');
+
     console.log('KILL SWITCH BANK #: ' + localStorage.getItem('stg1Bank'));
     Init.killSwitch();
-    bankNumber = localStorage.getItem('stg1Bank');
+    // bankNumber = localStorage.getItem('stg1Bank');
+  	bankNumber = localStorage.getItem('bankNumber');
   } else {
     console.log('GIFJAY: ' + version + ' STARTING UP', "\n---------------------------------");
     $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('#overlays');
-    $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
+    $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow', function() {
+    	$('.logo').remove();
+    });
     // bankNumber = Init.randomizer(banksInUse);
   }
 

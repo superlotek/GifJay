@@ -741,6 +741,7 @@ Mousetrap.bind('!', function() {
     localStorage.setItem('stg2Filter', currentScene.stage[1].filter);
     localStorage.setItem('stg1Repeat', currentScene.stage[0].repeat);
     localStorage.setItem('stg2Repeat', currentScene.stage[1].repeat);
+    localStorage.setItem('bankNumber', JSON.parse(bankNumber));
     stgStore = localStorage.getItem('killSwitch');
     location.reload();
   });
