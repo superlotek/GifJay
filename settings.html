@@ -116,7 +116,7 @@
 
 
         $(document).ready(function() {
-            var glerp = enabledBanksArray.length;
+            var glerp = enabledBanksArray.length - 1;
             console.log('glerp ', glerp);
             $('#startupBankNumber-slider').attr('max', glerp);
 
@@ -139,7 +139,7 @@
         $('#overlayFrequency-slider').val(overlayFrequency );
         $('#overlayDuration span').text(overlayDuration);
         $('#overlayDuration-slider').val(overlayDuration );
-        $('#startupBankNumber span').text(startupBankNumber + " : " + enabledBanksArray[startupBankNumber].trigger.toUpperCase() + " : " + enabledBanksArray[startupBankNumber].name);
+        $('#startupBankNumber span').text(startupBankNumber + " : " + enabledBanksArray[bankNumber].trigger.toUpperCase() + " : " + enabledBanksArray[bankNumber].name);
         $('#startupBankNumber-slider').val(startupBankNumber);
         $('#colorPaletteOpacity span').text(colorPaletteOpacity);
         $('#colorPaletteOpacity-slider').val(colorPaletteOpacity);
@@ -265,7 +265,7 @@
             localStorage.setItem('beatTime', slider.value);
             localStorage.setItem('barTenderLength', slider2.value);
             localStorage.setItem('saturationAmount', slider3.value);
-            localStorage.setItem('startupBankNumber', slider4.value);
+            localStorage.setItem('startupBankNumber', JSON.parse(enabledBanksArray[slider4.value].id));
             localStorage.setItem('colorPaletteOpacity', slider5.value);
             localStorage.setItem('overlayFrequency', slider6.value);
             localStorage.setItem('overlayDuration', slider7.value);
