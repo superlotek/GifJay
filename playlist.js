@@ -7,6 +7,10 @@ const playlist = {
       name: "Skeletons",
       enabled: true,
       colorPalette: ['#C01B05','#200706','#FC9016','#5C0405','#070602'],
+      overlays: [
+        { trigger: "8", location: "overlays", type: "artist", name: "clubSurge_logo_gold.gif" },
+        { trigger: "9", location: "overlays", type: "artist", name: "clubSurge_logo_white.gif" },
+      ],
       bankColorOpacity: .7,
       gifs: [
         { 'trigger' : 'q', 'location' : 'Halloween/Skeletons/', 'name' : 'animated-dancing-skeletons-1'},
@@ -674,7 +678,7 @@ const playlist = {
       id: 25,
       trigger: "m",
       name: "",
-      enabled: true,
+      enabled: false,
       gifs: [
       ]
     }
