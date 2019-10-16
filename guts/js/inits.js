@@ -1,4 +1,4 @@
-var version = "1.9.71";
+var version = "1.9.73";
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // INITS
@@ -18,6 +18,20 @@ if (localStorage.getItem("performanceMode") === null) {
 	performanceModeOn = JSON.parse(localStorage.getItem('performanceMode'));
 }
 
+if (localStorage.getItem("randomOverlay") === null) {
+	randomOverlayOn = false;
+} else {
+	randomOverlayOn = JSON.parse(localStorage.getItem('randomOverlay'));
+}
+
+
+if (localStorage.getItem("overlayTexture") === null) {
+	overlayTextureOn = true;
+} else {
+	overlayTextureOn = JSON.parse(localStorage.getItem('overlayTexture'));
+}
+
+
 if (localStorage.getItem("barTenderLength") === null) {
 	barLength = 8;
 } else {
@@ -31,6 +45,21 @@ if (localStorage.getItem("saturationAmount") === null) {
 	appz.filters.filter[1].max = saturationAmount;
 }
 
+if (localStorage.getItem("overlayFrequency") === null) {
+	overlayFrequency = 64;
+
+} else {
+	overlayFrequency = JSON.parse(localStorage.getItem('overlayFrequency'));
+}
+
+if (localStorage.getItem("overlayDuration") === null) {
+	overlayDuration = 8;
+
+} else {
+	overlayDuration = JSON.parse(localStorage.getItem('overlayDuration'));
+}
+
+
 if (localStorage.getItem("colorPaletteOpacity") === null) {
 	colorPaletteOpacity = .25;
 } else {
@@ -39,7 +68,7 @@ if (localStorage.getItem("colorPaletteOpacity") === null) {
 
 
 if (localStorage.getItem("startupBankNumber") === null) {
-	startupBankNumber = 1;
+	startupBankNumber = 0;
 	bankNumber = startupBankNumber;
 } else {
 	startupBankNumber = JSON.parse(localStorage.getItem('startupBankNumber'));
@@ -47,11 +76,21 @@ if (localStorage.getItem("startupBankNumber") === null) {
 	// bankNumber = startupBankNumber;
 }
 
+if (localStorage.getItem("beatTimeMinimum") === null) {
+	beatTimeMinimum = 500;
+} else {
+	beatTimeMinimum = JSON.parse(localStorage.getItem('beatTimeMinimum'));
+}
+
+
+var overlayCounter = 0;
 
 // barLength = appz.barLength;
 // bankNumber = appz.startupBankNumber;
 bankTrigger = appz.startUpBankTrigger;
 filters = appz.filters;
+
+// beatTimeMinimum = 1000;
 
 singleBankTriggerArray = [];
 
@@ -74,7 +113,7 @@ abledSequences = [];
 var s1 = '.stage-one';
 var s2 = '.stage-two';
 var wc = '#webcam-container';
-var ov = "#overlays";
+var ov = ".branding";
 
 var sf = {'background-position':'center', 'background-size':'cover', 'backgroundRepeat':'no-repeat'}; // STAGE FullScreen
 var st = {'background-position':'center', 'background-size':'auto', 'backgroundRepeat':'repeat'}; // STAGE Tile
@@ -87,10 +126,9 @@ var currentScene = {
 	]
 };
 
-// var performanceModeOn = false;
 var autoOverlayOn = 0;
-var overlayDuration = 1000;
-var overlayFrequency = 6000;
+// var overlayDuration = 1000;
+// var overlayFrequency = 6000;
 
 var bankSelectkeyArray;
 
@@ -216,6 +254,12 @@ $(document).ready(function() {
 
   // $('body').css('background-color', randomColorChange());
 
+    if (!overlayTextureOn) {
+      console.log('Texture Is here!!');
+      $('.texture').css('background', 'none !important');
+      $('.texture').css('display', 'none');
+    }
+
     Init.startup();
 
     $('.logo a').click(function() {
@@ -232,7 +276,7 @@ $(document).ready(function() {
 		createSequenceTriggers();
 
 		console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
-
+		Filter.colorPalette();
 
   });
 
@@ -295,7 +339,7 @@ const Init = {
     bankNumber = localStorage.getItem('stg1Bank');
   } else {
     console.log('GIFJAY: ' + version + ' STARTING UP', "\n---------------------------------");
-    $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('body');
+    $('<div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>').appendTo('#overlays');
     $('.logo img').delay(500).fadeIn('slow').delay(1500).fadeOut('slow');
     // bankNumber = Init.randomizer(banksInUse);
   }

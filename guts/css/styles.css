@@ -25,17 +25,20 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 */
 
-    .logo img {
-        width: 300px;
-        height: 125px;
-        margin: 20px auto 0 auto;
-        display: block;
+    .logo {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
  	.stage-one,
     .stage-two,
     .title-page,
-    #overlays, .screen {
+    .branding, .texture {
  		width: 100%;
  		height: 100%;
  		position: fixed;
@@ -48,7 +51,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
  		opacity: 1;
   	}
 
-    .screen { display: block; background: url(../../overlays/dot_overlay.gif) center center repeat; }
+    .texture { display: block; background: url(../../overlays/dot_overlay.gif) center center repeat; }
 		/* OVERLAYS & TEXT */
 
 		#text-fx {
@@ -74,12 +77,12 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
     }
 
 		#overlays {
-			display: none;
-/*			background-size: contain;
+/*			display: none;
+*//*			background-size: contain;
 			background-repeat: no-repeat;
 			background-position: center center;
 */		}
-		#overlays.on {
+		.branding.on {
 			display: block;
 /*            mix-blend-mode: overlay;
 */            /*opacity: .8;*/

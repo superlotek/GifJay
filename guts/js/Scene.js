@@ -124,10 +124,10 @@ function sceneSetter(arrayName, banker1, banker2) {
 
         if (scenePauseOn) {
 
-          if (barTenderOn) {
-            console.log('initiating Bar Tender + Screen Pause');
-            return;
-          }
+          // if (barTenderOn) {
+          //   console.log('initiating Bar Tender + Screen Pause');
+          //   return;
+          // }
           
           gifSelectorS1 = pausedStg1;
           gifSelectorS2 = pausedStg2;
@@ -182,6 +182,13 @@ const Scene = {
 
   stageSetup() {
     console.log('STG1+2: SETUP', "\n---------------------------------");
+
+    // if (!overlayTextureOn) {
+    //   console.log('Texture Is here!!');
+    //   $('.texture').css('background', 'none !important');
+    //   $('.texture').css('display', 'none');
+
+    // }
 
     if(giy) {
       console.log('BANK NUMBER: ' + bankNumber, "\n---------------------------------");

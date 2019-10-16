@@ -106,6 +106,7 @@ const Effects = {
         if (kaleidoscopeOn) { console.log('kALEID');Mousetrap.trigger('1') }
         if (sameSameOn) { console.log('SAMESAME');Mousetrap.trigger('3') }
         if (stgFadeOn) { console.log('STFFADE');Mousetrap.trigger('4') }
+        if (sceneFullscreenOn) { console.log('STFFADE');Mousetrap.trigger('[') }
         Mousetrap.trigger('~');
         return;
       }

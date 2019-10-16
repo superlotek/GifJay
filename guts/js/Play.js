@@ -10,7 +10,15 @@ const Play = {
     var t = d.getTime();
     beatTime = t - lastClick;
     lastClick = t;
+
+    if (beatTime < beatTimeMinimum) {
+      console.log('GPS TOO LOW');
+      beatTime = beatTimeMinimum;
+    }
+
     console.log('GPS: ' + beatTime, "\n---------------------------------");
+
+
   },
 
   clearBeatTime() {
@@ -35,7 +43,7 @@ const Play = {
       } else { this.playMode('default');
     }
 
-    if(barTenderOn && scenePauseOn) { Effects.barTender(); }
+    if(barTenderOn && scenePauseOn) { Effects.barTender(); console.log('right here') }
     if(mutatorOn) { Effects.mutator(); }
     if(stgFadeOn) { Effects.stgFade(); }
     if(sameSameOn) { Effects.sameSame(); }
