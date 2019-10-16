@@ -5,8 +5,11 @@
 const Overlays = {
 
 	enableOverlays() {
-	  for ( let o = 0; o < appz.overlays.length; o++) {
-	    Mousetrap.bind('alt+' + appz.overlays[o].trigger, function() {
+	  for ( let o = 0; o < appz.overlaySets.length; o++) {
+	    Mousetrap.bind('alt+' + appz.overlaySets[o].trigger, function() {
+
+	    	console.log(appz.overlaySets[o].name);
+
 	      if(!overlayOn) {
 	        Overlays.applyOverlay(o);
 	        overlayOn = !overlayOn;
@@ -21,32 +24,43 @@ const Overlays = {
 	  }
 	},
 
+	// applyOverlay(overlayNumber) {
+	// 	$(ov).css('background-image', 'url(' + appz.overlays[overlayNumber].location + '/' + appz.overlays[overlayNumber].name + ')');
+	// },
+
 	applyOverlay(overlayNumber) {
-		$(ov).css('background-image', 'url(' + appz.overlays[overlayNumber].location + '/' + appz.overlays[overlayNumber].name + ')');
+		var overlays = appz.overlaySets[overlayNumber].overlays;
+		var randoNumbo = Init.numRan(overlays.length);
+		console.log('randoNumbo ', randoNumbo);
+		console.log('overlayNumber: ', overlayNumber);
+		$(ov).css('background-image', 'url(' + appz.overlaySets[overlayNumber].overlays[randoNumbo].location + '/' + appz.overlaySets[overlayNumber].overlays[randoNumbo].url + ')');
+		$(ov).css('mix-blend-mode',appz.overlaySets[overlayNumber].overlays[randoNumbo].blendMode);
 	},
+
+
 
 	displayOverlay() {
 		// Selected Bank Overlays
 		if (playlist.bank[bankNumber].overlays) {
 
-			console.log('OVERLAYS PRESENT IN BANK');
+			// console.log('OVERLAYS PRESENT IN BANK');
 
 			if (randomOverlayOn) {
 
 				console.log('PLAYING RANDOM BANK OVERLAYS HERE');
-				var overlayTrigger = Init.numRan(playlist.bank[bankNumber].overlays.length);
-				console.log('overlayTrigger ', overlayTrigger);
-				Mousetrap.trigger("alt+" + playlist.bank[bankNumber].overlays[overlayTrigger].trigger);
+				// var overlayTrigger = Init.numRan(playlist.bank[bankNumber].overlays.length);
+				// console.log('overlayTrigger ', overlayTrigger);
+				// Mousetrap.trigger("alt+" + playlist.bank[bankNumber].overlays[overlayTrigger].trigger);
 
 			} else {
 
 				console.log('NO RANDOM BANK OVERLAYS HERE TO BE PLAYED');
-				console.log('this is how many', playlist.bank[bankNumber].overlays.length);
-				console.log('OVERLAY COUNTER: ', overlayCounter);
-				Mousetrap.trigger("alt+" + playlist.bank[0].overlays[overlayCounter].trigger);
-				console.log('OVERLAY COUNTER: ', overlayCounter);
-				overlayCounter++;
-				if (overlayCounter >= playlist.bank[bankNumber].overlays.length ) { overlayCounter = 0; }
+				// console.log('this is how many', playlist.bank[bankNumber].overlays.length);
+				// console.log('OVERLAY COUNTER: ', overlayCounter);
+				// Mousetrap.trigger("alt+" + playlist.bank[0].overlays[overlayCounter].trigger);
+				// console.log('OVERLAY COUNTER: ', overlayCounter);
+				// overlayCounter++;
+				// if (overlayCounter >= playlist.bank[bankNumber].overlays.length ) { overlayCounter = 0; }
 
 			}
 
@@ -54,24 +68,26 @@ const Overlays = {
 		} else {
 
 			// Create a Brand Only Array
-			var brandOverlays = appz.overlays.filter(function(overlay) {
-  				return overlay.type === "brand";
-			});
+			// var brandOverlays = appz.overlays.filter(function(overlay) {
+  	// 			return overlay.type === "brand";
+			// });
 
 			console.log('NO ARTIST OVERLAYS IN BANK, PLAY BRAND OVERLAYS');
+
 			if (randomOverlayOn) {
+				
 				console.log('SHOWING RANDOM OVERLAYS');
-				var overlayTrigger = Math.ceil(Math.random() * brandOverlays.length - 1);
-				Mousetrap.trigger("alt+" + overlayTrigger);
+				// var overlayTrigger = Math.ceil(Math.random() * brandOverlays.length - 1);
+				// Mousetrap.trigger("alt+" + overlayTrigger);
 
 			} else {
 
 				console.log('THIS SHOULD BE NO RANDOM OVERLAYS');
-				console.log('this is how many', brandOverlays.length);
-				Mousetrap.trigger("alt+" + overlayCounter);
-				console.log('OVERLAY COUNTER: ', overlayCounter);
-				overlayCounter++;
-				if (overlayCounter >= brandOverlays.length ) { overlayCounter = 0; }
+				// console.log('this is how many', brandOverlays.length);
+				// Mousetrap.trigger("alt+" + overlayCounter);
+				// console.log('OVERLAY COUNTER: ', overlayCounter);
+				// overlayCounter++;
+				// if (overlayCounter >= brandOverlays.length ) { overlayCounter = 0; }
 
 			}
 		}

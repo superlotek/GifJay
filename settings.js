@@ -114,22 +114,39 @@ const appz = {
   overlaySets: [
     {
       trigger: "0",
-      name: "Floppy Disco",
-      type: "artist",
+      name: "Eclectic Taste",
+      type: "brand",
+      enabled: true,
       overlays: [
-        { enabled: true, location: "overlays", url: "floppydisco_western1_white.png", blendMode: "screen"},
-        { location: "overlays", url: "floppydisco_western1_black.png", blendMode: "overlay"}
+        { enabled: true, location: "overlays", url: "beerBelly_logo_white.png", blendMode: "screen"},
+        { enabled: true, location: "overlays", url: "beerBelly_logo_black.png", blendMode: "overlay"},
+        { enabled: true, location: "overlays", url: "incidentalBeats_logo_white.png", blendMode: "screen"},
+        { enabled: true, location: "overlays", url: "incidentalBeats_logo_black.png", blendMode: "overlay"}
       ]
     },
     {
       trigger: "1",
+      name: "Floppy Disco",
+      type: "artist",
+      enabled: true,
+      overlays: [
+        { enabled: true, location: "overlays", url: "floppydisco_western1_white.png", blendMode: "normal"},
+        { enabled: true, location: "overlays", url: "floppydisco_western1_black.png", blendMode: "overlay"},
+        { enabled: true, location: "overlays", url: "floppydisco_western2_white.png", blendMode: "normal"},
+        { enabled: true, location: "overlays", url: "floppydisco_western2_black.png", blendMode: "overlay"},
+
+      ]
+    },
+    {
+      trigger: "2",
       name: "Fiftytwo Vista",
       type: "artist",
+      enabled: true,
       overlays: [
         { enabled: true, location: "overlays", url: "fiftytwovista_logo_white.png", blendMode: "difference"},
-        { location: "overlays", url: "fiftytwovista_logo_black.png", blendMode: "screen"}
+        { enabled: true, location: "overlays", url: "fiftytwovista_logo_black.png", blendMode: "screen"}
       ]
-    }
+    },
   ],
 
 
