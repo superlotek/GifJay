@@ -476,7 +476,7 @@ Mousetrap.bind('!', function() {
 
     Mousetrap.bind("ctrl+'", function() {
     console.log('BANKER: PLAY ALL');
-    bankerArray = allBankers;
+    bankerArray = enabledBanksArray;
   });
 
 
@@ -772,6 +772,8 @@ Mousetrap.bind('!', function() {
 
       enabledBanksArray = playlist.bank.filter(function(bank) {
           return bank.enabled === true;
+          // allBankers.push(bank);
+
       });
 
 

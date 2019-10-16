@@ -48,7 +48,7 @@ function sceneSetter(arrayName, banker1, banker2) {
       bankBuilderS1.push({
         gif: element.name,
         location: element.location,
-        type: element.type
+        // type: element.type
       });
     });
 
@@ -56,7 +56,7 @@ function sceneSetter(arrayName, banker1, banker2) {
       bankBuilderS2.push({
         gif: element.name,
         location: element.location,
-        type: element.type
+        // type: element.type
       });
     });
 

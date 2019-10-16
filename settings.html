@@ -128,8 +128,6 @@
 
         var gleeep = enabledBanksArray.findIndex( x => x.id === bankNumber);
 
-
-
         // CHECK FOR LOCAL STORAGE
         // ======================================
         if (!localStorage.length) { console.log('Nothing in Storage'); }
@@ -166,37 +164,6 @@
             $('#randomOverlay-check').prop('checked', true)
         }
 
-        // CHECK FOR CHECKBOX
-        // ======================================
-        function doalert(checkboxElem) {
-          if (checkboxElem.checked) {
-            console.log("checked");
-            performanceModeOn = true;
-          } else {
-            console.log("unchecked");
-            performanceModeOn = false;
-          }
-        }
-
-        function doalert2(checkboxElem) {
-          if (checkboxElem.checked) {
-            console.log("checked");
-            overlayTextureOn = true;
-          } else {
-            console.log("unchecked");
-            overlayTextureOn = false;
-          }
-        }
-
-        function doalert3(checkboxElem) {
-          if (checkboxElem.checked) {
-            console.log("checked");
-            randomOverlayOn = true;
-          } else {
-            console.log("unchecked");
-            randomOverlayOn = false;
-          }
-        }
 
         $('#beatTime-slider').attr('value', localStorage.getItem('beatTime') );
         $("#beatTime-slider").on("input change", function() { console.log($(this).attr('value')); } );
@@ -231,7 +198,6 @@
         $("#beatTimeMinimum-slider").on("input change", function() { console.log($(this).attr('value')); } );
         var slider8 = document.getElementById("beatTimeMinimum-slider");
 
-
         // output.innerHTML = slider.value; // Display the default slider value
 
         // Update the current slider value (each time you drag the slider handle)
@@ -264,8 +230,7 @@
            $('#beatTimeMinimum span').text(this.value);
         }
 
-
-        // SAVE / CLEAR SETTINGS
+                // SAVE / CLEAR SETTINGS
         // ======================================
         $('#save-btn').on('click', function() {
             console.log('settings saved');
@@ -288,7 +253,47 @@
 
         });
 
+
+
         });
+
+
+
+        // CHECK FOR CHECKBOX
+        // ======================================
+        function doalert(checkboxElem) {
+          if (checkboxElem.checked) {
+            console.log("checked");
+            performanceModeOn = true;
+          } else {
+            console.log("unchecked");
+            performanceModeOn = false;
+          }
+        }
+
+        function doalert2(checkboxElem) {
+          if (checkboxElem.checked) {
+            console.log("checked");
+            overlayTextureOn = true;
+          } else {
+            console.log("unchecked");
+            overlayTextureOn = false;
+          }
+        }
+
+        function doalert3(checkboxElem) {
+          if (checkboxElem.checked) {
+            console.log("checked");
+            randomOverlayOn = true;
+          } else {
+            console.log("unchecked");
+            randomOverlayOn = false;
+          }
+        }
+
+
+
+
 
 
     </script>

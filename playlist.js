@@ -166,7 +166,6 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : '3d-creeping-skeleton'},
         { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : '3d-friendly-ghost'},
         { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : '3d-walking-zombie'},
-        { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'Pump'},
         { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'blood-dripping'},
         { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'bowl-of-fire'},
         { 'trigger' : 'q', 'location' : 'Halloween/VintageGifs//', 'name' : 'cauldron-with-fire'},
@@ -215,6 +214,7 @@ const playlist = {
       id: 8,
       trigger: "o",
       name: "",
+      colorPalette: ['#C01B05','#200706','#FC9016','#5C0405','#070602'],
       enabled: true,
       gifs: [
         { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'anime-split-fingers'},
@@ -244,6 +244,8 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'woman-arched-back'},
         { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'woman-vampire'},
         { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'zoom-in-scary-woman'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'someBody_2019-04-3009.31.31'},
+        { 'trigger' : 'q', 'location' : 'Halloween/Misc/', 'name' : 'someBody_2019-04-3009.25.34'},
       ]
     },
     {
