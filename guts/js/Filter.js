@@ -29,7 +29,14 @@ const Filter = {
         // console.log('no gradient');
         $('.color-palette').css('backgroundColor', bankColorPalette[Init.numRan(colorAmt)]);
       }
-      $('.color-palette').css('opacity', colorPaletteOpacity);
+
+      if (playlist.bank[bankNumber].bankColorOpacity) {
+        console.log('COLOR PALETTE OPACITY: DETECTED');
+        $('.color-palette').css('opacity', playlist.bank[bankNumber].bankColorOpacity);
+      } else {
+        $('.color-palette').css('opacity', colorPaletteOpacity);
+      }
+
     }
   },
 

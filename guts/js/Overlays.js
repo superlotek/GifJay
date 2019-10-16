@@ -26,26 +26,62 @@ const Overlays = {
 	},
 
 	displayOverlay() {
+		// Selected Bank Overlays
 		if (playlist.bank[bankNumber].overlays) {
+
 			console.log('OVERLAYS PRESENT IN BANK');
-			var overlayTrigger = Init.numRan(playlist.bank[bankNumber].overlays.length);
-			console.log("overlay trigger ", overlayTrigger);
-			Mousetrap.trigger("alt+" + playlist.bank[bankNumber].overlays[overlayTrigger].trigger);
+
+			if (randomOverlayOn) {
+
+				console.log('PLAYING RANDOM BANK OVERLAYS HERE');
+				var overlayTrigger = Init.numRan(playlist.bank[bankNumber].overlays.length);
+				console.log('overlayTrigger ', overlayTrigger);
+				Mousetrap.trigger("alt+" + playlist.bank[bankNumber].overlays[overlayTrigger].trigger);
+
+			} else {
+
+				console.log('NO RANDOM BANK OVERLAYS HERE TO BE PLAYED');
+				console.log('this is how many', playlist.bank[bankNumber].overlays.length);
+				console.log('OVERLAY COUNTER: ', overlayCounter);
+				Mousetrap.trigger("alt+" + playlist.bank[0].overlays[overlayCounter].trigger);
+				console.log('OVERLAY COUNTER: ', overlayCounter);
+				overlayCounter++;
+				if (overlayCounter >= playlist.bank[bankNumber].overlays.length ) { overlayCounter = 0; }
+
+			}
+
+		// Global Overlays
 		} else {
+
+			// Create a Brand Only Array
 			var brandOverlays = appz.overlays.filter(function(overlay) {
   				return overlay.type === "brand";
 			});
-			console.log('NO OVERLAYS IN BANK, PLAY BRAND OVERLAYS');
-			var overlayTrigger = Math.ceil(Math.random() * brandOverlays.length - 1);
-			Mousetrap.trigger("alt+" + overlayTrigger);
 
+			console.log('NO ARTIST OVERLAYS IN BANK, PLAY BRAND OVERLAYS');
+			if (randomOverlayOn) {
+				console.log('SHOWING RANDOM OVERLAYS');
+				var overlayTrigger = Math.ceil(Math.random() * brandOverlays.length - 1);
+				Mousetrap.trigger("alt+" + overlayTrigger);
+
+			} else {
+
+				console.log('THIS SHOULD BE NO RANDOM OVERLAYS');
+				console.log('this is how many', brandOverlays.length);
+				Mousetrap.trigger("alt+" + overlayCounter);
+				console.log('OVERLAY COUNTER: ', overlayCounter);
+				overlayCounter++;
+				if (overlayCounter >= brandOverlays.length ) { overlayCounter = 0; }
+
+			}
 		}
-		myvar = setTimeout(Overlays.hideOverlay, (beatTime * overlayDuration) );
+
+		hideOverlayTimer = setTimeout(Overlays.hideOverlay, (beatTime * overlayDuration) );
 	},
 
 	hideOverlay() {
 	  Mousetrap.trigger("alt+" + 1);
-	  myvar2 = setTimeout(Overlays.waitOverlay, (beatTime * overlayFrequency));
+	  waitOverlayTimer = setTimeout(Overlays.waitOverlay, (beatTime * overlayFrequency));
 	},
 
 	waitOverlay() {
@@ -53,8 +89,8 @@ const Overlays = {
 	},
 
 	stopFunction() {
-	  clearTimeout(this.myvar);
-	  clearTimeout(this.myvar2);
+	  clearTimeout(hideOverlayTimer);
+	  clearTimeout(waitOverlayTimer);
 	}
 };
 

@@ -18,6 +18,13 @@ if (localStorage.getItem("performanceMode") === null) {
 	performanceModeOn = JSON.parse(localStorage.getItem('performanceMode'));
 }
 
+if (localStorage.getItem("randomOverlay") === null) {
+	randomOverlayOn = false;
+} else {
+	randomOverlayOn = JSON.parse(localStorage.getItem('randomOverlay'));
+}
+
+
 if (localStorage.getItem("overlayTexture") === null) {
 	overlayTextureOn = true;
 } else {
@@ -75,6 +82,8 @@ if (localStorage.getItem("beatTimeMinimum") === null) {
 	beatTimeMinimum = JSON.parse(localStorage.getItem('beatTimeMinimum'));
 }
 
+
+var overlayCounter = 0;
 
 // barLength = appz.barLength;
 // bankNumber = appz.startupBankNumber;

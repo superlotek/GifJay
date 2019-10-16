@@ -26,6 +26,8 @@
     <script src="playlist.js"></script>
 
     <style>
+
+        body { padding: 20px; }
         input[type=checkbox]{
             height: 0;
             width: 0;
@@ -85,7 +87,7 @@
     <input type="range" id="beatTimeMinimum-slider" name="beatTimeMinimum" value="1000" step="10" min="0" max="1000">
 
     <h3 id="startupBankNumber">Startup Bank Number: <span></span></h3>
-    <input type="range" id="startupBankNumber-slider" name="startupBankNumber" value="0" step="1" min="0" max="25">
+    <input type="range" id="startupBankNumber-slider" name="startupBankNumber" value="0" step="1" min="0">
 
     <h3 id="saturationAmount">Saturation Amount: <span></span></h3>
     <input type="range" id="saturationAmount-slider" name="saturation" value="50" step="1" min="0" max="128">
@@ -98,15 +100,14 @@
     <h3 id="colorPaletteOpacity">Color Palette Opacity: <span></span></h3>
     <input type="range" id="colorPaletteOpacity-slider" name="colorPaletteOpacity" value=".25" step=".01" min="0" max=".9">
 
-
     <h3 id="performanceMode">Performance Mode: <span></span></h3>
-<!--     <input type="checkbox" id="perf-check" onchange="doalert(this)">
- -->    <input type="checkbox" id="perf-check" onchange="doalert(this)" /><label for="perf-check">Performance Mode</label>
+    <input type="checkbox" id="perf-check" onchange="doalert(this)" /><label for="perf-check">Performance Mode</label>
 
     <h3 id="overlayTexture">Overlay Texture: <span></span></h3>
-<!--     <input type="checkbox" id="perf-check" onchange="doalert(this)">
- -->    <input type="checkbox" id="texture-check" onchange="doalert2(this)" /><label for="texture-check">Overlay Texture</label>
+    <input type="checkbox" id="texture-check" onchange="doalert2(this)" /><label for="texture-check">Overlay Texture</label>
 
+    <h3 id="overlayTexture">Random Overlays: <span></span></h3>
+    <input type="checkbox" id="randomOverlay-check" onchange="doalert3(this)" /><label for="randomOverlay-check">Random Overlays</label>
 
     <div>
         <button id="save-btn">Save settings</button>
@@ -114,6 +115,18 @@
     </div>
 
     <script>
+
+
+        $(document).ready(function() {
+            var glerp = enabledBanksArray.length - 1;
+            console.log('glerp ', glerp);
+            $('#startupBankNumber-slider').attr('max', glerp);
+
+            // var glub = enabledBanksArray.filter(function(glerp) {
+            // return glerp.id === startupBankNumber;
+            // });
+
+        var gleeep = enabledBanksArray.findIndex( x => x.id === bankNumber);
 
         // CHECK FOR LOCAL STORAGE
         // ======================================
@@ -132,8 +145,10 @@
         $('#overlayFrequency-slider').val(overlayFrequency );
         $('#overlayDuration span').text(overlayDuration);
         $('#overlayDuration-slider').val(overlayDuration );
-        $('#startupBankNumber span').text(startupBankNumber + " : " + playlist.bank[startupBankNumber].trigger.toUpperCase() + " : " + playlist.bank[startupBankNumber].name);
+
+        $('#startupBankNumber span').text(startupBankNumber + " : " + enabledBanksArray[gleeep].trigger.toUpperCase() + " : " + enabledBanksArray[gleeep].name);
         $('#startupBankNumber-slider').val(startupBankNumber);
+
         $('#colorPaletteOpacity span').text(colorPaletteOpacity);
         $('#colorPaletteOpacity-slider').val(colorPaletteOpacity);
 
@@ -145,27 +160,10 @@
             $('#texture-check').prop('checked', true)
         }
 
-        // CHECK FOR CHECKBOX
-        // ======================================
-        function doalert(checkboxElem) {
-          if (checkboxElem.checked) {
-            console.log("checked");
-            performanceModeOn = true;
-          } else {
-            console.log("unchecked");
-            performanceModeOn = false;
-          }
+        if (randomOverlayOn === true) {
+            $('#randomOverlay-check').prop('checked', true)
         }
 
-        function doalert2(checkboxElem) {
-          if (checkboxElem.checked) {
-            console.log("checked");
-            overlayTextureOn = true;
-          } else {
-            console.log("unchecked");
-            overlayTextureOn = false;
-          }
-        }
 
         $('#beatTime-slider').attr('value', localStorage.getItem('beatTime') );
         $("#beatTime-slider").on("input change", function() { console.log($(this).attr('value')); } );
@@ -191,6 +189,7 @@
         $('#overlayFrequency-slider').attr('value', localStorage.getItem('overlayFrequency') );
         $("#overlayFrequency-slider").on("input change", function() { console.log($(this).attr('value')); } );
         var slider6 = document.getElementById("overlayFrequency-slider");
+        
         $('#overlayDuration-slider').attr('value', localStorage.getItem('overlayDuration') );
         $("#overlayDuration-slider").on("input change", function() { console.log($(this).attr('value')); } );
         var slider7 = document.getElementById("overlayDuration-slider");
@@ -198,7 +197,6 @@
         $('#beatTimeMinimum-slider').attr('value', localStorage.getItem('beatTimeMinimum') );
         $("#beatTimeMinimum-slider").on("input change", function() { console.log($(this).attr('value')); } );
         var slider8 = document.getElementById("beatTimeMinimum-slider");
-
 
         // output.innerHTML = slider.value; // Display the default slider value
 
@@ -215,7 +213,7 @@
            $('#saturationAmount span').text(this.value);
         }
         slider4.oninput = function() {
-           $('#startupBankNumber span').text(this.value + " : " + playlist.bank[this.value].trigger.toUpperCase() + " : " + playlist.bank[this.value].name);
+           $('#startupBankNumber span').text(this.value + " : " + enabledBanksArray[this.value].trigger.toUpperCase() + " : " + enabledBanksArray[this.value].name);
         }
 
         slider5.oninput = function() {
@@ -232,17 +230,17 @@
            $('#beatTimeMinimum span').text(this.value);
         }
 
-
-        // SAVE / CLEAR SETTINGS
+                // SAVE / CLEAR SETTINGS
         // ======================================
         $('#save-btn').on('click', function() {
             console.log('settings saved');
             localStorage.setItem('performanceMode', JSON.parse(performanceModeOn));
             localStorage.setItem('overlayTexture', JSON.parse(overlayTextureOn));
+            localStorage.setItem('randomOverlay', JSON.parse(randomOverlayOn));
             localStorage.setItem('beatTime', slider.value);
             localStorage.setItem('barTenderLength', slider2.value);
             localStorage.setItem('saturationAmount', slider3.value);
-            localStorage.setItem('startupBankNumber', slider4.value);
+            localStorage.setItem('startupBankNumber', JSON.parse(enabledBanksArray[slider4.value].id));
             localStorage.setItem('colorPaletteOpacity', slider5.value);
             localStorage.setItem('overlayFrequency', slider6.value);
             localStorage.setItem('overlayDuration', slider7.value);
@@ -254,6 +252,49 @@
             localStorage.clear();
 
         });
+
+
+
+        });
+
+
+
+        // CHECK FOR CHECKBOX
+        // ======================================
+        function doalert(checkboxElem) {
+          if (checkboxElem.checked) {
+            console.log("checked");
+            performanceModeOn = true;
+          } else {
+            console.log("unchecked");
+            performanceModeOn = false;
+          }
+        }
+
+        function doalert2(checkboxElem) {
+          if (checkboxElem.checked) {
+            console.log("checked");
+            overlayTextureOn = true;
+          } else {
+            console.log("unchecked");
+            overlayTextureOn = false;
+          }
+        }
+
+        function doalert3(checkboxElem) {
+          if (checkboxElem.checked) {
+            console.log("checked");
+            randomOverlayOn = true;
+          } else {
+            console.log("unchecked");
+            randomOverlayOn = false;
+          }
+        }
+
+
+
+
+
 
     </script>
   </body>

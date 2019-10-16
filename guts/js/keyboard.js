@@ -208,6 +208,7 @@ Mousetrap.bind('!', function() {
   } else {
     console.log('AUTO OVERLAY: OFF');
     autoOverlayOn = !autoOverlayOn;
+    Overlays.hideOverlay();
     Overlays.stopFunction();
   }
 });
@@ -475,7 +476,7 @@ Mousetrap.bind('!', function() {
 
     Mousetrap.bind("ctrl+'", function() {
     console.log('BANKER: PLAY ALL');
-    bankerArray = allBankers;
+    bankerArray = enabledBanksArray;
   });
 
 
@@ -768,14 +769,25 @@ Mousetrap.bind('!', function() {
     console.log('SELECTING ENABLED BANKS');
     // console.log('BANKS IN USE: ' + banksInUse);
     // console.log('CHECKING FOR: ENABLED BANKS');
-    playlist.bank.forEach(function(element, index) {
-      if (element.enabled === true) {
-        // console.log('BANK ' + element.id + ': ENABLED');
 
-        enabledBanksArray.push(element);
-        allBankers.push(element.id);
-      }
-    });
+
+      enabledBanksArray = playlist.bank.filter(function(bank) {
+          return bank.enabled === true;
+          // allBankers.push(bank);
+
+      });
+
+
+    // playlist.bank.forEach(function(element, index) {
+    //   if (element.enabled === true) {
+    //     // console.log('BANK ' + element.id + ': ENABLED');
+
+    //     enabledBanksArray.push(element);
+    //     allBankers.push(element.id);
+    //   }
+    // });
+
+
     // enabledBankers();
     // console.log("---------------------------------");
   }
@@ -788,6 +800,7 @@ Mousetrap.bind('!', function() {
     for(let i = 0; i < enabledBanksArray.length; i++) {
       Mousetrap.bind(keyModifier + "+" + enabledBanksArray[i].trigger, function() {
         if (enabledBanksArray[i].trigger == bankTrigger) { return; }
+        overlayCounter = 0;
         bankNumber = enabledBanksArray[i].id;
         bankTrigger = enabledBanksArray[i].trigger;
         console.log('BANK SELECTED: ' + bankNumber, bankTrigger);
