@@ -26,6 +26,8 @@
     <script src="playlist.js"></script>
 
     <style>
+
+        body { padding: 20px; }
         input[type=checkbox]{
             height: 0;
             width: 0;
@@ -85,7 +87,7 @@
     <input type="range" id="beatTimeMinimum-slider" name="beatTimeMinimum" value="1000" step="10" min="0" max="1000">
 
     <h3 id="startupBankNumber">Startup Bank Number: <span></span></h3>
-    <input type="range" id="startupBankNumber-slider" name="startupBankNumber" value="0" step="1" min="0" max="25">
+    <input type="range" id="startupBankNumber-slider" name="startupBankNumber" value="0" step="1" min="0">
 
     <h3 id="saturationAmount">Saturation Amount: <span></span></h3>
     <input type="range" id="saturationAmount-slider" name="saturation" value="50" step="1" min="0" max="128">
@@ -120,6 +122,12 @@
             console.log('glerp ', glerp);
             $('#startupBankNumber-slider').attr('max', glerp);
 
+            // var glub = enabledBanksArray.filter(function(glerp) {
+            // return glerp.id === startupBankNumber;
+            // });
+
+        var gleeep = enabledBanksArray.findIndex( x => x.id === bankNumber);
+
 
 
         // CHECK FOR LOCAL STORAGE
@@ -139,8 +147,10 @@
         $('#overlayFrequency-slider').val(overlayFrequency );
         $('#overlayDuration span').text(overlayDuration);
         $('#overlayDuration-slider').val(overlayDuration );
-        $('#startupBankNumber span').text(startupBankNumber + " : " + enabledBanksArray[bankNumber].trigger.toUpperCase() + " : " + enabledBanksArray[bankNumber].name);
+
+        $('#startupBankNumber span').text(startupBankNumber + " : " + enabledBanksArray[gleeep].trigger.toUpperCase() + " : " + enabledBanksArray[gleeep].name);
         $('#startupBankNumber-slider').val(startupBankNumber);
+
         $('#colorPaletteOpacity span').text(colorPaletteOpacity);
         $('#colorPaletteOpacity-slider').val(colorPaletteOpacity);
 
