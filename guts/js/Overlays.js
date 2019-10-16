@@ -5,10 +5,11 @@
 const Overlays = {
 
 	enableOverlays() {
+
 	  for ( let o = 0; o < appz.overlaySets.length; o++) {
 	    Mousetrap.bind('alt+' + appz.overlaySets[o].trigger, function() {
 
-	    	console.log(appz.overlaySets[o].name);
+    	console.log('OVERLAY SET: ' + appz.overlaySets[o].name);
 
 	      if(!overlayOn) {
 	        Overlays.applyOverlay(o);
@@ -24,17 +25,41 @@ const Overlays = {
 	  }
 	},
 
-	// applyOverlay(overlayNumber) {
-	// 	$(ov).css('background-image', 'url(' + appz.overlays[overlayNumber].location + '/' + appz.overlays[overlayNumber].name + ')');
+	// applyOverlay(overlaySetNumber) {
+	// 	$(ov).css('background-image', 'url(' + appz.overlays[overlaySetNumber].location + '/' + appz.overlays[overlaySetNumber].name + ')');
 	// },
 
-	applyOverlay(overlayNumber) {
-		var overlays = appz.overlaySets[overlayNumber].overlays;
-		var randoNumbo = Init.numRan(overlays.length);
-		console.log('randoNumbo ', randoNumbo);
-		console.log('overlayNumber: ', overlayNumber);
-		$(ov).css('background-image', 'url(' + appz.overlaySets[overlayNumber].overlays[randoNumbo].location + '/' + appz.overlaySets[overlayNumber].overlays[randoNumbo].url + ')');
-		$(ov).css('mix-blend-mode',appz.overlaySets[overlayNumber].overlays[randoNumbo].blendMode);
+
+	applyOverlay(overlaySetNumber) {
+		var overlays = appz.overlaySets[overlaySetNumber].overlays;
+
+		if (randomOverlayOn) {
+
+			console.log('RANDOM OVERLAY: ON');
+			var randomOverlay = Init.numRan(overlays.length);
+			console.log('randomOverlay ', randomOverlay);
+			console.log('overlaySetNumber: ', overlaySetNumber);
+			$(ov).css('background-image', 'url(' + overlays[randomOverlay].location + '/' + overlays[randomOverlay].url + ')');
+			$(ov).css('mix-blend-mode',overlays[randomOverlay].blendMode);
+
+		} else {
+
+			console.log('RANDOM OVERLAY: OFF');
+			console.log('overlaySetNumber: ', overlaySetNumber);
+			console.log('overlayCounter: ', overlayCounter);
+			$(ov).css('background-image', 'url(' + overlays[overlayCounter].location + '/' + overlays[overlayCounter].url + ')');
+			// $(ov).css('mix-blend-mode',appz.overlaySets[overlayCounter].overlays[overlayCounter].blendMode);
+			overlayCounter++;
+			if (overlayCounter === appz.overlaySets[overlaySetNumber].overlays.length ) { overlayCounter = 0; }
+
+		}
+
+		// var overlays = appz.overlaySets[overlaySetNumber].overlays;
+		// var randoNumbo = Init.numRan(overlays.length);
+		// console.log('randoNumbo ', randoNumbo);
+		// console.log('overlaySetNumber: ', overlaySetNumber);
+		// $(ov).css('background-image', 'url(' + appz.overlaySets[overlaySetNumber].overlays[randoNumbo].location + '/' + appz.overlaySets[overlaySetNumber].overlays[randoNumbo].url + ')');
+		// $(ov).css('mix-blend-mode',appz.overlaySets[overlaySetNumber].overlays[randoNumbo].blendMode);
 	},
 
 
