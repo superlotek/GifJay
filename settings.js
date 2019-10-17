@@ -130,9 +130,9 @@ const appz = {
       type: "artist",
       enabled: true,
       overlays: [
-        { enabled: true, location: "overlays", url: "floppydisco_western1_white.png", blendMode: "normal"},
+        { enabled: true, location: "overlays", url: "floppydisco_western1_white.png", blendMode: "overlay"},
         { enabled: true, location: "overlays", url: "floppydisco_western1_black.png", blendMode: "overlay"},
-        { enabled: true, location: "overlays", url: "floppydisco_western2_white.png", blendMode: "normal"},
+        { enabled: true, location: "overlays", url: "floppydisco_western2_white.png", blendMode: "overlay"},
         { enabled: true, location: "overlays", url: "floppydisco_western2_black.png", blendMode: "overlay"},
 
       ]
