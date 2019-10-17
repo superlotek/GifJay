@@ -476,7 +476,11 @@ Mousetrap.bind('!', function() {
 
     Mousetrap.bind("ctrl+'", function() {
     console.log('BANKER: PLAY ALL');
-    bankerArray = enabledBanksArray;
+    // bankerArray = enabledBanksArray;
+
+    bankerArray = enabledBanksArray.map(function(banks) {
+      return banks.id
+    });
   });
 
 
