@@ -31,7 +31,7 @@ const Filter = {
       }
 
       if (playlist.bank[bankNumber].bankColorOpacity) {
-        console.log('COLOR PALETTE OPACITY: DETECTED');
+        // console.log('COLOR PALETTE OPACITY: DETECTED');
         $('.color-palette').css('opacity', playlist.bank[bankNumber].bankColorOpacity);
       } else {
         $('.color-palette').css('opacity', colorPaletteOpacity);

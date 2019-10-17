@@ -5,11 +5,22 @@
 const Overlays = {
 
 	enableOverlays() {
+		console.log('WHAT IS THE CURRENT OVERLAY SET: ', currentOverlaySet);
 
+		console.log('ENABLE OVERLAYS');
 	  for ( let o = 0; o < appz.overlaySets.length; o++) {
 	    Mousetrap.bind('alt+' + appz.overlaySets[o].trigger, function() {
 
     	console.log('OVERLAY SET: ' + appz.overlaySets[o].name);
+			var currentOverlaySet = o;
+			glerp = currentOverlaySet;
+			console.log('CURRENT OVERLAY SET: ', currentOverlaySet);
+
+	    	if (currentOverlaySet != parseInt(appz.overlaySets[o].trigger) ) {
+	    		console.log('THIS IS DIFFERENT');
+	    		overlayCounter = 0;
+	    	}
+
 
 	      if(!overlayOn) {
 	        Overlays.applyOverlay(o);
@@ -20,6 +31,7 @@ const Overlays = {
 	        overlayOn = !overlayOn;
 	        console.log('OVERLAY: OFF');
 	        $(ov).toggleClass('on');
+	       	// overlayCounter = 0;
 	      }
 	    });
 	  }
@@ -31,7 +43,10 @@ const Overlays = {
 
 
 	applyOverlay(overlaySetNumber) {
+
+		console.log('APPLY OVERLAYS');
 		var overlays = appz.overlaySets[overlaySetNumber].overlays;
+		var currentOverlaySet = overlaySetNumber;
 
 		if (randomOverlayOn) {
 
@@ -50,7 +65,7 @@ const Overlays = {
 			$(ov).css('background-image', 'url(' + overlays[overlayCounter].location + '/' + overlays[overlayCounter].url + ')');
 			// $(ov).css('mix-blend-mode',appz.overlaySets[overlayCounter].overlays[overlayCounter].blendMode);
 			overlayCounter++;
-			if (overlayCounter === appz.overlaySets[overlaySetNumber].overlays.length ) { overlayCounter = 0; }
+			if (overlayCounter === overlays.length ) { overlayCounter = 0; }
 
 		}
 
@@ -65,6 +80,8 @@ const Overlays = {
 
 
 	displayOverlay() {
+		console.log('DISPLAY OVERLAYS');
+
 		// Selected Bank Overlays
 		if (playlist.bank[bankNumber].overlays) {
 
@@ -121,7 +138,7 @@ const Overlays = {
 	},
 
 	hideOverlay() {
-	  Mousetrap.trigger("alt+" + 1);
+	  Mousetrap.trigger("alt+" + glerp);
 	  waitOverlayTimer = setTimeout(Overlays.waitOverlay, (beatTime * overlayFrequency));
 	},
 

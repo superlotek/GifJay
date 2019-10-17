@@ -84,7 +84,7 @@ if (localStorage.getItem("beatTimeMinimum") === null) {
 
 
 var overlayCounter = 0;
-
+var currentOverlaySet = 0;
 // barLength = appz.barLength;
 // bankNumber = appz.startupBankNumber;
 bankTrigger = appz.startUpBankTrigger;
