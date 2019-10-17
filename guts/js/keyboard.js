@@ -110,17 +110,23 @@
     });
   }
 
-
   function filterBuild() {
+
     console.log('FILTERS: SETUP', "\n---------------------------------");
+
     for (let i=0; i < filters.filter.length; i++) {
+
       if(filters.filter[i].enabled) {
+
         Mousetrap.bind(filters.filter[i].trigger, function() {
+
           if(!filters.filter[i].on) {
             filters.filter[i].on = 1;
             console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' ON');
             Filter.applyFilter(i);
+
           } else {
+            
             console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' OFF');
             filters.filter[i].on = 0;
             $(s1).css('-webkit-filter', filters.filter[i].slugName + '(' + filters.filter[i].min + filters.filter[i].unit + ')');
@@ -132,73 +138,72 @@
     }
   }
 
-
-// BLEND MODES SWITCHER
-Mousetrap.bind('alt+,', function() {
-  if(!blendModesOn) {
-  console.log('---------------------------------');
-  console.log('BLEND MODES: ON');
-  console.log('BLEND MODES TOTAL: ' + appz.blendModes.mix.length);
-  blendModesOn = !blendModesOn;
-  blendCounter = null;
-
-  if (blendModeRandomOn) {
-    blendModeRandomOn = !blendModeRandomOn;
-    console.log('RANDOM BLEND MODE: OFF');
-    // $(s2).css('mix-blend-mode', 'screen');
-  }
-
-  } else {
-    console.log('BLEND MODES: OFF');
+  // BLEND MODES SWITCHER
+  Mousetrap.bind('alt+,', function() {
+    if(!blendModesOn) {
+    console.log('---------------------------------');
+    console.log('BLEND MODES: ON');
+    console.log('BLEND MODES TOTAL: ' + appz.blendModes.mix.length);
     blendModesOn = !blendModesOn;
-    // $(s2).css('mix-blend-mode', 'screen');
     blendCounter = null;
-    $(s1).css('mix-blend-mode', originalBlend[0].stage1);
-    $(s2).css('mix-blend-mode', originalBlend[0].stage2);
-  }
-});
 
-// BLEND MODES SWITCHER CYCLE
-Mousetrap.bind('alt+.', function() {
-  if(blendModesOn) {
-    Filter.blendModeSwitcher(blendCounter++);
-    if (blendCounter === appz.blendModes.mix.length) {
-      console.log('BLEND MODES: RESET');
-      blendCounter = 0;
-      return;
+    if (blendModeRandomOn) {
+      blendModeRandomOn = !blendModeRandomOn;
+      console.log('RANDOM BLEND MODE: OFF');
+      // $(s2).css('mix-blend-mode', 'screen');
     }
-  }
-});
 
-// BLEND MODES SWITCHER RANDOM
-Mousetrap.bind('alt+/', function() {
-  if (!blendModeRandomOn) {
-    blendModeRandomOn = 1;
-    console.log('RANDOM BLEND MODE: ON', "\n---------------------------------");
-  } else {
-    blendModeRandomOn = 0;
-    console.log('RANDOM BLEND MODE: OFF', "\n---------------------------------");
-    $(s2).css('mix-blend-mode', 'screen');
-  }
-});
+    } else {
+      console.log('BLEND MODES: OFF');
+      blendModesOn = !blendModesOn;
+      // $(s2).css('mix-blend-mode', 'screen');
+      blendCounter = null;
+      $(s1).css('mix-blend-mode', originalBlend[0].stage1);
+      $(s2).css('mix-blend-mode', originalBlend[0].stage2);
+    }
+  });
 
-// FILTER SAMPLE [ SHIFT ] [ RETURN ]
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-Mousetrap.bind('shift+return', function() {
-  console.log('FILTERS: SAMPLED');
-  sampledFilterOn = 1;
-  sampledFilter = "";
-  sampledFilter = $(s1).css('filter');
-  console.log('FILTERS SAMPLED: ' + sampledFilter);
-});
+  // BLEND MODES SWITCHER CYCLE
+  Mousetrap.bind('alt+.', function() {
+    if(blendModesOn) {
+      Filter.blendModeSwitcher(blendCounter++);
+      if (blendCounter === appz.blendModes.mix.length) {
+        console.log('BLEND MODES: RESET');
+        blendCounter = 0;
+        return;
+      }
+    }
+  });
+
+  // BLEND MODES SWITCHER RANDOM
+  Mousetrap.bind('alt+/', function() {
+    if (!blendModeRandomOn) {
+      blendModeRandomOn = 1;
+      console.log('RANDOM BLEND MODE: ON', "\n---------------------------------");
+    } else {
+      blendModeRandomOn = 0;
+      console.log('RANDOM BLEND MODE: OFF', "\n---------------------------------");
+      $(s2).css('mix-blend-mode', 'screen');
+    }
+  });
+
+  // FILTER SAMPLE [ SHIFT ] [ RETURN ]
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  Mousetrap.bind('shift+return', function() {
+    console.log('FILTERS: SAMPLED');
+    sampledFilterOn = 1;
+    sampledFilter = "";
+    sampledFilter = $(s1).css('filter');
+    console.log('FILTERS SAMPLED: ' + sampledFilter);
+  });
 
 
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-// *** OVERLAYS ***
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  // *** OVERLAYS ***
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-// OVERLAY [ - ] [ = ] [ DEL ]
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  // OVERLAY [ - ] [ = ] [ DEL ]
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 Mousetrap.bind('!', function() {
   if(!autoOverlayOn) {
