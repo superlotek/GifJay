@@ -5,6 +5,7 @@
 const Filter = {
 
   addFilter() {
+    console.log('FUNCTION: ADD FILTER');
 
     filters.strings[0].value = filters.filter.map(function(elem){
         return elem.stage[0].value;
@@ -14,48 +15,96 @@ const Filter = {
         return elem.stage[1].value;
     }).join(" ");
 
-    $(s1).css('-webkit-filter', filters.strings[0].value);
-    $(s2).css('-webkit-filter', filters.strings[1].value);
+
+
+    console.log('S1 STRING: ', filters.strings[0].value);
+    console.log('S2 STRING: ', filters.strings[1].value);
+
+    console.log('S1: ', $(s1).css('-webkit-filter'));
+    console.log('S2: ', $(s2).css('-webkit-filter'));
+
+    // if (stgSelect == s1) {
+    //   $(s1).css('-webkit-filter', filters.strings[0].value);
+    // } else if (stgSelect == s2) {
+    //   $(s2).css('-webkit-filter', filters.strings[1].value);
+    // } else if (stgSelect == 'all') {
+    //   $(s1).css('-webkit-filter', filters.strings[0].value);
+    //   $(s2).css('-webkit-filter', filters.strings[1].value);
+    // }
+
+    if (filterS1) {
+      console.log('what happens here s1');
+      $(s1).css('-webkit-filter', filters.strings[0].value);
+    }
+    if (filterS2) {
+      console.log('what happens here s2');
+      $(s2).css('-webkit-filter', filters.strings[1].value);
+    }
+
+
+
   },
 
   applyFilter(filterNum) {
-
+    console.log('FUNCTION: APPLY FILTER');
     var filter = filters.filter[filterNum];
 
-    if (stgSelect == s1) {
+
+    if (filterS1) {
       filter.stage[0].value = filter.slugName + "(" + Init.numRan(filter.max) + filter.unit + ")";
-      // filter.stage[1].value = "";
-
-      // add special conditional for Invert
-      if (filterNum == 0) {
-        filter.stage[0].value = filter.slugName + "(" + filter.max + filter.unit + ")";
-        filter.stage[1].value = filter.slugName + "(" + filter.min + filter.unit + ")";
-      }
-
-    } else if (stgSelect == s2) {
+      filter.stage[1].value = "";
+      this.addFilter();
+    }
+    if (filterS2) {
       filter.stage[1].value = filter.slugName + "(" + Init.numRan(filter.max) + filter.unit + ")";
-      // filter.stage[0].value = "";
-      
-      // add special conditional for Invert
-      if (filterNum == 0) {
-        filter.stage[0].value = filter.slugName + "(" + filter.min + filter.unit + ")";
-        filter.stage[1].value = filter.slugName + "(" + filter.max + filter.unit + ")";
-      }
-
-    } else {
-
-      // for both STGS
-      filter.stage[0].value = filter.slugName + "(" + Init.numRan(filter.max) + filter.unit + ")";
-      filter.stage[1].value = filter.slugName + "(" + Init.numRan(filter.max) + filter.unit + ")";
-
-      // add special conditional for Invert
-      if (filterNum == 0) {
-        filter.stage[0].value = filter.slugName + "(" + filter.max + filter.unit + ")";
-        filter.stage[1].value = filter.slugName + "(" + filter.max + filter.unit + ")";
-      }
+      filter.stage[0].value = "";
+      this.addFilter();
     }
 
-    this.addFilter();
+      // this.addFilter();
+
+    // if (filterS1) {
+    //   console.log('S1: FUNCTION: APPLY FILTER');
+    //   filter.stage[0].value = filter.slugName + "(" + Init.numRan(filter.max) + filter.unit + ")";
+    //   // filter.stage[1].value = $(s2).css('-webkit-filter', filters.strings[1].value);
+    //   // filter.stage[1].value = "";
+
+    //   // add special conditional for Invert
+    //   if (filterNum == 0) {
+    //     filter.stage[0].value = filter.slugName + "(" + filter.max + filter.unit + ")";
+    //     // filter.stage[1].value = $(s2).css('-webkit-filter', filters.strings[1].value)
+    //   }
+
+    //   this.addFilter();
+
+    // } else if (filterS2) {
+    //   console.log('S2: FUNCTION: APPLY FILTER');
+    //   filter.stage[1].value = filter.slugName + "(" + Init.numRan(filter.max) + filter.unit + ")";
+    //   // filter.stage[0].value = $(s1).css('-webkit-filter', filters.strings[0].value);
+    //   // filter.stage[0].value = "";
+      
+    //   // add special conditional for Invert
+    //   if (filterNum == 0) {
+    //     // filter.stage[0].value = filter.stage[0].value = $(s1).css('-webkit-filter', filters.strings[0].value);
+    //     filter.stage[1].value = filter.slugName + "(" + filter.max + filter.unit + ")";
+    //   }
+
+    //   this.addFilter();
+
+    // } else if (stgSelect == 'all') {
+
+    //   // for both STGS
+    //   filter.stage[0].value = filter.slugName + "(" + Init.numRan(filter.max) + filter.unit + ")";
+    //   filter.stage[1].value = filter.slugName + "(" + Init.numRan(filter.max) + filter.unit + ")";
+
+    //   // add special conditional for Invert
+    //   if (filterNum == 0) {
+    //     filter.stage[0].value = filter.slugName + "(" + filter.max + filter.unit + ")";
+    //     filter.stage[1].value = filter.slugName + "(" + filter.max + filter.unit + ")";
+    //   }
+    // }
+
+    // this.addFilter();
   },
 
   // COLOR PALETTE OVERLAYS

@@ -20,8 +20,13 @@
     console.log('FILTERS: CLEARED');
     if (stgSelect == 'all') {
       $(s1).add(s2).css('-webkit-filter', 'none');
+      filterS1 = false; filterS2 = false;
     } else {
       $(stgSelect).css('-webkit-filter', 'none');
+
+      if (stgSelect == s1) { filterS1 = false; }
+      if (stgSelect == s2) { filterS2 = false; }
+
     }
 
     for (i = 0; i < filters.filter.length; i++) {
@@ -110,6 +115,10 @@
     });
   }
 
+
+  var filterS1 = false;
+  var filterS2 = false;
+
   function filterBuild() {
 
     console.log('FILTERS: SETUP', "\n---------------------------------");
@@ -122,16 +131,27 @@
 
           if(!filters.filter[i].on) {
             filters.filter[i].on = 1;
-            console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' ON');
+            //console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' ON');
             Filter.applyFilter(i);
+
+            if (stgSelect == s1) { filterS1 = true; }
+            if (stgSelect == s2) { filterS2 = true; }
+            
 
           } else {
             
-            console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' OFF');
+            //console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' OFF');
             filters.filter[i].on = 0;
-            $(s1).css('-webkit-filter', filters.filter[i].slugName + '(' + filters.filter[i].min + filters.filter[i].unit + ')');
-            filters.filter[i].stage[0].value = ""; filters.filter[i].stage[1].value = "";
+            $(stgSelect).css('-webkit-filter', filters.filter[i].slugName + '(' + filters.filter[i].min + filters.filter[i].unit + ')');
+
+
+            if (stgSelect == s1) { filters.filter[i].stage[0].value = ""; }
+            if (stgSelect == s2) { filters.filter[i].stage[1].value = ""; }
+
+            // filters.filter[i].stage[0].value = ""; filters.filter[i].stage[1].value = "";
             Filter.addFilter();
+            // if (stgSelect == s1 && (filters.filter[i].stage[0].value == "") ) { filterS1 = false; }
+            // if (stgSelect == s2 && (filters.filter[i].stage[1].value == "") ) { filterS2 = false; }
           }
         });
       }
