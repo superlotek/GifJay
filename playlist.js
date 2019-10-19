@@ -1,693 +1,5 @@
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-275
-276
-277
-278
-279
-280
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291
-292
-293
-294
-295
-296
-297
-298
-299
-300
-301
-302
-303
-304
-305
-306
-307
-308
-309
-310
-311
-312
-313
-314
-315
-316
-317
-318
-319
-320
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365
-366
-367
-368
-369
-370
-371
-372
-373
-374
-375
-376
-377
-378
-379
-380
-381
-382
-383
-384
-385
-386
-387
-388
-389
-390
-391
-392
-393
-394
-395
-396
-397
-398
-399
-400
-401
-402
-403
-404
-405
-406
-407
-408
-409
-410
-411
-412
-413
-414
-415
-416
-417
-418
-419
-420
-421
-422
-423
-424
-425
-426
-427
-428
-429
-430
-431
-432
-433
-434
-435
-436
-437
-438
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456
-457
-458
-459
-460
-461
-462
-463
-464
-465
-466
-467
-468
-469
-470
-471
-472
-473
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
-484
-485
-486
-487
-488
-489
-490
-491
-492
-493
-494
-495
-496
-497
-498
-499
-500
-501
-502
-503
-504
-505
-506
-507
-508
-509
-510
-511
-512
-513
-514
-515
-516
-517
-518
-519
-520
-521
-522
-523
-524
-525
-526
-527
-528
-529
-530
-531
-532
-533
-534
-535
-536
-537
-538
-539
-540
-541
-542
-543
-544
-545
-546
-547
-548
-549
-550
-551
-552
-553
-554
-555
-556
-557
-558
-559
-560
-561
-562
-563
-564
-565
-566
-567
-568
-569
-570
-571
-572
-573
-574
-575
-576
-577
-578
-579
-580
-581
-582
-583
-584
-585
-586
-587
-588
-589
-590
-591
-592
-593
-594
-595
-596
-597
-598
-599
-600
-601
-602
-603
-604
-605
-606
-607
-608
-609
-610
-611
-612
-613
-614
-615
-616
-617
-618
-619
-620
-621
-622
-623
-624
-625
-626
-627
-628
-629
-630
-631
-632
-633
-634
-635
-636
-637
-638
-639
-640
-641
-642
-643
-644
-645
-646
-647
-648
-649
-650
-651
-652
-653
-654
-655
-656
-657
-658
-659
-660
-661
-662
-663
-664
-665
-666
-667
-668
-669
-670
-671
-672
-673
-674
-675
-676
-677
-678
-679
-680
-681
-682
-683
-684
-685
-686
-687
-688
 const playlist = {
-   
+     
   bank: [
     {
       id: 0,
@@ -695,11 +7,7 @@ const playlist = {
       name: "Skeletons",
       enabled: true,
       colorPalette: ['#C01B05','#200706','#FC9016','#5C0405','#070602'],
-      overlays: [
-        { trigger: "8", location: "overlays", type: "artist", name: "clubSurge_logo_gold.gif" },
-        { trigger: "9", location: "overlays", type: "artist", name: "clubSurge_logo_white.gif" },
-      ],
-      bankColorOpacity: .7,
+      bankColorOpacity: .4,
       gifs: [
         { 'trigger' : 'q', 'location' : 'Halloween/Skeletons/', 'name' : 'animated-dancing-skeletons-1'},
         { 'trigger' : 'q', 'location' : 'Halloween/Skeletons/', 'name' : 'animated-dancing-skeletons-10'},
@@ -897,7 +205,7 @@ const playlist = {
         { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'outOfTheUnknown_20'},
       ]
     },
-   
+     
     {
       id: 8,
       trigger: "o",
@@ -939,34 +247,221 @@ const playlist = {
     {
       id: 9,
       trigger: "p",
-      name: "",
-      enabled: false,
+      name: "Halloween 1970s",
+      enabled: true,
       gifs: [
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_01'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_02'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_03'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_04'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_05'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_06'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_07'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_08'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_09'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_10'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_11'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_12'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_13'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_14'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_15'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_16'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_17'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_18'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_19'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_20'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_21'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_22'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_23'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_24'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_25'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_26'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_27'},
       ]
     },
-   
+     
     {
       id: 10,
       trigger: "a",
       name: "",
-      enabled: false,
+      enabled: true,
       gifs: [
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_28'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_29'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_30'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_31'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_32'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_33'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_34'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_35'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_36'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_37'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_38'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_39'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_40'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_41'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_42'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_43'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_44'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_45'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_46'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_47'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_48'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_49'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_50'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_51'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_52'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_53'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_54'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_55'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_56'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_57'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_58'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_59'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_60'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_61'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_62'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_63'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_64'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_65'},
       ]
     },
     {
       id: 11,
       trigger: "s",
       name: "",
-      enabled: false,
+      enabled: true,
       gifs: [ 
+ 
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_66'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_67'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_68'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_69'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_70'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_71'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_72'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_73'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_74'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_75'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_76'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_77'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_78'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_79'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_80'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_81'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_82'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_83'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_84'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloween1970s_85'},
+ 
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_01'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_02'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_03'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_04'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_05'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_06'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_07'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_08'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_09'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_10'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_11'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_12'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_13'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_14'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_15'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_16'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_17'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_18'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_19'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_20'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_21'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_22'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_23'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_24'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_25'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_26'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenMisc_27'},
       ]
     },
     {
       id: 12,
       trigger: "d",
-      name: "",
-      enabled: false,
+      name: "Halloween Cartoons",
+      enabled: true,
+      colorPalette: ['#C01B05','#200706','#FC9016','#5C0405','#070602'],
+      bankColorOpacity: .6,
+      gradient: true,
       gifs: [
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_01'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_02'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_03'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_04'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_05'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_06'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_07'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_08'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_09'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_10'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_11'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_12'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_13'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_14'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_15'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_16'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_17'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_18'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_19'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_20'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_21'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_22'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_23'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_24'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_25'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_26'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_27'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_28'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_29'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_30'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_31'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_32'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_33'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_35'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_36'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_37'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_38'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_39'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_40'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_41'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_42'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_43'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_44'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_45'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_46'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_47'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_48'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_49'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_50'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_51'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_52'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_53'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_54'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_55'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_56'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_57'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_58'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_59'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_60'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_61'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_62'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_63'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_64'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_65'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_66'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_67'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_68'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_69'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_70'},
+        { 'trigger' : 'q', 'location' : 'Halloween/NewTemp/', 'name' : 'halloweenCartoons_71'},
       ]
     },
     {
@@ -1017,14 +512,14 @@ const playlist = {
       gifs: [
       ]
     },
-   
+     
     {
       id: 19,
       trigger: "z",
       name: "",
       enabled: false,
       gifs: [
- 
+   
       ]
     },
     {
@@ -1043,10 +538,8 @@ const playlist = {
       gifs: [
         { trigger: "q", location: "Flythroughs/", name: "flythrough_a" },
         { trigger: "q", location: "Flythroughs/", name: "flythrough_g" },
-        { trigger: "q", location: "Flythroughs/", name: "flythrough_i" },
         { trigger: "q", location: "Flythroughs/", name: "flythrough_n" },
         { trigger: "q", location: "Flythroughs/", name: "flythrough_o" },
-        { trigger: "q", location: "Flythroughs/", name: "flythrough_p" },
         { trigger: "q", location: "Flythroughs/", name: "flythrough_q copy" },
         { trigger: "q", location: "Flythroughs/", name: "flythrough_q" },
         { trigger: "q", location: "Flythroughs/", name: "flythrough_s copy" },
@@ -1061,10 +554,7 @@ const playlist = {
         { trigger : 'q', location : 'Men/', name : 'Men_2019-04-0200.56.45'},
         { trigger : 'q', location : 'Men/', name : 'Men_2019-04-0200.57.42'},
         { trigger : 'q', location : 'Men/', name : 'Men_2019-04-0200.59.12'},
-        { trigger : 'q', location : 'Men/', name : 'Men_2019-04-0200.54.13'},
-        { trigger : 'q', location : 'Men/', name : 'Men_2019-04-0200.55.53'},
         { trigger: "q", location: "GridLines/", name: "e" },
-        { trigger: "q", location: "GridLines/", name: "gird-open-doors" },
         { trigger: "q", location: "GridLines/", name: "h" },
         { trigger: "q", location: "GridLines/", name: "i" },
         { trigger: "q", location: "GridLines/", name: "m copy" },
@@ -1073,14 +563,10 @@ const playlist = {
         { trigger: "q", location: "GridLines/", name: "rainbow-sidewalk" },
         { trigger: "q", location: "GridLines/", name: "s" },
         { trigger: "q", location: "GridLines/", name: "t" },
-        { trigger: "q", location: "GridLines/", name: "trench-fly-stars" },
         { trigger: "q", location: "GridLines/", name: "w copy" },
         { trigger: "q", location: "GridLines/", name: "w" },
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : 'castle_flythrough'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : 'castle_flythrough2'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : 'desert_trainRide'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : 'planet_flyThrough1'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : 'planet_flyThrough2'},
         { trigger: "q", location: "Misc/", name: "city-grid-2_o" },
         { trigger: "q", location: "Misc/", name: "city-grid_o" },
         { trigger: "q", location: "Misc/", name: "electro_pyramid_zoom" },
@@ -1093,39 +579,22 @@ const playlist = {
         { trigger: "q", location: "Misc/", name: "rainbow_spinning_circles" },
         { trigger: "q", location: "Misc/", name: "spinning_space_planes" },
         { trigger: "q", location: "Misc/", name: "star_explosion_bubbles" },
-        { trigger: "q", location: "Misc/", name: "stationId_black_hole_o" },
-        { trigger: "q", location: "Misc/", name: "stationId_star_tunnel_o" },
-        { trigger: "q", location: "Misc/", name: "stationId_star_tunnel_o_t" },
-        { trigger: "q", location: "Misc/", name: "tron_zoom-into-grid_o" },
         { trigger: "q", location: "Misc/", name: "ttriangular_infinity_morph_o" },
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : 'computerAnimation_bulletTrain'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : 'computerAnimation_carrierLanding'},
-        { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_chased_by_wave2_o" },
-        { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_chased_by_wave_o" },
-        { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_city_flythrough_o" },
         { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_flythrough_blocky_caverns_o" },
         { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_geometric_cave_flythrough_o" },
         { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_lighted_tunnel_o_t" },
         { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_pink_space_clouds_o" },
-        { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_ship_flying_into_spaceClouds_o" },
         { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_takeoff_tunnel_o" },
-        { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_takeoff_tunnel_withOrb_o" },
         { trigger: "q", location: "MissionSpatialeDelta/", name: "msd_tunnel_twist_o_t" },
-        { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0320.15.08" },
         { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0322.21.01" },
         { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0322.43.52" },
         { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0319.17.18" },
-        { trigger: "q", location: "Misc/", name: "orbots_light_zoom_o" },
-        { trigger: "q", location: "Misc/", name: "orbots_light_zoom_o_t" },
         { trigger: "q", location: "AnimatedShorts/", name: "shattered_triangles_o" },
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2918.46.05'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2918.54.28'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : 'fork_hallway1'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : 'fork_hallway2'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : 'fork_hallway3'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : 'fork_hallway4'},
-        { trigger: "q", location: "Misc/", name: "colored_rectangular_dance" },
-        { trigger: "q", location: "Misc/", name: "att_glowing_wired" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_FileAug08123439AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_FileAug08123703AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_FileJul1813455AM" },
@@ -1134,16 +603,13 @@ const playlist = {
         { trigger: "q", location: "JapaneseAnims/", name: "japan_FileJul1813937AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_FileJul1813947AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_FileJul1813957AM" },
-        { trigger: "q", location: "JapaneseAnims/", name: "japan_FileJul1814555AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_FileJul184611AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_Jul1814018AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_Jul1814415AM" },
-        { trigger: "q", location: "JapaneseAnims/", name: "japan_Jul1814448AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_Jul1814457AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_Jul1814510AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_Jul1814521AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_Jul1814531AM" },
-        { trigger: "q", location: "JapaneseAnims/", name: "japan_Jul1814544AM" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_electrifying_organs" },
         { trigger: "q", location: "JapaneseAnims/", name: "japan_explosion_eray_tunnel_zoom_o" },      ]
     },
@@ -1253,21 +719,14 @@ const playlist = {
         { trigger: "q", location: "BotP/", name: "botp_flashingLights_o" },
         { trigger: "q", location: "BotP/", name: "botp_lightBeams_o" },
         { trigger: "q", location: "BotP/", name: "botp_lightsFlashing_o" },
-        { trigger: "q", location: "BotP/", name: "botp_trippyGalaxy_o" },
-        { trigger: "q", location: "BotP/", name: "botp_trippyRainbowTunnel_o" },
         { trigger: "q", location: "SpiralZone/", name: "spiralZone_2019-01-2603.18.48" },
         { 'trigger' : '', 'location' : 'VideoKids/', 'name' : 'videokids_18'},
-        { 'trigger' : '', 'location' : 'VideoKids/', 'name' : 'videokids_19'},
-        { 'trigger' : '', 'location' : 'VideoKids/', 'name' : 'videokids_20'},
         { 'trigger' : '', 'location' : 'SuperSeven/', 'name' : 'superSeven_explosion'},
         { 'trigger' : '', 'location' : 'SuperSeven/', 'name' : 'superSeven_explosion2'},
         { 'trigger' : '', 'location' : 'SuperSeven/', 'name' : 'superSeven_webWoman_transform'},
-        { 'trigger' : '', 'location' : 'SuperSeven/', 'name' : 'superSeven_star_background'},
-        { 'trigger' : '', 'location' : 'WaldoKitty/', 'name' : 'waldoKitty_shootingStars_inSpace'},
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_2'},
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_4'},
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_10'},
-        { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_11'},
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_12'},
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_14'},
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_15'},
@@ -1276,28 +735,15 @@ const playlist = {
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_21'},
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_22'},
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_25'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2702.19.45'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2702.33.53'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2702.42.35'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2702.56.55'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2702.59.06'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2703.03.57'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2703.08.51'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2703.16.56'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2703.19.16'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2703.20.48'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2703.24.22'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2708.16.34'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2708.17.55'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2708.19.04'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2708.51.32'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2708.59.27'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2709.01.21'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2709.03.05'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2709.14.49'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2709.28.31'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2709.33.45'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2710.32.17'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2711.00.55'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2711.02.50'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2711.10.03'},
@@ -1305,42 +751,34 @@ const playlist = {
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2711.14.19'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2711.15.53'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2711.19.25'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2718.34.57'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2718.46.04'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2810.11.18'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2810.14.07'},
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2810.15.09'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2810.19.04'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2922.44.55'},
-        { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2923.03.49'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_1'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_10'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_11'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_12'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_13'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_14'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_15'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_16'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_17'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_18'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_19'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_2'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_20'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_21'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_22'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_23'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_24'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_25'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_26'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_3'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_4'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_5'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_6'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_7'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_8'},
-        { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_9'},
-        { trigger: "q", location: "Misc/", name: "john-whitney-4_o" },
-        { trigger: "q", location: "Misc/", name: "john-whitney-5_o" },
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_1'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_10'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_11'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_12'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_13'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_14'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_15'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_16'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_17'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_18'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_19'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_2'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_20'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_21'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_22'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_23'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_24'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_25'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_26'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_3'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_4'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_5'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_6'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_7'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_8'},
+        // { 'trigger' : '', 'location' : 'ColoredGridShapes/', 'name' : 'coloredGridShapes_9'},
         { trigger: "q", location: "Misc/", name: "fantasticVoyage_spinningStripes_o" },
         { trigger: "q", location: "Hercules/", name: "hercules_explosion_stars" },
         { trigger: "q", location: "Hercules/", name: "hercules_green_beams" },
@@ -1350,10 +788,7 @@ const playlist = {
         { trigger: "q", location: "Hercules/", name: "hercules_space_tunnel_explosion_o" },
         { trigger: "q", location: "Hercules/", name: "hercules_star_explosions" },
         { trigger: "q", location: "BotP/", name: "battleOfThePlanets_spaceStarLight_o" },
-        { 'trigger' : '', 'location' : 'Blackstar/', 'name' : 'blackstar_ship_flying_space'},
         { 'trigger' : '', 'location' : 'Blackstar/', 'name' : 'blackstar_space_explosion'},
-        { 'trigger' : '', 'location' : 'Blackstar/', 'name' : 'blackstar_planet_sagar'},
-        { trigger: "q", location: "Aerobics/", name: "abc-start_o" },
         { trigger: "q", location: "Misc/", name: "kaleidoscope_pointed_muted" },
         { trigger: "q", location: "MissionSpatialeDelta2/", name: "msd_2018-03-0317.04.28" },
         { 'trigger' : '', 'location' : 'NewGifs/', 'name' : '2019-05-2818.30.20'},
@@ -1361,7 +796,6 @@ const playlist = {
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_3'},
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_5'},
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_6'},
-        { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_1'},
         { 'trigger' : '', 'location' : 'Unarius/', 'name' : 'unarious_16'},      ]
     },
     {

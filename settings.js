@@ -139,12 +139,13 @@ const appz = {
     },
     {
       trigger: "2",
-      name: "Fiftytwo Vista",
-      type: "artist",
+      name: "Club Surge",
+      type: "brand",
       enabled: true,
       overlays: [
-        { enabled: true, location: "overlays", url: "fiftytwovista_logo_white.png", blendMode: "overlay"},
-        { enabled: true, location: "overlays", url: "fiftytwovista_logo_black.png", blendMode: "overlay"}
+        { enabled: true, location: "overlays", url: "clubSurge_logo_gold.png", blendMode: "normal"},
+        { enabled: true, location: "overlays", url: "clubSurge_logo_white.png", blendMode: "difference"},
+        { enabled: true, location: "overlays", url: "clubSurge_logo_black.png", blendMode: "screen"}
       ]
     },
   ],

@@ -47,7 +47,7 @@ const Overlays = {
 			console.log('randomOverlay ', randomOverlay);
 			console.log('overlaySetNumber: ', overlaySetNumber);
 			$(ov).css('background-image', 'url(' + overlays[randomOverlay].location + '/' + overlays[randomOverlay].url + ')');
-			$(ov).css('mix-blend-mode',overlays[randomOverlay].blendMode);
+			$(ov).css('mix-blend-mode', overlays[randomOverlay].blendMode);
 
 		} else {
 
@@ -55,6 +55,7 @@ const Overlays = {
 			console.log('overlaySetNumber: ', overlaySetNumber);
 			console.log('overlayCounter: ', overlayCounter);
 			$(ov).css('background-image', 'url(' + overlays[overlayCounter].location + '/' + overlays[overlayCounter].url + ')');
+			$(ov).css('mix-blend-mode', overlays[overlayCounter].blendMode);
 			overlayCounter++;
 			if (overlayCounter === overlays.length ) { overlayCounter = 0; }
 
