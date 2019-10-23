@@ -463,8 +463,13 @@ Mousetrap.bind('!', function() {
 
   Mousetrap.bind("\"", function() {
     console.log('BANKER: CLEAR');
-    bankerOn = true;
-    Mousetrap.trigger("'");
+    Mousetrap.trigger(";");
+    // bankerOn = !bankerOn;
+
+    if (bankerOn) {
+      bankerOn = !bankerOn;
+    }
+
     bankerArray = [];
     bankerStageArrayS1 = [];
     bankerStageArrayS2 = [];
@@ -474,20 +479,18 @@ Mousetrap.bind('!', function() {
     bankerStorageSet.clear();
   });
 
-    Mousetrap.bind("ctrl+'", function() {
-    console.log('BANKER: PLAY ALL');
-    // bankerArray = enabledBanksArray;
+  Mousetrap.bind("ctrl+'", function() {
+  console.log('BANKER: PLAY ALL');
+  // bankerArray = enabledBanksArray;
 
-    bankerArray = enabledBanksArray.map(function(banks) {
-      return banks.id
-    });
+  bankerArray = enabledBanksArray.map(function(banks) {
+    return banks.id
   });
+});
 
 
 // SAMPLER [ RETURN, ENTER ]
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-
 
 
   Mousetrap.bind(!performanceModeOn ? "return" : "", function() {
