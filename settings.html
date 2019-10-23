@@ -69,6 +69,10 @@
         label:active:after {
             width: 130px;
         }
+        h1 { text-align: center; }
+        h3 { font-size: 14px; text-align: right; }
+        td { padding: 0 10px; }
+        input[type='range'] { width: 100%; }
     </style>
 
   </head>
@@ -76,43 +80,69 @@
   <body>
     <h1>Settings</h1>
 
-    <h3 id="beatTime">Beat Time: <span></span></h3>
-    <input type="range" id="beatTime-slider" name="volume" value="2000" step="100" min="100" max="10000">
+    <table style="margin: 0 auto;">
+        <tr>
+            <td><h3>Beat Time:</h3></td>
+            <td><input type="range" id="beatTime-slider" name="volume" value="2000" step="100" min="100" max="10000"></td>
+            <td><span id="beatTime"></span></td>
+        </tr>
+        <tr>
+            <td><h3>BarTender Length:</h3></td>
+            <td><input type="range" id="barLength-slider" name="barlength" value="8" step="2" min="0" max="64"></td>
+            <td><span id="barLength"></span></td>
+        </tr>
+        <tr>
+            <td><h3>BeatTime Threshold Minimum:</h3</td>
+            <td><input type="range" id="beatTimeMinimum-slider" name="beatTimeMinimum" value="1000" step="10" min="0" max="1000"></td>
+            <td><span id="beatTimeMinimum"></span></td>
+        </tr>
+        <tr>
+            <td><h3>Startup Bank Number:</h3></td>
+            <td><input type="range" id="startupBankNumber-slider" name="startupBankNumber" value="0" step="1" min="0"></td>
+            <td><span id="startupBankNumber"></span></td>
+        </tr>
+        <tr>
+            <td><h3>Saturation Amount:</h3></td>
+            <td><input type="range" id="saturationAmount-slider" name="saturation" value="50" step="1" min="0" max="128"></td>
+            <td><span id="saturationAmount"></span></td>
+        </tr>
+        <tr>
+            <td><h3>Overlay Frequency:</h3></td>
+            <td><input type="range" id="overlayFrequency-slider" name="overlayFrequency" value="64" step="8" min="0" max="96"></td>
+            <td><span id="overlayFrequency"></span></td>
+        </tr>
+        <tr>
+            <td><h3>Overlay Duration:</h3></td>
+            <td><input type="range" id="overlayDuration-slider" name="overlayDuration" value="4" step="4" min="0" max="80"></td>
+            <td><span id="overlayDuration"></span></td>
+        </tr>
+        <tr>
+            <td><h3>Color Palette Opacity:</h3></td>
+            <td><input type="range" id="colorPaletteOpacity-slider" name="colorPaletteOpacity" value=".25" step=".01" min="0" max=".9"></td>
+            <td><span id="colorPaletteOpacity"></span></td>
+        </tr>
+        <tr>
+            <td>
+                <h3 id="performanceMode">Performance Mode: <span></span></h3>
+                <input type="checkbox" id="perf-check" onchange="doalert(this)" /><label for="perf-check">Performance Mode</label>
+            </td>
+            <td>
+                <h3 id="overlayTexture">Overlay Texture: <span></span></h3>
+                <input type="checkbox" id="texture-check" onchange="doalert2(this)" /><label for="texture-check">Overlay Texture</label>
+            </td>
+            <td>
+                <h3 id="overlayTexture">Random Overlays: <span></span></h3>
+                <input type="checkbox" id="randomOverlay-check" onchange="doalert3(this)" /><label for="randomOverlay-check">Random Overlays</label>
+            </td>
+        </tr>
+        <tr>
+            <td><button id="save-btn">Save settings</button></td>
+            <td><button id="clear-btn">Clear settings</button></td>
+        </tr>
+    </table>
+
+    
     <div id="demo"></div><br>
-
-    <h3 id="barLength">BarTender Length: <span></span></h3>
-    <input type="range" id="barLength-slider" name="barlength" value="8" step="2" min="0" max="64">
-
-    <h3 id="beatTimeMinimum">BeatTime Threshold Minimum: <span></span></h3>
-    <input type="range" id="beatTimeMinimum-slider" name="beatTimeMinimum" value="1000" step="10" min="0" max="1000">
-
-    <h3 id="startupBankNumber">Startup Bank Number: <span></span></h3>
-    <input type="range" id="startupBankNumber-slider" name="startupBankNumber" value="0" step="1" min="0">
-
-    <h3 id="saturationAmount">Saturation Amount: <span></span></h3>
-    <input type="range" id="saturationAmount-slider" name="saturation" value="50" step="1" min="0" max="128">
-
-    <h3 id="overlayFrequency">Overlay Frequency: <span></span></h3>
-    <input type="range" id="overlayFrequency-slider" name="overlayFrequency" value="64" step="8" min="0" max="96">
-    <h3 id="overlayDuration">Overlay Duration: <span></span></h3>
-    <input type="range" id="overlayDuration-slider" name="overlayDuration" value="4" step="4" min="0" max="80">
-
-    <h3 id="colorPaletteOpacity">Color Palette Opacity: <span></span></h3>
-    <input type="range" id="colorPaletteOpacity-slider" name="colorPaletteOpacity" value=".25" step=".01" min="0" max=".9">
-
-    <h3 id="performanceMode">Performance Mode: <span></span></h3>
-    <input type="checkbox" id="perf-check" onchange="doalert(this)" /><label for="perf-check">Performance Mode</label>
-
-    <h3 id="overlayTexture">Overlay Texture: <span></span></h3>
-    <input type="checkbox" id="texture-check" onchange="doalert2(this)" /><label for="texture-check">Overlay Texture</label>
-
-    <h3 id="overlayTexture">Random Overlays: <span></span></h3>
-    <input type="checkbox" id="randomOverlay-check" onchange="doalert3(this)" /><label for="randomOverlay-check">Random Overlays</label>
-
-    <div>
-        <button id="save-btn">Save settings</button>
-        <button id="clear-btn">Clear settings</button>
-    </div>
 
     <script>
 
@@ -132,24 +162,24 @@
         // ======================================
         if (!localStorage.length) { console.log('Nothing in Storage'); }
 
-        $('#beatTime span').text(beatTime);
+        $('span#beatTime').text(beatTime);
         $('#beatTime-slider').val(beatTime );
-        $('#barLength span').text(barLength);
+        $('span#barLength').text(barLength);
         $('#barLength-slider').val(barLength );
 
-        $('#beatTimeMinimum span').text(beatTimeMinimum);
+        $('span#beatTimeMinimum').text(beatTimeMinimum);
         $('#beatTimeMinimum-slider').val(beatTimeMinimum );
-        $('#saturationAmount span').text(saturationAmount);
+        $('span#saturationAmount').text(saturationAmount);
         $('#saturationAmount-slider').val(saturationAmount );
-        $('#overlayFrequency span').text(overlayFrequency);
+        $('span#overlayFrequency').text(overlayFrequency);
         $('#overlayFrequency-slider').val(overlayFrequency );
-        $('#overlayDuration span').text(overlayDuration);
+        $('span#overlayDuration').text(overlayDuration);
         $('#overlayDuration-slider').val(overlayDuration );
 
-        $('#startupBankNumber span').text(startupBankNumber + " : " + enabledBanksArray[gleeep].trigger.toUpperCase() + " : " + enabledBanksArray[gleeep].name);
+        $('span#startupBankNumber').text(startupBankNumber + " : " + enabledBanksArray[gleeep].trigger.toUpperCase() + " : " + enabledBanksArray[gleeep].name);
         $('#startupBankNumber-slider').val(startupBankNumber);
 
-        $('#colorPaletteOpacity span').text(colorPaletteOpacity);
+        $('span#colorPaletteOpacity').text(colorPaletteOpacity);
         $('#colorPaletteOpacity-slider').val(colorPaletteOpacity);
 
         if (performanceModeOn === true) {
@@ -203,31 +233,31 @@
         // Update the current slider value (each time you drag the slider handle)
         slider.oninput = function() {
           // output.innerHTML = this.value;
-           $('#beatTime span').text(this.value);
+           $('span#beatTime').text(this.value);
         }
         slider2.oninput = function() {
-           $('#barLength span').text(this.value);
+           $('span#barLength').text(this.value);
         }
 
         slider3.oninput = function() {
-           $('#saturationAmount span').text(this.value);
+           $('span#saturationAmount').text(this.value);
         }
         slider4.oninput = function() {
-           $('#startupBankNumber span').text(this.value + " : " + enabledBanksArray[this.value].trigger.toUpperCase() + " : " + enabledBanksArray[this.value].name);
+           $('span#startupBankNumber').text(this.value + " : " + enabledBanksArray[this.value].trigger.toUpperCase() + " : " + enabledBanksArray[this.value].name);
         }
 
         slider5.oninput = function() {
-           $('#colorPaletteOpacity span').text(this.value);
+           $('span#colorPaletteOpacity').text(this.value);
         }
 
         slider6.oninput = function() {
-           $('#overlayFrequency span').text(this.value);
+           $('span#overlayFrequency').text(this.value);
         }
         slider7.oninput = function() {
-           $('#overlayDuration span').text(this.value);
+           $('span#overlayDuration').text(this.value);
         }
         slider8.oninput = function() {
-           $('#beatTimeMinimum span').text(this.value);
+           $('span#beatTimeMinimum').text(this.value);
         }
 
                 // SAVE / CLEAR SETTINGS

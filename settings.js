@@ -22,6 +22,7 @@ const appz = {
   blendModes: {
     mix: [
       { name: "difference", trigger: "1", enabled: true },
+      { name: "exclusion", trigger: "1", enabled: true },
       { name: "multiply", trigger: "1", enabled: true },
       { name: "darken", trigger: "1", enabled: true },
       { name: "lighten", trigger: "1", enabled: true },
@@ -29,7 +30,6 @@ const appz = {
       { name: "color-burn", trigger: "1", enabled: true },
       { name: "hard-light", trigger: "1", enabled: true },
       { name: "soft-light", trigger: "1", enabled: true },
-      { name: "exclusion", trigger: "1", enabled: true },
       { name: "hue", trigger: "1", enabled: true },
       { name: "saturation", trigger: "1", enabled: true },
       { name: "color", trigger: "1", enabled: true },

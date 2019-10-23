@@ -1,0 +1,164 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <title>GifJay : Gallery</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="guts/css/styles.css" media="all" rel="stylesheet" />
+
+    <script src="guts/js/jquery-2.1.4.min.js"></script>
+    <script src="guts/js/mousetrap.min.js"></script>
+    <script src="guts/js/keydrown.js"></script>
+    <script src="settings.js"></script>
+    <script src="guts/js/Inits.js"></script>
+    <script src="guts/js/Keyboard.js"></script>
+    <script src="guts/js/Midi.js"></script>
+    <script src="guts/js/Scene.js"></script>
+    <script src="guts/js/Play.js"></script>
+    <script src="guts/js/Overlays.js"></script>
+    <script src="guts/js/Filter.js"></script>
+    <script src="guts/js/Effects.js"></script>
+    <script src="guts/js/Text.js"></script>
+    <script src="playlist.js"></script>
+
+    <style>
+        body { margin: 20px; background: #eee !important; }
+        section img { width: 150px; margin-bottom: 5px; }
+        #gallery { display: flex; flex-wrap: wrap; width: 100%; }
+        .thing { width: 200px; margin: 10px; text-align: center; width: 200px; box-shadow: 0 0 17px 6px rgba(0,0,0,.1); padding: 5px; display: block; cursor: pointer; }
+        small { display: inline-block; text-align: center; width: 100%; }
+        /* .thing.disabled { opacity: .2;  } */
+        .overlay { width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(51, 102, 153,.9);
+        display: flex; align-items: center; justify-content: center; }
+    </style>
+
+  </head>
+
+  <body>
+    <h1>Gallery</h1>
+    <h3 id="startupBankNumber">BANK: <span></span></h3>
+    <input type="range" id="startupBankNumber-slider" name="startupBankNumber" value="0" step="1" min="0">
+    <div>
+        <button id="save-btn">Save settings</button>
+    </div>
+    <section id="gallery"></section>
+   
+    <script>
+        var binLocation = "../../Bins/";
+
+        // ../../Bins/Halloween/Misc/anime-split-fingers.gif)
+        $(document).ready(function() {
+            // var base = playlist.bank[bankNumber];
+            // var gleep = binLocation + "/" + base.gifs[startupBankNumber].location + base.gifs[startupBankNumber].name + ".gif";
+            // var glerp = enabledBanksArray.length - 1;
+            // var gleeep = enabledBanksArray.findIndex( x => x.id === bankNumber);
+            console.log(bankNumber)
+            // console.log('GLEEEP', gleeep);
+            $('#startupBankNumber-slider').attr('max', enabledBanksArray.length - 1);
+
+            $('.overlay').on('click', function() {
+                $(this).remove();
+            })
+
+
+            setTimeout(function() {
+                runGallery(startupBankNumber)
+            }, 1000);
+
+            // runGallery(startupBankNumber);
+
+            $('#startupBankNumber span').text(startupBankNumber + " : " + enabledBanksArray[bankNumber].name);
+            $('#startupBankNumber-slider').val(startupBankNumber);
+            var slider4 = document.getElementById("startupBankNumber-slider");
+            slider4.oninput = function() {
+               $('#startupBankNumber span').text(this.value + " : " + enabledBanksArray[this.value].name);
+               bankNumber = this.value; 
+               // console.log(startupBankNumber);
+                clearGallery();
+                setTimeout(function() {
+                    runGallery(bankNumber)
+                }, 500);
+            }
+
+            // $('.overlay').on('click', function() {
+            //     console.log('working??');
+            //     $(this).remove();
+            // });
+
+            // $('.overlay').on('click', function() {
+            //     alert('hi');
+            // });
+
+
+        function clearGallery() {
+            console.log('f: clearGallery')
+            $('#gallery .thing').remove();
+        }
+
+        function runGallery(bankNumber) {
+            console.log('---------------------------------\n f: runGallery')
+
+            console.log('BANK NUMBER', bankNumber);
+            $('#gallery img').remove();
+            // var gleeep = enabledBanksArray.findIndex( x => x.id === bankNumber);
+            // console.log('GLEEEP', gleeep;'')
+            var base = enabledBanksArray[bankNumber];
+            var bankId = enabledBanksArray[bankNumber].id;
+            console.log('BASE ', base);
+            console.log('GIFS ', base.gifs)
+            // console.log('GIF LENGTH: ', base.gifs.length);
+            // console.log('BANK NUMBER ', bankNumber);
+            // var gleep = binLocation + "/" + base.gifs[bankNumber].location + base.gifs[bankNumber].name + ".gif";
+            // console.log('GLEEP ', gleep)
+
+            for ( let i = 0; i < base.gifs.length; i++) {
+                $('#gallery')
+                    .append(`<div class="thing btn${i} ${!base.gifs[i].enabled ? 'disabled' : ''}"><img src="` + binLocation + "/" + base.gifs[i].location + base.gifs[i].name + ".gif" + '" /><small><strong>' + base.gifs[i].location + "</strong><br/>" + base.gifs[i].name + '</small></div>');
+
+                $('.thing.btn' + i).click(function() {
+                    console.log('You selected ', this) 
+                    $(this).toggleClass('disabled');
+                    $('body').append('<div class="overlay"><img src="' + binLocation + "/" + base.gifs[i].location + base.gifs[i].name + ".gif" + '" /></div>');
+                    // if ($(this).hasClass('disabled')) {
+                    //     // alert('oh yeah');
+                    //     $(this).toggleClass('disabled');
+                    // }
+                });
+
+            };
+
+
+
+                // if (base.gifs[i].enabled === false) {
+                //     $(this).addClass('disabled');
+                // }
+            }
+
+
+                // $('.overlay').on('click', function() {
+                // console.log('working??');
+                // $(this).remove();
+
+
+            $('#save-btn').on('click', function() {
+                console.log('settings saved');
+                gleck = enabledBanksArray[bankNumber];
+                // localStorage.setItem('randomOverlay', JSON.parse(randomOverlayOn));
+                localStorage.setItem('bankInfoSaved', JSON.stringify(gleck));
+            });
+
+
+
+
+
+        });
+
+
+
+    </script>
+  </body>
+</html>
