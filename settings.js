@@ -144,8 +144,8 @@ const appz = {
       enabled: true,
       overlays: [
         { enabled: true, location: "overlays", url: "clubSurge_logo_gold.png", blendMode: "normal"},
-        { enabled: true, location: "overlays", url: "clubSurge_logo_white.png", blendMode: "difference"},
-        { enabled: true, location: "overlays", url: "clubSurge_logo_black.png", blendMode: "screen"}
+        { enabled: true, location: "overlays", url: "clubSurge_logo_white.png", blendMode: "normal"},
+        { enabled: true, location: "overlays", url: "clubSurge_logo_black.png", blendMode: "normal"}
       ]
     },
   ],

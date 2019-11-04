@@ -25,6 +25,15 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 */
 
+    canvas {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+
     .logo {
         width: 100%;
         height: 100%;
