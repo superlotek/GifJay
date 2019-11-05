@@ -126,6 +126,9 @@ var currentScene = {
 	]
 };
 
+
+var dancerOn = false;
+
 var autoOverlayOn = 0;
 // var overlayDuration = 1000;
 // var overlayFrequency = 6000;
@@ -277,6 +280,7 @@ $(document).ready(function() {
 
 		console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 		Filter.colorPalette();
+		// createCanvas('c');
 
   });
 

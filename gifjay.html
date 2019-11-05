@@ -15,16 +15,16 @@
     <script src="guts/js/keydrown.js"></script>
     <script src="settings.js"></script>
     <script src="guts/js/Inits.js"></script>
-    <script src="guts/js/Midi.js"></script>
-    <script src="guts/js/Scene.js"></script>
+<!--     <script src="guts/js/Midi.js"></script>
+ -->    <script src="guts/js/Scene.js"></script>
     <script src="guts/js/Play.js"></script>
     <script src="guts/js/Overlays.js"></script>
     <script src="guts/js/Filter.js"></script>
     <script src="guts/js/Effects.js"></script>
     <script src="guts/js/Text.js"></script>
     <script src="guts/js/Keyboard.js"></script>
-    <script src="playlist.js"></script>
 
+    <script src="playlist.js"></script>
   </head>
 
   <body>
@@ -32,11 +32,28 @@
         <div class="stage-one"></div>
         <div class="stage-two"></div>
     </div>
+
+
     <div id="overlays">
         <div class="texture"></div>
         <div class="color-palette"></div>
         <div class="branding"></div>
         <div class="text"><h1></h1></div>
     </div>
+
+    <div id="canvas-container">
+        <canvas id="c"></canvas>
+    </div>
+
+
+<!--     <script src="guts/js/canvas.js"></script>
+ -->
+
+    <script src='guts/js/three.min.js'></script>
+    <script src='guts/js/GLTFLoader.js'></script>
+    <script src='guts/js/dancer.js'></script>
+
+
+
   </body>
 </html>
