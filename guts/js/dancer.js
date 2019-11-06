@@ -7,7 +7,7 @@
 
   function init() {
 
-    const MODEL_PATH = '../guts/models/asianDancer.glb';
+    const MODEL_PATH = '../guts/models/nito_1.glb';
     const canvas = document.querySelector("#c");
     // const canvas = document.getElementById("c");
     const backgroundColor = 0x0000ff;
@@ -31,10 +31,10 @@
     camera.position.y = -3;
 
 
-    let stacy_txt = new THREE.TextureLoader().load('../guts/models/newskin2.jpg');
+    let stacy_txt = new THREE.TextureLoader().load('../guts/models/checkered.jpg');
     stacy_txt.flipY = false;
     const stacy_mtl = new THREE.MeshPhongMaterial({
-      // map: stacy_txt,
+      map: stacy_txt,
       color: 0xffffff,
       skinning: true
     })
@@ -45,11 +45,13 @@
       function(gltf) {
         model = gltf.scene;
         let fileAnimations = gltf.animations;
+        console.log(fileAnimations);
         model.traverse(o => {
           if (o.isMesh) {
             o.castShadow = true;
             o.receiveShadow = true;
             o.material = stacy_mtl;
+            console.log(o);
           }
           if (o.isBone && o.name === 'mixamorigNeck') {
             neck = o;
@@ -73,14 +75,14 @@
 
 
         });
-        model.scale.set(10,10,10);
-        model.position.y = -12;
+        model.scale.set(2,2,2);
+        model.position.y = -16;
         scene.add(model);
         // loaderAnim.remove();
 
         mixer = new THREE.AnimationMixer(model);
-        let clips = fileAnimations.filter(val => val.name !== 'uprock1');
-        console.log(clips);
+        let clips = fileAnimations.filter(val => val.name !== 'idle');
+        // console.log(clips);
 
         possibleAnims = clips.map(val => {
           let clip = THREE.AnimationClip.findByName(clips, val.name);
@@ -95,7 +97,7 @@
           return clip;
         });
 
-        let idleAnim = THREE.AnimationClip.findByName(fileAnimations, 'uprock1');
+        let idleAnim = THREE.AnimationClip.findByName(fileAnimations, 'idle');
         // console.log(idleAnim)
         idleAnim.tracks.splice(3,3);
         idleAnim.tracks.splice(9,3);
@@ -203,8 +205,10 @@
 
     if (intersects[0]) {
       var object = intersects[0].object;
+      let objectName = object.name;
+          console.log(objectName);
 
-      if (object.name === 'asian') {
+      if (objectName.includes('click')) {
 
         if (!currentlyAnimating) {
           currentlyAnimating = true;
