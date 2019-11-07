@@ -18,6 +18,7 @@ const Play = {
 
     console.log('GPS: ' + beatTime, "\n---------------------------------");
 
+    startAnimating(beatTime/1000);
 
   },
 

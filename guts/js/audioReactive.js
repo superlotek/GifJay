@@ -6,18 +6,6 @@ window.onload = function() {
     canvas.height = window.innerHeight;
     document.body.appendChild(canvas);
     ctx = canvas.getContext('2d');
-        // imgs = new Image();
-        // imgs.src = "robotdance_t.gif"
-        // imgs.onload = () => {
-        //     ctx.drawImage(imgs, canvas.width / 2, canvas.height / 2);
-
-        // }
-// ctx.globalCompositeOperation='destination-over';
-    // base_image = new Image();
-    // base_image.src = 'robotdance_t.gif';
-    // base_image.onload = function() {
-    //     ctx.drawImage(base_image, canvas.width/2, canvas.height/2);
-    // }
 
     setupWebAudio();
 
@@ -36,10 +24,15 @@ var results = document.getElementById('results');
 var fps, fpsInterval, startTime, now, then, elapsed;
 
 function startAnimating(fps) {
+    if (robomodeOn !== 1) {
+        return;
+    }
+
     fpsInterval = 1000 / fps;
     then = Date.now();
     startTime = then;
     animate();
+    console.log('fps: ', fps);
 }
 
 function animate() {
@@ -62,11 +55,11 @@ function animate() {
 
 		    var gif = document.getElementById("gif");
 
-		    gif.style.filter = "invert(" + getRandomColor(2) + ") hue-rotate(" + Math.ceil(freqByteData[100] * 3) + "deg)";
+		    gif.style.filter = "invert(" + getRandomColor(2) + ") hue-rotate(" + Math.ceil(freqByteData[100] * 3) + "deg) saturate(" + Math.ceil(freqByteData[100] / 8) + ")";
 		    result = ['no-repeat', 'repeat'];
 
 		    whichRepeat = getRandomColor(2);
-		    console.log(whichRepeat);
+		    // console.log(whichRepeat);
 		    if (whichRepeat === 0) {
 			    gif.style.backgroundRepeat = result[whichRepeat];
 			    gif.style.backgroundSize = 'cover';
@@ -74,7 +67,7 @@ function animate() {
 			    gif.style.backgroundRepeat = result[whichRepeat];
 			    gif.style.backgroundSize = 'inherit';
 		    }
-            Mousetrap.trigger('space');
+            // Mousetrap.trigger('space');
 
     }
 }
@@ -83,7 +76,7 @@ function animate() {
 
 function setupWebAudio() {
     var audio = document.createElement('audio');
-    audio.src = "01 Sensee Party.mp3";
+    audio.src = "sexjudas.mp3";
     // audio.controls = 'false';
     // document.body.appendChild(audio);
     // audio.style.width = window.innerWidth + 'px';
@@ -101,44 +94,19 @@ function draw() {
     requestAnimationFrame(draw);
     var freqByteData = new Uint8Array(analyser.frequencyBinCount);
     analyser.getByteFrequencyData(freqByteData);
-    // var gif = document.getElementById("gif");
-    // // gif.style.backgroundRepeat = "repeat";
-    // gif.style.filter = "hue-rotate(" + Math.ceil(freqByteData[100] * 2) + "deg) saturate(" + Math.ceil(freqByteData[100]/2) + ")";
-    gleep = getRandomColor(500);
-    // console.log(Math.ceil(freqByteData[100]/4));
 
-    // if (freqByteData[100] > 100) {
-    //     ctx.drawImage(imgs, getRandomColor(canvas.width), getRandomColor(canvas.height), gleep, gleep * imgs.height / imgs.width );
-    //     ctx.rotate(getRandomColor(360));
-
-    // }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // for (var i = 1; i < imgs.length; i++) {
-        // imgs[i].src = "robotdance_t.gif"
-        // imgs[i].onload = () => {
-        //     ctx.drawImage(imgs[i], i * 5, i * 5)
-        // }
-    // }
-
     for (var i = 1; i < circles.length; i++) {
         circles[i].radius = freqByteData[i] / 2;
-        circles[i].y = circles[i].y > canvas.height ? 0 : circles[i].y + freqByteData[i]/50;
+        circles[i].x = circles[i].x > canvas.width ? 0 : circles[i].x + freqByteData[i]/50;
         circles[i].draw();
     }
     
-    // for (var i = 1; i < freqByteData.length; i += 5){
-    //     ctx.fillStyle = 'rgb(' + getRandomColor(255) + ',' + getRandomColor(255) + ',' + getRandomColor(255) + ')';
-    //     ctx.fillRect(i + 300, canvas.height - freqByteData[i] * 1.5, 5, canvas.height);
-    //     ctx.strokeRect(i + 300, canvas.height - freqByteData[i] * 1.5, 5, canvas.height);
-    // }
-
-    // ctx.drawImage(base_image, getRandomColor(canvas.width), getRandomColor(canvas.height));
-
-
 }
 
-startAnimating(1);
+console.log('CANVAS BEAT TIME : ', beatTime);
+// startAnimating(beatTime/1000);
 
 
 function getRandomColor(numbah){
