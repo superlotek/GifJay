@@ -281,6 +281,7 @@ $(document).ready(function() {
 		console.log('START UP BANK NUMBER: ' + bankNumber, "\n---------------------------------");
 		Filter.colorPalette();
 		// createCanvas('c');
+        $('canvas').hide();
 
   });
 

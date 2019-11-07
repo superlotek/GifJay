@@ -21,23 +21,24 @@ function loadjscssfile(filename, filetype){
         document.getElementsByTagName("body")[0].appendChild(fileref)
 }
  
-
+        // $('canvas').hide();
   Mousetrap.bind("ctrl+/", function() {
 
 
-        loadjscssfile("guts/js/GLTFLoader.js", "js") //dynamically load "javascript.php" as a JavaScript file
-        loadjscssfile("guts/js/dancer.js", "js") ////dynamically load and add this .css file
+        // loadjscssfile("guts/js/GLTFLoader.js", "js") //dynamically load "javascript.php" as a JavaScript file
+        // loadjscssfile("guts/js/dancer.js", "js") ////dynamically load and add this .css file
 
 
       if (!dancerOn) {
         console.log('CANVAS: DANCER LOADED', "\n---------------------------------");
 
-        loadjscssfile("guts/js/GLTFLoader.js", "js") //dynamically load "javascript.php" as a JavaScript file
-        loadjscssfile("guts/js/dancer.js", "js") ////dynamically load and add this .css file
+        // loadjscssfile("guts/js/GLTFLoader.js", "js") //dynamically load "javascript.php" as a JavaScript file
+        // loadjscssfile("guts/js/dancer.js", "js") ////dynamically load and add this .css file
+        $('canvas').show();
         dancerOn = true;
       } else {
         console.log('CANVAS: DANCER REMOVED', "\n---------------------------------");
-        $('canvas').remove();
+        $('canvas').hide();
         dancerOn = false;
       }
 
