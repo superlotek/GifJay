@@ -132,9 +132,16 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 			background-repeat: repeat !important;
 		}
 
+        .ov-anim {
+            animation-timing-function: linear;
+            animation-iteration-count: infinite; 
+/*            animation: overlaySpin 2s infinite;
+*/        }
+
+
     @keyframes overlayScale {
-        0% { transform: scale(1); opacity: 1; }
-        100% { transform: scale(3); opacity: 0; }
+        0% { transform: scale(.5); opacity: 1; }
+        100% { transform: scale(2); opacity: 0; }
     }
 
 	@keyframes backgroundSizer {

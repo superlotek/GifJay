@@ -98,7 +98,7 @@ var banksInUse = [];
 var giyTriggerArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
 // Declarations
-var bankLocation = "url(../../Bins/";
+var bankLocation = "url(Bins/";
 var bgCenter = ".gif) center center";
 
 var stageArray = [{'background-position':'center', 'background-size':'cover', 'backgroundRepeat':'no-repeat'}, {'background-position':'center', 'background-size':'auto', 'backgroundRepeat':'repeat'}];

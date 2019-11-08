@@ -114,11 +114,11 @@ const appz = {
   overlaySets: [
     {
       trigger: "0",
-      name: "Eclectic Taste",
+      name: "Variant",
       type: "brand",
       enabled: true,
       overlays: [
-        { enabled: true, location: "overlays", url: "beerBelly_logo_white.png", blendMode: "screen"},
+        { enabled: true, location: "overlays", url: "beerBelly_logo_white.png", blendMode: "screen", animation: true, animationType: "overlayScale"},
         { enabled: true, location: "overlays", url: "beerBelly_logo_black.png", blendMode: "overlay"},
         { enabled: true, location: "overlays", url: "incidentalBeats_logo_white.png", blendMode: "screen"},
         { enabled: true, location: "overlays", url: "incidentalBeats_logo_black.png", blendMode: "overlay"}
@@ -130,7 +130,7 @@ const appz = {
       type: "artist",
       enabled: true,
       overlays: [
-        { enabled: true, location: "overlays", url: "floppydisco_western1_white.png", blendMode: "overlay"},
+        { enabled: true, location: "overlays", url: "floppydisco_western1_white.png", blendMode: "overlay", animation: true, animationType: "overlayScale"},
         { enabled: true, location: "overlays", url: "floppydisco_western1_black.png", blendMode: "overlay"},
         { enabled: true, location: "overlays", url: "floppydisco_western2_white.png", blendMode: "overlay"},
         { enabled: true, location: "overlays", url: "floppydisco_western2_black.png", blendMode: "overlay"},
@@ -139,13 +139,23 @@ const appz = {
     },
     {
       trigger: "2",
-      name: "Club Surge",
+      name: "Elos",
+      type: "artist",
+      enabled: true,
+      overlays: [
+        { enabled: true, location: "overlays", url: "elos_animatedFontLogo_o.gif", blendMode: "normal"},
+        { enabled: true, location: "overlays", url: "elos_animatedFontLogo2_o.gif", blendMode: "normal"},
+        { enabled: true, location: "overlays", url: "elos_animatedFontLogo3_o.gif", blendMode: "normal"},
+      ]
+    },
+    {
+      trigger: "3",
+      name: "Variant",
       type: "brand",
       enabled: true,
       overlays: [
-        { enabled: true, location: "overlays", url: "clubSurge_logo_gold.png", blendMode: "normal"},
-        { enabled: true, location: "overlays", url: "clubSurge_logo_white.png", blendMode: "normal"},
-        { enabled: true, location: "overlays", url: "clubSurge_logo_black.png", blendMode: "normal"}
+        { enabled: true, location: "overlays", url: "variant_logo_black.gif", blendMode: "normal", animation: true, animationType: "overlayScale"},
+        { enabled: true, location: "overlays", url: "variant_logo_white.gif", blendMode: "normal", animation: true, animationType: "overlayScale"},
       ]
     },
   ],
