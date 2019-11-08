@@ -42,6 +42,7 @@ const Overlays = {
 					console.log('YOU NEED TO BE DELETED');
 					$(ov).toggleClass('ov-anim');
 					thisOneHasAnimation = !thisOneHasAnimation;
+		          	$(ov).css('animation', '');
 				}
 
 			}
@@ -64,15 +65,11 @@ const Overlays = {
 			// console.log('overlaySetNumber: ', overlaySetNumber);
 			$(ov).css('background-image', 'url(' + overlays[randomOverlay].location + '/' + overlays[randomOverlay].url + ')');
 			$(ov).css('mix-blend-mode', overlays[randomOverlay].blendMode);
-          	$('.ov-anim').css('animation-duration', beatTime + 's');
 
-			// if (overlays[randomOverlay].animation === true) {
-			// 	console.log('THIS OVERLAY HAS ANIMATION');
-			// 	console.log(overlays[randomOverlay].animationType);
-			// 	$(ov).toggleClass('ov-anim');
-			// 	thisOneHasAnimation = true;
-			// }
-
+			$(ov).toggleClass('ov-anim');
+			thisOneHasAnimation = true;
+          	$('.ov-anim').css('animation-duration', (beatTime/1000 * overlays[randomOverlay].animConstant) + 's');
+          	$('.ov-anim').css('animation-name', overlays[randomOverlay].animationType);
 
 		} else {
 			// LINEAR OVERLAY DISPLAY
@@ -87,15 +84,13 @@ const Overlays = {
 				console.log(overlays[overlayCounter].animationType);
 				$(ov).toggleClass('ov-anim');
 				thisOneHasAnimation = true;
-	          	$('.ov-anim').css('animation-duration', (beatTime/1000 * 2) + 's');
+	          	$('.ov-anim').css('animation-duration', (beatTime/1000 * overlays[overlayCounter].animConstant) + 's');
 	          	$('.ov-anim').css('animation-name', overlays[overlayCounter].animationType);
 
 			}
 
 			overlayCounter++;
 			if (overlayCounter === overlays.length ) { overlayCounter = 0; }
-
-
 
 		}
 	},

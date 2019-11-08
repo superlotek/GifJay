@@ -144,6 +144,28 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
         100% { transform: scale(2); opacity: 0; }
     }
 
+    @keyframes overlayPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.25); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes overlaySkew {
+        0% {  transform: skew(0deg, 0deg); }
+        25% {  transform: skew(8deg, 5deg); }
+        50% {  transform: skew(0deg, 0deg); }
+        75% {  transform: skew(-8deg, -5deg); }
+        0% {  transform: skew(0deg, 0deg); }
+    }
+
+    @keyframes overlayRotate {
+        0% { transform: rotateY(0deg); }
+        25% { transform: rotateY(20deg); }
+        50% { transform: rotateY(0deg); }
+        75% {  transform: rotateY(-20deg); }
+        0% { transform: rotateY(0deg); }
+    }
+
 	@keyframes backgroundSizer {
         0% { background-size: 10%; }
 		50% { background-size: 80%; }
