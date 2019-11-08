@@ -3,6 +3,51 @@
   // FX MODE [ ` ]
   // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+
+
+function loadjscssfile(filename, filetype){
+    if (filetype=="js"){ //if filename is a external JavaScript file
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src", filename)
+    }
+    else if (filetype=="css"){ //if filename is an external CSS file
+        var fileref=document.createElement("link")
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", filename)
+    }
+    if (typeof fileref!="undefined")
+        document.getElementsByTagName("body")[0].appendChild(fileref)
+}
+ 
+        // $('canvas').hide();
+  Mousetrap.bind("ctrl+/", function() {
+
+
+        // loadjscssfile("guts/js/GLTFLoader.js", "js") //dynamically load "javascript.php" as a JavaScript file
+        // loadjscssfile("guts/js/dancer.js", "js") ////dynamically load and add this .css file
+
+
+      if (!dancerOn) {
+        console.log('CANVAS: DANCER LOADED', "\n---------------------------------");
+
+        // loadjscssfile("guts/js/GLTFLoader.js", "js") //dynamically load "javascript.php" as a JavaScript file
+        // loadjscssfile("guts/js/dancer.js", "js") ////dynamically load and add this .css file
+        $('canvas').show();
+        dancerOn = true;
+      } else {
+        console.log('CANVAS: DANCER REMOVED', "\n---------------------------------");
+        $('canvas').hide();
+        dancerOn = false;
+      }
+
+      // loadjscssfile("guts/js/three.min.js", "js") //dynamically load and add this .js file
+      // loadjscssfile("guts/js/GLTFLoader.js", "js") //dynamically load "javascript.php" as a JavaScript file
+      // loadjscssfile("guts/js/dancer.js", "js") ////dynamically load and add this .css file
+
+  });  
+
   Mousetrap.bind("`", function() {
     if (sampledFilterOn == 1) {
       console.log('SAMPLED FILTER: APPLIED', "\n---------------------------------");
