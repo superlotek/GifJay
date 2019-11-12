@@ -10,9 +10,9 @@ Thumbs.db
 
 # Don't need to settings and bank folder/images #
 ######################
-banks/
 playlist.js
+settings.js
 Bins/
 Playlists/
 Overlays/
-settings.js
+fonts/

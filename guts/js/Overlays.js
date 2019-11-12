@@ -29,23 +29,37 @@ const Overlays = {
 
 
 			if(!overlayOn) {
+				
+				if (thisOneHasAnimation) {
+					console.log('does this have animation????');
+					$(ov).addClass('ov-anim');
+					// thisOneHasAnimation = !thisOneHasAnimation;
+				}
+
+
 				Overlays.applyOverlay(o);
 				overlayOn = !overlayOn;
-				$(ov).toggleClass('on');
+				$(ov).addClass('on');
 				console.log('OVERLAY: ON');
+
+
+
 			} else {
 				overlayOn = !overlayOn;
 				console.log('OVERLAY: OFF');
-				$(ov).toggleClass('on');
+				$(ov).removeClass('on');
+				$('.branding').removeClass('ov-anim');
 
 				if (thisOneHasAnimation) {
 					console.log('YOU NEED TO BE DELETED');
-					$(ov).toggleClass('ov-anim');
 					thisOneHasAnimation = !thisOneHasAnimation;
+					console.log('this one haz anim: ', thisOneHasAnimation);
 		          	$(ov).css('animation', '');
+					$(ov).removeClass('ov-anim');
 				}
 
 			}
+
 	    });
 	  }
 	},
@@ -66,7 +80,7 @@ const Overlays = {
 			$(ov).css('background-image', 'url(' + overlays[randomOverlay].location + '/' + overlays[randomOverlay].url + ')');
 			$(ov).css('mix-blend-mode', overlays[randomOverlay].blendMode);
 
-			$(ov).toggleClass('ov-anim');
+			$(ov).addClass('ov-anim');
 			thisOneHasAnimation = true;
           	$('.ov-anim').css('animation-duration', (beatTime/1000 * overlays[randomOverlay].animConstant) + 's');
           	$('.ov-anim').css('animation-name', overlays[randomOverlay].animationType);
@@ -82,11 +96,10 @@ const Overlays = {
 			if (overlays[overlayCounter].animation === true) {
 				console.log('THIS OVERLAY HAS ANIMATION');
 				console.log(overlays[overlayCounter].animationType);
-				$(ov).toggleClass('ov-anim');
+				$(ov).addClass('ov-anim');
 				thisOneHasAnimation = true;
 	          	$('.ov-anim').css('animation-duration', (beatTime/1000 * overlays[overlayCounter].animConstant) + 's');
 	          	$('.ov-anim').css('animation-name', overlays[overlayCounter].animationType);
-
 			}
 
 			overlayCounter++;
@@ -98,12 +111,14 @@ const Overlays = {
 	displayOverlay() {
 		console.log('DISPLAY OVERLAYS');
 		hideOverlayTimer = setTimeout(Overlays.hideOverlay, (beatTime * overlayDuration) );
+		$(ov).addClass('ov-anim');
+
 	},
 
 	hideOverlay() {
 		Mousetrap.trigger("alt+" + glerp);
 		waitOverlayTimer = setTimeout(Overlays.waitOverlay, (beatTime * overlayFrequency));
-		$(ov).toggleClass('ov-anim');
+		$(ov).removeClass('ov-anim');
 	},
 
 	waitOverlay() {
