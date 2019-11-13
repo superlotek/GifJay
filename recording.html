@@ -1,0 +1,147 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <title>GifJay</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="guts/css/styles.css" media="all" rel="stylesheet" />
+
+    <script src="guts/js/jquery-2.1.4.min.js"></script>
+    <script src="guts/js/mousetrap.min.js"></script>
+    <script src="guts/js/keydrown.js"></script>
+    <script src="settings.js"></script>
+    <script src="guts/js/Inits.js"></script>
+<!--     <script src="guts/js/Midi.js"></script>
+ -->    <script src="guts/js/Scene.js"></script>
+    <script src="guts/js/Play.js"></script>
+    <script src="guts/js/Overlays.js"></script>
+    <script src="guts/js/Filter.js"></script>
+    <script src="guts/js/Effects.js"></script>
+    <script src="guts/js/Text.js"></script>
+    <script src="guts/js/Keyboard.js"></script>
+
+    <script src="playlist.js"></script>
+  </head>
+
+  <body>
+    <div id="scene" class="scene">
+        <div class="stage-one"></div>
+        <div id="gif" class="stage-two"></div>
+    </div>
+
+
+    <div id="overlays">
+        <div class="texture"></div>
+        <div class="color-palette"></div>
+        <div class="branding"></div>
+        <div class="text"><h1></h1></div>
+    </div>
+
+<p>This example shows you the contents of the selected part of your display.
+Click the Start Capture button to begin.</p>
+
+<p><button id="start">Start Capture</button>&nbsp;<button id="stop">Stop Capture</button></p>
+
+<video id="video" autoplay></video>
+<br>
+
+<strong>Log:</strong>
+<br>
+<pre id="log"></pre>
+
+
+<style>
+
+#video {
+  border: 1px solid #999;
+  width: 98%;
+  max-width: 860px;
+}
+
+.error {
+  color: red;
+}
+
+.warn {
+  color: orange;
+}
+
+.info {
+  color: darkgreen;
+}
+
+</style>
+
+    <script>
+
+function startCapture(displayMediaOptions) {
+ let captureStream = null;
+
+ return navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
+    .catch(err => { console.error("Error:" + err); return null; });
+}
+
+function stopCapture(evt) {
+  let tracks = videoElem.srcObject.getTracks();
+
+  tracks.forEach(track => track.stop());
+  videoElem.srcObject = null;
+}
+
+function dumpOptionsInfo() {
+  const videoTrack = videoElem.srcObject.getVideoTracks()[0];
+ 
+  console.info("Track settings:");
+  console.info(JSON.stringify(videoTrack.getSettings(), null, 2));
+  console.info("Track constraints:");
+  console.info(JSON.stringify(videoTrack.getConstraints(), null, 2));
+}
+
+async function startCapture() {
+  logElem.innerHTML = "";
+
+  try {
+    videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+    dumpOptionsInfo();
+  } catch(err) {
+    console.error("Error: " + err);
+  }
+}
+
+
+
+
+        const videoElem = document.getElementById("video");
+        const logElem = document.getElementById("log");
+        const startElem = document.getElementById("start");
+        const stopElem = document.getElementById("stop");
+
+        // Options for getDisplayMedia()
+
+        var displayMediaOptions = {
+          video: {
+            cursor: "never"
+          },
+          audio: false
+        };
+
+// Set event listeners for the start and stop buttons
+startElem.addEventListener("click", function(evt) {
+  startCapture();
+}, false);
+
+stopElem.addEventListener("click", function(evt) {
+  stopCapture();
+}, false);    
+console.log = msg => logElem.innerHTML += `${msg}<br>`;
+console.error = msg => logElem.innerHTML += `<span class="error">${msg}</span><br>`;
+console.warn = msg => logElem.innerHTML += `<span class="warn">${msg}<span><br>`;
+console.info = msg => logElem.innerHTML += `<span class="info">${msg}</span><br>`;
+</script>
+
+  </body>
+</html>
