@@ -1,0 +1,161 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <title>GifJay</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="guts/img/favicon-32x32.png">
+
+    <link href="guts/css/styles.css" media="all" rel="stylesheet" />
+
+    <script src="guts/js/jquery-2.1.4.min.js"></script>
+    <script src="guts/js/mousetrap.min.js"></script>
+    <script src="guts/js/keydrown.js"></script>
+    <script src="settings.js"></script>
+<!--     <script src="guts/js/Inits.js"></script>
+ --><!--     <script src="guts/js/Scene.js"></script>
+    <script src="guts/js/Play.js"></script>
+    <script src="guts/js/Overlays.js"></script>
+    <script src="guts/js/Filter.js"></script>
+    <script src="guts/js/Effects.js"></script>
+    <script src="guts/js/Text.js"></script>
+ -->    <script src="guts/js/Keyboard.js"></script>
+    <script src="guts/js/Hud.js"></script>
+
+    <script src="playlist.js"></script>
+  </head>
+
+  <style>
+    body { background: #333; padding: 80px; }
+    a { color: #fff; }
+    table { width: 1000px; margin: 0 auto; }
+    tr { display: flex; justify-content: center; margin: 10px 0; }
+    td {  }
+    button { width: 100%; border: 1px solid #fff; background: none; padding: 20px; text-transform: uppercase; color: #ffffff; cursor: pointer; }
+    button:focus { outline: none; }
+    button:disabled { opacity: .5; }
+    .logo { position: static; margin-bottom: 20px; }
+    .stage-one.mini {
+        display: block;
+        position: static;
+        border: 1px solid white;
+        width: 400px;
+        height: 300px;
+    }
+  </style>
+
+  <body>
+    <div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>
+    <table>
+        <tr>
+            <td><button id="hud-open">Open Hud</button></td>
+            <td><button id="hud-close">Close Hud</button></td>
+            <td><button id="hud-start">Start GifJay</button></td>
+        </tr>
+        <tr>
+            <td><button id="hud-stageFlip">StageFlip</button></td>
+        </tr>
+        <tr>
+            <td><button id="hud-setGPS">Set GPS</button></td>
+            <td><button id="hud-robomode">RoboMode</button></td>
+        </tr>
+        <tr>
+            <td> <button id="hud-GPSFast">GPS Fast</button></td>
+            <td><button id="hud-GPSBurst">GPS Burst</button></td>
+            <td><button id="hud-GPSSlow">GPS Slow</button></td>
+        </tr>
+        <tr>
+            <td><button id="hud-banker">Set Banker</button></td>
+            <td>
+                <select id="bankSelector">
+                    <option value="q">Bank 0</option>
+                    <option value="w">Bank 1</option>
+                    <option value="e">Bank 2</option>
+                    <option value="r">Bank 3</option>
+
+                </select>
+            </td>
+
+            <td><button id="hud-bankerPlayAll">Banker Play All</button></td>
+        </tr>
+        <tr>
+            <td><button id="hud-stageOneSelect">STG 1 Select</button></td>
+            <td><button id="hud-stageTwoSelect">STG 2 Select</button></td>
+            <td><button id="hud-stageTwoAll">STG Select All</button></td>
+        </tr>
+        <tr>
+            <td><button id="hud-invert">Invert</button></td>
+            <td><button id="hud-saturation">Saturation</button></td>
+            <td><button id="hud-hueRotate">Hue Rotate</button></td>
+            <td><button id="hud-blur">Blur</button></td>
+        </tr>
+        <tr>
+            <td><button id="hud-fullscreen">Fullscreen</button></td>
+            <td><button id="hud-scenePause">Scene Pause</button></td>
+            <td><button id="hud-barTender">BarTender</button></td>
+        </tr>
+        <tr>
+            <td><button id="hud-blendMode">Blend Mode On</button></td>
+            <td><button id="hud-blendModeSwitcher">Blend Mode Switcher</button></td>
+            <td><button id="hud-blendModeRandom">Random Blend Mode</button></td>
+        </tr>
+        <tr>
+            <td><a href="settings.html">Settings</a></td>
+        </tr>
+
+    </table>
+
+    <div class="scene">
+        <div class="stage-one mini"></div>
+        <div id="gif" class="stage-two"></div>
+    </div>
+
+
+
+    <script>
+        $('button').attr('disabled', true);
+        $('#hud-open').attr('disabled', false);
+        $('#hud-open').click(function() { myWindow = window.open("gifjay.html","hudder","width=600,height=600"); $('#hud-close, #hud-start').attr('disabled', false); });
+        $('#hud-close').click(function() { myWindow.close(); });
+        $('#hud-start').click(function() { myWindow.Mousetrap.trigger('alt+backspace'); $('button').attr('disabled', false);
+                $('.stage-one').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
+          });
+        $('#hud-stageFlip').click(function() { myWindow.Mousetrap.trigger('space'); });
+        $('#hud-setGPS').click(function() { myWindow.Mousetrap.trigger('return'); });
+        $('#hud-robomode').click(function() { myWindow.Mousetrap.trigger('\''); });
+        $('#hud-banker').click(function() { myWindow.Mousetrap.trigger(';'); });
+        $('#hud-bankerPlayAll').click(function() { myWindow.Mousetrap.trigger('ctrl+\''); });
+        $('#hud-stageOneSelect').click(function() { myWindow.Mousetrap.trigger('-'); });
+        $('#hud-stageTwoSelect').click(function() { myWindow.Mousetrap.trigger('='); });
+        $('#hud-stageSelectAll').click(function() { myWindow.Mousetrap.trigger('backspace'); });
+
+        $('#hud-invert').click(function() { myWindow.Mousetrap.trigger('7'); });
+        $('#hud-saturation').click(function() { myWindow.Mousetrap.trigger('8'); });
+        $('#hud-hueRotate').click(function() { myWindow.Mousetrap.trigger('9'); });
+        $('#hud-blur').click(function() { myWindow.Mousetrap.trigger('0'); });
+
+        $('#hud-fullscreen').click(function() { myWindow.Mousetrap.trigger('['); });
+        $('#hud-GPSFast').click(function() { myWindow.Mousetrap.trigger(','); });
+        $('#hud-GPSSlow').click(function() { myWindow.Mousetrap.trigger('/'); });
+        $('#hud-GPSBurst').click(function() { myWindow.Mousetrap.trigger('.'); });
+        $('#hud-scenePause').click(function() { myWindow.Mousetrap.trigger(']'); });
+        $('#hud-barTender').click(function() { myWindow.Mousetrap.trigger('\\'); });
+
+        $('#hud-blendMode').click(function() { myWindow.Mousetrap.trigger('alt+,'); });
+        $('#hud-blendModeSwitcher').click(function() { myWindow.Mousetrap.trigger('alt+.'); });
+        $('#hud-blendModeRandom').click(function() { myWindow.Mousetrap.trigger('alt+/'); });
+
+        $("#bankSelector").change(function () {
+            var bankTrigger = this.value;
+            myWindow.Mousetrap.trigger(bankTrigger);
+            console.log('BANK TRIGGER : ', bankTrigger);
+        });
+
+
+    </script>
+
+  </body>
+</html>
