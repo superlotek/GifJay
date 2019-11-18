@@ -17,8 +17,9 @@ const Play = {
     }
 
     console.log('GPS: ' + beatTime, "\n---------------------------------");
-
-
+    // var converto = beatTime / 1000;
+    // gleep = window.opener.convertBeatTime(beatTime);
+    window.opener.$('.gps-data').text(window.opener.convertBeatTime(beatTime));
   },
 
   clearBeatTime() {

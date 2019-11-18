@@ -15,92 +15,219 @@
     <script src="guts/js/mousetrap.min.js"></script>
     <script src="guts/js/keydrown.js"></script>
     <script src="settings.js"></script>
-<!--     <script src="guts/js/Inits.js"></script>
- --><!--     <script src="guts/js/Scene.js"></script>
+    <script src="guts/js/Inits.js"></script>
+
+     <script src="guts/js/Scene.js"></script>
     <script src="guts/js/Play.js"></script>
     <script src="guts/js/Overlays.js"></script>
     <script src="guts/js/Filter.js"></script>
     <script src="guts/js/Effects.js"></script>
     <script src="guts/js/Text.js"></script>
- -->    <script src="guts/js/Keyboard.js"></script>
+    <script src="guts/js/Keyboard.js"></script>
     <script src="guts/js/Hud.js"></script>
 
     <script src="playlist.js"></script>
   </head>
 
   <style>
-    body { background: #333; padding: 80px; }
+    body { background: #333; padding: 20px 40px 20px 40px; }
     a { color: #fff; }
-    table { width: 1000px; margin: 0 auto; }
+    table { width: 100%; margin: 0 auto; }
     tr { display: flex; justify-content: center; margin: 10px 0; }
     td {  }
-    button { width: 100%; border: 1px solid #fff; background: none; padding: 20px; text-transform: uppercase; color: #ffffff; cursor: pointer; }
+    button { font-size: 14px; width: 100%; border: 1px solid #fff; background: none; padding: 10px; text-transform: uppercase; color: #ffffff; cursor: pointer; }
     button:focus { outline: none; }
     button:disabled { opacity: .5; }
-    .logo { position: static; margin-bottom: 20px; }
-    .stage-one.mini {
+    .logo-home img { position: static; margin-bottom: 20px; width: 100px; display: block; margin: 0 auto; }
+
+    .stage-one.mini, .stage-two.mini {
         display: block;
         position: static;
         border: 1px solid white;
-        width: 400px;
-        height: 300px;
+        width: 200px;
+        height: 150px;
+        background-size: cover;
+    }
+    .scene { border: 5px solid white; }
+    .scene.mini, #overlays-mini { /*width: 400px; height: 300px; */position: relative; }
+    .scene-container { display: none; }
+    .stage-one-mini, .stage-two-mini, #branding-mini {
+        display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover;
+    }
+    .stage-two-mini { mix-blend-mode: screen; }
+    #branding-mini { background: yellow; }
+    .robomode-container { background: #333; margin: 20px; }
+    .effects-container { background: #666; margin: 20px; }
+    button.active { border: 2px solid #000; background: #ffffff; color: #000000; }
+    .gps-data { color: #000; width: 100%; }
+    .gps-wrapper { background: #fff; border: 1px solid green; min-width: 280px; text-align: center; padding: 5px; }
+    .gps-meter-container {
+        width: 200px;
+        height: 10px;
+        background: #fff;
+        position: relative;
+        border: 1px solid black;
+    }
+    .gps-meter {
+        background: green;
+        width: 0;
+        height: 10px;
+        position: absolute:
+        top: 0;
+        left: 0;
+
     }
   </style>
 
   <body>
-    <div class="logo"><img src="guts/img/gifjay_logo_white_small.png"></div>
+    
+
+    <header>
+        <table>
+            <tr>
+                <td><div class="logo-home"><img src="guts/img/gifjay_logo_white_small.png"></div></td>
+                <td><button id="hud-open">Open Hud</button></td>
+                <td><button id="hud-close">Close Hud</button></td>
+                <td><button id="hud-start">Start GifJay</button></td>
+            </tr>
+        </table>
+    </header>
+
+    <div class="scene-container">
+        <table>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="stage-one mini"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="hud-stageOneSelect">STG 1 Select</button>
+                            </td>
+                            <td>
+                                <button id="hud-stageOneToggle">STG 1 Toggle</button>
+                            </td>                        </tr>
+                    </table>
+                </td>
+
+                <td>
+                    <div id="scene" class="scene mini">
+                        <div class="stage-one-mini"></div>
+                        <div class="stage-two-mini"></div>
+                    </div>
+                    <div id="overlays-mini">
+                        <div id="branding-mini"></div>
+                    </div>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="stage-two mini"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="hud-stageTwoSelect">STG 2 Select</button>
+                            </td>
+                            <td>
+                                <button id="hud-stageTwoToggle">STG 2 Toggle</button>
+                            </td>                        
+                        </tr>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>  
+
+    <div class="other-container">
+        <table>
+            <tr>    
+                <td>
+                    <table class="robomode-container">
+                            <tr>
+                                <div class="gps-meter-container">
+                                    <div class="gps-meter"></div>
+                                </div>
+                            </tr>
+                            <tr>
+                                <td><p class="gps-wrapper">GPS: <span class="gps-data"></span></p></td>
+                            </tr>
+                            <tr>
+                                <td><button id="hud-setGPS">Set GPS</button></td>
+                                <td><button id="hud-robomode">RoboMode</button></td>
+                            </tr>
+                            <tr>
+                                <td> <button id="hud-GPSFast">GPS Fast</button></td>
+                                <td><button id="hud-GPSBurst">GPS Burst</button></td>
+                                <td><button id="hud-GPSSlow">GPS Slow</button></td>
+                            </tr>
+                        <tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="effects-container">
+
+                        <tr>
+                            <td><button id="hud-kaleidoscope">Kaleidoscope</button></td>
+                            <td><button id="hud-mutator">Mutator</button></td>
+                            <td><button id="hud-samesame">SameSame</button></td>
+                            <td><button id="hud-stageFader">StageFader</button></td>
+                        </tr>
+                        <tr>
+                            <td><button id="hud-invert">Invert</button></td>
+                            <td><button id="hud-saturation">Saturation</button></td>
+                            <td><button id="hud-hueRotate">Hue Rotate</button></td>
+                            <td><button id="hud-blur">Blur</button></td>
+                        </tr>
+                        <tr>
+                            <td><button id="hud-blendMode">Blend Mode On</button></td>
+                            <td><button id="hud-blendModeSwitcher">Blend Mode Switcher</button></td>
+                            <td><button id="hud-blendModeRandom">Random Blend Mode</button></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <table>
-        <tr>
-            <td><button id="hud-open">Open Hud</button></td>
-            <td><button id="hud-close">Close Hud</button></td>
-            <td><button id="hud-start">Start GifJay</button></td>
-        </tr>
-        <tr>
-            <td><button id="hud-stageFlip">StageFlip</button></td>
-        </tr>
-        <tr>
-            <td><button id="hud-setGPS">Set GPS</button></td>
-            <td><button id="hud-robomode">RoboMode</button></td>
-        </tr>
-        <tr>
-            <td> <button id="hud-GPSFast">GPS Fast</button></td>
-            <td><button id="hud-GPSBurst">GPS Burst</button></td>
-            <td><button id="hud-GPSSlow">GPS Slow</button></td>
-        </tr>
         <tr>
             <td><button id="hud-banker">Set Banker</button></td>
             <td>
                 <select id="bankSelector">
-                    <option value="q">Bank 0</option>
-                    <option value="w">Bank 1</option>
-                    <option value="e">Bank 2</option>
-                    <option value="r">Bank 3</option>
+                    <option>)) Overlays ((</option>
+                    <option value="0">Incidental Beats</option>
+                    <option value="1">Floppy Disco</option>
+                    <option value="2">ELOS</option>
+                    <option value="3">Fifty Two Vista</option>
+                    <option value="4">nPrevail</option>
+                    <option value="5">Variant</option>
 
                 </select>
             </td>
+            <td>
+                <button id="hud-autoOverlay">Auto Overlay</button>
+            </td>
+        </tr>
 
             <td><button id="hud-bankerPlayAll">Banker Play All</button></td>
-        </tr>
         <tr>
-            <td><button id="hud-stageOneSelect">STG 1 Select</button></td>
-            <td><button id="hud-stageTwoSelect">STG 2 Select</button></td>
             <td><button id="hud-stageTwoAll">STG Select All</button></td>
-        </tr>
-        <tr>
-            <td><button id="hud-invert">Invert</button></td>
-            <td><button id="hud-saturation">Saturation</button></td>
-            <td><button id="hud-hueRotate">Hue Rotate</button></td>
-            <td><button id="hud-blur">Blur</button></td>
+            <td><button id="hud-stageFlip">StageFlip</button></td>
         </tr>
         <tr>
             <td><button id="hud-fullscreen">Fullscreen</button></td>
             <td><button id="hud-scenePause">Scene Pause</button></td>
             <td><button id="hud-barTender">BarTender</button></td>
         </tr>
+
         <tr>
-            <td><button id="hud-blendMode">Blend Mode On</button></td>
-            <td><button id="hud-blendModeSwitcher">Blend Mode Switcher</button></td>
-            <td><button id="hud-blendModeRandom">Random Blend Mode</button></td>
+            <td><button id="hud-triggerBank">Trigger Bank</button></td>
         </tr>
         <tr>
             <td><a href="settings.html">Settings</a></td>
@@ -108,24 +235,26 @@
 
     </table>
 
-    <div class="scene">
-        <div class="stage-one mini"></div>
-        <div id="gif" class="stage-two"></div>
-    </div>
 
 
 
     <script>
         $('button').attr('disabled', true);
+        $('button').on('click', function() {
+            $(this).toggleClass('active');
+        })
         $('#hud-open').attr('disabled', false);
         $('#hud-open').click(function() { myWindow = window.open("gifjay.html","hudder","width=600,height=600"); $('#hud-close, #hud-start').attr('disabled', false); });
         $('#hud-close').click(function() { myWindow.close(); });
         $('#hud-start').click(function() { myWindow.Mousetrap.trigger('alt+backspace'); $('button').attr('disabled', false);
-                $('.stage-one').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
+                // $('.stage-one').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
+                // $('.stage-two').css('backgroundImage', myWindow.$('.stage-two').css('backgroundImage') );
+                stageUpdate(); updateSceneSize(); $('.scene-container').fadeIn();
           });
-        $('#hud-stageFlip').click(function() { myWindow.Mousetrap.trigger('space'); });
+        $('#hud-stageFlip').click(function() { myWindow.Mousetrap.trigger('space'); stageUpdate(); });
+        $('#scene').click(function() { myWindow.Mousetrap.trigger('space'); stageUpdate(); });
         $('#hud-setGPS').click(function() { myWindow.Mousetrap.trigger('return'); });
-        $('#hud-robomode').click(function() { myWindow.Mousetrap.trigger('\''); });
+        $('#hud-robomode').click(function() { myWindow.Mousetrap.trigger('\''); myFunction(); });
         $('#hud-banker').click(function() { myWindow.Mousetrap.trigger(';'); });
         $('#hud-bankerPlayAll').click(function() { myWindow.Mousetrap.trigger('ctrl+\''); });
         $('#hud-stageOneSelect').click(function() { myWindow.Mousetrap.trigger('-'); });
@@ -136,6 +265,11 @@
         $('#hud-saturation').click(function() { myWindow.Mousetrap.trigger('8'); });
         $('#hud-hueRotate').click(function() { myWindow.Mousetrap.trigger('9'); });
         $('#hud-blur').click(function() { myWindow.Mousetrap.trigger('0'); });
+
+        $('#hud-kaleidoscope').click(function() { myWindow.Mousetrap.trigger('1'); });
+        $('#hud-mutator').click(function() { myWindow.Mousetrap.trigger('2'); });
+        $('#hud-samesame').click(function() { myWindow.Mousetrap.trigger('3'); });
+        $('#hud-stageFader').click(function() { myWindow.Mousetrap.trigger('4'); });
 
         $('#hud-fullscreen').click(function() { myWindow.Mousetrap.trigger('['); });
         $('#hud-GPSFast').click(function() { myWindow.Mousetrap.trigger(','); });
@@ -148,11 +282,60 @@
         $('#hud-blendModeSwitcher').click(function() { myWindow.Mousetrap.trigger('alt+.'); });
         $('#hud-blendModeRandom').click(function() { myWindow.Mousetrap.trigger('alt+/'); });
 
+        $('#hud-stageOneToggle').click(function() { myWindow.Mousetrap.trigger('_'); });
+        $('#hud-stageTwoToggle').click(function() { myWindow.Mousetrap.trigger('+'); });
+
+        $('#hud-autoOverlay').click(function() { myWindow.Mousetrap.trigger('!'); });
+
+        $('#hud-triggerBank').click(function() { myWindow.Mousetrap.trigger('alt+1'); });
+
         $("#bankSelector").change(function () {
-            var bankTrigger = this.value;
-            myWindow.Mousetrap.trigger(bankTrigger);
-            console.log('BANK TRIGGER : ', bankTrigger);
+            bankTrigger = this.value;
+            myWindow.Mousetrap.trigger('alt+' + bankTrigger);
         });
+
+        $('.gps-data').text(convertBeatTime(beatTime));
+
+        function convertBeatTime(beatTime) {
+          var converto = beatTime / 1000;
+          return Math.round(converto * 100) / 100 + 's';
+        }
+
+        function stageUpdate() {
+            $('.stage-one').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
+            $('.stage-two').css('backgroundImage', myWindow.$('.stage-two').css('backgroundImage') );
+            $('.scene.mini').css('background', myWindow.$('body').css('backgroundColor'));
+            $('.scene.mini .stage-one-mini').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
+            $('.scene.mini .stage-two-mini').css('backgroundImage', myWindow.$('.stage-two').css('backgroundImage') );
+            $('.scene.mini .stage-one-mini').css('background-repeat', myWindow.$('.stage-one').css('backgroundRepeat') );
+            $('.scene.mini .stage-two-mini').css('background-repeat', myWindow.$('.stage-two').css('backgroundRepeat') );
+            $('#overlays-mini #branding-mini').css('backgroundImage', myWindow.$('.branding.on').css('backgroundImage') );
+        }
+
+        function updateSceneSize() {
+            $('.scene.mini').css({width: myWindow.innerWidth/2 + 'px', height: myWindow.innerHeight/2 + 'px'});
+            $('.stage-one').css({width: myWindow.innerWidth/3 + 'px', height: myWindow.innerHeight/3 + 'px'});
+            $('.stage-two').css({width: myWindow.innerWidth/3 + 'px', height: myWindow.innerHeight/3 + 'px'});
+        }
+
+        // glerp = setInterval(function() {
+        //     console.log('x');
+        // }, 10);
+
+
+        var myVar;
+
+        function myFunction() {
+          myVar = setInterval(alertFunc, 10);
+        }
+
+        function alertFunc() {
+            i++
+            $('.gps-meter').css('width', i);
+            if ( i > beatTime / 10) {
+                i = 0;
+            }
+        }
 
 
     </script>

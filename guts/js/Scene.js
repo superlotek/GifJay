@@ -120,6 +120,9 @@ function sceneSetter(arrayName, banker1, banker2) {
 
         if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
+        window.opener.stageUpdate();
+
+        
   } else {
 
         if (scenePauseOn) {
@@ -150,9 +153,10 @@ function sceneSetter(arrayName, banker1, banker2) {
         if (sceneFullscreenOn) { Scene.screenFullscreen(); }
 
         // window.$('.stage-one.mini').css({'background':bankLocation + gifSelectorS1.location + gifSelectorS1.gif + bgCenter });
-        console.log('anything hap');
-        console.log($(window)[0].name);
-  }
+        // console.log('anything hap');
+        // console.log($(window)[0].name);
+        window.opener.stageUpdate();
+      }
 
   Scene.saveCurrentScene()
   Effects.fxChecker();
