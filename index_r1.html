@@ -1,0 +1,168 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <title>GifJay</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="guts/img/favicon-32x32.png">
+
+    <link href="guts/css/styles.css" media="all" rel="stylesheet" />
+    <link href="guts/css/interface.css" media="all" rel="stylesheet" />
+
+    <script src="guts/js/jquery-2.1.4.min.js"></script>
+    <script src="guts/js/mousetrap.min.js"></script>
+    <script src="guts/js/keydrown.js"></script>
+    <script src="settings.js"></script>
+    <script src="guts/js/Inits.js"></script>
+
+     <script src="guts/js/Scene.js"></script>
+    <script src="guts/js/Play.js"></script>
+    <script src="guts/js/Overlays.js"></script>
+    <script src="guts/js/Filter.js"></script>
+    <script src="guts/js/Effects.js"></script>
+    <script src="guts/js/Text.js"></script>
+    <script src="guts/js/Keyboard.js"></script>
+    <script src="guts/js/interface.js"></script>
+
+    <script src="playlist.js"></script>
+  </head>
+
+  <body>
+    
+
+    <header>
+        <div class="logo-home"><img src="guts/img/gifjay_logo_white_small.png"></div>
+        <button id="hud-open"><img width="50" src="guts/img/projector_white.png"></button>
+        <button id="hud-start" disabled><img width="50" src="guts/img/power_white.png"></button>
+        <div></div>
+        <a id="hud-settings" href="settings.html"><img width="50" src="guts/img/settings_white.png"></button></a>
+    </header>
+
+    <div class="scene-container">
+        <table>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="stage-one mini"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="hud-stageOneSelect">STG 1 Select</button>
+                            </td>
+                            <td>
+                                <button id="hud-stageOneToggle"><img class="icon" width="50" height="50" src="guts/img/eye.png"></button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+                <td>
+                    <div id="scene" class="scene mini">
+                        <div class="stage-one-mini"></div>
+                        <div class="stage-two-mini"></div>
+                    </div>
+                    <div id="overlays-mini">
+                        <div id="branding-mini"></div>
+                    </div>
+
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="stage-two mini"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="hud-stageTwoSelect">STG 2 Select</button>
+                            </td>
+                            <td>
+                                <button id="hud-stageTwoToggle"><img class="icon" width="50" height="50" src="guts/img/eye.png"></button>
+                            </td>                        
+                        </tr>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>  
+
+    <section id="robomode-section">
+        <h3>Robomode</h3>
+        <table class="robomode-container">
+                <tr>
+                    <td><p class="gps-wrapper">GPS: <span class="gps-data"></span></p></td>
+                </tr>
+                <tr>
+                    <td><button id="hud-setGPS"><img title="BEAT TAPPER (RETURN)" class="icon" width="50" height="50" src="guts/img/metronome.png"><p>Beat Tap</p></button></td>
+                    <td><button id="hud-robomode"><img title="ROBOMODE (')" class="icon" width="50" height="50" src="guts/img/loop.png"><p>RoboMode</p></button></td>
+                </tr>
+                <tr>
+                    <td> <button id="hud-GPSFast"><img title="FAST (,)" class="icon" width="50" height="50" src="guts/img/fast.png"><p>Fast</p></button></td>
+                    <td><button id="hud-GPSBurst"><img title="BURST (.)" class="icon" width="50" height="50" src="guts/img/burst.png"><p>Burst</p></button></td>
+                    <td><button id="hud-GPSSlow"><img title="SLOW (/)" class="icon" width="50" height="50" src="guts/img/snail.png"><p>Slow</p></button></td>
+                </tr>
+            <tr>
+        </table>
+    </section>
+
+    <section id="effects-section">
+        <h3>Filters / FX</h3>
+        <table class="effects-container">
+
+            <tr>
+                <td><button id="hud-kaleidoscope"><img title="KALEIDOSCOPE (1)" class="icon" width="50" height="50" src="guts/img/tiles.png"><p>Kaleidoscope</p></button></td>
+                <td><button id="hud-mutator"><img title="MUTATOR (2)" class="icon" width="50" height="50" src="guts/img/dna.png"><p>Mutator</p></button></td>
+                <td><button id="hud-samesame"><img title="SAMESAME (3)" class="icon" width="50" height="50" src="guts/img/copy-item.png"><p>SameSame</p></button></td>
+                <td><button id="hud-stageFader"><img title="FADER (4)" class="icon" width="50" height="50" src="guts/img/fade-buttons.png"><p>Stage Fader</p></button></td>
+            </tr>
+            <tr>
+                <td><button id="hud-invert"><img title="INVERT (7)" class="icon" width="50" height="50" src="guts/img/invert-colors-button.png"><p>Invert</p></button></td>
+                <td><button id="hud-saturation"><img title="SATURATION (8)" class="icon" width="50" height="50" src="guts/img/saturation.png"><p>Saturation</p></button></td>
+                <td><button id="hud-hueRotate"><img title="HUE-ROTATE (9)" class="icon" width="50" height="50" src="guts/img/social.png"><p>Hue-Rotate</p></button></td>
+                <td><button id="hud-blur"><img title="BLUR (0)" class="icon" width="50" height="50" src="guts/img/blur.png"><p>Blur</p></button></td>
+            </tr>
+       </table>
+    </section>
+
+    <section id="blend-modes-section">
+        <h3>Blend Modes</h3>
+        <table class="blend-modes-container">
+            <tr>
+                <td><button id="hud-blendMode"><img class="icon" width="50" height="50" src="guts/img/mixer.png"></button></td>
+                <td><button id="hud-blendModeSwitcher">Blend Mode Switcher</button></td>
+                <td><button id="hud-blendModeRandom">Random Blend Mode</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="blend-modes">
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <div class="bank-slider">
+        <button id="btn-bankSlider"><h3>Banks</h3></button>
+        <div class="bank-slider-container">
+            <div class="banker-buttons">
+                <button id="hud-banker">Banker Select</button>
+                <button id="hud-banker">Banker Stage Select</button>
+                <button id="hud-banker">Stage 1</button>
+                <button id="hud-banker">Stage 2</button>
+                <button id="hud-bankerPlayAll">Banker Play All</button>
+                <button id="hud-bankerClear">Clear</button>
+            </div>
+            <ul id="banks-container"></ul>
+        </div>
+    </div>
+
+  </body>
+</html>

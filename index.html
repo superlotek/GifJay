@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="guts/img/favicon-32x32.png">
 
     <link href="guts/css/styles.css" media="all" rel="stylesheet" />
+    <link href="guts/css/interface.css" media="all" rel="stylesheet" />
 
     <script src="guts/js/jquery-2.1.4.min.js"></script>
     <script src="guts/js/mousetrap.min.js"></script>
@@ -24,354 +25,95 @@
     <script src="guts/js/Effects.js"></script>
     <script src="guts/js/Text.js"></script>
     <script src="guts/js/Keyboard.js"></script>
-    <script src="guts/js/Hud.js"></script>
+    <script src="guts/js/interface.js"></script>
 
     <script src="playlist.js"></script>
   </head>
 
-  <style>
-
-    @font-face {
-      font-family: Digital;
-      src: url(Fonts/DS-DIGIB.TTF);
-      font-weight: bold;
-    }
-
-    body { background: #333; position: relative; background: #333 !important; }
-    a { color: #fff; }
-    table { width: 100%; margin: 0 auto; }
-    tr { display: flex; justify-content: center; margin: 10px 0; }
-
-    header { background: #000; width: 100%; display: grid; grid-template-columns: 150px 100px 100px auto 100px; }
-    .logo-home { padding: 20px; text-align: left; display: inline; }
-    .logo-home img { height: 40px; }
-    #hud-settings { padding: 20px; text-align: right; }
-
-    img.icon { max-width: 50px; max-height: 50px; }
-
-
-    td {  }
-    button { font-size: 14px; width: 100%; border: 1px solid #fff; background: none; padding: 10px; text-transform: uppercase; color: #ffffff; cursor: pointer; }
-    button:focus { outline: none; }
-    button:disabled { opacity: .5; }
-
-    .stage-one.mini, .stage-two.mini {
-        display: block;
-        position: static;
-        border: 1px solid white;
-        width: 200px;
-        height: 150px;
-        background-size: cover;
-    }
-    .scene { border: 5px solid white; }
-    .scene.mini, #overlays-mini { /*width: 400px; height: 300px; */position: relative; }
-    .scene-container { display: none; }
-    .stage-one-mini, .stage-two-mini, #branding-mini {
-        display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover;
-    }
-    .stage-two-mini { mix-blend-mode: screen; }
-    #branding-mini { background: yellow; }
-    .robomode-container { background: #444; margin: 20px; width: 600px; margin: 20px auto 0 auto; }
-    .effects-container { background: #666; }
-    button.active { border: 2px solid #000; background: #ffffff; color: #000000; }
-
-    .gps-data { color: #000; width: 100%; font-family: "Digital"; font-size: 36px; color: green; }
-    .gps-wrapper { background: #222; min-width: 280px; text-align: center; padding: 5px; color: green; }
-    .gps-meter-container {
-        width: 200px;
-        height: 10px;
-        background: #fff;
-        position: relative;
-        border: 1px solid black;
-    }
-    .gps-meter {
-        background: green;
-        width: 0;
-        height: 10px;
-        position: absolute:
-        top: 0;
-        left: 0;
-    }
-    #hud-open { width: 70px; border: 0; }
-    #hud-open.active { width: 70px; border: 0; background: initial; }
-    #hud-start { width: 70px; border: 0; }
-    #hud-start.active { width: 70px; border: 0; background: initial; }
-    #hud-settings img { width: 40px; border: 0; background: initial; }
-    #hud-start img { width: 40px; border: 0; background: initial; }
-
-    #hud-settings.active { width: 70px; }
-
-        .bank-slider { position: fixed; width: 100%; bottom: -640px; left: 0; }
-        .bank-slider-container { background: rgba(0,0,0,.8); border: 1px solid black; padding: 20px; height: 600px; }
-        .bank-slider ul { display: flex; list-style-type: none; margin: 20px 0; flex-wrap: wrap; }
-        .bank-slider li { margin: 0 10px 5px 10px; position: relative; }
-        .bank-slider li img { width: 200px; max-height: 100px; border: 1px solid #eee; }
-        .bank-slider li span { position: absolute; top: 1px; left: 1px; background: black; padding: 5px; text-transform: uppercase; font-weight: bold; color: orange; }
-
-        #btn-bankSlider { background: #fff; color: #000; font-weight: bold; width: 300px; margin: 0 auto; display: block; }
-        .bank-slider-container p { text-align: center; margin-top: 5px; color: #fff; font-size: 12px; font-weight: bold; text-transform: uppercase; }
-        .banker-buttons { display: flex;}
-        #effects-section button, .robomode-container button { border: none; }
-
-        button img.icon:hover { background: rgba(255,255,255, .5); }
-        #scene { cursor: pointer; }
-
-  </style>
-
   <body>
     
-
-    <header>
-        <div class="logo-home"><img src="guts/img/gifjay_logo_white_small.png"></div>
-        <button id="hud-open"><img width="50" src="guts/img/projector_white.png"></button>
-        <button id="hud-start" disabled><img width="50" src="guts/img/power_white.png"></button>
-        <div></div>
-        <a id="hud-settings" href="settings.html"><img width="50" src="guts/img/settings_white.png"></button></a>
-    </header>
-
-    <div class="scene-container">
-        <table>
-            <tr>
-                <td>
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="stage-one mini"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button id="hud-stageOneSelect">STG 1 Select</button>
-                            </td>
-                            <td>
-                                <button id="hud-stageOneToggle"><img class="icon" width="50" height="50" src="guts/img/eye.png"></button>
-                            </td>                        </tr>
-                    </table>
-                </td>
-
-                <td>
-                    <div id="scene" class="scene mini">
-                        <div class="stage-one-mini"></div>
-                        <div class="stage-two-mini"></div>
-                    </div>
-                    <div id="overlays-mini">
-                        <div id="branding-mini"></div>
-                    </div>
-
-                </td>
-                <td>
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="stage-two mini"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button id="hud-stageTwoSelect">STG 2 Select</button>
-                            </td>
-                            <td>
-                                <button id="hud-stageTwoToggle"><img class="icon" width="50" height="50" src="guts/img/eye.png"></button>
-                            </td>                        
-                        </tr>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </div>  
-
-    <div class="">
-        <table class="robomode-container">
-                <tr>
-                    <td><p class="gps-wrapper">GPS: <span class="gps-data"></span></p></td>
-                </tr>
-                <tr>
-                    <td><button id="hud-setGPS"><img class="icon" width="50" height="50" src="guts/img/metronome.png"></button></td>
-                    <td><button id="hud-robomode"><img class="icon" width="50" height="50" src="guts/img/loop.png"></button></td>
-                </tr>
-                <tr>
-                    <td> <button id="hud-GPSFast"><img class="icon" width="50" height="50" src="guts/img/fast.png"></button></td>
-                    <td><button id="hud-GPSBurst"><img class="icon" width="50" height="50" src="guts/img/burst.png"></button></td>
-                    <td><button id="hud-GPSSlow"><img class="icon" width="50" height="50" src="guts/img/snail.png"></button></td>
-                </tr>
-            <tr>
-        </table>
-    </div>
-
-    <section id="effects-section">
-
-        <table class="effects-container">
-
-            <tr>
-                <td><button id="hud-kaleidoscope"><img class="icon" width="50" height="50" src="guts/img/tiles.png"></button></td>
-                <td><button id="hud-mutator"><img class="icon" width="50" height="50" src="guts/img/dna.png"></button></td>
-                <td><button id="hud-samesame"><img class="icon" width="50" height="50" src="guts/img/copy-item.png"></button></td>
-                <td><button id="hud-stageFader"><img class="icon" width="50" height="50" src="guts/img/fade-buttons.png"></button></td>
-            </tr>
-            <tr>
-                <td><button id="hud-invert"><img class="icon" width="50" height="50" src="guts/img/invert-colors-button.png"></button></td>
-                <td><button id="hud-saturation"><img class="icon" width="50" height="50" src="guts/img/saturation.png"></button></td>
-                <td><button id="hud-hueRotate"><img class="icon" width="50" height="50" src="guts/img/social.png"></button></td>
-                <td><button id="hud-blur"><img title="blur" class="icon" width="50" height="50" src="guts/img/blur.png"></button></td>
-            </tr>
-<!--             <tr>
-                <td><button id="hud-blendMode"><img width="50" height="50" src="guts/img/mixer.png"></button></td>
-                <td><button id="hud-blendModeSwitcher">Blend Mode Switcher</button></td>
-                <td><button id="hud-blendModeRandom">Random Blend Mode</button></td>
-            </tr>
- -->        </table>
-
-    </section>
-
-    <div class="bank-slider">
-        <button id="btn-bankSlider">BANKS</button>
-        <div class="bank-slider-container">
-            <div class="banker-buttons">
-                <button id="hud-banker">Banker Select</button>
-                <button id="hud-banker">Banker Stage Select</button>
-                <button id="hud-banker">Stage 1</button>
-                <button id="hud-banker">Stage 2</button>
-                <button id="hud-bankerPlayAll">Banker Play All</button>
-                <button id="hud-bankerClear">Clear</button>
+    <div class="grid-container">
+        <header>
+            <div class="logo-home">
+                <img src="guts/img/gifjay_logo_white_small.png">
             </div>
-            <ul id="banks-container"></ul>
+            <button id="hud-open"><img width="50" src="guts/img/projector_white.png"></button>
+            <button id="hud-start" disabled>
+                <img width="50" src="guts/img/power_white.png">
+            </button>
+                <a id="hud-settings" href="settings.html">
+                    <img width="50" src="guts/img/settings_white.png">
+                </a>
+            </button>
+        </header>
+
+        <div class="sec-1">
+            <div class="stage-one mini"></div>
+            <button id="hud-stageOneSelect">STG 1 Select</button>
+            <button id="hud-stageOneToggle"><img class="icon" width="50" height="50" src="guts/img/eye.png"></button>
         </div>
+        <div class="sec-2">
+            <div id="scene" class="scene mini">
+                <div class="stage-one-mini"></div>
+                <div class="stage-two-mini"></div>
+            </div>
+                <div id="overlays-mini">
+                <div id="branding-mini"></div>
+            </div>
+        </div>
+        <div class="sec-3">
+            <div class="stage-two mini"></div>
+            <button id="hud-stageTwoSelect">STG 2 Select</button>
+            <button id="hud-stageTwoToggle"><img class="icon" width="50" height="50" src="guts/img/eye.png"></button>
+        </div>
+
+        <section id="effects-section">
+            <h3>Filters / FX</h3>
+            <div class="effects-container2">
+                <button id="hud-kaleidoscope"><img title="KALEIDOSCOPE (1)" class="icon" width="50" height="50" src="guts/img/tiles.png"><p>Kaleidoscope</p></button>
+                <button id="hud-mutator"><img title="MUTATOR (2)" class="icon" width="50" height="50" src="guts/img/dna.png"><p>Mutator</p></button>
+                <button id="hud-samesame"><img title="SAMESAME (3)" class="icon" width="50" height="50" src="guts/img/copy-item.png"><p>SameSame</p></button>
+                <button id="hud-stageFader"><img title="FADER (4)" class="icon" width="50" height="50" src="guts/img/fade-buttons.png"><p>Stage Fader</p></button>
+                <button id="hud-invert"><img title="INVERT (7)" class="icon" width="50" height="50" src="guts/img/invert-colors-button.png"><p>Invert</p></button>
+                <button id="hud-saturation"><img title="SATURATION (8)" class="icon" width="50" height="50" src="guts/img/saturation.png"><p>Saturation</p></button>
+                <button id="hud-hueRotate"><img title="HUE-ROTATE (9)" class="icon" width="50" height="50" src="guts/img/social.png"><p>Hue-Rotate</p></button>
+                <button id="hud-blur"><img title="BLUR (0)" class="icon" width="50" height="50" src="guts/img/blur.png"><p>Blur</p></button>
+            </div>
+        </section>
+        <section class="b">
+            <h3>Robomode</h3>
+            <div class="robomode-container">
+                <p class="gps-wrapper">GPS: <span class="gps-data"></span></p>
+                <button id="hud-setGPS"><img title="BEAT TAPPER (RETURN)" class="icon" width="50" height="50" src="guts/img/metronome.png"><p>Beat Tap</p></button>
+                <button id="hud-robomode"><img title="ROBOMODE (')" class="icon" width="50" height="50" src="guts/img/loop.png"><p>RoboMode</p></button>
+                <button id="hud-GPSFast"><img title="FAST (,)" class="icon" width="50" height="50" src="guts/img/fast.png"><p>Fast</p></button>
+                <button id="hud-GPSBurst"><img title="BURST (.)" class="icon" width="50" height="50" src="guts/img/burst.png"><p>Burst</p></button>
+                <button id="hud-GPSSlow"><img title="SLOW (/)" class="icon" width="50" height="50" src="guts/img/snail.png"><p>Slow</p></button>
+            </div>
+        </section>
+        <section id="blend-modes-section">
+            <h3>Blend Modes</h3>
+            <table class="blend-modes-container">
+                <tr>
+                    <td><button id="hud-blendMode"><img class="icon" width="50" height="50" src="guts/img/mixer.png"></button></td>
+                    <td><button id="hud-blendModeSwitcher">Blend Mode Switcher</button></td>
+                    <td><button id="hud-blendModeRandom">Random Blend Mode</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="blend-modes">
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <svg role="img" title="test"><use xlink:href="test.svg#test"></use></svg>
+        <svg role="img" title="test2"><use xlink:href="test.svg#test2"></use></svg>
+
     </div>
 
 
-
-
-    <script>
-
-        function stageUpdate() {
-            $('.stage-one').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
-            $('.stage-two').css('backgroundImage', myWindow.$('.stage-two').css('backgroundImage') );
-            $('.scene.mini').css('background', myWindow.$('body').css('backgroundColor'));
-            $('.scene.mini .stage-one-mini').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
-            $('.scene.mini .stage-two-mini').css('backgroundImage', myWindow.$('.stage-two').css('backgroundImage') );
-            $('.scene.mini .stage-one-mini').css('background-repeat', myWindow.$('.stage-one').css('backgroundRepeat') );
-            $('.scene.mini .stage-two-mini').css('background-repeat', myWindow.$('.stage-two').css('backgroundRepeat') );
-            $('#overlays-mini #branding-mini').css('backgroundImage', myWindow.$('.branding.on').css('backgroundImage') );
-        }
-
-        function updateSceneSize() {
-            $('.scene.mini').css({width: myWindow.innerWidth/2 + 'px', height: myWindow.innerHeight/2 + 'px'});
-            $('.stage-one').css({width: myWindow.innerWidth/3 + 'px', height: myWindow.innerHeight/3 + 'px'});
-            $('.stage-two').css({width: myWindow.innerWidth/3 + 'px', height: myWindow.innerHeight/3 + 'px'});
-        }
-
-        function convertBeatTime(beatTime) {
-          var converto = beatTime / 1000;
-          return Math.round(converto * 100) / 100 + 's';
-        }
-
-
-    $(document).ready(function() {
-
-        var binLocation = "Bins/";
-
-        $('#hud-start').click(function() { myWindow.Mousetrap.trigger('alt+backspace'); $('button').attr('disabled', false);
-                // $('.stage-one').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
-                // $('.stage-two').css('backgroundImage', myWindow.$('.stage-two').css('backgroundImage') );
-                stageUpdate(); updateSceneSize(); $('.scene-container').fadeIn();
-          });
-
-        $('#hud-stageFlip').click(function() { myWindow.Mousetrap.trigger('space'); stageUpdate(); });
-        $('#scene').click(function() { myWindow.Mousetrap.trigger('space'); stageUpdate(); });
-
-
-        var bankSliderUp = false;
-        $('#btn-bankSlider, #hud-banker').on('click', function() {
-            if (!bankSliderUp) {
-                $('.bank-slider').animate({bottom: "0", display: 'block'}, 500, function() {
-                });
-                bankSliderUp = true;
-            } else {
-                $('.bank-slider').animate({bottom: "-640px", display: 'block'}, 500, function() {
-                });
-                bankSliderUp = false;
-            }
-        });
-
-        $('#hud-open').click(function() { myWindow = window.open("gifjay.html","hudder","width=600,height=600"); $('#hud-close, #hud-start').attr('disabled', false); $('#hud-start').attr('disabled', false) });
-        $('#hud-close').click(function() { myWindow.close(); });
-
-        for ( let i = 0; i < enabledBanksArray.length; i++) {
-             $('#banks-container').append('<li><a href><img src="' + binLocation + '/' + enabledBanksArray[i].thumbnail + '.gif' + '"/><span>' + enabledBanksArray[i].trigger + '</span></a><p>' + enabledBanksArray[i].name +'</p></li>');
-        }
-
-         $('#banks-container li').on('click', function(e) {
-            e.preventDefault();
-              var index = $( "#banks-container li" ).index( this );
-              console.log("Bank Trigger: ", enabledBanksArray[index].trigger);
-              myWindow.Mousetrap.trigger(enabledBanksArray[index].trigger.toUpperCase());
-
-         });
-
-          $('#effects-section button').on('click', function(e) {
-            e.preventDefault();
-              var index = $( "#effects-section button" ).index( this );
-              console.log("button: ", index);
-              $(this).toggleClass('active');
-         });
-         //  $('.robomode-container button').on('click', function(e) {
-         //    e.preventDefault();
-         //      var index = $( ".robomode-container button" ).index( this );
-         //      console.log("button: ", index);
-         //      $(this).toggleClass('active');
-         // });
-
-
-         $('#hud-stageOneToggle').on('click', function() {
-
-            if (myWindow.stageOneOn === 1) {
-                $('#hud-stageOneToggle img').attr('src', 'guts/img/eye-blocked.png');
-            } else {
-                $('#hud-stageOneToggle img').attr('src', 'guts/img/eye.png');
-            }
-
-         });
-
-         $('#hud-stageTwoToggle').on('click', function() {
-
-            if (myWindow.stageTwoOn === 1) {
-                $('#hud-stageTwoToggle img').attr('src', 'guts/img/eye-blocked.png');
-            } else {
-                $('#hud-stageTwoToggle img').attr('src', 'guts/img/eye.png');
-            }
-
-         })
-
-
-        $('#hud-setGPS').click(function() { myWindow.Mousetrap.trigger('return'); });
-        $('#hud-robomode').click(function() { myWindow.Mousetrap.trigger('\''); $(this).toggleClass('active'); });
-        $('#hud-GPSFast').click(function() { myWindow.Mousetrap.trigger(','); });
-        $('#hud-GPSSlow').click(function() { myWindow.Mousetrap.trigger('/'); });
-        $('#hud-GPSBurst').click(function() { myWindow.Mousetrap.trigger('.'); $(this).toggleClass('active'); });
-
-        $('#hud-invert').click(function() { myWindow.Mousetrap.trigger('7'); });
-        $('#hud-saturation').click(function() { myWindow.Mousetrap.trigger('8'); });
-        $('#hud-hueRotate').click(function() { myWindow.Mousetrap.trigger('9'); });
-        $('#hud-blur').click(function() { myWindow.Mousetrap.trigger('0'); });
-
-        $('#hud-kaleidoscope').click(function() { myWindow.Mousetrap.trigger('1'); });
-        $('#hud-mutator').click(function() { myWindow.Mousetrap.trigger('2'); });
-        $('#hud-samesame').click(function() { myWindow.Mousetrap.trigger('3'); });
-        $('#hud-stageFader').click(function() { myWindow.Mousetrap.trigger('4'); });
-
-        $('#hud-stageOneToggle').click(function() { myWindow.Mousetrap.trigger('_'); });
-        $('#hud-stageTwoToggle').click(function() { myWindow.Mousetrap.trigger('+'); });
-
-        $('#hud-stageOneSelect').click(function() { myWindow.Mousetrap.trigger('-'); });
-        $('#hud-stageTwoSelect').click(function() { myWindow.Mousetrap.trigger('='); });
-        $('#hud-stageSelectAll').click(function() { myWindow.Mousetrap.trigger('backspace'); });
-
-    });
-
-
-
-    </script>
 
   </body>
 </html>

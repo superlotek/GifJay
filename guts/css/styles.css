@@ -19,6 +19,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
  		background-size: cover !important;
  	}
 
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
 /*
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
  Stages
