@@ -67,6 +67,15 @@ $(document).ready(function() {
          $('#blend-modes').append('<option value="' + appz.blendModes.mix[i].name + '">' + appz.blendModes.mix[i].name + '</option>');
     }
 
+    $('#blend-modes').on('change', function() {
+      var selectedBlend = $("#blend-modes").val();
+      var selectedBlendIndex = $("#blend-modes").prop('selectedIndex');
+
+      console.log(selectedBlend);
+      console.log(selectedBlendIndex);
+      myWindow.$(s2).css('mix-blend-mode', selectedBlend);
+    })
+
 
 
       $('#effects-section button').on('click', function(e) {
@@ -86,9 +95,9 @@ $(document).ready(function() {
      $('#hud-stageOneToggle').on('click', function() {
 
         if (myWindow.stageOneOn === 1) {
-            $('#hud-stageOneToggle img').attr('src', 'guts/img/eye-blocked.png');
+            $('#hud-stageOneToggle').find("use").attr("xlink:href", "test.svg#icon-blocked");
         } else {
-            $('#hud-stageOneToggle img').attr('src', 'guts/img/eye.png');
+            $('#hud-stageOneToggle').find("use").attr("xlink:href", "test.svg#icon-eyes");
         }
 
      });
@@ -96,9 +105,9 @@ $(document).ready(function() {
      $('#hud-stageTwoToggle').on('click', function() {
 
         if (myWindow.stageTwoOn === 1) {
-            $('#hud-stageTwoToggle img').attr('src', 'guts/img/eye-blocked.png');
+            $('#hud-stageTwoToggle').find("use").attr("xlink:href", "test.svg#icon-blocked");
         } else {
-            $('#hud-stageTwoToggle img').attr('src', 'guts/img/eye.png');
+            $('#hud-stageTwoToggle').find("use").attr("xlink:href", "test.svg#icon-eyes");
         }
 
      })
@@ -109,31 +118,34 @@ $(document).ready(function() {
      }
 
 
-    $('#hud-setGPS').click(function() { myWindow.Mousetrap.trigger('return'); });
-    $('#hud-robomode').click(function() { myWindow.Mousetrap.trigger('\''); $(this).toggleClass('active'); });
-    $('#hud-GPSFast').click(function() { myWindow.Mousetrap.trigger(','); });
-    $('#hud-GPSSlow').click(function() { myWindow.Mousetrap.trigger('/'); });
-    $('#hud-GPSBurst').click(function() { myWindow.Mousetrap.trigger('.'); $(this).toggleClass('active'); });
+      $('#hud-setGPS').click(function() { myWindow.Mousetrap.trigger('return'); });
+      $('#hud-robomode').click(function() { myWindow.Mousetrap.trigger('\''); $(this).toggleClass('active'); });
+      $('#hud-GPSFast').click(function() { myWindow.Mousetrap.trigger(','); });
+      $('#hud-GPSSlow').click(function() { myWindow.Mousetrap.trigger('/'); });
+      $('#hud-GPSBurst').click(function() { myWindow.Mousetrap.trigger('.'); $(this).toggleClass('active'); });
 
-    $('#hud-invert').click(function() { myWindow.Mousetrap.trigger('7'); });
-    $('#hud-saturation').click(function() { myWindow.Mousetrap.trigger('8'); });
-    $('#hud-hueRotate').click(function() { myWindow.Mousetrap.trigger('9'); });
-    $('#hud-blur').click(function() { myWindow.Mousetrap.trigger('0'); });
+      $('#hud-invert').click(function() { myWindow.Mousetrap.trigger('7'); });
+      $('#hud-saturation').click(function() { myWindow.Mousetrap.trigger('8'); });
+      $('#hud-hueRotate').click(function() { myWindow.Mousetrap.trigger('9'); });
+      $('#hud-blur').click(function() { myWindow.Mousetrap.trigger('0'); });
 
-    $('#hud-kaleidoscope').click(function() { myWindow.Mousetrap.trigger('1'); });
-    $('#hud-mutator').click(function() { myWindow.Mousetrap.trigger('2'); });
-    $('#hud-samesame').click(function() { myWindow.Mousetrap.trigger('3'); });
-    $('#hud-stageFader').click(function() { myWindow.Mousetrap.trigger('4'); });
+      $('#hud-kaleidoscope').click(function() { myWindow.Mousetrap.trigger('1'); });
+      $('#hud-mutator').click(function() { myWindow.Mousetrap.trigger('2'); });
+      $('#hud-samesame').click(function() { myWindow.Mousetrap.trigger('3'); });
+      $('#hud-stageFader').click(function() { myWindow.Mousetrap.trigger('4'); });
 
-    $('#hud-stageOneToggle').click(function() { myWindow.Mousetrap.trigger('_'); });
-    $('#hud-stageTwoToggle').click(function() { myWindow.Mousetrap.trigger('+'); });
+      $('#hud-stageOneToggle').click(function() { myWindow.Mousetrap.trigger('_'); });
+      $('#hud-stageTwoToggle').click(function() { myWindow.Mousetrap.trigger('+'); });
 
-    $('#hud-stageOneSelect').click(function() { myWindow.Mousetrap.trigger('-'); showSelectedStage('.stage-one.mini'); });
-    $('#hud-stageTwoSelect').click(function() { myWindow.Mousetrap.trigger('='); showSelectedStage('.stage-two.mini'); });
-    $('.stage-one.mini').click(function() { myWindow.Mousetrap.trigger('-'); showSelectedStage(this); });
-    $('.stage-two.mini').click(function() { myWindow.Mousetrap.trigger('='); showSelectedStage(this); });
+      $('#hud-stageOneSelect').click(function() { myWindow.Mousetrap.trigger('-'); showSelectedStage('.stage-one.mini'); });
+      $('#hud-stageTwoSelect').click(function() { myWindow.Mousetrap.trigger('='); showSelectedStage('.stage-two.mini'); });
+      $('.stage-one.mini').click(function() { myWindow.Mousetrap.trigger('-'); showSelectedStage(this); });
+      $('.stage-two.mini').click(function() { myWindow.Mousetrap.trigger('='); showSelectedStage(this); });
 
+      $('#hud-blendMode').click(function() { myWindow.Mousetrap.trigger('alt+,'); });
+      $('#hud-blendModeSwitcher').click(function() { myWindow.Mousetrap.trigger('alt+.'); });
+      $('#hud-blendModeRandom').click(function() { myWindow.Mousetrap.trigger('alt+/'); });
 
-    $('#hud-stageSelectAll').click(function() { myWindow.Mousetrap.trigger('backspace'); });
+      $('#hud-stageSelectAll').click(function() { myWindow.Mousetrap.trigger('backspace'); });
 
 });

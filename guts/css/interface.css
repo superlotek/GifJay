@@ -112,15 +112,30 @@ section, section {
     .sec-2 { justify-self: center; }
     .sec-3 { justify-self: start; }
 
+    #blend-modes { width: 120px; font-size: 14px; }
+
     .effects-container2 { display: grid; grid-template-columns: repeat(4, [col] 1fr); grid-template-rows: repeat(2, [row] auto); }
     .header { display: grid; grid-template-columns: repeat(12, [col] 1fr);}
-    
-    svg[title="test"] {
-        fill: white;
+
+    header svg.icon {
+        width: 35px; height: 35px;
+    }
+
+    header svg.icon:hover {
+        fill: #ddd;
+    }
+
+
+    svg.icon {
+        fill: #aaa;
         transition: all .25s;
         width: 50px;
         height: auto;
     }
-    svg:hover { fill: green; }
+    svg:hover { fill: #000; }
+
+    button:focus {
+        outline: 1px solid white;   
+    }
 
 
