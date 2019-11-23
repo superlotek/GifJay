@@ -64,12 +64,12 @@ $(document).ready(function() {
      });
 
     for ( let i = 0; i < appz.blendModes.mix.length; i++) {
-         $('#blend-modes').append('<option value="' + appz.blendModes.mix[i].name + '">' + appz.blendModes.mix[i].name + '</option>');
+         $('#blend-modes-selector').append('<option value="' + appz.blendModes.mix[i].name + '">' + appz.blendModes.mix[i].name + '</option>');
     }
 
-    $('#blend-modes').on('change', function() {
-      var selectedBlend = $("#blend-modes").val();
-      var selectedBlendIndex = $("#blend-modes").prop('selectedIndex');
+    $('#blend-modes-selector').on('change', function() {
+      var selectedBlend = $("#blend-modes-selector").val();
+      var selectedBlendIndex = $("#blend-modes-selector").prop('selectedIndex');
 
       console.log(selectedBlend);
       console.log(selectedBlendIndex);

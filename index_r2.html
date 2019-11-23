@@ -1,0 +1,116 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <title>GifJay</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="guts/img/favicon-32x32.png">
+
+    <link href="guts/css/styles.css" media="all" rel="stylesheet" />
+    <link href="guts/css/interface.css" media="all" rel="stylesheet" />
+
+    <script src="guts/js/jquery-2.1.4.min.js"></script>
+    <script src="guts/js/mousetrap.min.js"></script>
+    <script src="guts/js/keydrown.js"></script>
+    <script src="settings.js"></script>
+    <script src="guts/js/Inits.js"></script>
+
+     <script src="guts/js/Scene.js"></script>
+    <script src="guts/js/Play.js"></script>
+    <script src="guts/js/Overlays.js"></script>
+    <script src="guts/js/Filter.js"></script>
+    <script src="guts/js/Effects.js"></script>
+    <script src="guts/js/Text.js"></script>
+    <script src="guts/js/Keyboard.js"></script>
+    <script src="guts/js/interface.js"></script>
+
+    <script src="playlist.js"></script>
+  </head>
+
+  <body>
+    
+    <div class="grid-container">
+        <header>
+            <div class="logo-home">
+                <img src="guts/img/gifjay_logo_white_small.png">
+            </div>
+            <button id="hud-open">
+                <svg width="50" height="50" role="img" class="icon" title="PROJECTOR"><use xlink:href="test.svg#icon-projector"></use></svg>
+            </button>
+            <button id="hud-start" disabled>
+                <svg width="40" height="40" role="img" class="icon" title="POWER"><use xlink:href="test.svg#icon-power"></use></svg>
+            </button>
+                <a id="hud-settings" href="settings.html">
+                    <svg width="50" height="50" role="img" class="icon" title="SETTINGS"><use xlink:href="test.svg#icon-settings"></use></svg>
+                </a>
+            </button>
+        </header>
+
+        <div class="sec-1">
+            <div class="stage-one mini"></div>
+            <button id="hud-stageOneSelect">STG 1 Select</button>
+            <button id="hud-stageOneToggle"><svg width="50" height="50" role="img" class="icon" title="EYES"><use xlink:href="test.svg#icon-eyes"></use></svg></button>
+        </div>
+        <div class="sec-2">
+            <div id="scene" class="scene mini">
+                <div class="stage-one-mini"></div>
+                <div class="stage-two-mini"></div>
+            </div>
+                <div id="overlays-mini">
+                <div id="branding-mini"></div>
+            </div>
+        </div>
+        <div class="sec-3">
+            <div class="stage-two mini"></div>
+            <button id="hud-stageTwoSelect">STG 2 Select</button>
+            <button id="hud-stageTwoToggle"><svg width="50" height="50" role="img" class="icon" title="EYES"><use xlink:href="test.svg#icon-eyes"></use></svg></button>
+        </div>
+
+        <section id="effects-section">
+            <h3>Filters / FX</h3>
+            <div class="effects-container2">
+                <button id="hud-kaleidoscope"><svg width="50" height="50" role="img" class="icon" title="TILE"><use xlink:href="test.svg#icon-tiles"></use></svg><p>Kaleidoscope</p></button>
+                <button id="hud-mutator"><svg width="50" height="50" role="img" class="icon" title="DNA"><use xlink:href="test.svg#icon-dna"></use></svg><p>Mutator</p></button>
+                <button id="hud-samesame"><svg width="50" height="50" role="img" class="icon" title="COPY ITEM"><use xlink:href="test.svg#icon-copyItem"></use></svg><p>SameSame</p></button>
+                <button id="hud-stageFader"><svg width="50" height="50" role="img" class="icon" title="FADE"><use xlink:href="test.svg#icon-fade"></use></svg><p>Stage Fader</p></button>
+                <button id="hud-invert"> <svg width="50" height="50" role="img" class="icon" title="INVERT"><use xlink:href="test.svg#icon-invert"></use></svg><p>Invert</p></button>
+                <button id="hud-saturation"><svg width="50" height="50" role="img" class="icon" title="SATURATION"><use xlink:href="test.svg#icon-saturation"></use></svg><p>Saturation</p></button>
+                <button id="hud-hueRotate"><svg width="50" height="50" role="img" class="icon" title="SOCIAL"><use xlink:href="test.svg#icon-social"></use></svg><p>Hue-Rotate</p></button>
+                <button id="hud-blur"><svg width="50" height="50" role="img" class="icon" title="BLUR"><use xlink:href="test.svg#icon-blur"></use></svg><p>Blur</p></button>
+            </div>
+        </section>
+        <section class="b">
+            <h3>Robomode</h3>
+            <div class="robomode-container">
+                <p class="gps-wrapper">GPS: <span class="gps-data"></span></p>
+                <button id="hud-setGPS"><svg width="50" height="50" role="img" class="icon" title="METRONOME"><use xlink:href="test.svg#icon-metronome"></use></svg><p>Beat Tap</p></button>
+                <button id="hud-robomode"><svg width="50" height="50" role="img" class="icon" title="LOOP"><use xlink:href="test.svg#icon-loop"></use></svg><p>RoboMode</p></button>
+                <button id="hud-GPSFast"><svg width="50" height="50" role="img" class="icon" title="FAST"><use xlink:href="test.svg#icon-fast"></use></svg><p>Fast</p></button>
+                <button id="hud-GPSBurst"><svg width="50" height="50" role="img" class="icon" title="BURST"><use xlink:href="test.svg#icon-burst"></use></svg><p>Burst</p></button>
+                <button id="hud-GPSSlow"><svg width="50" height="50" role="img" class="icon" title="SNAIL"><use xlink:href="test.svg#icon-snail"></use></svg><p>Slow</p></button>
+            </div>
+        </section>
+        <section id="blend-modes-section">
+            <h3>Blend Modes</h3>
+            <table class="blend-modes-container">
+                <tr>
+                    <td><button id="hud-blendMode"><svg width="50" height="50" role="img" class="icon" title="MIXER"><use xlink:href="test.svg#icon-mixer"></use></svg><p>Blend Mode</p></button></td>
+                    <td><button id="hud-blendModeSwitcher"><svg width="50" height="50" role="img" class="icon" title="MIXER"><use xlink:href="test.svg#icon-mixer"></use></svg><p>Blend Mode Switcher</p></button></td>
+                    <td><button id="hud-blendModeRandom"><svg width="50" height="50" role="img" class="icon" title="RANDOM BLEND MODE"><use xlink:href="test.svg#icon-random"></use></svg><p>Random Blend Mode</p></button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="blend-modes" size="4">
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </section>        
+        
+    </div>
+
+  </body>
+</html>
