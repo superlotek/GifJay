@@ -10,9 +10,12 @@
     }
 
     function updateSceneSize() {
-        $('.scene.mini').css({width: myWindow.innerWidth/2 + 'px', height: myWindow.innerHeight/2 + 'px'});
-        $('.stage-one').css({width: myWindow.innerWidth/3 + 'px', height: myWindow.innerHeight/3 + 'px'});
-        $('.stage-two').css({width: myWindow.innerWidth/3 + 'px', height: myWindow.innerHeight/3 + 'px'});
+        // $('.scene.mini').css({width: myWindow.innerWidth/2 + 'px', height: myWindow.innerHeight/2 + 'px'});
+        // $('.stage-one').css({width: myWindow.innerWidth/3 + 'px', height: myWindow.innerHeight/3 + 'px'});
+        // $('.stage-two').css({width: myWindow.innerWidth/3 + 'px', height: myWindow.innerHeight/3 + 'px'});
+        $('.scene.mini').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
+        $('.stage-one').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
+        $('.stage-two').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
     }
 
     function convertBeatTime(beatTime) {
@@ -36,19 +39,25 @@ $(document).ready(function() {
 
 
     var bankSliderUp = false;
+    var daHeight = $('.bank-slider').height() - $('.bank-slider h3').height();
+
+    $('.bank-slider').css('bottom', -daHeight);
+
     $('#btn-bankSlider, #hud-banker').on('click', function() {
         if (!bankSliderUp) {
             $('.bank-slider').animate({bottom: "0", display: 'block'}, 500, function() {
             });
             bankSliderUp = true;
         } else {
-            $('.bank-slider').animate({bottom: "-640px", display: 'block'}, 500, function() {
+
+
+            $('.bank-slider').animate({bottom: -daHeight + "px", display: 'block'}, 500, function() {
             });
             bankSliderUp = false;
         }
     });
 
-    $('#hud-open').click(function() { myWindow = window.open("gifjay.html","hudder","width=600,height=600"); $('#hud-close, #hud-start').attr('disabled', false); $('#hud-start').attr('disabled', false) });
+    $('#hud-open').click(function() { myWindow = window.open("gifjay.html","hudder","width=700,height=600"); $('#hud-close, #hud-start').attr('disabled', false); $('#hud-start').attr('disabled', false) });
     $('#hud-close').click(function() { myWindow.close(); });
 
     for ( let i = 0; i < enabledBanksArray.length; i++) {
@@ -64,8 +73,13 @@ $(document).ready(function() {
      });
 
     for ( let i = 0; i < appz.blendModes.mix.length; i++) {
-         $('#blend-modes-selector').append('<option value="' + appz.blendModes.mix[i].name + '">' + appz.blendModes.mix[i].name + '</option>');
+       $('#blend-modes-selector').append('<option value="' + appz.blendModes.mix[i].name + '">' + appz.blendModes.mix[i].name + '</option>');
     }
+
+    for ( let i = 0; i < appz.overlaySets.length; i++) {
+       $('#overlays-selector').append('<option value="' + appz.overlaySets[i].name + '">' + appz.overlaySets[i].name + '</option>');
+    }
+
 
     $('#blend-modes-selector').on('change', function() {
       var selectedBlend = $("#blend-modes-selector").val();
@@ -76,6 +90,12 @@ $(document).ready(function() {
       myWindow.$(s2).css('mix-blend-mode', selectedBlend);
     })
 
+    $('#overlays-selector').on('change', function() {
+      var selectedOverlay = $("#overlays-selector").val();
+      var selectedOverlayIndex = $("#overlays-selector").prop('selectedIndex');
+
+      myWindow.Mousetrap.trigger('alt+' + selectedOverlayIndex);;
+    })
 
 
       $('#effects-section button').on('click', function(e) {
@@ -147,5 +167,7 @@ $(document).ready(function() {
       $('#hud-blendModeRandom').click(function() { myWindow.Mousetrap.trigger('alt+/'); });
 
       $('#hud-stageSelectAll').click(function() { myWindow.Mousetrap.trigger('backspace'); });
+
+      $('#hud-fullscreen').click(function() { myWindow.Mousetrap.trigger('['); });
 
 });
