@@ -2,7 +2,10 @@
 // *** PLAY ***
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+var beatClick = 0;
+
 const Play = {
+
 
   setGPS() {
     console.log('GPS: SET');
@@ -10,16 +13,27 @@ const Play = {
     var t = d.getTime();
     beatTime = t - lastClick;
     lastClick = t;
+    beatClick++
+
+    console.log('lastClick: ' + lastClick);
 
     if (beatTime < beatTimeMinimum) {
       console.log('GPS TOO LOW');
       beatTime = beatTimeMinimum;
     }
 
+    if (beatClick === 2) {
+      console.log('final click');
+      beatClick = 0;
+      window.opener.$('.gps-data').html(window.opener.convertBeatTime(beatTime));
+    } else {
+      window.opener.$('.gps-data').html('...');
+    }
+
     console.log('GPS: ' + beatTime, "\n---------------------------------");
     // var converto = beatTime / 1000;
     // gleep = window.opener.convertBeatTime(beatTime);
-    window.opener.$('.gps-data').text(window.opener.convertBeatTime(beatTime));
+    // window.opener.$('.gps-data').text(window.opener.convertBeatTime(beatTime));
   },
 
   clearBeatTime() {

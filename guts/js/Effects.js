@@ -80,6 +80,7 @@ const Effects = {
           });
           var beatz = beatTime/appz.beatSpeed;
           $(s2).css('animation-duration', beatz * appz.sameSameConstant + 's');
+          window.opener.$(s2).css('animation-duration', beatz * appz.sameSameConstant + 's');
       // }
     },
 

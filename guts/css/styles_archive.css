@@ -92,12 +92,21 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
         background-position: center center !important;
     }
 
-
-	.branding.on {
-        display: block;
-        background-size: cover;
-        background-position: center center;
-	}
+		#overlays {
+/*			display: none;
+*//*			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+*/		}
+		.branding.on {
+			display: block;
+/*            mix-blend-mode: overlay;
+*/            /*opacity: .8;*/
+            background-size: cover;
+            background-position: center center;
+/*            z-index: 9999;
+*/
+		}
 
     .overlays {
         /* background-size: 80vw !important;
@@ -167,10 +176,30 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
         100% { background-size: 10%; }
     }
 
+
     @keyframes overlaySpin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+
+    #webcam-container {
+            margin: 0px auto;
+            width:100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            mix-blend-mode: screen;
+        }
+
+        #webcamElement {
+            min-width: 100%;
+            min-height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+
 
 /*
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -239,3 +268,214 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 .kaleidoscope.vertical > .bl {
     display: none;
 }
+
+/* GLITCH */
+div[class^="fragment-"] {
+    border-bottom-style: dashed;
+    border-bottom-width: 10px;
+    border-bottom-color: yellow;
+}
+
+
+/* VERT STACKS */
+.vertStack {
+    width: 10vw !important;
+    height: 100vh !important;
+}
+
+
+/* SHAPES */
+
+.shape-circle {
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+}
+.shape-triangle {
+    -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.shape-rhombus {
+    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}.shape-octagon {
+     -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+ }
+ .shape-close {
+     -webkit-clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+     clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+ }
+ .shape-frame {
+     -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+     clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+ }
+ .shape-rabbet {
+     -webkit-clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+     clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+ }
+
+/* RoboChop */
+
+div[class*="img-"] {
+    height: 20vh;
+    width: 20vw;
+    position: static;
+    float: left;
+}
+
+.robostrip > div[class*="img-"] {
+    height: 100vh;
+    width: 10vw;
+    background-size: contain !important;
+}
+
+/* Phraser */
+.phraser {
+    font-size: 20vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+.stage-three > div[class*="ring-"] {
+    animation-name: spin;
+    /*animation-duration: 2s;*/
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.ring-1 {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.ring-2 {
+    width: 80vw;
+    height: 80vh;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    opacity: .8;
+}
+.ring-3 {
+    width: 50vw;
+    height: 50vh;
+    position: absolute;
+    bottom: 20%;
+    right: 20%;
+    opacity: .8;
+}
+
+
+
+@keyframes spin {
+
+    100% { transform: translateX(0px) rotate(360deg);}
+
+}
+
+
+
+/*
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+ Banks
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+*/
+
+    .banks-screen {
+        overflow: hidden;
+    }
+
+    .bank-select { margin: 2% 0; }
+    .bank-select ul { overflow: hidden; }
+    .bank-select li {
+        float: left; margin: 0 .5%;
+    }
+    .bank-select a {
+        color: #fff;
+        text-decoration: none;
+        border: 2px solid #fff;
+        display: block;
+        padding: 6px;
+        border-radius: 5px;
+    }
+    .bank-select a.active { border-color: cyan; color: cyan;}
+
+    .keyboard-map {
+        overflow: hidden;
+        position: relative;
+    }
+        .keyboard-map ul {
+            overflow: hidden;
+            position: relative;
+        }
+            .keyboard-map ul li {
+                float: left;
+                margin: .5%;
+                width: 100px;
+                height: 100px;
+                overflow: hidden;
+                border: 3px solid #fff;
+                position: relative;
+                background: lightgrey;
+            }
+            .keyboard-map ul li.disabled, .keyboard-map span.disabled {
+                color: #333;
+                border-color: #333;
+            }
+
+            .keyboard-map img {
+                cursor: pointer;
+                position: relative;
+            }
+                .keyboard-map ul li span {
+                    width: 100%;
+                    text-align: center;
+                    padding: 2% 0;
+                    font-weight: bold;
+                    color: #fff;
+                    font-size: 1.5em;
+                    display: block;
+                    text-transform: uppercase;
+                    position: absolute;
+                    bottom: 0;
+                }
+
+                .previewer {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1000;
+                }
+
+                .previewer img {
+                    border: 3px solid yellow;
+                    box-shadow: 0 0 20px 20px rgba(0,0,0, .5);
+                }
+
+                .previewer .preview-close-btn {
+                    color: yellow;
+                    border: 3px solid yellow;
+                    padding: 2%;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    z-index: 1000;
+                    text-decoration: none;
+                }
+
+
+    dl.settings {
+        background: rgba(0,0,0,.75);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+        dl.settings dt a {
+            color: yellow;
+            border-bottom: 1px solid #fff;
+            text-decoration: none;
+            padding: 5%;
+            display: block;
+        }

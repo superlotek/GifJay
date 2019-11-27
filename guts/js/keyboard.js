@@ -672,7 +672,7 @@ Mousetrap.bind('!', function() {
         beatTime = (beatTime/2);
         Play.clearBeatTime();
         console.log('GPS[1/2] :' + beatTime);
-        window.opener.$('.gps-data').text(window.opener.convertBeatTime(beatTime));
+        window.opener.$('.gps-data').html(window.opener.convertBeatTime(beatTime));
 
       }
     });
@@ -687,14 +687,14 @@ Mousetrap.bind('!', function() {
           console.log('previousGps: ' + previousGps);
           console.log('GPS - Super Fill ON :' + beatTime);
           Play.clearBeatTime();
-          window.opener.$('.gps-data').text(window.opener.convertBeatTime(beatTime));
+          window.opener.$('.gps-data').html(window.opener.convertBeatTime(beatTime));
         } else {
           roboFillOn = 0;
           beatTime = previousGps;
           Play.clearBeatTime();
           console.log('GPS - Super Fill OFF :' + beatTime);
           console.log('back to previousGps: ' + previousGps);
-        window.opener.$('.gps-data').text(window.opener.convertBeatTime(beatTime));
+        window.opener.$('.gps-data').html(window.opener.convertBeatTime(beatTime));
         }
       }
     });
@@ -705,7 +705,7 @@ Mousetrap.bind('!', function() {
         beatTime = (beatTime*2);
         Play.clearBeatTime();
         console.log('GPS[x2] :' + beatTime);
-        window.opener.$('.gps-data').text(window.opener.convertBeatTime(beatTime));
+        window.opener.$('.gps-data').html(window.opener.convertBeatTime(beatTime));
       }
     });
 

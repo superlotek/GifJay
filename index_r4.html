@@ -1,0 +1,511 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <title>GifJay</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="guts/img/favicon-32x32.png">
+
+    <!-- <link href="guts/css/styles.css" media="all" rel="stylesheet" /> -->
+<!--     <link href="guts/css/interface.css" media="all" rel="stylesheet" />
+ -->
+    <script src="guts/js/jquery-2.1.4.min.js"></script>
+    <script src="guts/js/mousetrap.min.js"></script>
+    <script src="guts/js/keydrown.js"></script>
+    <script src="settings.js"></script>
+    <script src="guts/js/Inits.js"></script>
+
+     <script src="guts/js/Scene.js"></script>
+    <script src="guts/js/Play.js"></script>
+    <script src="guts/js/Overlays.js"></script>
+    <script src="guts/js/Filter.js"></script>
+    <script src="guts/js/Effects.js"></script>
+    <script src="guts/js/Text.js"></script>
+    <script src="guts/js/Keyboard.js"></script>
+    <script src="guts/js/interface.js"></script>
+
+    <script src="playlist.js"></script>
+
+    <style>
+
+        /* RESET */
+        *, *:before, *:after { box-sizing: border-box; }
+        h3 { margin: 0; padding: 0; }
+        h3 { text-align: center; color: #fff; }
+
+        body { margin: 0; }
+        img {
+            border: 0;
+            -ms-interpolation-mode: bicubic;
+            max-width: 100%;
+            vertical-align: middle;
+            width: auto;
+            height: auto;
+        }
+        /* GRIDS */
+        .grid-container {
+/*            padding: 10px;
+*/            display: grid;
+/*            grid-column-gap: 10px;
+*//*            grid-row-gap: 1vh;
+*/            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas:
+            "header  header  header"
+            "stage1 scene stage2"
+            "filter  gps  blend";
+            background-color: #fff;
+            color: #444;
+        }
+
+        /* HEADER */
+        .logo-home img { height: 50px; }
+        .logo-home { align-self: center; }
+
+        header {
+            background: black;
+            color: #fff;
+            /*grid-column: 1 / span 3; */
+            grid-area: header; height: 10vh;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            justify-items: center;
+            align-items: center;
+
+        }
+        header .inner-grid { height: 100%; }
+        button { border: 0; background: none; cursor: pointer; width: 100%; height: 100%; }
+        button p, button { color: #fff; font-weight: bold; text-transform: uppercase; }
+        /* BUTTONS */
+        svg.icon {
+            fill: #fff;
+            transition: all .25s;
+            width: 30px;
+            height: auto;
+        }
+        svg:hover { fill: #aaa; }
+
+        /* SECTIONS */
+        section {
+            background-color: #666;
+/*            border-radius: 10px;
+*//*            padding: 20px;
+*/            height: 45vh;
+            width: 33.33vw;
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+            justify-items: center;
+            align-items: center;
+        }
+
+/*        grid-column: 3 ;
+        grid-row: 1 / span 2;
+*/
+
+        .grid-slim {
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+            grid-row: 4;
+            background: green;
+            grid-column: 1 / span 4;
+            width: 100%;
+            height: 100%;
+            justify-items: center;
+            align-items: center;
+        }
+
+        #hud-setGPS {
+            grid-column: 2;
+            background: cyan;
+            grid-column: 1 / span 2; 
+            width: 100%;
+        }  
+
+        #hud-robomode {
+            grid-row: 2;
+            background: green;
+            grid-column: 3 / span 2; 
+            width: 100%;
+        }  
+
+        #scene {
+            grid-row: 1 / span 3;
+            background: pink;
+            grid-column: 1 / span 4; 
+            width: 100%;
+        }
+        .stage-one.mini {
+            background: orange;
+            width: 100%;
+            grid-row: 1 / span 2;
+            grid-column: 3 / span 2; 
+        }
+        .stage-two.mini {
+            background: orange;
+            width: 100%;
+            grid-row: 1 / span 2;
+            grid-column: 1 / span 2; 
+        }
+
+        .fader {
+            width: 100%;
+            grid-row: 2;
+            grid-column: 1 / span 4; 
+        }
+        .fader input { width: 100%; }
+        #hud-stageFlip { grid-row: 1; grid-column: 3 / span 2; background: blue; width: 100%; height: 100%; }
+        #hud-fullscreen { grid-row: 1; grid-column: 2; background: lightgreen; width: 100%; height: 100%; }
+        /* STAGE */
+        .stage-one.mini, .stage-two.mini {
+            display: block;
+            position: static;
+            border: 10px solid #000;
+            border-radius: 10px;
+/*            width: 200px;
+            height: 150px;
+*/          background-size: cover;
+        }
+
+        #blend-modes-selector {
+            grid-row: 1 / span 3;
+            grid-column: 1 / span 2;
+            width: 100%; height: 100%;
+        }
+        #overlays-selector {
+            grid-row: 1 / span 3;
+            grid-column: 1 / span 2;
+            width: 100%; height: 100%;
+        }
+
+
+        .selector {
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            width: 100%; height: 100%;
+            background: teal;
+            grid-row: 1 / span 2;
+            grid-column: 1 / span 2;
+            justify-items: center;
+            align-items: center;
+        }
+        .overlay-selector {
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            width: 100%; height: 100%;
+            background: red;
+            grid-row: 1 / span 2;
+            grid-column: 3 / span 2;
+            justify-items: center;
+            align-items: center;
+        }
+
+
+/*        select#blend-modes-selector { height: 196px; width: 200px; } */
+        select#blend-modes-selector option { font-size: 14px; padding: 10px 5px; border-bottom: 1px solid #ddd; }
+        select#overlays-selector option { font-size: 14px; padding: 10px 5px; border-bottom: 1px solid #ddd; }
+
+        #stage-one-section { justify-self: end; }
+        #stage-two-section { justify-self: start; }
+
+/*        #stage-one-section { justify-self: end; }
+        #stage-two-section { justify-self: start; }
+        .stage-one-mini, .stage-two-mini, #branding-mini {
+            display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover;
+        }
+        .stage-two-mini { mix-blend-mode: screen; }
+*/
+        /* SCENE */
+        #scene-section { justify-self: center; width: 100%; }
+        #scene { margin: 0 auto; }
+        .scene { border: 10px solid #000; border-radius: 10px; justify-self: center; }
+        .scene.mini, #overlays-mini { /*width: 400px; height: 300px; */position: relative; }
+
+        /* BLEND MODES */
+
+
+
+        /* BANKS */
+        .bank-slider { position: fixed; width: 100%; /*bottom: -600px;*/ left: 0; }
+        .bank-slider h3 { color: #000; }
+        .bank-slider-container { background: rgba(0,0,0,.8); border: 1px solid black; padding: 20px; height: 600px; }
+
+        .bank-slider ul { display: grid; grid-template-rows: 3; grid-template-columns: repeat(10, 1fr) }
+        .bank-slider ul { list-style-type: none; /*margin: 20px 0;*/ }
+        .bank-slider li { margin: 0 10px 5px 10px; position: relative; }
+        .bank-slider li img { /*width: 200px; max-height: 100px;*/ border: 1px solid #eee; }
+
+
+        .bank-slider li span { position: absolute; top: 1px; left: 1px; background: black; padding: 5px; text-transform: uppercase; font-weight: bold; color: orange; }
+
+        #btn-bankSlider { background: #fff; color: #000; font-weight: bold; width: 300px; margin: 0 auto; display: block; }
+        .bank-slider-container p { text-align: center; margin-top: 5px; color: #fff; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+        .banker-buttons { display: flex;}
+
+    </style>
+
+  </head>
+
+
+
+  <body>
+    
+    <div class="grid-container">
+
+        <header>
+
+            <div class="logo-home">
+                <img src="guts/img/gifjay_logo_white_small.png">
+            </div>
+
+            <button id="hud-open">
+                <svg width="50" height="50" role="img" class="icon" title="PROJECTOR"><use xlink:href="test.svg#icon-projector"></use></svg>
+            </button>
+
+            <button id="hud-start" disabled>
+                <svg width="40" height="40" role="img" class="icon" title="POWER"><use xlink:href="test.svg#icon-power"></use></svg>
+            </button>
+
+            <button>
+                <svg width="50" height="50" role="img" class="icon" title="SETTINGS"><use xlink:href="test.svg#icon-settings"></use></svg>
+            </button>
+
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+
+        </header>
+
+        <section id="stage-one-section">
+            <div class="stage-one mini"></div>
+            <div>1</div>
+            <div>2</div>
+            <div>5</div>
+            <div>6</div>
+            <div>9</div>
+            <div>10</div>
+
+            <button id="hud-stageOneToggle">
+                <svg width="50" height="50" role="img" class="icon" title="EYES"><use xlink:href="test.svg#icon-eyes"></use></svg>
+            </button>
+
+            <button id="hud-stageOneSelect">STG 1 Select</button>
+
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+        </section>
+
+        <section id="scene-section">
+            <div id="scene" class="scene mini">
+                <div class="stage-one-mini"></div>
+                <div class="stage-two-mini"></div>
+            </div>
+            <div class="grid-slim">
+                <div>1</div>
+
+                <button id="hud-fullscreen">Fullscreen</button>
+
+                <button id="hud-stageFlip">StageFlip</button>
+
+                <div class="fader">
+                    <input type="range" />
+                </div>
+
+            </div>
+
+       </section>
+
+        <section id="stage-two-section">
+
+            <div class="stage-two mini"></div>
+            <div>3</div>
+            <div>4</div>
+            <div>7</div>
+            <div>8</div>
+
+            <button id="hud-stageTwoToggle">
+                <svg width="50" height="50" role="img" class="icon" title="EYES"><use xlink:href="test.svg#icon-eyes"></use></svg>
+            </button>
+
+            <button id="hud-stageTwoSelect">STG 2 Select</button>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+        </section>
+
+        <section id="effects-section">
+
+            <button id="hud-kaleidoscope">
+                <svg width="50" height="50" role="img" class="icon" title="TILE"><use xlink:href="test.svg#icon-tiles"></use></svg>
+                <p>Kaleidoscope</p>
+            </button>
+
+            <button id="hud-mutator">
+                <svg width="50" height="50" role="img" class="icon" title="DNA"><use xlink:href="test.svg#icon-dna"></use></svg>
+                <p>Mutator</p>
+            </button>
+
+            <button id="hud-samesame">
+                <svg width="50" height="50" role="img" class="icon" title="COPY ITEM"><use xlink:href="test.svg#icon-copyItem"></use></svg>
+                <p>SameSame</p>
+            </button>
+
+            <button id="hud-stageFader">
+                <svg width="50" height="50" role="img" class="icon" title="FADE"><use xlink:href="test.svg#icon-fade"></use></svg>
+                <p>Stage Fader</p>
+            </button>
+
+            <button id="hud-invert">
+                <svg width="50" height="50" role="img" class="icon" title="INVERT"><use xlink:href="test.svg#icon-invert"></use></svg>
+                <p>Invert</p>
+            </button>
+
+            <button id="hud-saturation">
+                <svg width="50" height="50" role="img" class="icon" title="SATURATION"><use xlink:href="test.svg#icon-saturation"></use></svg>
+                <p>Saturation</p>
+            </button>
+
+            <button id="hud-hueRotate">
+                <svg width="50" height="50" role="img" class="icon" title="SOCIAL"><use xlink:href="test.svg#icon-social"></use></svg>
+                <p>Hue-Rotate</p>
+            </button>
+
+            <button id="hud-blur">
+                <svg width="50" height="50" role="img" class="icon" title="BLUR"><use xlink:href="test.svg#icon-blur"></use></svg>
+                <p>Blur</p>
+            </button>
+
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+
+        </section>
+
+
+        <section id="gps-section">
+
+            <button id="hud-GPSFast">
+                <svg width="50" height="50" role="img" class="icon" title="FAST"><use xlink:href="test.svg#icon-fast"></use></svg>
+                <p>Fast</p>
+            </button>
+
+            <button id="hud-GPSBurst">
+                <svg width="50" height="50" role="img" class="icon" title="BURST"><use xlink:href="test.svg#icon-burst"></use></svg>
+                <p>Burst</p>
+            </button>
+
+            <p class="gps-wrapper">GPS: <span class="gps-data"></span></p>
+            <button id="hud-GPSSlow">
+                <svg width="50" height="50" role="img" class="icon" title="SNAIL"><use xlink:href="test.svg#icon-snail"></use></svg>
+                <p>Slow</p>
+            </button>
+
+            <button id="hud-setGPS">
+                <svg width="50" height="50" role="img" class="icon" title="METRONOME"><use xlink:href="test.svg#icon-metronome"></use></svg>
+                <p>Beat Tap</p>
+            </button>
+
+            <button id="hud-robomode">
+                <svg width="50" height="50" role="img" class="icon" title="LOOP"><use xlink:href="test.svg#icon-loop"></use></svg>
+                <p>RoboMode</p>
+            </button>
+
+           <div>9</div>
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+
+        </section>
+
+
+                
+                
+                
+
+        <section id="blend-modes-section">
+
+            <div class="selector">
+
+                <select id="blend-modes-selector" size="4"></select>
+
+                <button id="hud-blendMode">
+                    <svg width="50" height="50" role="img" class="icon" title="MIXER"><use xlink:href="test.svg#icon-mixer"></use></svg>
+                    <p>Blend Mode</p>
+                </button>
+
+                <button id="hud-blendModeRandom">
+                    <svg width="50" height="50" role="img" class="icon" title="RANDOM BLEND MODE"><use xlink:href="test.svg#icon-random"></use></svg>
+                    <p>Random Blend Mode</p>
+                </button>
+
+            </div>
+
+            <div class="overlay-selector">
+                <select id="overlays-selector" size="4"></select>
+                <button id="">
+                    <p>Auto Overlay</p>
+                </button>
+
+                <button id="">
+                    <p>Clear</p>
+                </button>
+
+            </div>
+            <!-- <div>4</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div> -->
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+
+        </section>
+
+        <div class="bank-slider">
+            <button id="btn-bankSlider"><h3>Banks</h3></button>
+            <div class="bank-slider-container">
+                <div class="banker-buttons">
+                    <button id="hud-banker">Banker Select</button>
+                    <button id="hud-banker">Banker Stage Select</button>
+                    <button id="hud-banker">Stage 1</button>
+                    <button id="hud-banker">Stage 2</button>
+                    <button id="hud-bankerPlayAll">Banker Play All</button>
+                    <button id="hud-bankerClear">Clear</button>
+                </div>
+                <ul id="banks-container"></ul>
+            </div>
+        </div>
+
+
+
+    </div>
+
+  </body>
+</html>

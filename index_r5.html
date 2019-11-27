@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="32x32" href="guts/img/favicon-32x32.png">
 
-    <link href="guts/css/styles.css" media="all" rel="stylesheet" />
+    <!-- <link href="guts/css/styles.css" media="all" rel="stylesheet" /> -->
     <link href="guts/css/hud.css" media="all" rel="stylesheet" />
 
     <script src="guts/js/jquery-2.1.4.min.js"></script>
@@ -30,6 +30,8 @@
     <script src="playlist.js"></script>
 
   </head>
+
+
 
   <body>
     
@@ -66,25 +68,23 @@
         </header>
 
         <section id="s1-section">
-
-            <div class="stage-one solo"></div>
-
-            <button id="hud-invert-s1" class="btn-toggle">
+            <div class="stage-one mini"></div>
+            <button id="hud-invert-s1">
                 <svg width="50" height="50" role="img" class="icon" title="INVERT"><use xlink:href="test.svg#icon-invert"></use></svg>
                 <p>Invert</p>
             </button>
 
-            <button id="hud-saturation-s1" class="btn-toggle">
+            <button id="hud-saturation-s1">
                 <svg width="50" height="50" role="img" class="icon" title="SATURATION"><use xlink:href="test.svg#icon-saturation"></use></svg>
                 <p>Saturation</p>
             </button>
 
-            <button id="hud-hue-rotate-s1" class="btn-toggle">
+            <button id="hud-hue-rotate-s1">
                 <svg width="50" height="50" role="img" class="icon" title="SOCIAL"><use xlink:href="test.svg#icon-social"></use></svg>
                 <p>Hue-Rotate</p>
             </button>
 
-            <button id="hud-blur-s1" class="btn-toggle">
+            <button id="hud-blur-s1">
                 <svg width="50" height="50" role="img" class="icon" title="BLUR"><use xlink:href="test.svg#icon-blur"></use></svg>
                 <p>Blur</p>
             </button>
@@ -102,38 +102,38 @@
 
         <section id="scene-section">
 
-            <div class="scene hud">
-                <div class="stage-one"></div>
-                <div id="gif" class="stage-two"></div>
-            </div>
-            <div id="overlays" class="hud">
-                <!-- <div class="texture"></div> -->
-                <!-- <div class="color-palette"></div> -->
-                <div class="branding"></div>
+            <div id="scene" class="scene mini">
+                <div class="s1-mini"></div>
+                <div class="s2-mini"></div>
             </div>
 
+            <!-- <div class="scene">
+                <div class="stage-one"></div>
+                <div id="gif" class="stage-two"></div>
+            </div> -->
+            
        </section>
 
         <section id="s2-section">
 
-            <div class="stage-two solo"></div>
+            <div class="stage-two mini"></div>
 
-            <button id="hud-invert-s2" class="btn-toggle"
+            <button id="hud-invert-s2">
                 <svg width="50" height="50" role="img" class="icon" title="INVERT"><use xlink:href="test.svg#icon-invert"></use></svg>
                 <p>Invert</p>
             </button>
 
-            <button id="hud-saturation-s2" class="btn-toggle">
+            <button id="hud-saturation-s2">
                 <svg width="50" height="50" role="img" class="icon" title="SATURATION"><use xlink:href="test.svg#icon-saturation"></use></svg>
                 <p>Saturation</p>
             </button>
 
-            <button id="hud-hue-rotate-s2" class="btn-toggle">
+            <button id="hud-hue-rotate-s2">
                 <svg width="50" height="50" role="img" class="icon" title="SOCIAL"><use xlink:href="test.svg#icon-social"></use></svg>
                 <p>Hue-Rotate</p>
             </button>
 
-            <button id="hud-blur-s2" class="btn-toggle">
+            <button id="hud-blur-s2">
                 <svg width="50" height="50" role="img" class="icon" title="BLUR"><use xlink:href="test.svg#icon-blur"></use></svg>
                 <p>Blur</p>
             </button>
@@ -175,6 +175,7 @@
 
         </section>
 
+
         <section id="gps-section">
 
 <!--             <div class="grid-slim">
@@ -186,23 +187,26 @@
             </div>
  -->
 
+
             <button id="hud-set-gps">
                 <svg width="50" height="50" role="img" class="icon" title="METRONOME"><use xlink:href="test.svg#icon-metronome"></use></svg>
                 <p>Beat Tap</p>
             </button>
 
-            <button id="hud-robomode" class="btn-toggle">
+            <button id="hud-robomode">
                 <svg width="50" height="50" role="img" class="icon" title="LOOP"><use xlink:href="test.svg#icon-loop"></use></svg>
                 <p>RoboMode</p>
             </button>
 
             <div class="grid-slim">
-                <button id="hud-fullscreen" class="btn-toggle">Fullscreen</button>
+                <button id="hud-fullscreen">Fullscreen</button>
                 <button id="hud-stage-flip">StageFlip</button>
                 <div class="fader">
                     <input type="range" />
                 </div>
             </div>
+
+
 
             <!-- <div>9</div>
             <div>10</div>
@@ -214,7 +218,7 @@
                 <p>Fast</p>
             </button>
 
-            <button id="hud-gps-burst" class="btn-toggle">
+            <button id="hud-gps-burst">
                 <svg width="50" height="50" role="img" class="icon" title="BURST"><use xlink:href="test.svg#icon-burst"></use></svg>
                 <p>Burst</p>
             </button>
@@ -233,6 +237,11 @@
 
         </section>
 
+
+                
+                
+                
+
         <section id="blend-modes-section">
 
             <div class="selector">
@@ -244,7 +253,7 @@
                     <p>Blend Mode</p>
                 </button>
 
-                <button id="hud-random-blend" class="btn-toggle">
+                <button id="hud-blendModeRandom">
                     <svg width="50" height="50" role="img" class="icon" title="RANDOM BLEND MODE"><use xlink:href="test.svg#icon-random"></use></svg>
                     <p>Random Blend Mode</p>
                 </button>
@@ -262,25 +271,26 @@
             <div>8</div>
             -->
             
-            <button id="hud-kaleidoscope" class="btn-toggle">
+            <button id="hud-kaleidoscope">
                 <svg width="50" height="50" role="img" class="icon" title="TILE"><use xlink:href="test.svg#icon-tiles"></use></svg>
                 <p>Kaleidoscope</p>
             </button>
 
-            <button id="hud-mutator" class="btn-toggle">
+            <button id="hud-mutator">
                 <svg width="50" height="50" role="img" class="icon" title="DNA"><use xlink:href="test.svg#icon-dna"></use></svg>
                 <p>Mutator</p>
             </button>
 
-            <button id="hud-samesame" class="btn-toggle">
+            <button id="hud-samesame">
                 <svg width="50" height="50" role="img" class="icon" title="COPY ITEM"><use xlink:href="test.svg#icon-copyItem"></use></svg>
                 <p>SameSame</p>
             </button>
 
-            <button id="hud-stageFader" class="btn-toggle">
+            <button id="hud-stageFader">
                 <svg width="50" height="50" role="img" class="icon" title="FADE"><use xlink:href="test.svg#icon-fade"></use></svg>
                 <p>Stage Fader</p>
             </button>
+
 
             <!-- <div>9</div>
             <div>10</div> -->
@@ -307,6 +317,8 @@
                 <ul id="banks-container"></ul>
             </div>
         </div>
+
+
 
     </div>
 

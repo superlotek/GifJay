@@ -13,6 +13,9 @@ const Filter = {
     }).join(" ");
     $(s1).css('-webkit-filter', filters.strings[0].value);
     $(s2).css('-webkit-filter', filters.strings[1].value);
+    window.opener.$(s1).css('-webkit-filter', filters.strings[0].value);
+    window.opener.$(s2).css('-webkit-filter', filters.strings[1].value);
+
   },
 
   colorPalette() {

@@ -1,12 +1,38 @@
     function stageUpdate() {
         $('.stage-one').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
         $('.stage-two').css('backgroundImage', myWindow.$('.stage-two').css('backgroundImage') );
-        $('.scene.mini').css('background', myWindow.$('body').css('backgroundColor'));
-        $('.scene.mini .stage-one-mini').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
-        $('.scene.mini .stage-two-mini').css('backgroundImage', myWindow.$('.stage-two').css('backgroundImage') );
-        $('.scene.mini .stage-one-mini').css('background-repeat', myWindow.$('.stage-one').css('backgroundRepeat') );
-        $('.scene.mini .stage-two-mini').css('background-repeat', myWindow.$('.stage-two').css('backgroundRepeat') );
+        $('.stage-one').addClass('on');
+        $('.stage-two').addClass('on blend');
+
+        $('.scene.hud').css('background', myWindow.$('body').css('backgroundColor'));
+        $('.scene.mini .s1-mini').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
+        $('.scene.mini .s2-mini').css('backgroundImage', myWindow.$('.stage-two').css('backgroundImage') );
+        $('.scene.mini .s1-mini').css('background-repeat', myWindow.$('.stage-one').css('backgroundRepeat') );
+        $('.scene.mini .s2-mini').css('background-repeat', myWindow.$('.stage-two').css('backgroundRepeat') );
         $('#overlays-mini #branding-mini').css('backgroundImage', myWindow.$('.branding.on').css('backgroundImage') );
+
+        var stageRepeatS1 = myWindow.$('.scene .stage-one').css('backgroundRepeat');
+        var stageRepeatS2 = myWindow.$('.scene .stage-two').css('backgroundRepeat');
+
+        if (stageRepeatS1 === 'repeat') {
+          $(s1).css('backgroundSize', '75%');
+          $(s1 + ".solo").css('backgroundSize', '75%');
+
+        } else {
+          $(s1).css('backgroundSize', 'cover');
+          $(s1 + ".solo").css('backgroundSize', 'cover');
+        }
+
+        if (stageRepeatS2 === 'repeat') {
+          $(s2).css('backgroundSize', '75%');
+          $(s2 + ".solo").css('backgroundSize', '75%');
+
+        } else {
+          $(s2).css('backgroundSize', 'cover');
+          $(s2 + ".solo").css('backgroundSize', 'cover');
+        }
+
+        // $('.scene.hud').css('background', 'yellow');
     }
 
     function updateSceneSize() {
@@ -20,7 +46,7 @@
 
     function convertBeatTime(beatTime) {
       var converto = beatTime / 1000;
-      return Math.round(converto * 100) / 100 + 's';
+      return Math.round(converto * 100) / 100 + '<em>s</em>';
     }
 
 
@@ -34,24 +60,24 @@ $(document).ready(function() {
             stageUpdate(); updateSceneSize(); $('.scene-container').fadeIn();
       });
 
-    $('#hud-stageFlip').click(function() { myWindow.Mousetrap.trigger('space'); stageUpdate(); });
-    $('#scene').click(function() { myWindow.Mousetrap.trigger('space'); stageUpdate(); });
+    $('#hud-stage-flip').click(function() { myWindow.Mousetrap.trigger('space'); stageUpdate(); });
+    $('#scene-section').click(function() { myWindow.Mousetrap.trigger('space'); stageUpdate(); });
 
 
     var bankSliderUp = false;
-    var daHeight = $('.bank-slider').height() - $('.bank-slider h3').height();
+    var daHeight = $('.bank-slider').height() - $('#btn-bank-slider').height();
 
     $('.bank-slider').css('bottom', -daHeight);
 
-    $('#btn-bankSlider, #hud-banker').on('click', function() {
+    $('#btn-bank-slider, #hud-banker').on('click', function() {
         if (!bankSliderUp) {
             $('.bank-slider').animate({bottom: "0", display: 'block'}, 500, function() {
+              $('#btn-bank-slider').fadeOut('fast');
             });
             bankSliderUp = true;
         } else {
-
-
             $('.bank-slider').animate({bottom: -daHeight + "px", display: 'block'}, 500, function() {
+              $('#btn-bank-slider').fadeIn('fast');
             });
             bankSliderUp = false;
         }
@@ -88,13 +114,15 @@ $(document).ready(function() {
       console.log(selectedBlend);
       console.log(selectedBlendIndex);
       myWindow.$(s2).css('mix-blend-mode', selectedBlend);
+      $('.scene.hud .stage-two').css('mix-blend-mode', selectedBlend);
     })
 
     $('#overlays-selector').on('change', function() {
       var selectedOverlay = $("#overlays-selector").val();
       var selectedOverlayIndex = $("#overlays-selector").prop('selectedIndex');
 
-      myWindow.Mousetrap.trigger('alt+' + selectedOverlayIndex);;
+      myWindow.Mousetrap.trigger('alt+' + selectedOverlayIndex);
+      $(ov).toggleClass('on');
     })
 
 
@@ -102,7 +130,7 @@ $(document).ready(function() {
         e.preventDefault();
           var index = $( "#effects-section button" ).index( this );
           console.log("button: ", index);
-          $(this).toggleClass('active');
+          // $(this).toggleClass('active');
      });
      //  $('.robomode-container button').on('click', function(e) {
      //    e.preventDefault();
@@ -112,59 +140,73 @@ $(document).ready(function() {
      // });
 
 
-     $('#hud-stageOneToggle').on('click', function() {
+     $('#hud-s1-toggle').on('click', function() {
 
         if (myWindow.stageOneOn === 1) {
-            $('#hud-stageOneToggle').find("use").attr("xlink:href", "test.svg#icon-blocked");
+            $('#hud-s1-toggle').find("use").attr("xlink:href", "test.svg#icon-blocked");
         } else {
-            $('#hud-stageOneToggle').find("use").attr("xlink:href", "test.svg#icon-eyes");
+            $('#hud-s1-toggle').find("use").attr("xlink:href", "test.svg#icon-eyes");
         }
 
      });
 
-     $('#hud-stageTwoToggle').on('click', function() {
+     $('#hud-s2-toggle').on('click', function() {
 
         if (myWindow.stageTwoOn === 1) {
-            $('#hud-stageTwoToggle').find("use").attr("xlink:href", "test.svg#icon-blocked");
+            $('#hud-s2-toggle').find("use").attr("xlink:href", "test.svg#icon-blocked");
         } else {
-            $('#hud-stageTwoToggle').find("use").attr("xlink:href", "test.svg#icon-eyes");
+            $('#hud-s2-toggle').find("use").attr("xlink:href", "test.svg#icon-eyes");
         }
 
      })
 
      function showSelectedStage(stage) {
-      $('.stage-one.mini, .stage-two.mini').removeClass('glup');
+      $('.stage-one.solo, .stage-two.solo').removeClass('glup');
       $(stage).toggleClass('glup');
      }
 
 
-      $('#hud-setGPS').click(function() { myWindow.Mousetrap.trigger('return'); });
-      $('#hud-robomode').click(function() { myWindow.Mousetrap.trigger('\''); $(this).toggleClass('active'); });
-      $('#hud-GPSFast').click(function() { myWindow.Mousetrap.trigger(','); });
-      $('#hud-GPSSlow').click(function() { myWindow.Mousetrap.trigger('/'); });
-      $('#hud-GPSBurst').click(function() { myWindow.Mousetrap.trigger('.'); $(this).toggleClass('active'); });
+      $('button.btn-toggle').on('click', function() {
+        $(this).toggleClass('active');
+        console.log('its me');
+      });
 
-      $('#hud-invert').click(function() { myWindow.Mousetrap.trigger('7'); });
-      $('#hud-saturation').click(function() { myWindow.Mousetrap.trigger('8'); });
-      $('#hud-hueRotate').click(function() { myWindow.Mousetrap.trigger('9'); });
-      $('#hud-blur').click(function() { myWindow.Mousetrap.trigger('0'); });
+      $('#hud-set-gps').click(function() { myWindow.Mousetrap.trigger('return'); });
+      $('#hud-robomode').click(function() { myWindow.Mousetrap.trigger('\''); });
+      $('#hud-gps-fast').click(function() { myWindow.Mousetrap.trigger(','); });
+      $('#hud-gps-slow').click(function() { myWindow.Mousetrap.trigger('/'); });
+      $('#hud-gps-burst').click(function() { myWindow.Mousetrap.trigger('.'); });
+
+      $('#hud-invert-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('7'); });
+      $('#hud-saturation-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('8'); });
+      $('#hud-hueRotate-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('9'); });
+      $('#hud-blur-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('0'); });
+
+      $('#hud-invert-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('7'); });
+      $('#hud-saturation-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('8'); });
+      $('#hud-hueRotate-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('9'); });
+      $('#hud-blur-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('0'); });
 
       $('#hud-kaleidoscope').click(function() { myWindow.Mousetrap.trigger('1'); });
       $('#hud-mutator').click(function() { myWindow.Mousetrap.trigger('2'); });
-      $('#hud-samesame').click(function() { myWindow.Mousetrap.trigger('3'); });
+      $('#hud-samesame').click(function() { myWindow.Mousetrap.trigger('3'); $('.stage-two').toggleClass('same-same'); });
       $('#hud-stageFader').click(function() { myWindow.Mousetrap.trigger('4'); });
 
-      $('#hud-stageOneToggle').click(function() { myWindow.Mousetrap.trigger('_'); });
-      $('#hud-stageTwoToggle').click(function() { myWindow.Mousetrap.trigger('+'); });
+      $('#hud-s1-toggle').click(function() { myWindow.Mousetrap.trigger('_'); $('.stage-one').toggleClass('on'); $('.stage-one').toggleClass('off'); });
+      $('#hud-s2-toggle').click(function() { myWindow.Mousetrap.trigger('+'); $('.stage-two').toggleClass('on'); $('.stage-two').toggleClass('off'); });
 
-      $('#hud-stageOneSelect').click(function() { myWindow.Mousetrap.trigger('-'); showSelectedStage('.stage-one.mini'); });
-      $('#hud-stageTwoSelect').click(function() { myWindow.Mousetrap.trigger('='); showSelectedStage('.stage-two.mini'); });
-      $('.stage-one.mini').click(function() { myWindow.Mousetrap.trigger('-'); showSelectedStage(this); });
-      $('.stage-two.mini').click(function() { myWindow.Mousetrap.trigger('='); showSelectedStage(this); });
+
+
+      $('#hud-s1-select').click(function() { myWindow.Mousetrap.trigger('-'); showSelectedStage('.stage-one.mini'); });
+      $('#hud-s2-select').click(function() { myWindow.Mousetrap.trigger('='); showSelectedStage('.stage-two.mini'); });
+
+      
+      $('.stage-one.solo').click(function() { myWindow.Mousetrap.trigger('-'); showSelectedStage(this); });
+      $('.stage-two.solo').click(function() { myWindow.Mousetrap.trigger('='); showSelectedStage(this); });
 
       $('#hud-blendMode').click(function() { myWindow.Mousetrap.trigger('alt+,'); });
       $('#hud-blendModeSwitcher').click(function() { myWindow.Mousetrap.trigger('alt+.'); });
-      $('#hud-blendModeRandom').click(function() { myWindow.Mousetrap.trigger('alt+/'); });
+      $('#hud-random-blend').click(function() { myWindow.Mousetrap.trigger('alt+/'); });
 
       $('#hud-stageSelectAll').click(function() { myWindow.Mousetrap.trigger('backspace'); });
 

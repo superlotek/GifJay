@@ -66,8 +66,13 @@ function sceneSetter(arrayName, banker1, banker2) {
   gifSelectorS1 = Init.randomizer(bankBuilderS1);
   gifSelectorS2 = Init.randomizer(bankBuilderS2);
 
+
+
   if (blendModeRandomOn) {
+    
     $(s2).css('mix-blend-mode', appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name);
+    window.opener.$(s2).css('mix-blend-mode', appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name);
+
   }
 
   if (currentPlayMode == 'sampler') {
