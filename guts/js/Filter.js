@@ -11,6 +11,13 @@ const Filter = {
     filters.strings[1].value = filters.filter.map(function(elem){
         return elem.stage[1].value;
     }).join(" ");
+
+
+    if (window.opener.videoModeOn === true) {
+      window.opener.$('video').css('-webkit-filter', filters.strings[0].value);
+    }  else {
+    }
+
     $(s1).css('-webkit-filter', filters.strings[0].value);
     $(s2).css('-webkit-filter', filters.strings[1].value);
     window.opener.$(s1).css('-webkit-filter', filters.strings[0].value);

@@ -126,9 +126,12 @@ var currentScene = {
 	]
 };
 
+function changeRando() {
+    video.src = myWindow.randomizedVideoSrc;
+}
 
 var dancerOn = false;
-
+var videoModeOn = false;
 var autoOverlayOn = 0;
 // var overlayDuration = 1000;
 // var overlayFrequency = 6000;

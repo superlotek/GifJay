@@ -172,6 +172,28 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
         100% { transform: rotate(360deg); }
     }
 
+
+.video-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stage-types {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+
 /*
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
  Effects

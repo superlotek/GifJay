@@ -305,6 +305,8 @@ const Play = {
       // bankSelectorS1 = Init.randomizer(banksInUse);
       // bankSelectorS2 = Init.randomizer(banksInUse);
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
+      Video.switchVideo();
+
     }
 }
 

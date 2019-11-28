@@ -32,7 +32,6 @@
           $(s2 + ".solo").css('backgroundSize', 'cover');
         }
 
-        // $('.scene.hud').css('background', 'yellow');
     }
 
     function updateSceneSize() {
@@ -54,6 +53,24 @@
       if ( $('button.btn-toggle.filter').hasClass('active') ) {
         $(this).toggleClass('active');
       }
+    }
+
+    function videoMode() {
+      $('#s1-section .stage-one.solo').remove();
+      myWindow.$(s1).remove();
+      videoModeOn = true;
+      video.src = "Bins/_Video/checkeredDance_fx2.mov";
+
+    }
+    function gifMode() {
+      console.log('GIF MODE IS BACK!');
+      video.src = "";
+      $('#s1-section .stage-types').append("<div class='stage-one solo' />");
+      $('.stage-one.solo').css('background', 'url(Bins/JapaneseAnims/japan_FileAug08123439AM.gif)');
+
+      // $('#s1-section .stage-one.solo').css('background', 'none');
+      // myWindow.$(s1).css('background', 'none');
+      // videoModeOn = true;
     }
 
 
@@ -139,12 +156,12 @@ $(document).ready(function() {
     })
 
 
-      $('#effects-section button').on('click', function(e) {
-        e.preventDefault();
-          var index = $( "#effects-section button" ).index( this );
-          console.log("button: ", index);
-          // $(this).toggleClass('active');
-     });
+     //  $('#effects-section button').on('click', function(e) {
+     //    e.preventDefault();
+     //      var index = $( "#effects-section button" ).index( this );
+     //      console.log("button: ", index);
+     //      // $(this).toggleClass('active');
+     // });
      //  $('.robomode-container button').on('click', function(e) {
      //    e.preventDefault();
      //      var index = $( ".robomode-container button" ).index( this );
@@ -156,9 +173,9 @@ $(document).ready(function() {
      $('#hud-s1-toggle').on('click', function() {
 
         if (myWindow.stageOneOn === 1) {
-            $('#hud-s1-toggle').find("use").attr("xlink:href", "test.svg#icon-blocked");
+            $('#hud-s1-toggle').find("use").attr("xlink:href", "gj_interface_icons.svg#icon-blocked");
         } else {
-            $('#hud-s1-toggle').find("use").attr("xlink:href", "test.svg#icon-eyes");
+            $('#hud-s1-toggle').find("use").attr("xlink:href", "gj_interface_icons.svg#icon-eyes");
         }
 
      });
@@ -166,9 +183,9 @@ $(document).ready(function() {
      $('#hud-s2-toggle').on('click', function() {
 
         if (myWindow.stageTwoOn === 1) {
-            $('#hud-s2-toggle').find("use").attr("xlink:href", "test.svg#icon-blocked");
+            $('#hud-s2-toggle').find("use").attr("xlink:href", "gj_interface_icons.svg#icon-blocked");
         } else {
-            $('#hud-s2-toggle').find("use").attr("xlink:href", "test.svg#icon-eyes");
+            $('#hud-s2-toggle').find("use").attr("xlink:href", "gj_interface_icons.svg#icon-eyes");
         }
 
      })
@@ -178,10 +195,14 @@ $(document).ready(function() {
       $(stage).toggleClass('glup');
      }
 
+     function changeRando() {
+      // window.opener.$('video')[0].currentSrc
+      alert('hi');
+     }
+
 
       $('button.btn-toggle').on('click', function() {
         $(this).toggleClass('active');
-        console.log('its me');
       });
 
 
@@ -190,10 +211,19 @@ $(document).ready(function() {
         var sliderValue = $(this).val() * .01;
         console.log($(this).val());
         $(".scene.hud " + s2 ).css('opacity', sliderValue);
+        myWindow.$(s2).css('opacity', sliderValue);
+
       });
+
+
+
+      $('#btn-random-video').click(function() {  myWindow.Mousetrap.trigger('@');  /* Video.randomVideo(); */ });
+      $('#btn-video-mode').click(function() { videoMode(); });
+      $('#btn-gif-mode').click(function() { gifMode(); });
 
       $('#btn-banker-select').click(function() { myWindow.Mousetrap.trigger(';'); });
       $('#btn-banker-play-all').click(function() { myWindow.Mousetrap.trigger('ctrl+\''); });
+      $('#btn-banker-clear').click(function() { myWindow.Mousetrap.trigger('"'); });
 
       $('#btn-clear-filters-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('~'); clearAllFilters(); });
       $('#btn-clear-filters-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('~'); clearAllFilters(); });

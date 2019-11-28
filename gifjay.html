@@ -16,6 +16,8 @@
     <script src="guts/js/keydrown.js"></script>
     <script src="settings.js"></script>
     <script src="guts/js/Inits.js"></script>
+    <script src="guts/js/Video.js"></script>
+
     <!-- <script src="guts/js/Midi.js"></script>-->
     <script src="guts/js/Scene.js"></script>
     <script src="guts/js/Play.js"></script>
@@ -27,14 +29,34 @@
     <script src="guts/js/Hud.js"></script>
 
     <script src="playlist.js"></script>
+
+    <style>
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            min-width: 100%;
+            min-height: 100%;
+        }
+    </style>
+
   </head>
 
   <body>
     <div class="scene">
-        <div class="stage-one"></div>
-        <div id="gif" class="stage-two"></div>
-    </div>
+        <div class="stage-types">
+            <div class="video-container">
+                <video id="yur" preload autoplay playsinline loop muted>
+<!--                     <source src="Bins/_Video/checkeredDance_fx2.mov" type="video/mp4">
+ -->                    <source src="" type="video/mp4">
+                </video>
+            </div>
 
+            <div class="stage-one solo"></div>
+            <div id="gif" class="stage-two"></div>
+        </div>
+    </div>
 
     <div id="overlays">
         <div class="texture"></div>
@@ -42,6 +64,10 @@
         <div class="branding"></div>
         <div class="text"><h1></h1></div>
     </div>
+
+    <script>
+      const video = document.getElementById("yur");
+    </script>
 
 
   </body>

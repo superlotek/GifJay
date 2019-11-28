@@ -48,18 +48,25 @@ function loadjscssfile(filename, filetype){
 
   });  
 
-  Mousetrap.bind("`", function() {
-    if (sampledFilterOn == 1) {
-      console.log('SAMPLED FILTER: APPLIED', "\n---------------------------------");
-      $(stgSelect).css('filter', sampledFilter);
-      if (stgSelect == 'all') {
-        $(s1).css('filter', sampledFilter);
-        $(s2).css('filter', sampledFilter);
-      } else {
-        $(stgSelect).css('filter', sampledFilter);
-      }
-    }
+  // Mousetrap.bind("`", function() {
+  //   if (sampledFilterOn == 1) {
+  //     console.log('SAMPLED FILTER: APPLIED', "\n---------------------------------");
+  //     $(stgSelect).css('filter', sampledFilter);
+  //     if (stgSelect == 'all') {
+  //       $(s1).css('filter', sampledFilter);
+  //       $(s2).css('filter', sampledFilter);
+  //     } else {
+  //       $(stgSelect).css('filter', sampledFilter);
+  //     }
+  //   }
+  // });
+
+  Mousetrap.bind("@", function() {
+ // alert('hiiiii');
+      Video.randomVideo();
+      // window.opener.Video.randomVideo();
   });
+
 
   Mousetrap.bind("~", function() {
     console.log('FILTERS: CLEARED');
@@ -248,7 +255,7 @@ Mousetrap.bind('shift+return', function() {
 Mousetrap.bind('!', function() {
   if(!autoOverlayOn) {
     autoOverlayOn = !autoOverlayOn;
-    console.log('AUTO OVERLAY: ON');``
+    console.log('AUTO OVERLAY: ON');
     Overlays.displayOverlay();
   } else {
     console.log('AUTO OVERLAY: OFF', "\n---------------------------------");

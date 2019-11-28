@@ -176,9 +176,33 @@ section {
     background-position: center;
 }
 
+.video-container {
+    grid-row: 1 / span 3;
+    grid-column: 2 / span 3;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /*.stage-two.solo { width: 100%; height: 100%; grid-row: 1 / span 3; grid-column: 1 / span 3; background: #eee; background-size: cover; }
 */
-.stage-one.solo { grid-column: 2 / span 3; }
+.stage-one.solo { grid-column: 2 / span 3; position: absolute; }
+
+.stage-types {
+    grid-column: 2 / span 3;
+    grid-row: 1 / span 3;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
 .stage-two.solo { grid-column: 1 / span 3; mix-blend-mode: normal; }
 
 /* STAGE TWO */
