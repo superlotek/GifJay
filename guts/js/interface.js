@@ -49,18 +49,31 @@
       return Math.round(converto * 100) / 100 + '<em>s</em>';
     }
 
+    function clearAllFilters() {
+      console.log('CLEAR ALL ICON FILTERS');
+      if ( $('button.btn-toggle.filter').hasClass('active') ) {
+        $(this).toggleClass('active');
+      }
+    }
+
 
 $(document).ready(function() {
+
+  $('button').attr('disabled', true);
+  $('button#hud-open').attr('disabled', false);
+  $('section, .bank-slider').hide();
+  $('.gps-data').html(beatTime/1000 + '<em>s</em>');
 
     var binLocation = "Bins/";
 
     $('#hud-start').click(function() { myWindow.Mousetrap.trigger('alt+backspace'); $('button').attr('disabled', false);
             // $('.stage-one').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
             // $('.stage-two').css('backgroundImage', myWindow.$('.stage-two').css('backgroundImage') );
-            stageUpdate(); updateSceneSize(); $('.scene-container').fadeIn();
+            stageUpdate(); updateSceneSize(); $('.scene-container').fadeIn(); $('section, .bank-slider').fadeIn();
+
       });
 
-    $('#hud-stage-flip').click(function() { myWindow.Mousetrap.trigger('space'); stageUpdate(); });
+    $('#hud-scene-flip').click(function() { myWindow.Mousetrap.trigger('space'); stageUpdate(); });
     $('#scene-section').click(function() { myWindow.Mousetrap.trigger('space'); stageUpdate(); });
 
 
@@ -69,7 +82,7 @@ $(document).ready(function() {
 
     $('.bank-slider').css('bottom', -daHeight);
 
-    $('#btn-bank-slider, #hud-banker').on('click', function() {
+    $('#btn-bank-slider, #btn-banker-close').on('click', function() {
         if (!bankSliderUp) {
             $('.bank-slider').animate({bottom: "0", display: 'block'}, 500, function() {
               $('#btn-bank-slider').fadeOut('fast');
@@ -87,7 +100,7 @@ $(document).ready(function() {
     $('#hud-close').click(function() { myWindow.close(); });
 
     for ( let i = 0; i < enabledBanksArray.length; i++) {
-         $('#banks-container').append('<li><a href><img src="' + binLocation + '/' + enabledBanksArray[i].thumbnail + '.gif' + '"/><span>' + enabledBanksArray[i].trigger + '</span></a><p>' + enabledBanksArray[i].name +'</p></li>');
+         $('#banks-container').append('<li><button><img src="' + binLocation + '/' + enabledBanksArray[i].thumbnail + '.gif' + '"/><span>' + enabledBanksArray[i].trigger + '</span></a><p>' + enabledBanksArray[i].name +'</p></button></li>');
     }
 
      $('#banks-container li').on('click', function(e) {
@@ -171,8 +184,24 @@ $(document).ready(function() {
         console.log('its me');
       });
 
-      $('#hud-set-gps').click(function() { myWindow.Mousetrap.trigger('return'); });
-      $('#hud-robomode').click(function() { myWindow.Mousetrap.trigger('\''); });
+
+      $('.fader input').on('input', function() {
+        console.log('hi');
+        var sliderValue = $(this).val() * .01;
+        console.log($(this).val());
+        $(".scene.hud " + s2 ).css('opacity', sliderValue);
+      });
+
+      $('#btn-banker-select').click(function() { myWindow.Mousetrap.trigger(';'); });
+      $('#btn-banker-play-all').click(function() { myWindow.Mousetrap.trigger('ctrl+\''); });
+
+      $('#btn-clear-filters-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('~'); clearAllFilters(); });
+      $('#btn-clear-filters-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('~'); clearAllFilters(); });
+
+
+      $('#btn-set-gps').click(function() { myWindow.Mousetrap.trigger('return'); });
+      $('#btn-robomode').click(function() { myWindow.Mousetrap.trigger('\''); });
+      $('#btn-bartender').click(function() { myWindow.Mousetrap.trigger('\\'); });
       $('#hud-gps-fast').click(function() { myWindow.Mousetrap.trigger(','); });
       $('#hud-gps-slow').click(function() { myWindow.Mousetrap.trigger('/'); });
       $('#hud-gps-burst').click(function() { myWindow.Mousetrap.trigger('.'); });
@@ -195,6 +224,8 @@ $(document).ready(function() {
       $('#hud-s1-toggle').click(function() { myWindow.Mousetrap.trigger('_'); $('.stage-one').toggleClass('on'); $('.stage-one').toggleClass('off'); });
       $('#hud-s2-toggle').click(function() { myWindow.Mousetrap.trigger('+'); $('.stage-two').toggleClass('on'); $('.stage-two').toggleClass('off'); });
 
+      $('#btn-auto-overlay').click(function() { myWindow.Mousetrap.trigger('!'); });
+      $('#btn-overlay-reset').click(function() { myWindow.Mousetrap.trigger('alt+1'); });
 
 
       $('#hud-s1-select').click(function() { myWindow.Mousetrap.trigger('-'); showSelectedStage('.stage-one.mini'); });

@@ -69,9 +69,7 @@ svg:hover { fill: #aaa; }
 /* SECTIONS */
 section {
     background-color: #666;
-/*            border-radius: 10px;
-*//*            padding: 20px;
-*/            height: 45vh;
+    height: 45vh;
     width: 33.33vw;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
@@ -79,11 +77,6 @@ section {
     justify-items: center;
     align-items: center;
 }
-
-/*        grid-column: 3 ;
-grid-row: 1 / span 2;
-*/
-
 
 #s1-section, #s2-section, #scene-section { border-bottom: 3px solid #444; }
 #s1-section, #s2-section { z-index: 2; }
@@ -104,8 +97,10 @@ grid-row: 1 / span 2;
     align-items: center;
 }
 
-#hud-set-gps { grid-row: 2; /*background: cadetblue;*/ grid-column: 1 / span 2; width: 100%; }  
-#hud-robomode { grid-row: 2; /*background: darkseagreen; */grid-column: 3 / span 2; width: 100%; } 
+#btn-robomode { grid-row: 2; /*background: darkseagreen; */grid-column: 1 / span 1; width: 100%; } 
+#btn-bartender { grid-row: 2; /*background: darkseagreen; */grid-column: 2 / span 1; width: 100%; } 
+#btn-set-gps { grid-row: 2; background: darkseagreen; grid-column: 3 / span 2; width: 100%; }  
+
 
 .s1-mini, .s2-mini { height: 100%; width: 100%; background-size: cover; } 
 .s2-mini { position: absolute; top: 0; left: 0; mix-blend-mode: screen; }
@@ -115,8 +110,8 @@ grid-row: 1 / span 2;
 #scene { width: 100%; height: 100%; background: #fff; grid-row: 1 / span 4; grid-column: 1 / span 4;  }
 .fader { width: 100%; grid-row: 2; grid-column: 2 / span 2; }
 .fader input { width: 100%; }
-#hud-stage-flip { grid-row: 2; grid-column: 4 / span 1; background: #999; width: 100%; height: 100%; }
-#hud-fullscreen { grid-row: 2; grid-column: 1; background: #999; width: 100%; height: 100%; }
+#hud-scene-flip { grid-row: 2; grid-column: 4 / span 1; width: 100%; height: 100%; }
+#hud-fullscreen { grid-row: 2; grid-column: 1; width: 100%; height: 100%; }
 
 #blend-modes-selector {
     grid-row: 1 / span 3;
@@ -197,10 +192,18 @@ grid-row: 1 / span 2;
 
 
 /*        select#blend-modes-selector { height: 196px; width: 200px; } */
-select#blend-modes-selector option { font-size: 14px; padding: 10px 5px; border-bottom: 1px solid #ddd; }
+/*select#blend-modes-selector option { font-size: 14px; padding: 10px 5px; border-bottom: 1px solid #ddd; }
 select#overlays-selector option { font-size: 14px; padding: 10px 5px; border-bottom: 1px solid #ddd; }
-
-
+*/
+select option {
+    font-size: 14px;
+    padding: 10px 5px;
+    border-bottom: 1px solid #777;
+    color: #222;
+}
+select option:last-of-type {
+    border-bottom: 0;
+}
 /*        #stage-one-section { justify-self: end; }
 #stage-two-section { justify-self: start; }
 .stage-one-mini, .stage-two-mini, #branding-mini {
@@ -209,7 +212,7 @@ select#overlays-selector option { font-size: 14px; padding: 10px 5px; border-bot
 .stage-two-mini { mix-blend-mode: screen; }
 */
 /* SCENE */
-#scene-section { justify-self: center; width: 100%; background: white; position: relative; }
+#scene-section { justify-self: center; width: 100%; position: relative; }
 #scene { margin: 0 auto; }
 /*.scene {
     position: relative;
@@ -226,7 +229,7 @@ select#overlays-selector option { font-size: 14px; padding: 10px 5px; border-bot
 /*    border: 10px solid #000;
 */    border-radius: 10px;
     justify-self: center;
-    background: #fff url(../img/static_2.gif) center center no-repeat;
+    background: #fff url(../img/static_1.gif) center center no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -276,23 +279,34 @@ select#overlays-selector option { font-size: 14px; padding: 10px 5px; border-bot
 /* BANKS */
 .bank-slider { position: fixed; width: 100%; /*bottom: -600px;*/ left: 0; }
 .bank-slider h3 { color: #000; }
-.bank-slider-container { background: rgba(0,0,0,.8); border: 1px solid black; padding: 0 0 0 0; height: 45vh; }
+.bank-slider-container { background: rgba(0,0,0,.9); border: 1px solid black; padding: 0 0 0 0; height: 45vh; }
 .bank-slider-container p { text-align: left; margin-top: 5px; color: #fff; font-size: 10px; font-weight: normal; text-transform: uppercase; }
 
 .bank-slider ul { display: grid; grid-template-rows: 3; grid-template-columns: repeat(10, 1fr) }
 .bank-slider ul { list-style-type: none; /*margin: 20px 0;*/ }
 .bank-slider li { margin: 0 10px 5px 10px; position: relative; text-align: left; }
 .bank-slider li img { /*width: 200px; max-height: 100px;*/ border: 1px solid #eee; max-height: 60px; }
-
-
 .bank-slider li span { position: absolute; top: 1px; left: 1px; background: black; padding: 5px; text-transform: uppercase; font-weight: bold; color: orange; }
 
-#btn-bank-slider { background: #fff; color: #000; font-weight: bold; width: 33.33vw; height: 5.625vh; margin: 0 auto; display: block; }
-.banker-buttons { display: flex; margin: 0 0 20px 0; }
-.banker-buttons button { background: #666; padding: 10px; }
-.banker-buttons button { background: #555; padding: 10px; border-left: 1px solid; }
+#btn-bank-slider { background: cadetblue; color: #000; font-weight: bold; width: 33.33vw; height: 5.625vh; margin: 0 auto; display: block; }
+#btn-bank-slider h3 { color: #fff; }
+
+.banker-buttons { display: grid; grid-template-columns: repeat(12, 1fr); margin: 0 0 20px 0; }
+.banker-buttons button { background: #666; padding: 10px;  }
+.banker-buttons button { background: #555; padding: 10px; border-left: 2px solid #333; }
 .banker-buttons button:hover { background: cadetblue; color: #333; }
 .banker-buttons button:first-of-type { border: 0; }
+
+#btn-banker-select { background: cadetblue; grid-column: span 2; }
+#btn-banker-clear { grid-column: span 2; }
+#btn-banker-play-all { grid-column: span 2; }
+#btn-banker-s1 { grid-column: 5; }
+button[id^="btn-banker-s"] { background: deepskyblue; }
+
+#btn-banker-close { background: #fff; color: cadetblue; grid-column: 11 / span 2; }
+#btn-banker-close svg { fill: cadetblue; }
+#btn-banker-close:hover { background: cadetblue; color: #fff; }
+#btn-banker-close:hover svg { fill: white; }
 
 .gps-data { color: #000; width: 100%; font-family: "Digital"; font-size: 36px; color: green; display: block; }
 .gps-data em { font-size: 18px; color: darkgreen; }
@@ -312,3 +326,9 @@ select#overlays-selector option { font-size: 14px; padding: 10px 5px; border-bot
     top: 0;
     left: 0;
 }
+#hud-set-gps:hover {
+    background: green;
+}
+
+
+
