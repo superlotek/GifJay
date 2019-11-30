@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="32x32" href="guts/img/favicon-32x32.png">
-
+<!--     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+ -->
     <link href="guts/css/styles.css" media="all" rel="stylesheet" />
     <link href="guts/css/hud.css" media="all" rel="stylesheet" />
 
@@ -66,7 +67,7 @@
         </header>
 
         <section id="s1-section">
-
+            
             <div class="stage-types">
 
                 <div class="video-container">
@@ -80,25 +81,33 @@
 
             </div>
 
-            <button id="hud-invert-s1" class="btn-toggle filter">
+            <button id="btn-invert-s1" class="btn-toggle filter">
                 <svg width="50" height="50" role="img" class="icon" title="INVERT"><use xlink:href="gj_interface_icons.svg#icon-invert"></use></svg>
                 <p>Invert</p>
             </button>
 
-            <button id="hud-saturation-s1" class="btn-toggle filter">
+            <button id="btn-saturation-s1" class="btn-toggle filter">
                 <svg width="50" height="50" role="img" class="icon" title="SATURATION"><use xlink:href="gj_interface_icons.svg#icon-saturation"></use></svg>
                 <p>Saturation</p>
+                <!-- <span class="btn-edit-filter">
+                    <svg width="25" height="25" role="img" class="icon small" title="EDIT"><use xlink:href="gj_interface_icons.svg#icon-edit"></use></svg>
+                </span> -->
             </button>
 
-            <button id="hud-hue-rotate-s1" class="btn-toggle filter">
+            <button id="btn-hue-rotate-s1" class="btn-toggle filter">
                 <svg width="50" height="50" role="img" class="icon" title="SOCIAL"><use xlink:href="gj_interface_icons.svg#icon-social"></use></svg>
                 <p>Hue-Rotate</p>
             </button>
 
-            <button id="hud-blur-s1" class="btn-toggle filter">
+            <button id="btn-blur-s1" class="btn-toggle filter">
                 <svg width="50" height="50" role="img" class="icon" title="BLUR"><use xlink:href="gj_interface_icons.svg#icon-blur"></use></svg>
                 <p>Blur</p>
             </button>
+
+            <div id="edit-filter-slider">
+                <button id="close-filter-slider">X</button>
+                <input type="range" id="saturation-slider" min="1" max="100" value="30" orient="vertical" />
+            </div>
 
             <!-- <div>13</div> -->
             <!-- <div>2/4</div> -->
@@ -123,13 +132,12 @@
         <section id="scene-section">
 
             <div class="scene hud">
-                <!-- <video id="yur" preload autoplay playsinline loop muted>
-                    <source src="Bins/_Video/checkeredDance_fx2.mov" type="video/mp4">
-                </video> -->
-
-                <div class="stage-one"></div>
-                <div id="gif" class="stage-two"></div>
+                <div class="stage-types">
+                    <div class="stage-one"></div>
+                    <div id="gif" class="stage-two"></div>
+                </div>
             </div>
+
             <div id="overlays" class="hud">
                 <!-- <div class="texture"></div> -->
                 <!-- <div class="color-palette"></div> -->
@@ -140,27 +148,36 @@
 
         <section id="s2-section">
 
-            <div class="stage-two solo"></div>
+            <div class="stage-types">
+                <div class="stage-two solo"></div>
+            </div>
 
-            <button id="hud-invert-s2" class="btn-toggle filter">
-                <svg width="50" height="50" role="img" class="icon" title="INVERT"><use xlink:href="gj_interface_icons.svg#icon-invert"></use></svg>
-                <p>Invert</p>
-            </button>
+            <div class="new-filter-section grid-4x8">
 
-            <button id="hud-saturation-s2" class="btn-toggle filter">
-                <svg width="50" height="50" role="img" class="icon" title="SATURATION"><use xlink:href="gj_interface_icons.svg#icon-saturation"></use></svg>
-                <p>Saturation</p>
-            </button>
+                <button id="btn-invert-s2" class="btn-toggle filter">
+                    <svg width="50" height="50" role="img" class="icon" title="INVERT"><use xlink:href="gj_interface_icons.svg#icon-invert"></use></svg>
+                    <p>Invert</p>
+                </button>
 
-            <button id="hud-hue-rotate-s2" class="btn-toggle filter">
-                <svg width="50" height="50" role="img" class="icon" title="SOCIAL"><use xlink:href="gj_interface_icons.svg#icon-social"></use></svg>
-                <p>Hue-Rotate</p>
-            </button>
+                <button id="btn-saturation-s2" class="btn-toggle filter">
+                    <svg width="50" height="50" role="img" class="icon" title="SATURATION"><use xlink:href="gj_interface_icons.svg#icon-saturation"></use></svg>
+                    <p>Saturation</p>
+                </button>
 
-            <button id="hud-blur-s2" class="btn-toggle filter">
-                <svg width="50" height="50" role="img" class="icon" title="BLUR"><use xlink:href="gj_interface_icons.svg#icon-blur"></use></svg>
-                <p>Blur</p>
-            </button>
+
+                <button id="btn-hue-rotate-s2" class="btn-toggle filter">
+                    <svg width="50" height="50" role="img" class="icon" title="SOCIAL"><use xlink:href="gj_interface_icons.svg#icon-social"></use></svg>
+                    <p>Hue-Rotate</p>
+                </button>
+
+                <button id="btn-blur-s2" class="btn-toggle filter">
+                    <svg width="50" height="50" role="img" class="icon" title="BLUR"><use xlink:href="gj_interface_icons.svg#icon-blur"></use></svg>
+                    <p>Blur</p>
+                </button>
+
+<!--                 <span class="edit-pane"><svg width="25" height="25" role="img" class="icon small" title="EDIT"><use xlink:href="gj_interface_icons.svg#icon-edit"></use></svg></span>
+ -->                
+            </div>
 
             <button id="hud-s2-toggle">
                 <svg width="50" height="50" role="img" class="icon" title="EYES"><use xlink:href="gj_interface_icons.svg#icon-eyes"></use></svg>
@@ -280,6 +297,19 @@
             </button>
 
             <p class="gps-wrapper"><span class="gps-data"></span></p>
+
+            <input id="gps-speed-slider" list="steplist" type="range" min="1" value="5" step="1" max="9" />
+            <datalist id="steplist">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+            </datalist>
 
             <!-- <div>13</div>
             <div>14</div>

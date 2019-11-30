@@ -1,3 +1,4 @@
+  
     function stageUpdate() {
         $('.stage-one').css('backgroundImage', myWindow.$('.stage-one').css('backgroundImage') );
         $('.stage-two').css('backgroundImage', myWindow.$('.stage-two').css('backgroundImage') );
@@ -15,8 +16,8 @@
         var stageRepeatS2 = myWindow.$('.scene .stage-two').css('backgroundRepeat');
 
         if (stageRepeatS1 === 'repeat') {
-          $(s1).css('backgroundSize', '75%');
-          $(s1 + ".solo").css('backgroundSize', '75%');
+          $(s1).css('backgroundSize', '50%');
+          $(s1 + ".solo").css('backgroundSize', '50%');
 
         } else {
           $(s1).css('backgroundSize', 'cover');
@@ -24,8 +25,8 @@
         }
 
         if (stageRepeatS2 === 'repeat') {
-          $(s2).css('backgroundSize', '75%');
-          $(s2 + ".solo").css('backgroundSize', '75%');
+          $(s2).css('backgroundSize', '50%');
+          $(s2 + ".solo").css('backgroundSize', '50%');
 
         } else {
           $(s2).css('backgroundSize', 'cover');
@@ -35,12 +36,42 @@
     }
 
     function updateSceneSize() {
-        // $('.scene.mini').css({width: myWindow.innerWidth/2 + 'px', height: myWindow.innerHeight/2 + 'px'});
-        // $('.stage-one').css({width: myWindow.innerWidth/3 + 'px', height: myWindow.innerHeight/3 + 'px'});
-        // $('.stage-two').css({width: myWindow.innerWidth/3 + 'px', height: myWindow.innerHeight/3 + 'px'});
-        $('.scene.mini').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
-        $('.stage-one').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
-        $('.stage-two').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
+
+      var sceneMiniWidth = $('#scene-section').width();
+      var sceneMiniHeight = $('#scene-section').height();
+
+      var stageMiniWidth = $('#s1-section .stage-types').width();
+      var stageMiniHeight = $('#s1-section .stage-types').height();
+
+      var sceneExternalWidth = myWindow.innerWidth;
+      var sceneExternalHeight = myWindow.innerHeight;
+
+      var sceneWidthDifference = sceneMiniWidth / sceneExternalWidth;
+      var sceneHeightDifference = sceneMiniHeight / sceneExternalHeight;
+
+      var stageWidthDifference = stageMiniWidth / sceneExternalWidth;
+
+
+      var ratioPercentage = sceneExternalWidth / sceneExternalHeight
+
+      console.log("Scene Mini Dimensions ", sceneMiniWidth, sceneMiniHeight);
+      console.log("Stage Mini Dimensions ", stageMiniWidth, stageMiniHeight);
+      console.log("Scene External Dimensions ", sceneExternalWidth, sceneExternalHeight);
+
+      console.log("Scene Dimension Differences", sceneWidthDifference, sceneHeightDifference);
+      console.log("ratio Percentage", ratioPercentage);
+
+      // if (myWindow.innerWidth >= $('#scene-section .stage-one').width() ) {
+      //   $('#scene-section .stage-one').width();
+      //   return false;
+      // }
+
+        $('#scene-section .stage-one, #scene-section .stage-two').css({width: myWindow.innerWidth * sceneWidthDifference + 'px', height: (myWindow.innerHeight / ratioPercentage) * sceneHeightDifference + 'px'});
+        $('#s1-section .stage-one').css({width: myWindow.innerWidth * stageWidthDifference + 'px', height: myWindow.innerHeight * stageWidthDifference + 'px'});
+        $('#s2-section .stage-two').css({width: myWindow.innerWidth * stageWidthDifference + 'px', height: myWindow.innerHeight * stageWidthDifference  + 'px'});
+        // $('.scene.mini').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
+        // $('.stage-one').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
+        // $('.stage-two').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
     }
 
     function convertBeatTime(beatTime) {
@@ -48,10 +79,16 @@
       return Math.round(converto * 100) / 100 + '<em>s</em>';
     }
 
-    function clearAllFilters() {
+    function clearAllFilters(stage) {
       console.log('CLEAR ALL ICON FILTERS');
       if ( $('button.btn-toggle.filter').hasClass('active') ) {
-        $(this).toggleClass('active');
+        $('#btn-invert-' + stage).removeClass('active');
+        $('#btn-saturation-' + stage).removeClass('active');
+        $('#btn-hue-rotate-' + stage).removeClass('active');
+        $('#btn-blur-' + stage).removeClass('active');
+        $(this).removeClass('active');
+      } else {
+
       }
     }
 
@@ -60,6 +97,8 @@
       myWindow.$(s1).remove();
       videoModeOn = true;
       video.src = "Bins/_Video/checkeredDance_fx2.mov";
+      myWindow.video.src = "Bins/_Video/checkeredDance_fx2.mov";
+
 
     }
     function gifMode() {
@@ -73,8 +112,20 @@
       // videoModeOn = true;
     }
 
+      // $('#edit-filter-slider').on('input', function() {
+      //   console.log('hi');
+      // })
+
 
 $(document).ready(function() {
+
+      $('#edit-filter-slider').on('input', function() {
+        // console.log('hi');
+        // console.log($('#saturation-slider').val());
+        var daVal = $('#saturation-slider').val();
+        $('.stage-one.solo').css('filter', 'saturate(' + daVal + ')');
+      })
+
 
   $('button').attr('disabled', true);
   $('button#hud-open').attr('disabled', false);
@@ -117,7 +168,7 @@ $(document).ready(function() {
     $('#hud-close').click(function() { myWindow.close(); });
 
     for ( let i = 0; i < enabledBanksArray.length; i++) {
-         $('#banks-container').append('<li><button><img src="' + binLocation + '/' + enabledBanksArray[i].thumbnail + '.gif' + '"/><span>' + enabledBanksArray[i].trigger + '</span></a><p>' + enabledBanksArray[i].name +'</p></button></li>');
+         $('#banks-container').append('<li><img src="' + binLocation + '/' + enabledBanksArray[i].thumbnail + '.gif' + '"/><span>' + enabledBanksArray[i].trigger + '</span></a><p>' + enabledBanksArray[i].name +'</p></li>');
     }
 
      $('#banks-container li').on('click', function(e) {
@@ -206,16 +257,81 @@ $(document).ready(function() {
       });
 
 
-      $('.fader input').on('input', function() {
-        console.log('hi');
-        var sliderValue = $(this).val() * .01;
-        console.log($(this).val());
-        $(".scene.hud " + s2 ).css('opacity', sliderValue);
-        myWindow.$(s2).css('opacity', sliderValue);
+      // $('.fader input').on('input', function() {
+      //   console.log('hi');
+      //   var sliderValue = $(this).val() * .01;
+      //   console.log($(this).val());
+      //   $(".scene.hud " + s2 ).css('opacity', sliderValue);
+      //   myWindow.$(s2).css('opacity', sliderValue);
 
+      // });
+
+
+      // $('#hud-saturation-s1').hover(function() {
+      //   $('.btn-edit-filter').fadeIn();
+      //   // $(this).attr('disabled', true);
+      // },
+      // function() {
+      //   $('.btn-edit-filter').fadeOut();
+      //   // $(this).attr('disabled', false);
+      // });
+
+      // $('.btn-edit-filter').on('click', function() {
+      //   console.log('here comes the slider');
+      //           // $(this).attr('disabled', false);
+
+      //   $('#edit-filter-slider').fadeIn();
+      //   // $('#edit-filter-slider').html('<input type="range" id="saturation-slider" orient="vertical" />');
+      // });
+
+      $('#close-filter-slider').click(function() {
+        $('#edit-filter-slider').fadeOut();
+        $('#hud-saturation-s1').attr('disabled', false);
+        $('.btn-edit-filter').fadeOut();
+        myWindow.Mousetrap.trigger("7");
+        $('#hud-saturation-s1').toggleClass('active');
       });
 
+      var speedSlider = document.getElementById("gps-speed-slider");
 
+      // $('.btn-edit-filter').on('click', function() {
+      //   console.log('here comes the slider');
+      //   $('#edit-filter-slider').html('<input type="range" id="saturation-slider" orient="vertical" />');
+      // });
+      // $('#edit-filter-slider input#saturation-slider').on('input', function() {
+      //   console.log('hi');
+      // });
+
+      // $('#hud-saturation-s2').click(function() {
+      //   $(this).css('grid-column', '1 / span 3');
+      //   $('<span class="edit-pane">hi</span>').appendTo('.new-filter-section');
+      // });
+
+      // $('#btn-saturation-s2').hover(function(e) {
+      //   $(this).css('grid-column', '1 / span 3');
+      //   e.preventDefault();
+      //   e.stopPropagation();
+      //   // $('<span class="edit-pane">hi</span>').appendTo('.new-filter-section');
+      //   // $(this).attr('disabled', true);
+      //   $('.edit-pane').fadeIn('fast');
+
+      // }, function() {
+      //   $(this).css('grid-column', '1 / span 4');
+      //   $('.edit-pane').fadeOut('fast');
+      //   // $(this).attr('disabled', false);
+
+      // });
+
+      // $('.edit-pane').hover(function() {
+      //   // $('#hud-saturation-s2').attr('disabled', false);
+      // }, function() {
+      //   $(this).fadeOut('fast');
+      //   // $(this).attr('disabled', false);
+      //   $('#hud-saturation-s2').css('grid-column', '1 / span 4');
+      // });
+
+      $('.edit-pane').click(function() {
+      });
 
       $('#btn-random-video').click(function() {  myWindow.Mousetrap.trigger('@');  /* Video.randomVideo(); */ });
       $('#btn-video-mode').click(function() { videoMode(); });
@@ -225,26 +341,26 @@ $(document).ready(function() {
       $('#btn-banker-play-all').click(function() { myWindow.Mousetrap.trigger('ctrl+\''); });
       $('#btn-banker-clear').click(function() { myWindow.Mousetrap.trigger('"'); });
 
-      $('#btn-clear-filters-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('~'); clearAllFilters(); });
-      $('#btn-clear-filters-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('~'); clearAllFilters(); });
+      $('#btn-clear-filters-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('~'); clearAllFilters('s1'); });
+      $('#btn-clear-filters-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('~'); clearAllFilters('s2'); });
 
 
       $('#btn-set-gps').click(function() { myWindow.Mousetrap.trigger('return'); });
       $('#btn-robomode').click(function() { myWindow.Mousetrap.trigger('\''); });
       $('#btn-bartender').click(function() { myWindow.Mousetrap.trigger('\\'); });
-      $('#hud-gps-fast').click(function() { myWindow.Mousetrap.trigger(','); });
-      $('#hud-gps-slow').click(function() { myWindow.Mousetrap.trigger('/'); });
+      $('#hud-gps-fast').click(function() { myWindow.Mousetrap.trigger(','); speedSlider.stepDown(1); });
+      $('#hud-gps-slow').click(function() { myWindow.Mousetrap.trigger('/'); speedSlider.stepUp(1); });
       $('#hud-gps-burst').click(function() { myWindow.Mousetrap.trigger('.'); });
 
-      $('#hud-invert-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('7'); });
-      $('#hud-saturation-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('8'); });
-      $('#hud-hueRotate-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('9'); });
-      $('#hud-blur-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('0'); });
+      $('#btn-invert-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('7'); });
+      $('#btn-saturation-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('8'); });
+      $('#btn-hue-rotate-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('9'); });
+      $('#btn-blur-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('0'); });
 
-      $('#hud-invert-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('7'); });
-      $('#hud-saturation-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('8'); });
-      $('#hud-hueRotate-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('9'); });
-      $('#hud-blur-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('0'); });
+      $('#btn-invert-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('7'); });
+      $('#btn-saturation-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('8'); });
+      $('#btn-hue-rotate-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('9'); });
+      $('#btn-blur-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('0'); });
 
       $('#hud-kaleidoscope').click(function() { myWindow.Mousetrap.trigger('1'); });
       $('#hud-mutator').click(function() { myWindow.Mousetrap.trigger('2'); });

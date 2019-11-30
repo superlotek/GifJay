@@ -1,0 +1,35 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <title>GifJay</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="guts/img/favicon-32x32.png">
+    <script src="guts/js/jquery-2.1.4.min.js"></script>
+
+</head>
+<body>
+<button id="removeButtonDelegated">Remove Btn</button>
+<button id="addButtonDelegated">Add Btn</button>
+<div id="containerDelegated">
+<button id="boundOnPageLoaded">Click Me</button>
+</div>
+
+    <script>
+$( "#containerDelegated" ).on("click", function() { // Changed to On() method to use delegation from container
+alert("boundOnPageLoaded Button Clicked")
+});
+
+$( "#removeButtonDelegated" ).click(function() {
+$("#boundOnPageLoaded").remove();
+});
+
+$( "#addButtonDelegated" ).click(function() {
+$("#containerDelegated").html('<button id="boundOnPageLoaded">Click Me</button>');
+});
+    </script>
+  </body>
+</html>

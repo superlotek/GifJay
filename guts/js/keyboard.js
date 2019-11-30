@@ -72,8 +72,11 @@ function loadjscssfile(filename, filetype){
     console.log('FILTERS: CLEARED');
     if (stgSelect == 'all') {
       $(s1).add(s2).css('-webkit-filter', 'none');
+      window.opener.$(s1).add(s2).css('-webkit-filter', 'none');
+
     } else {
       $(stgSelect).css('-webkit-filter', 'none');
+      window.opener.$(stgSelect).css('-webkit-filter', 'none');
     }
 
     for (i = 0; i < filters.filter.length; i++) {
@@ -176,6 +179,9 @@ function loadjscssfile(filename, filetype){
             console.log('FX: ' + filters.filter[i].name.toUpperCase() + ' OFF');
             filters.filter[i].on = 0;
             $(s1).css('-webkit-filter', filters.filter[i].slugName + '(' + filters.filter[i].min + filters.filter[i].unit + ')');
+            window.opener.$(s1).css('-webkit-filter', filters.filter[i].slugName + '(' + filters.filter[i].min + filters.filter[i].unit + ')');
+
+            console.log('getting called');
             filters.filter[i].stage[0].value = ""; filters.filter[i].stage[1].value = "";
             Filter.addFilter();
           }
