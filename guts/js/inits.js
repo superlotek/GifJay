@@ -126,8 +126,13 @@ var currentScene = {
 	]
 };
 
+const videoBinLocation = "Bins/_Video/";
+
+
 function changeRando() {
-    video.src = myWindow.randomizedVideoSrc;
+    // videoInternal.src = myWindow.randomizedVideoSrc;
+    videoInternal[0].src = myWindow.randomizedVideoSrc;
+    videoInternal[1].src = myWindow.randomizedVideoSrc;
 }
 
 var dancerOn = false;

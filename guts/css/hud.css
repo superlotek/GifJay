@@ -34,6 +34,9 @@ img {
     color: #444;
 }
 
+:focus {
+    outline: none;
+}
 /* HEADER */
 .logo-home img { height: 30px; }
 .logo-home { align-self: center; }
@@ -399,8 +402,8 @@ select option:last-of-type {
     background-position: center;
 }
 
-.stage-one.off, .stage-two.off { background: none !important; }
-
+/*.stage-one.off, .stage-two.off { background: none !important; }
+*/
 /*.scene.mini, #overlays-mini*/ { /*width: 400px; height: 300px; */position: relative; }
 
 /* BLEND MODES */
@@ -448,8 +451,6 @@ button[id^="btn-banker-s"] { background: deepskyblue; }
     background: #fff;
     position: relative;
     border: 1px solid black;
-}
-.gps-meter {
     background: green;
     width: 0;
     height: 10px;
@@ -460,5 +461,27 @@ button[id^="btn-banker-s"] { background: deepskyblue; }
 #hud-set-gps:hover {
     background: green;
 }
+
+.burst {
+    /*animation: burst 2s infinite;*/   
+    animation-name: burst;
+    animation-iteration-count: infinite; 
+}
+
+
+@keyframes burst {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.stage-one.solo.off {
+    opacity: .5 !important;
+    display: block;
+}
+
+.stage-one.off, .stage-two.off {
+    display: block !important;
+}
+
 
 

@@ -71,9 +71,8 @@
             <div class="stage-types">
 
                 <div class="video-container">
-                    <video id="yur" preload autoplay playsinline loop muted>
-<!--                         <source src="Bins/_Video/checkeredDance_fx2.mov" type="video/mp4">
- -->                        <source src="" type="video/mp4">
+                    <video class="stage-video" preload autoplay playsinline loop muted>
+                        <source src="" type="video/mp4">
                     </video>
                 </div>
 
@@ -133,6 +132,14 @@
 
             <div class="scene hud">
                 <div class="stage-types">
+
+                    <div class="video-container">
+                        <video class="stage-video" preload autoplay playsinline loop muted>
+    <!--                         <source src="Bins/_Video/checkeredDance_fx2.mov" type="video/mp4">
+     -->                        <source src="" type="video/mp4">
+                        </video>
+                    </div>
+
                     <div class="stage-one"></div>
                     <div id="gif" class="stage-two"></div>
                 </div>
@@ -286,7 +293,7 @@
                 <p>Fast</p>
             </button>
 
-            <button id="hud-gps-burst" class="btn-toggle">
+            <button id="btn-gps-burst" class="btn-toggle">
                 <svg width="50" height="50" role="img" class="icon" title="BURST"><use xlink:href="gj_interface_icons.svg#icon-burst"></use></svg>
                 <p>Burst</p>
             </button>
@@ -397,7 +404,7 @@
     </div>
 
     <script>
-      const video = document.getElementById("yur");
+      const videoInternal = document.getElementsByClassName('stage-video');
     </script>
 
 

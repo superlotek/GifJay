@@ -15,6 +15,9 @@ const Filter = {
 
     if (window.opener.videoModeOn === true) {
       window.opener.$('video').css('-webkit-filter', filters.strings[0].value);
+      $('#stage-video').css('-webkit-filter', filters.strings[0].value);
+      $('.stage-video').css('-webkit-filter', filters.strings[0].value);
+
     }  else {
     }
 

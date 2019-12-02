@@ -63,6 +63,11 @@ const Effects = {
       $(s2).fadeOut(beatTime/2, function() {
         $(this).fadeIn(beatTime/2);
       });
+
+      window.opener.$(s2).fadeOut(beatTime/2, function() {
+        $(this).fadeIn(beatTime/2);
+      });
+
     },
 
   // FX : SAMESAME

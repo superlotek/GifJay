@@ -69,6 +69,11 @@
         $('#scene-section .stage-one, #scene-section .stage-two').css({width: myWindow.innerWidth * sceneWidthDifference + 'px', height: (myWindow.innerHeight / ratioPercentage) * sceneHeightDifference + 'px'});
         $('#s1-section .stage-one').css({width: myWindow.innerWidth * stageWidthDifference + 'px', height: myWindow.innerHeight * stageWidthDifference + 'px'});
         $('#s2-section .stage-two').css({width: myWindow.innerWidth * stageWidthDifference + 'px', height: myWindow.innerHeight * stageWidthDifference  + 'px'});
+        $('.stage-video').css({width: myWindow.innerWidth * stageWidthDifference + 'px', height: myWindow.innerHeight * stageWidthDifference + 'px'});
+        $('#scene-section .stage-video').css({width: myWindow.innerWidth * sceneWidthDifference + 'px', height: (myWindow.innerHeight / ratioPercentage) * sceneHeightDifference + 'px'});
+        $('#overlays .branding').css({width: myWindow.innerWidth * sceneWidthDifference + 'px', height: (myWindow.innerHeight / ratioPercentage) * sceneHeightDifference + 'px'});
+
+
         // $('.scene.mini').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
         // $('.stage-one').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
         // $('.stage-two').css({maxWidth: myWindow.innerWidth + 'px', height: '-webkit-fill-available'});
@@ -93,16 +98,25 @@
     }
 
     function videoMode() {
+      console.log('VIDEO MODE: ON');
+      videoModeOn = true;
+
       $('#s1-section .stage-one.solo').remove();
       myWindow.$(s1).remove();
-      videoModeOn = true;
-      video.src = "Bins/_Video/checkeredDance_fx2.mov";
-      myWindow.video.src = "Bins/_Video/checkeredDance_fx2.mov";
+      $('.scene.hud ' + s1).remove();
 
+      videoInternal[0].src = "Bins/_Video/checkeredDance_fx2.mov";
+      videoInternal[1].src = "Bins/_Video/checkeredDance_fx2.mov";
+      // myWindow.videoExternal.src = "Bins/_Video/checkeredDance_fx2.mov";
+
+      // myWindow.$('.stage-video').src = "Bins/_Video/checkeredDance_fx2.mov";
+      // $('.scene.hud ').attr('src', "Bins/_Video/checkeredDance_fx2.mov");
 
     }
     function gifMode() {
-      console.log('GIF MODE IS BACK!');
+      videoModeOn = false;
+
+      console.log('GIF MODE: ON');
       video.src = "";
       $('#s1-section .stage-types').append("<div class='stage-one solo' />");
       $('.stage-one.solo').css('background', 'url(Bins/JapaneseAnims/japan_FileAug08123439AM.gif)');
@@ -248,7 +262,7 @@ $(document).ready(function() {
 
      function changeRando() {
       // window.opener.$('video')[0].currentSrc
-      alert('hi');
+      console.log('changeRando function called');
      }
 
 
@@ -257,14 +271,13 @@ $(document).ready(function() {
       });
 
 
-      // $('.fader input').on('input', function() {
-      //   console.log('hi');
-      //   var sliderValue = $(this).val() * .01;
-      //   console.log($(this).val());
-      //   $(".scene.hud " + s2 ).css('opacity', sliderValue);
-      //   myWindow.$(s2).css('opacity', sliderValue);
-
-      // });
+      $('.fader input').on('input', function() {
+        console.log('hi');
+        var sliderValue = $(this).val() * .01;
+        console.log($(this).val());
+        $(".scene.hud " + s2 ).css('opacity', sliderValue);
+        myWindow.$(s2).css('opacity', sliderValue);
+      });
 
 
       // $('#hud-saturation-s1').hover(function() {
@@ -350,7 +363,16 @@ $(document).ready(function() {
       $('#btn-bartender').click(function() { myWindow.Mousetrap.trigger('\\'); });
       $('#hud-gps-fast').click(function() { myWindow.Mousetrap.trigger(','); speedSlider.stepDown(1); });
       $('#hud-gps-slow').click(function() { myWindow.Mousetrap.trigger('/'); speedSlider.stepUp(1); });
-      $('#hud-gps-burst').click(function() { myWindow.Mousetrap.trigger('.'); });
+
+        $('#btn-gps-burst').click(function() {
+          if (myWindow.robomodeOn === 1) {
+            myWindow.Mousetrap.trigger('.'); $(this).toggleClass('burst'); doStuff(beatTime);
+          }
+       });
+
+        function doStuff() {
+          $('#btn-gps-burst').css('animation-duration', (myWindow.beatTime/1000) + 's');
+        }
 
       $('#btn-invert-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('7'); });
       $('#btn-saturation-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('8'); });
