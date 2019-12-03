@@ -1,3 +1,13 @@
+:root {
+  --highlight-color: yellowgreen;
+  --primary-brand: cadetblue;
+  --white: #ffffff;
+  --black: #000000;
+  --darkest-grey: #333333;
+  --dark-grey: #444444;
+}
+
+
 /* RESET */
 *, *:before, *:after { box-sizing: border-box; }
 h3 { margin: 0; padding: 0; }
@@ -30,8 +40,8 @@ img {
     "header  header  header"
     "stage1 scene stage2"
     "filter  gps  blend";
-    background-color: #fff;
-    color: #444;
+    background-color: var(--white);
+    color: var(--dark-grey);
 }
 
 :focus {
@@ -43,8 +53,8 @@ img {
 #hud-settings { grid-column: 12; }
 
 header {
-    background: black;
-    color: #fff;
+    background: var(--black);
+    color: var(--white);
     /*grid-column: 1 / span 3; */
     grid-area: header; height: 10vh;
     display: grid;
@@ -54,11 +64,11 @@ header {
 
 }
 header .inner-grid { height: 100%; }
-header div { color: #333; }
+header div { color: var(--darkest-grey); }
 button { border: 0; background: none; cursor: pointer; width: 100%; height: 100%; font-size: 10px; font-family: inherit; }
 button p { margin: 5px 0 0 0; font-size: 10px; }
 button p, button { color: #aaa; font-weight: bold; text-transform: uppercase; }
-button.active { background: yellowgreen; }
+button.active { background: var(--highlight-color); }
 
 /* BUTTONS */
 svg.icon {
@@ -69,14 +79,19 @@ svg.icon {
 }
 
 svg.icon.small { width: 15px; }
-svg:hover { fill: #fff; }
+svg:hover { fill: var(--white); }
 
-button.active svg.icon { fill: #333; }
-button.active p { color: #333; }
+button.btn-toggle { transition: all .25s; }
+
+button.btn-press svg.icon:active { fill: var(--highlight-color);-webkit-filter: drop-shadow(0 0 10px var(--highlight-color)));      
+    filter: drop-shadow(0 0 10px var(--highlight-color));   }
+
+button.active svg.icon { fill: var(--darkest-grey); }
+button.active p { color: var(--darkest-grey); }
 
 /* SECTIONS */
 section {
-    background-color: #333;
+    background-color: var(--darkest-grey);
     height: 45vh;
     width: 33.33vw;
     display: grid;
@@ -89,7 +104,7 @@ section {
 #effects-section,
 #gps-section,
 #blend-modes-section {
-    background: #444;
+    background: var(--dark-grey);
 }
 
 input[type=range][orient=vertical]
@@ -105,7 +120,7 @@ input[type=range][orient=vertical]
 #s1-section, #s2-section { z-index: 2; }
 
 
-#gps-section { border-right: 3px solid #444; border-left: 3px solid #555; }
+#gps-section { border-right: 3px solid var(--dark-grey); border-left: 3px solid #555; }
 
 .grid-slim {
     display: grid;
@@ -141,7 +156,7 @@ input[type=range][orient=vertical]
 
 
 
-#scene { width: 100%; height: 100%; background: #fff; grid-row: 1 / span 4; grid-column: 1 / span 4;  }
+#scene { width: 100%; height: 100%; background: var(--white); grid-row: 1 / span 4; grid-column: 1 / span 4;  }
 .fader { width: 100%; grid-row: 2; grid-column: 2 / span 2; }
 .fader input { width: 100%; }
 #hud-scene-flip { grid-row: 2; grid-column: 4 / span 1; width: 100%; height: 100%; }
@@ -184,7 +199,7 @@ input[type=range][orient=vertical]
     align-items: center;
 }
 
-.stage-types { background: #000; }
+.stage-types { background: var(--black); }
 
 /* STAGE ONE */
 #s1-section { justify-self: end; }
@@ -346,7 +361,7 @@ select option:last-of-type {
 .stage-two-mini { mix-blend-mode: screen; }
 */
 /* SCENE */
-#scene-section { justify-self: center; width: 100%; position: relative; background: #000; }
+#scene-section { justify-self: center; width: 100%; position: relative; background: var(--black); overflow: hidden; }
 #scene { margin: 0 auto; }
 /*.scene {
     position: relative;
@@ -363,7 +378,7 @@ select option:last-of-type {
 /*    border: 10px solid #000;
 */    /*border-radius: 10px;*/
     justify-self: center;
-    background: #fff url(../img/static_1.gif) center center no-repeat;
+    background: var(--white) url(../img/static_1.gif) center center no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -385,6 +400,9 @@ select option:last-of-type {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.hud .branding { display: none; }
+.hud .branding.on { display: block; }
 
 .hud .logo {
     top: 0;
@@ -412,45 +430,45 @@ select option:last-of-type {
 
 /* BANKS */
 .bank-slider { position: fixed; width: 100%; /*bottom: -600px;*/ left: 0; }
-.bank-slider h3 { color: #000; }
-.bank-slider-container { background: rgba(0,0,0,.9); border: 1px solid black; padding: 0 0 0 0; height: 45vh; }
-.bank-slider-container p { text-align: left; margin-top: 5px; color: #fff; font-size: 10px; font-weight: normal; text-transform: uppercase; }
+.bank-slider h3 { color: var(--black); }
+.bank-slider-container { background: rgba(0,0,0,.9); border: 1px solid var(--black); padding: 0 0 0 0; height: 45vh; }
+.bank-slider-container p { text-align: left; margin-top: 5px; color: var(--white); font-size: 10px; font-weight: normal; text-transform: uppercase; }
 
 .bank-slider ul { display: grid; grid-template-rows: 3; grid-template-columns: repeat(10, 1fr) }
 .bank-slider ul { list-style-type: none; /*margin: 20px 0;*/ }
 .bank-slider li { margin: 0 10px 5px 10px; position: relative; text-align: left; }
 .bank-slider li img { /*width: 200px; max-height: 100px;*/ border: 1px solid #eee; max-height: 60px; }
-.bank-slider li span { position: absolute; top: 1px; left: 1px; background: black; padding: 5px; text-transform: uppercase; font-weight: bold; color: orange; }
+.bank-slider li span { position: absolute; top: 1px; left: 1px; background: var(--black); padding: 5px; text-transform: uppercase; font-weight: bold; color: orange; }
 
-#btn-bank-slider { background: cadetblue; color: #000; font-weight: bold; width: 33.33vw; height: 5.625vh; margin: 0 auto; display: block; }
-#btn-bank-slider h3 { color: #fff; }
+#btn-bank-slider { background: var(--primary-brand); color: var(--black); font-weight: bold; width: 33.33vw; height: 5.625vh; margin: 0 auto; display: block; }
+#btn-bank-slider h3 { color: var(--white); }
 
 .banker-buttons { display: grid; grid-template-columns: repeat(12, 1fr); margin: 0 0 20px 0; }
 .banker-buttons button { background: #666; padding: 10px;  }
-.banker-buttons button { background: #555; padding: 10px; border-left: 2px solid #333; }
-.banker-buttons button:hover { background: cadetblue; color: #333; }
+.banker-buttons button { background: #555; padding: 10px; border-left: 2px solid var(--darkest-grey); }
+.banker-buttons button:hover { background: var(--primary-brand); color: var(--darkest-grey); }
 .banker-buttons button:first-of-type { border: 0; }
 
-#btn-banker-select { background: cadetblue; grid-column: span 2; }
+#btn-banker-select { background: var(--primary-brand); grid-column: span 2; }
 #btn-banker-clear { grid-column: span 2; }
 #btn-banker-play-all { grid-column: span 2; }
 #btn-banker-s1 { grid-column: 5; }
 button[id^="btn-banker-s"] { background: deepskyblue; }
 
-#btn-banker-close { background: #fff; color: cadetblue; grid-column: 11 / span 2; }
-#btn-banker-close svg { fill: cadetblue; }
-#btn-banker-close:hover { background: cadetblue; color: #fff; }
-#btn-banker-close:hover svg { fill: white; }
+#btn-banker-close { background: var(--white); color: var(--primary-brand); grid-column: 11 / span 2; }
+#btn-banker-close svg { fill: var(--primary-brand); }
+#btn-banker-close:hover { background: var(--primary-brand); color: var(--white); }
+#btn-banker-close:hover svg { fill: var(--white); }
 
-.gps-data { color: #000; width: 100%; font-family: "Digital"; font-size: 36px; color: green; display: block; }
+.gps-data { color: var(--black); width: 100%; font-family: "Digital"; font-size: 36px; color: green; display: block; }
 .gps-data em { font-size: 18px; color: darkgreen; }
 .gps-wrapper { background: #222; width: 100%; height: 100%; text-align: center; padding: 5px; color: green; }
 .gps-meter-container {
     width: 200px;
     height: 10px;
-    background: #fff;
+    background: var(--white);
     position: relative;
-    border: 1px solid black;
+    border: 1px solid var(--black);
     background: green;
     width: 0;
     height: 10px;
@@ -474,13 +492,129 @@ button[id^="btn-banker-s"] { background: deepskyblue; }
     100% { opacity: 0; }
 }
 
-.stage-one.solo.off {
+.stage-video.on { display: block; }
+.stage-video.off { display: none; }
+
+/*.stage-one.solo.off {
     opacity: .5 !important;
     display: block;
 }
 
 .stage-one.off, .stage-two.off {
     display: block !important;
+}
+*/
+
+/* Styling Input Range Slider */
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: var(--primary-brand);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--primary-brand);
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: var(--primary-brand);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: var(--primary-brand);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: var(--primary-brand);
+}
+input[type=range]::-ms-fill-upper {
+  background: var(--primary-brand);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: var(--primary-brand);
 }
 
 

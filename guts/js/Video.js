@@ -10,11 +10,16 @@ const Video = {
   switchVideo() {
     console.log('SWITCH VIDEO: ON');
     let videoDuration = videoExternal.duration;
-    // window.opener.videoInternal[0].currentTime = Math.ceil(Math.random() * (videoDuration - beatTime/1000));
-    // window.opener.videoInternal[1].currentTime = Math.ceil(Math.random() * (videoDuration - beatTime/1000));
-    window.opener.$('.stage-video').currentTime = Math.ceil(Math.random() * (videoDuration - beatTime/1000));
-    videoExternal.currentTime = Math.ceil(Math.random() * (videoDuration - beatTime/1000));
+    let randomDuration = Math.ceil(Math.random() * (videoDuration - beatTime/1000));
+    videoExternal.currentTime = randomDuration;
 
+    window.opener.videoInternalSwitcher(randomDuration);
+  },
+
+  clearVideo() {
+    console.log('video cleared externally');
+    // videoExternal.src = "";
+    alert(myWindow.externalVideo.src);
   },
 
   randomVideo() {

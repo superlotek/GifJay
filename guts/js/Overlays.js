@@ -28,6 +28,9 @@ const Overlays = {
 				// }
 
 
+				// window.opener.$(ov).toggleClass('on');
+
+
 			if(!overlayOn) {
 				
 				if (thisOneHasAnimation) {
@@ -47,9 +50,11 @@ const Overlays = {
 				$(ov).addClass('on');
 				window.opener.$(ov).addClass('on');
 
+				// window.opener.$(ov).addClass('on');
+				window.opener.$('#scene-section .branding').toggleClass('on');
+
 				// window.opener.$(ov).toggleClass('on');
 
-				console.log('yeah!!');
 				console.log('OVERLAY: ON');
 
 
@@ -149,10 +154,12 @@ const Overlays = {
 
 		$(ov).addClass('ov-anim');
 		window.opener.$(ov).addClass('ov-anim');
+		window.opener.$(ov).toggleClass('on');
 
 	},
 
 	hideOverlay() {
+		console.log('HIDE OVERLAYS');
 		Mousetrap.trigger("alt+" + glerp);
 		waitOverlayTimer = setTimeout(Overlays.waitOverlay, (beatTime * overlayFrequency));
 		

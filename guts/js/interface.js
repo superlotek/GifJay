@@ -97,28 +97,42 @@
       }
     }
 
+    function videoInternalSwitcher(randomDuration) {
+      videoInternal[0].currentTime = randomDuration;
+      videoInternal[1].currentTime = randomDuration;
+    }
+
     function videoMode() {
       console.log('VIDEO MODE: ON');
+      $('#btn-video-mode').addClass('active');
+      $('#btn-gif-mode').removeClass('active');
+
       videoModeOn = true;
+      $('.stage-video').toggleClass('on');
+      myWindow.$('#stage-video').addClass('on');
 
       $('#s1-section .stage-one.solo').remove();
       myWindow.$(s1).remove();
       $('.scene.hud ' + s1).remove();
 
-      videoInternal[0].src = "Bins/_Video/checkeredDance_fx2.mov";
-      videoInternal[1].src = "Bins/_Video/checkeredDance_fx2.mov";
-      // myWindow.videoExternal.src = "Bins/_Video/checkeredDance_fx2.mov";
-
-      // myWindow.$('.stage-video').src = "Bins/_Video/checkeredDance_fx2.mov";
-      // $('.scene.hud ').attr('src', "Bins/_Video/checkeredDance_fx2.mov");
+      myWindow.Mousetrap.trigger('@');
 
     }
-    function gifMode() {
-      videoModeOn = false;
 
+    function gifMode() {
       console.log('GIF MODE: ON');
-      video.src = "";
+      videoModeOn = false;
+      $('#btn-video-mode').removeClass('active');
+      $('#btn-gif-mode').addClass('active');
+      videoInternal[0].src = "";
+      videoInternal[1].src = "";
+
       $('#s1-section .stage-types').append("<div class='stage-one solo' />");
+      myWindow.$('.stage-types').append("<div class='stage-one' />");
+      // myWindow.videoExternal.src = "";
+
+      Video.clearVideo();
+
       $('.stage-one.solo').css('background', 'url(Bins/JapaneseAnims/japan_FileAug08123439AM.gif)');
 
       // $('#s1-section .stage-one.solo').css('background', 'none');
@@ -389,7 +403,14 @@ $(document).ready(function() {
       $('#hud-samesame').click(function() { myWindow.Mousetrap.trigger('3'); $('.stage-two').toggleClass('same-same'); });
       $('#hud-stageFader').click(function() { myWindow.Mousetrap.trigger('4'); });
 
-      $('#hud-s1-toggle').click(function() { myWindow.Mousetrap.trigger('_'); $('.stage-one').toggleClass('on'); $('.stage-one').toggleClass('off'); });
+      $('#hud-s1-toggle').click(function() {
+        myWindow.Mousetrap.trigger('_');
+        $('.stage-one, .stage-video').toggleClass('on').toggleClass('off');
+        myWindow.$('#stage-video').toggleClass('on').toggleClass('off');
+      });
+      
+
+
       $('#hud-s2-toggle').click(function() { myWindow.Mousetrap.trigger('+'); $('.stage-two').toggleClass('on'); $('.stage-two').toggleClass('off'); });
 
       $('#btn-auto-overlay').click(function() { myWindow.Mousetrap.trigger('!'); });

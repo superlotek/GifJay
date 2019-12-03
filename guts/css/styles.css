@@ -85,6 +85,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
  	.stage-one.on, .stage-two.on { display: block; }
  	.stage-two.blend { mix-blend-mode: screen; }
  	.stage-one.off, .stage-two.off { display: none !important; }
+    #stage-video.on { display: block; }
+    #stage-video.off { display: none; }
 
     .title-page {
         background-size: cover !important;
