@@ -70,8 +70,9 @@ function sceneSetter(arrayName, banker1, banker2) {
 
   if (blendModeRandomOn) {
     
-    $(s2).css('mix-blend-mode', appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name);
-    window.opener.$(s2).css('mix-blend-mode', appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name);
+    let randomBlendMode = appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name;
+    $(s2).css('mix-blend-mode', randomBlendMode);
+    window.opener.$(s2).css('mix-blend-mode', randomBlendMode);
 
   }
 

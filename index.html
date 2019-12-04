@@ -34,7 +34,7 @@
 
   <body>
     
-    <div class="grid-container">
+    <div class="grid-main-container">
 
         <header>
 
@@ -116,12 +116,12 @@
             	<p>Clear Filters</p>
             </button>
 
-            <button id="hud-s1-toggle" class="btn-toggle">
+            <button id="btn-s1-toggle" class="btn-toggle">
                 <svg width="50" height="50" role="img" class="icon" title="EYES"><use xlink:href="gj_interface_icons.svg#icon-eyes"></use></svg>
                 <p>Toggle</p>
             </button>
 
-            <button id="hud-s1-select" class="btn-toggle">
+            <button id="btn-s1-select" class="btn-toggle">
             	<svg width="50" height="50" role="img" class="icon" title="SELECT S1"><use xlink:href="gj_interface_icons.svg#icon-select-all"></use></svg>
             	<p>Select Stage</p>
             </button>
@@ -159,7 +159,7 @@
                 <div class="stage-two solo"></div>
             </div>
 
-            <div class="new-filter-section grid-4x8">
+            <div class="new-filter-section grid-inner-4x8">
 
                 <button id="btn-invert-s2" class="btn-toggle filter">
                     <svg width="50" height="50" role="img" class="icon" title="INVERT"><use xlink:href="gj_interface_icons.svg#icon-invert"></use></svg>
@@ -186,12 +186,12 @@
  -->                
             </div>
 
-            <button id="hud-s2-toggle" class="btn-toggle">
+            <button id="btn-s2-toggle" class="btn-toggle">
                 <svg width="50" height="50" role="img" class="icon" title="EYES"><use xlink:href="gj_interface_icons.svg#icon-eyes"></use></svg>
                 <p>Toggle</p>
             </button>
 
-            <button id="hud-s2-select" class="btn-toggle">
+            <button id="btn-s2-select" class="btn-toggle">
             	<svg width="50" height="50" role="img" class="icon" title="SELECT S2"><use xlink:href="gj_interface_icons.svg#icon-select-all"></use></svg>
             	<p>Select Stage</p>
             </button>
@@ -253,59 +253,134 @@
         </section>
 
         <section id="gps-section">
+            <div class="grid-inner-12x12">
 
-            <button id="btn-robomode" class="btn-toggle">
-                <svg width="50" height="50" role="img" class="icon" title="LOOP"><use xlink:href="gj_interface_icons.svg#icon-loop"></use></svg>
-                <p>RoboMode</p>
-            </button>
-
-            <button id="btn-bartender" class="btn-toggle">
-                <svg width="50" height="50" role="img" class="icon" title="BAR TENDER"><use xlink:href="gj_interface_icons.svg#icon-hold"></use></svg>
-                <p>Bar Tender</p>
-            </button>
-
-            <button id="btn-set-gps" class="btn-press">
-                <svg width="50" height="50" role="img" class="icon" title="METRONOME"><use xlink:href="gj_interface_icons.svg#icon-metronome"></use></svg>
-                <p>Beat Tap</p>
-            </button>
-
-            <div class="grid-slim">
-                <button id="hud-fullscreen" class="btn-toggle">
-                	<svg width="50" height="50" role="img" class="icon" title="FULLSCREEN"><use xlink:href="gj_interface_icons.svg#icon-fullscreen"></use></svg>
-					<p>Fullscreen</p>
-                </button>
-                <button id="hud-scene-flip" class="btn-press">
-                	<svg width="50" height="50" role="img" class="icon" title="SCENE FLIP"><use xlink:href="gj_interface_icons.svg#icon-flip"></use></svg>
-                	<p>SceneFlip</p>
-                </button>
                 <div class="fader">
                     <input type="range" min="0" max="100" value="100" />
                 </div>
+
+                <button id="btn-fullscreen" class="btn-toggle">
+                    <svg width="50" height="50" role="img" class="icon" title="FULLSCREEN"><use xlink:href="gj_interface_icons.svg#icon-fullscreen"></use></svg>
+                    <p>Fullscreen</p>
+                </button>
+
+                <button id="btn-bartender" class="btn-toggle">
+                    <svg width="50" height="50" role="img" class="icon" title="BAR TENDER"><use xlink:href="gj_interface_icons.svg#icon-hold"></use></svg>
+                    <p>Bar Tender</p>
+                </button>
+
+                <button id="btn-scene-flip" class="btn-press">
+                    <svg width="50" height="50" role="img" class="icon" title="SCENE FLIP"><use xlink:href="gj_interface_icons.svg#icon-flip"></use></svg>
+                    <p>SceneFlip</p>
+                </button>
+
+               <button id="btn-set-gps" class="btn-press">
+                    <svg width="50" height="50" role="img" class="icon" title="METRONOME"><use xlink:href="gj_interface_icons.svg#icon-metronome"></use></svg>
+                    <p>Beat Tap</p>
+                </button>
+
+                <button id="btn-gps-burst" class="btn-toggle">
+                    <svg width="50" height="50" role="img" class="icon" title="BURST"><use xlink:href="gj_interface_icons.svg#icon-burst"></use></svg>
+                    <!-- <p>Burst</p> -->
+                </button>
+
+                <p class="gps-wrapper"><span class="gps-data"></span></p>
+
+                <button id="btn-scene-freeze" class="btn-toggle">
+                    <svg width="50" height="50" role="img" class="icon" title="PAUSE"><use xlink:href="gj_interface_icons.svg#icon-freeze"></use></svg>
+                    <!-- <p>Scene Freeze</p> -->
+                </button>
+
+                <button id="btn-robomode" class="btn-toggle">
+                    <svg width="50" height="50" role="img" class="icon" title="LOOP"><use xlink:href="gj_interface_icons.svg#icon-loop"></use></svg>
+                    <p>RoboMode</p>
+                </button>
+
+                <button id="btn-gps-fast" class="btn-press">
+                    <svg width="50" height="50" role="img" class="icon" title="FAST"><use xlink:href="gj_interface_icons.svg#icon-fast"></use></svg>
+                    <!-- <p>Fast</p> -->
+                </button>
+
+                <div class="test-fader2">
+                    <input id="gps-speed-slider" list="steplist" type="range" min="1" value="5" step="1" max="9" />
+                    <datalist id="steplist">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                    </datalist>
+                </div>
+
+                <button id="btn-gps-slow" class="btn-press">
+                    <svg width="50" height="50" role="img" class="icon" title="SNAIL"><use xlink:href="gj_interface_icons.svg#icon-snail"></use></svg>
+                    <!-- <p>Slow</p> -->
+                </button>
+
+                <div>9</div>
+                <div>9</div>
+                <div>9</div>
+                <div>9</div>
+                <div>9</div>
+                <div>9</div>
+                <div>9</div>
+                <div>9</div>
+                <div>9</div>
+                <div>9</div>
+                <div>9</div>
+                <div>9</div>
+
+                <div>10</div>
+                <div>10</div>
+                <div>10</div>
+                <div>10</div>
+                <div>10</div>
+                <div>10</div>
+                <div>10</div>
+                <div>10</div>
+                <div>10</div>
+                <div>10</div>
+                <div>10</div>
+                <div>10</div>
+
+                <div>11</div>
+                <div>11</div>
+                <div>11</div>
+                <div>11</div>
+                <div>11</div>
+                <div>11</div>
+                <div>11</div>
+                <div>11</div>
+                <div>11</div>
+                <div>11</div>
+                <div>11</div>
+                <div>11</div>
+
+                <div>12</div>
+                <div>12</div>
+                <div>12</div>
+                <div>12</div>
+                <div>12</div>
+                <div>12</div>
+                <div>12</div>
+                <div>12</div>
+                <div>12</div>
+                <div>12</div>
+                <div>12</div>
+                <div>12</div>
             </div>
 
-            <!-- <div>9</div>
-            <<div>10</div>
-            <div>11</div>
-            <div>12</div> -->
 
-            <button id="hud-gps-fast" class="btn-press">
-                <svg width="50" height="50" role="img" class="icon" title="FAST"><use xlink:href="gj_interface_icons.svg#icon-fast"></use></svg>
-                <p>Fast</p>
-            </button>
 
-            <button id="btn-gps-burst" class="btn-toggle">
-                <svg width="50" height="50" role="img" class="icon" title="BURST"><use xlink:href="gj_interface_icons.svg#icon-burst"></use></svg>
-                <p>Burst</p>
-            </button>
 
-            <button id="hud-gps-slow" class="btn-press">
-                <svg width="50" height="50" role="img" class="icon" title="SNAIL"><use xlink:href="gj_interface_icons.svg#icon-snail"></use></svg>
-                <p>Slow</p>
-            </button>
 
-            <p class="gps-wrapper"><span class="gps-data"></span></p>
+            
 
-            <input id="gps-speed-slider" list="steplist" type="range" min="1" value="5" step="1" max="9" />
+<!--             <input id="gps-speed-slider" list="steplist" type="range" min="1" value="5" step="1" max="9" />
             <datalist id="steplist">
                 <option>1</option>
                 <option>2</option>
@@ -317,11 +392,7 @@
                 <option>8</option>
                 <option>9</option>
             </datalist>
-
-            <!-- <div>13</div>
-            <div>14</div>
-            <div>15</div>
-            <div>16</div> -->
+ -->
 
         </section>
 

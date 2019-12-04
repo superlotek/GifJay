@@ -27,7 +27,7 @@ const Play = {
       beatClick = 0;
       window.opener.$('.gps-data').html(window.opener.convertBeatTime(beatTime));
     } else {
-      window.opener.$('.gps-data').html('...');
+      window.opener.$('.gps-data').html('...2 TAPs...');
     }
 
     console.log('GPS: ' + beatTime, "\n---------------------------------");
