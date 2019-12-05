@@ -88,9 +88,6 @@
             <button id="btn-saturation-s1" class="btn-toggle filter">
                 <svg width="50" height="50" role="img" class="icon" title="SATURATION"><use xlink:href="gj_interface_icons.svg#icon-saturation"></use></svg>
                 <p>Saturation</p>
-                <!-- <span class="btn-edit-filter">
-                    <svg width="25" height="25" role="img" class="icon small" title="EDIT"><use xlink:href="gj_interface_icons.svg#icon-edit"></use></svg>
-                </span> -->
             </button>
 
             <button id="btn-hue-rotate-s1" class="btn-toggle filter">
@@ -102,11 +99,6 @@
                 <svg width="50" height="50" role="img" class="icon" title="BLUR"><use xlink:href="gj_interface_icons.svg#icon-blur"></use></svg>
                 <p>Blur</p>
             </button>
-
-            <div id="edit-filter-slider">
-                <button id="close-filter-slider">X</button>
-                <input type="range" id="saturation-slider" min="1" max="100" value="30" orient="vertical" />
-            </div>
 
             <!-- <div>13</div> -->
             <!-- <div>2/4</div> -->
@@ -135,8 +127,7 @@
 
                     <div class="video-container">
                         <video class="stage-video" preload autoplay playsinline loop muted>
-    <!--                         <source src="Bins/_Video/checkeredDance_fx2.mov" type="video/mp4">
-     -->                        <source src="" type="video/mp4">
+                            <source src="" type="video/mp4">
                         </video>
                     </div>
 
@@ -159,32 +150,25 @@
                 <div class="stage-two solo"></div>
             </div>
 
-            <div class="new-filter-section grid-inner-4x8">
+            <button id="btn-invert-s2" class="btn-toggle filter">
+                <svg width="50" height="50" role="img" class="icon" title="INVERT"><use xlink:href="gj_interface_icons.svg#icon-invert"></use></svg>
+                <p>Invert</p>
+            </button>
 
-                <button id="btn-invert-s2" class="btn-toggle filter">
-                    <svg width="50" height="50" role="img" class="icon" title="INVERT"><use xlink:href="gj_interface_icons.svg#icon-invert"></use></svg>
-                    <p>Invert</p>
-                </button>
+            <button id="btn-saturation-s2" class="btn-toggle filter">
+                <svg width="50" height="50" role="img" class="icon" title="SATURATION"><use xlink:href="gj_interface_icons.svg#icon-saturation"></use></svg>
+                <p>Saturation</p>
+            </button>
 
-                <button id="btn-saturation-s2" class="btn-toggle filter">
-                    <svg width="50" height="50" role="img" class="icon" title="SATURATION"><use xlink:href="gj_interface_icons.svg#icon-saturation"></use></svg>
-                    <p>Saturation</p>
-                </button>
+            <button id="btn-hue-rotate-s2" class="btn-toggle filter">
+                <svg width="50" height="50" role="img" class="icon" title="SOCIAL"><use xlink:href="gj_interface_icons.svg#icon-social"></use></svg>
+                <p>Hue-Rotate</p>
+            </button>
 
-
-                <button id="btn-hue-rotate-s2" class="btn-toggle filter">
-                    <svg width="50" height="50" role="img" class="icon" title="SOCIAL"><use xlink:href="gj_interface_icons.svg#icon-social"></use></svg>
-                    <p>Hue-Rotate</p>
-                </button>
-
-                <button id="btn-blur-s2" class="btn-toggle filter">
-                    <svg width="50" height="50" role="img" class="icon" title="BLUR"><use xlink:href="gj_interface_icons.svg#icon-blur"></use></svg>
-                    <p>Blur</p>
-                </button>
-
-<!--                 <span class="edit-pane"><svg width="25" height="25" role="img" class="icon small" title="EDIT"><use xlink:href="gj_interface_icons.svg#icon-edit"></use></svg></span>
- -->                
-            </div>
+            <button id="btn-blur-s2" class="btn-toggle filter">
+                <svg width="50" height="50" role="img" class="icon" title="BLUR"><use xlink:href="gj_interface_icons.svg#icon-blur"></use></svg>
+                <p>Blur</p>
+            </button>
 
             <button id="btn-s2-toggle" class="btn-toggle">
                 <svg width="50" height="50" role="img" class="icon" title="EYES"><use xlink:href="gj_interface_icons.svg#icon-eyes"></use></svg>
@@ -192,16 +176,15 @@
             </button>
 
             <button id="btn-s2-select" class="btn-toggle">
-            	<svg width="50" height="50" role="img" class="icon" title="SELECT S2"><use xlink:href="gj_interface_icons.svg#icon-select-all"></use></svg>
-            	<p>Select Stage</p>
+                <svg width="50" height="50" role="img" class="icon" title="SELECT S2"><use xlink:href="gj_interface_icons.svg#icon-select-all"></use></svg>
+                <p>Select Stage</p>
             </button>
 
             <button id="btn-clear-filters-s2" class="btn-press">
-            	<svg width="50" height="50" role="img" class="icon" title="CLEAR FILTERS"><use xlink:href="gj_interface_icons.svg#icon-reset"></use></svg>
-            	<p>Clear Filters</p>
+                <svg width="50" height="50" role="img" class="icon" title="CLEAR FILTERS"><use xlink:href="gj_interface_icons.svg#icon-reset"></use></svg>
+                <p>Clear Filters</p>
             </button>
 
-            <!-- <div>3/4</div> -->
 
         </section>
 
@@ -426,22 +409,22 @@
             <div>8</div>
             -->
             
-            <button id="hud-kaleidoscope" class="btn-toggle">
+            <button id="btn-kaleidoscope" class="btn-toggle">
                 <svg width="50" height="50" role="img" class="icon" title="TILE"><use xlink:href="gj_interface_icons.svg#icon-tiles"></use></svg>
                 <p>Kaleidoscope</p>
             </button>
 
-            <button id="hud-mutator" class="btn-toggle">
+            <button id="btn-mutator" class="btn-toggle">
                 <svg width="50" height="50" role="img" class="icon" title="DNA"><use xlink:href="gj_interface_icons.svg#icon-dna"></use></svg>
                 <p>Mutator</p>
             </button>
 
-            <button id="hud-samesame" class="btn-toggle">
+            <button id="btn-samesame" class="btn-toggle">
                 <svg width="50" height="50" role="img" class="icon" title="COPY ITEM"><use xlink:href="gj_interface_icons.svg#icon-copyItem"></use></svg>
                 <p>SameSame</p>
             </button>
 
-            <button id="hud-stageFader" class="btn-toggle">
+            <button id="btn-stageFader" class="btn-toggle">
                 <svg width="50" height="50" role="img" class="icon" title="FADE"><use xlink:href="gj_interface_icons.svg#icon-fade"></use></svg>
                 <p>Stage Fader</p>
             </button>

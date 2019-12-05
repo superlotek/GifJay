@@ -144,14 +144,6 @@
 
 $(document).ready(function() {
 
-      $('#edit-filter-slider').on('input', function() {
-        // console.log('hi');
-        // console.log($('#saturation-slider').val());
-        var daVal = $('#saturation-slider').val();
-        $('.stage-one.solo').css('filter', 'saturate(' + daVal + ')');
-      })
-
-
   $('button').attr('disabled', true);
   $('button#hud-open').attr('disabled', false);
   $('section, .bank-slider').hide();
@@ -268,19 +260,10 @@ $(document).ready(function() {
 
 
       $('.fader input').on('input', function() {
-        console.log('hi');
         var sliderValue = $(this).val() * .01;
-        console.log($(this).val());
+        // console.log($(this).val());
         $(".scene.hud " + s2 ).css('opacity', sliderValue);
         myWindow.$(s2).css('opacity', sliderValue);
-      });
-
-      $('#close-filter-slider').click(function() {
-        $('#edit-filter-slider').fadeOut();
-        $('#hud-saturation-s1').attr('disabled', false);
-        $('.btn-edit-filter').fadeOut();
-        myWindow.Mousetrap.trigger("7");
-        $('#hud-saturation-s1').toggleClass('active');
       });
 
       var speedSlider = document.getElementById("gps-speed-slider");
@@ -326,10 +309,10 @@ $(document).ready(function() {
       $('#btn-hue-rotate-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('9'); });
       $('#btn-blur-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('0'); });
 
-      $('#hud-kaleidoscope').click(function() { myWindow.Mousetrap.trigger('1'); });
-      $('#hud-mutator').click(function() { myWindow.Mousetrap.trigger('2'); });
-      $('#hud-samesame').click(function() { myWindow.Mousetrap.trigger('3'); $('.stage-two').toggleClass('same-same'); });
-      $('#hud-stageFader').click(function() { myWindow.Mousetrap.trigger('4'); });
+      $('#btn-kaleidoscope').click(function() { myWindow.Mousetrap.trigger('1'); });
+      $('#btn-mutator').click(function() { myWindow.Mousetrap.trigger('2'); });
+      $('#btn-samesame').click(function() { myWindow.Mousetrap.trigger('3'); $('.stage-two').toggleClass('same-same'); });
+      $('#btn-stageFader').click(function() { myWindow.Mousetrap.trigger('4'); });
 
       $('#btn-s1-toggle').click(function() {
         myWindow.Mousetrap.trigger('_');

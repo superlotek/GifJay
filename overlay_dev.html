@@ -1,0 +1,162 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <title>GifJay</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="guts/img/favicon-32x32.png">
+
+
+    <script src="guts/js/jquery-2.1.4.min.js"></script>
+
+    <style>
+        button { padding: 10px; background: cyan;}
+        .overlay-clip {
+            background: url(seaquence.jpg);
+            width: 300px;
+            height: 300px;
+            visibility: hidden;
+        }
+        .overlay-clip.on {
+            visibility: visible;
+        }
+
+    </style>
+
+  </head>
+
+  <body>
+    
+    <div class="overlay-clip"></div>
+
+    <button id="overlay-on">ON</button>
+    <button id="overlay-auto">AutoOverlay ON</button>
+
+<script>
+
+    const beatTime = 8000;
+    const overlayDuration = 8000;
+    let autoOverlayOn = false;
+    let i = 0;
+
+    function toggleOverlay() {
+        console.log('DISPLAY OVERLAYS');
+        console.log('ON');
+
+        $('.overlay-clip').toggleClass('on');
+
+        if (autoOverlayOn) {
+            displayOverlayTimer = setTimeout(displayOverlay, beatTime );
+        }
+
+    }
+
+    function displayOverlay() {
+        console.log('OVERLAY DISPLAY TIMER')
+        $('.overlay-clip').toggleClass('on');
+        i = 0;
+        hideOverlayTimer = setTimeout(hideOverlay, overlayDuration );
+        // countdownTimer = setInterval(countdown, 1000);
+        countdown.start();
+
+    }
+
+    function hideOverlay() {
+        console.log('OVERLAY HIDE TIMER')
+        $('.overlay-clip').toggleClass('on');
+        displayOverlayTimer = setTimeout(displayOverlay, beatTime );
+        countdown.reset(beatTime);
+
+        // clearInterval(countdownTimer);
+        i = 0;
+        // countdownTimer = setInterval(countdown, 1000);
+    }
+
+    // function countdown() {
+    //     console.log(i++);
+    // }
+
+
+
+    var countdown = new Timer(function() {
+        console.log(i)
+    }, 1000);
+    countdown.stop();
+
+
+    // switch interval to 10 seconds
+    // timer.reset(10000);
+
+    // stop the timer
+    // timer.stop();
+
+    // start the timer
+    // timer.start();
+
+
+
+
+
+    $('#overlay-on').click(function() {
+        toggleOverlay();
+        $('#overlay-on').text($(this).text() == 'ON' ? 'OFF' : 'ON');
+    });
+
+    $('#overlay-auto').click(function() {
+
+        $(this).text($(this).text() == 'AutoOverlay ON' ? 'AutoOverlay OFF' : 'AutoOverlay ON');
+
+        if (autoOverlayOn) {
+            console.log('AUTO OVERLAY OFF')
+            clearTimeout(hideOverlayTimer);
+            autoOverlayOn = false;
+            // clearInterval(countdownTimer);
+            countdown.stop();
+
+            $('#overlay-on').attr('disabled', false);
+            return false;
+        }
+
+        if(!$('.overlay-clip').hasClass('on')) { displayOverlay(); }
+        console.log('AutoOverlay ON');
+        autoOverlayOn = true;
+        $('#overlay-on').attr('disabled', true);
+    });
+
+
+    function Timer(fn, t) {
+        var timerObj = setInterval(fn, t);
+
+        this.stop = function() {
+            if (timerObj) {
+                clearInterval(timerObj);
+                timerObj = null;
+            }
+            return this;
+        }
+
+        // start timer using current settings (if it's not already running)
+        this.start = function() {
+            if (!timerObj) {
+                this.stop();
+                timerObj = setInterval(fn, t);
+                console.log(i);
+            }
+            return this;
+        }
+
+        // start with new interval, stop current interval
+        this.reset = function(newT) {
+            t = newT;
+            return this.stop().start();
+        }
+    }
+
+
+</script>
+
+  </body>
+</html>
