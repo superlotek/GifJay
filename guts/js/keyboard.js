@@ -941,6 +941,11 @@ Mousetrap.bind('!', function() {
 // GIY:  KEYBOARD TRIGGERS
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+
+Mousetrap.bind('q', function() {
+  alert('fuck!');
+});
+
   // createGiyTriggers(bankNumber);
 
 // GIY TRIGGERS

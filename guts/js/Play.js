@@ -6,7 +6,6 @@ var beatClick = 0;
 
 const Play = {
 
-
   setGPS() {
     console.log('GPS: SET');
     var d = new Date();
@@ -312,10 +311,10 @@ const Play = {
       // }
 
       if (window.opener.videoModeOn === true) {
-        console.log('VID MODE ON')
-      Video.switchVideo();
+        //console.log('VID MODE ON')
+        Video.switchVideo();
       } else {
-        console.log('VID MODE OFF')
+       // console.log('VID MODE OFF')
       }
 
       // Video.switchVideo();

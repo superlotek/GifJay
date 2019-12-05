@@ -407,7 +407,7 @@ span.btn-edit-filter {
 
 .bank-slider ul { display: grid; grid-template-rows: 3; grid-template-columns: repeat(10, 1fr) }
 .bank-slider ul { list-style-type: none; /*margin: 20px 0;*/ }
-.bank-slider li { margin: 0 10px 5px 10px; position: relative; text-align: left; }
+.bank-slider li { margin: 0 10px 5px 10px; position: relative; text-align: left; cursor: pointer; }
 .bank-slider li img { /*width: 200px; max-height: 100px;*/ border: 1px solid #eee; max-height: 60px; }
 .bank-slider li span { position: absolute; top: 1px; left: 1px; background: var(--black); padding: 5px; text-transform: uppercase; font-weight: bold; color: orange; }
 

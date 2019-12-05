@@ -197,11 +197,10 @@ $(document).ready(function() {
     }
 
      $('#banks-container li').on('click', function(e) {
-        e.preventDefault();
           var index = $( "#banks-container li" ).index( this );
           console.log("Bank Trigger: ", enabledBanksArray[index].trigger);
-          myWindow.Mousetrap.trigger(enabledBanksArray[index].trigger.toUpperCase());
-
+          // Mousetrap.trigger(enabledBanksArray[index].trigger.toUpperCase());
+          myWindow.bankerArray.push([enabledBanksArray[index].id]);
      });
 
     for ( let i = 0; i < appz.blendModes.mix.length; i++) {
@@ -345,7 +344,7 @@ $(document).ready(function() {
 
       $('#hud-blendMode').click(function() { myWindow.Mousetrap.trigger('alt+,'); });
       $('#hud-blendModeSwitcher').click(function() { myWindow.Mousetrap.trigger('alt+.'); });
-      $('#hud-random-blend').click(function() { myWindow.Mousetrap.trigger('alt+/'); });
+      $('#btn-random-blend').click(function() { myWindow.Mousetrap.trigger('alt+/'); });
 
       $('#hud-stageSelectAll').click(function() { myWindow.Mousetrap.trigger('backspace'); });
 
