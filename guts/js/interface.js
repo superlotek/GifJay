@@ -36,7 +36,7 @@
     }
 
     function updateSceneSize() {
-
+      console.log('Update Scene Sizes')
       var sceneMiniWidth = $('#scene-section').width();
       var sceneMiniHeight = $('#scene-section').height();
 
@@ -64,12 +64,12 @@
       let sceneContainerHeight = $('#scene-section .stage-types').height();
       let stageSceneHeight = $('#scene-section .stage-one').height();
       let sceneContainerPadding = (sceneContainerHeight - stageSceneHeight) / 2;
-      $('#scene-section .stage-one, #scene-section .stage-two', '#scene-section .stage-video').css('top', sceneContainerPadding);
+      $('#scene-section .stage-one, #scene-section .stage-two, #scene-section .video-container').css('top', sceneContainerPadding);
       
       let stageContainerHeight = $('#s1-section .stage-types').height();
       let stageHeight = $('#s1-section .stage-one').height();
       let stageContainerPadding = (stageContainerHeight - stageHeight) / 2;
-      $('#s1-section .stage-one, #s2-section .stage-two', '#s1-section .stage-video').css('top', stageContainerPadding);
+      $('#s1-section .stage-one, #s2-section .stage-two, #s1-section .video-container').css('top', stageContainerPadding);
 
       // if (myWindow.innerWidth >= $('#scene-section .stage-one').width() ) {
       //   $('#scene-section .stage-one').width();
@@ -133,12 +133,20 @@
       videoInternal[1].src = "";
 
       $('#s1-section .stage-types').append("<div class='stage-one solo' />");
-      myWindow.$('.stage-types').append("<div class='stage-one' />");
-      // myWindow.videoExternal.src = "";
+      $("<div class='stage-one' />").insertBefore("#scene-section .stage-types .stage-two");
 
-      Video.clearVideo();
+      // myWindow.$('.stage-types').append("<div class='stage-one' />");
+      myWindow.$("<div class='stage-one on' />").insertBefore(".stage-types .stage-two");
+      myWindow.$('.video-container video').attr('src', "");
+      myWindow.Mousetrap.trigger('space');
+      // $('.stage-one.solo').css('background', 'url(Bins/JapaneseAnims/japan_FileAug08123439AM.gif)');
 
-      $('.stage-one.solo').css('background', 'url(Bins/JapaneseAnims/japan_FileAug08123439AM.gif)');
+      $('#s1-section .stage-one').height($('#s2-section .stage-two').height());
+      $('#s1-section .stage-one').css('top', $('#s2-section .stage-two').css('top'));
+
+      $('#scene-section .stage-one').height($('#scene-section .stage-two').height());
+      $('#scene-section .stage-one').css('top', $('#scene-section .stage-two').css('top'));
+
 
     }
 

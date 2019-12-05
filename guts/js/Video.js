@@ -16,12 +16,6 @@ const Video = {
     window.opener.videoInternalSwitcher(randomDuration);
   },
 
-  clearVideo() {
-    console.log('video cleared externally');
-    // videoExternal.src = "";
-    alert(myWindow.externalVideo.src);
-  },
-
   randomVideo() {
     console.log('RANDOM VIDEO FUNCTION');
     randomVideo = playlist.video.clips[Math.floor(Math.random() * playlist.video.clips.length)].name;

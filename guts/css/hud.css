@@ -178,7 +178,7 @@ div[class^="grid-inner-"] {
 #s1-section .stage-types { grid-column: 2 / span 3; grid-row: 1 / span 3; }
 #s2-section .stage-types { grid-column: 1 / span 3; grid-row: 1 / span 3; }
 
-.stage-one, .stage-two { border: 1px solid var(--white); position: absolute !important; }
+.stage-one, .stage-two, .stage-video { border: 1px solid var(--white); position: absolute !important; }
 
 .stage-one.solo { grid-column: 2 / span 3; position: absolute; }
 .stage-two.solo { grid-column: 1 / span 3; mix-blend-mode: normal; }
