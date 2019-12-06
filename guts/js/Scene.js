@@ -69,8 +69,8 @@ function sceneSetter(arrayName, banker1, banker2) {
 
 
   if (blendModeRandomOn) {
-    
-    let randomBlendMode = appz.blendModes.mix[Init.numRan(appz.blendModes.mix.length)].name;
+    // ADD THIS TO FILTERS PAGE AS A FUNCTION
+    let randomBlendMode = blendModesArray[Init.numRan(blendModesArray.length)].name;
     $(s2).css('mix-blend-mode', randomBlendMode);
     window.opener.$('#scene-section ' + s2).css('mix-blend-mode', randomBlendMode);
 

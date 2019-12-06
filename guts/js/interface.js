@@ -64,7 +64,7 @@
       let sceneContainerHeight = $('#scene-section .stage-types').height();
       let stageSceneHeight = $('#scene-section .stage-one').height();
       let sceneContainerPadding = (sceneContainerHeight - stageSceneHeight) / 2;
-      $('#scene-section .stage-one, #scene-section .stage-two, #scene-section .video-container').css('top', sceneContainerPadding);
+      $('#scene-section .stage-one, #scene-section .stage-two, #scene-section .video-container, #scene-section .branding').css('top', sceneContainerPadding);
       
       let stageContainerHeight = $('#s1-section .stage-types').height();
       let stageHeight = $('#s1-section .stage-one').height();
@@ -199,16 +199,17 @@ $(document).ready(function() {
      $('#banks-container li').on('click', function(e) {
           var index = $( "#banks-container li" ).index( this );
           console.log("Bank Trigger: ", enabledBanksArray[index].trigger);
+          $(this).toggleClass('active');
           // Mousetrap.trigger(enabledBanksArray[index].trigger.toUpperCase());
           myWindow.bankerArray.push([enabledBanksArray[index].id]);
      });
 
-    for ( let i = 0; i < appz.blendModes.mix.length; i++) {
-       $('#blend-modes-selector').append('<option value="' + appz.blendModes.mix[i].name + '">' + appz.blendModes.mix[i].name + '</option>');
+    for ( let i = 0; i < blendModesArray.length; i++) {
+       $('#blend-modes-selector').append('<option value="' + blendModesArray[i].name + '">' + blendModesArray[i].name + '</option>');
     }
 
-    for ( let i = 0; i < appz.overlaySets.length; i++) {
-       $('#overlays-selector').append('<option value="' + appz.overlaySets[i].name + '">' + appz.overlaySets[i].name + '</option>');
+    for ( let i = 0; i < overlaysArray.length; i++) {
+       $('#overlays-selector').append('<option value="' + overlaysArray[i].name + '">' + overlaysArray[i].name + '</option>');
     }
 
 
@@ -284,7 +285,10 @@ $(document).ready(function() {
 
       $('#btn-banker-select').click(function() { myWindow.Mousetrap.trigger(';'); });
       $('#btn-banker-play-all').click(function() { myWindow.Mousetrap.trigger('ctrl+\''); });
-      $('#btn-banker-clear').click(function() { myWindow.Mousetrap.trigger('"'); });
+      $('#btn-banker-clear').click(function() {
+        myWindow.Mousetrap.trigger('"');
+        $('#banks-container li').removeClass('active');
+      });
 
       $('#btn-clear-filters-s1').click(function() { myWindow.Mousetrap.trigger('-'); myWindow.Mousetrap.trigger('~'); clearAllFilters('s1'); });
       $('#btn-clear-filters-s2').click(function() { myWindow.Mousetrap.trigger('='); myWindow.Mousetrap.trigger('~'); clearAllFilters('s2'); });
@@ -327,7 +331,8 @@ $(document).ready(function() {
         myWindow.$('#stage-video').toggleClass('on').toggleClass('off');
       });
       
-
+      $('#btn-banker-s1').click(function() { myWindow.Mousetrap.trigger('alt+\''); myWindow.Mousetrap.trigger('-') });
+      $('#btn-banker-s2').click(function() { myWindow.Mousetrap.trigger('=') });
 
       $('#btn-s2-toggle').click(function() { myWindow.Mousetrap.trigger('+'); $('.stage-two').toggleClass('on'); $('.stage-two').toggleClass('off'); });
 

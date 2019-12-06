@@ -213,11 +213,6 @@ div[class^="grid-inner-"] {
 /* SCENE */
 /* ============================ */
 
-/*.s1-mini, .s2-mini { height: 100%; width: 100%; background-size: cover; } 
-.s2-mini { position: absolute; top: 0; left: 0; mix-blend-mode: screen; }
-*/
-
-
 #scene { width: 100%; height: 100%; background: var(--white); grid-row: 1 / span 4; grid-column: 1 / span 4; margin: 0 auto;  }
 
 .scene.hud {
@@ -407,8 +402,9 @@ span.btn-edit-filter {
 
 .bank-slider ul { display: grid; grid-template-rows: 3; grid-template-columns: repeat(10, 1fr) }
 .bank-slider ul { list-style-type: none; /*margin: 20px 0;*/ }
-.bank-slider li { margin: 0 10px 5px 10px; position: relative; text-align: left; cursor: pointer; color: }
+.bank-slider li { margin: 0 10px 5px 10px; position: relative; text-align: left; cursor: pointer; }
 .bank-slider li img { /*width: 200px; max-height: 100px;*/ border: 1px solid #eee; max-height: 60px; }
+.bank-slider li.active img { box-shadow: 0 0 10px 5px var(--highlight-color); }
 .bank-slider li span { position: absolute; top: 1px; left: 1px; background: var(--black); padding: 5px; text-transform: uppercase; font-weight: bold; color: orange; }
 
 #btn-bank-slider { background: var(--primary-brand); color: var(--black); font-weight: bold; width: 33.33vw; height: 5.625vh; margin: 0 auto; display: block; }

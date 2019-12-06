@@ -225,7 +225,7 @@ Mousetrap.bind('alt+,', function() {
 Mousetrap.bind('alt+.', function() {
   if(blendModesOn) {
     Filter.blendModeSwitcher(blendCounter++);
-    if (blendCounter === appz.blendModes.mix.length) {
+    if (blendCounter === blendModesArray.length) {
       console.log('BLEND MODES: RESET');
       blendCounter = 0;
       return;
@@ -241,7 +241,8 @@ Mousetrap.bind('alt+/', function() {
   } else {
     blendModeRandomOn = 0;
     console.log('RANDOM BLEND MODE: OFF', "\n---------------------------------");
-    $(s2).css('mix-blend-mode', 'screen');
+    $(s2).css('mix-blend-mode', 'overlay');
+    window.opener.$('#scene-section ' + s2).css('mix-blend-mode', 'overlay');
   }
 });
 
@@ -529,9 +530,9 @@ Mousetrap.bind('!', function() {
     Mousetrap.trigger(";");
     // bankerOn = !bankerOn;
 
-    if (bankerOn) {
-      bankerOn = !bankerOn;
-    }
+    // if (bankerOn) {
+    //   bankerOn = !bankerOn;
+    // }
 
     bankerArray = [];
     bankerStageArrayS1 = [];

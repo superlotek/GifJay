@@ -82,6 +82,14 @@ if (localStorage.getItem("beatTimeMinimum") === null) {
 	beatTimeMinimum = JSON.parse(localStorage.getItem('beatTimeMinimum'));
 }
 
+blendModesArray = appz.blendModes.mix.filter(function(blend) {
+  return blend.enabled === true;
+});
+
+overlaysArray = appz.overlaySets.filter(function(overlay) {
+  return overlay.enabled === true;
+});
+
 
 var overlayCounter = 0;
 var currentOverlaySet = 0;
