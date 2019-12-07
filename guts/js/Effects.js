@@ -37,7 +37,7 @@ const Effects = {
    ++barTenderCounter;
     console.log('BAR COUNTER: ' + barTenderCounter);
     if (barTenderCounter > barLength - 1 ) {
-      barTenderCounter = 1;
+      barTenderCounter = 0; // WAS 1
       console.log('RESTARTING THE BAR TENDER');
       Mousetrap.trigger(']');
       // Mousetrap.trigger('alt+1');

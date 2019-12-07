@@ -192,6 +192,11 @@ $(document).ready(function() {
     $('#hud-open').click(function() { myWindow = window.open("gifjay.html","hudder","width=700,height=600"); $('#hud-close, #hud-start').attr('disabled', false); $('#hud-start').attr('disabled', false) });
     $('#hud-close').click(function() { myWindow.close(); });
 
+
+
+    // BANKER
+    // ++++++++++++++++++++++++++++
+
     for ( let i = 0; i < enabledBanksArray.length; i++) {
          $('#banks-container').append('<li><img src="' + binLocation + '/' + enabledBanksArray[i].thumbnail + '.gif' + '"/><span>' + enabledBanksArray[i].trigger + '</span></a><p>' + enabledBanksArray[i].name +'</p></li>');
     }
@@ -204,14 +209,30 @@ $(document).ready(function() {
           myWindow.bankerArray.push([enabledBanksArray[index].id]);
      });
 
-    for ( let i = 0; i < blendModesArray.length; i++) {
-       $('#blend-modes-selector').append('<option value="' + blendModesArray[i].name + '">' + blendModesArray[i].name + '</option>');
-    }
+    // OVERLAYS
+    // ++++++++++++++++++++++++++++
 
     for ( let i = 0; i < overlaysArray.length; i++) {
        $('#overlays-selector').append('<option value="' + overlaysArray[i].name + '">' + overlaysArray[i].name + '</option>');
     }
 
+    $('#overlays-selector').on('change', function() {
+      var selectedOverlay = $("#overlays-selector").val();
+      var selectedOverlayIndex = $("#overlays-selector").prop('selectedIndex');
+
+      console.log(selectedOverlay);
+      console.log(selectedOverlayIndex);
+
+      myWindow.Mousetrap.trigger('alt+' + selectedOverlayIndex);
+      $(ov).toggleClass('on');
+    })
+
+    // BLEND MODES
+    // ++++++++++++++++++++++++++++
+
+    for ( let i = 0; i < blendModesArray.length; i++) {
+       $('#blend-modes-selector').append('<option value="' + blendModesArray[i].name + '">' + blendModesArray[i].name + '</option>');
+    }
 
     $('#blend-modes-selector').on('change', function() {
       var selectedBlend = $("#blend-modes-selector").val();
@@ -223,13 +244,6 @@ $(document).ready(function() {
       $('.scene.hud .stage-two').css('mix-blend-mode', selectedBlend);
     })
 
-    $('#overlays-selector').on('change', function() {
-      var selectedOverlay = $("#overlays-selector").val();
-      var selectedOverlayIndex = $("#overlays-selector").prop('selectedIndex');
-
-      myWindow.Mousetrap.trigger('alt+' + selectedOverlayIndex);
-      $(ov).toggleClass('on');
-    })
 
      $('#btn-s1-toggle').on('click', function() {
 

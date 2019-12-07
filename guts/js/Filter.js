@@ -17,8 +17,7 @@ const Filter = {
       window.opener.$('video').css('-webkit-filter', filters.strings[0].value);
       $('#stage-video').css('-webkit-filter', filters.strings[0].value);
       $('.stage-video').css('-webkit-filter', filters.strings[0].value);
-
-    }  else {
+      console.log('happening here?')
     }
 
     $(s1).css('-webkit-filter', filters.strings[0].value);
@@ -62,6 +61,8 @@ const Filter = {
         filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].max + filters.filter[filterNum].unit + ")";
         filters.filter[filterNum].stage[1].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";
       }
+
+      console.log('or happening here??')
 
     } else if (stgSelect == s2) {
       // filters.filter[filterNum].stage[0].value = filters.filter[filterNum].slugName + "(" + filters.filter[filterNum].min + filters.filter[filterNum].unit + ")";

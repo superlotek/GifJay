@@ -289,8 +289,8 @@ $(document).ready(function() {
     });
 
 		createEnabledBankers();
-		// createBankTriggers();
-		// createGiyTriggers(bankNumber);
+		createBankTriggers();
+		createGiyTriggers(bankNumber);
 		filterBuild();
 		createSequenceTriggers();
 
