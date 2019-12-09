@@ -62,7 +62,6 @@ function loadjscssfile(filename, filetype){
   // });
 
   Mousetrap.bind("@", function() {
- // alert('hiiiii');
       Video.randomVideo();
       // window.opener.Video.randomVideo();
   });

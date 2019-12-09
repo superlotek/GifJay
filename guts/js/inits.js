@@ -90,7 +90,6 @@ overlaysArray = appz.overlaySets.filter(function(overlay) {
   return overlay.enabled === true;
 });
 
-
 var overlayCounter = 0;
 var currentOverlaySet = 0;
 // barLength = appz.barLength;
@@ -101,6 +100,8 @@ filters = appz.filters;
 // beatTimeMinimum = 1000;
 
 singleBankTriggerArray = [];
+
+let videoIndex = 0;
 
 var banksInUse = [];
 var giyTriggerArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];

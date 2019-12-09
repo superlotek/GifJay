@@ -23,6 +23,8 @@ img {
     height: auto;
 }
 
+ul, li { list-style-type: none; margin: 0; padding: 0; }
+
 @font-face {
   font-family: Digital;
   src: url(../../Fonts/DS-DIGIB.TTF);
@@ -284,6 +286,12 @@ video {
 #btn-gps-slow { grid-column: 11 / span 2; grid-row: 7 / span 2; width: 100%; height: 100%; }
 .test-fader2 { grid-column: 3 / span 8; grid-row: 7 / span 2; width: 100%; }
 
+
+/* VIDEO PLAYLIST */
+/* ============================ */
+
+#video-list { grid-row: 1 / span 3; grid-column: 1 / span 2; height: 100%; width: 100%; }
+#video-list li { color: var(--highlight-color); font-size: 12px; border-bottom: 1px solid var(--darkest-grey); margin-bottom: 10px; padding: 5px; cursor: pointer; }
 
 /* EDIT FILTERS */
 /* ============================ */
