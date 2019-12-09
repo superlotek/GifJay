@@ -139,9 +139,9 @@ const videoBinLocation = "Bins/_Video/";
 
 
 function changeRando() {
-    // videoInternal.src = myWindow.randomizedVideoSrc;
-    videoInternal[0].src = myWindow.randomizedVideoSrc;
-    videoInternal[1].src = myWindow.randomizedVideoSrc;
+    // videoInternal.src = gj.randomizedVideoSrc;
+    videoInternal[0].src = gj.randomizedVideoSrc;
+    videoInternal[1].src = gj.randomizedVideoSrc;
 }
 
 var dancerOn = false;
