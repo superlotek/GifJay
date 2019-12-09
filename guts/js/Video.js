@@ -7,22 +7,19 @@
 
 const Video = {
 
-  switchVideo() {
-    console.log('SWITCH VIDEO: ON');
+  videoJump() {
+    console.log('VIDEO JUMP RUNNING');
     let videoDuration = videoExternal.duration;
     let randomDuration = Math.ceil(Math.random() * (videoDuration - beatTime/1000));
     videoExternal.currentTime = randomDuration;
-
     window.opener.videoInternalSwitcher(randomDuration);
   },
 
   randomVideo() {
     console.log('RANDOM VIDEO FUNCTION');
-    randomVideo = playlist.video.clips[Math.floor(Math.random() * playlist.video.clips.length)].name;
-    // console.log('randomVideo', randomVideo);
+    // randomVideo = playlist.video.clips[Math.floor(Math.random() * playlist.video.clips.length)].name;
+    randomVideo = playlist.video[videoIndex].clips[Math.floor(Math.random() * playlist.video[videoIndex].clips.length)].name;
     randomizedVideoSrc = videoBinLocation + randomVideo;
-    // window.opener.video.src = randomizedVideoSrc;
-    // window.opener.video[1].src = randomizedVideoSrc;
     videoExternal.src = randomizedVideoSrc;
     window.opener.changeRando();
   },

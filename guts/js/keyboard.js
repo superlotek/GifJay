@@ -66,6 +66,17 @@ function loadjscssfile(filename, filetype){
       // window.opener.Video.randomVideo();
   });
 
+  Mousetrap.bind("#", function() {
+    if (!videoJumpOn) {
+      console.log('VIDEO JUMP: ON');
+      gj.videoJumpOn = true;
+      videoJumpOn = true;
+    } else {
+      console.log('VIDEO JUMP: OFF');
+      gj.videoJumpOn = false;
+      videoJumpOn = false;
+    }
+  });
 
   Mousetrap.bind("~", function() {
     console.log('FILTERS: CLEARED');

@@ -270,10 +270,28 @@ $(document).ready(function() {
       $(stage).toggleClass('glup');
      }
 
-     function changeRando() {
-      // window.opener.$('video')[0].currentSrc
-      console.log('changeRando function called');
-     }
+    // VIDEO PLAYLIST 
+    // ++++++++++++++++++++++++++++
+
+    videosArray = playlist.video.filter(function(video) {
+      return video.enabled === true;
+    });
+
+    for ( let i = 0; i < videosArray.length; i++) {
+       $('#video-list').append('<li>' + videosArray[i].name + '</li>');
+    }
+
+    $('#video-list li').click(function() {
+      videoIndex = $(this).index() - 1;
+
+      myIndex(videoIndex);
+      // gj.videoIndex = videoIndex;
+      console.log(videoIndex);
+      // getVideoIndex(videoIndex)
+      // myWindow.videoIndex = videoIndex;
+      // Video.randomVideo(videoIndex);
+    })
+
 
 
       $('button.btn-toggle').on('click', function() {
@@ -296,6 +314,8 @@ $(document).ready(function() {
       $('#btn-random-video').click(function() {  gj.Mousetrap.trigger('@');  /* Video.randomVideo(); */ });
       $('#btn-video-mode').click(function() { videoMode(); });
       $('#btn-gif-mode').click(function() { gifMode(); });
+
+      $('#btn-video-jump').click(function() { Mousetrap.trigger('#') } );
 
       $('#btn-banker-select').click(function() { gj.Mousetrap.trigger(';'); });
       $('#btn-banker-play-all').click(function() { gj.Mousetrap.trigger('ctrl+\''); });

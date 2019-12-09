@@ -305,21 +305,11 @@ const Play = {
       // bankSelectorS2 = Init.randomizer(banksInUse);
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
 
-      // if (window.opener.videoModeOn === true) {
-      //   console.log('woekrting')
-      //   Video.switchVideo();
-      // }
-
-      if (window.opener.videoModeOn === true) {
-        //console.log('VID MODE ON')
-        Video.switchVideo();
-      } else {
-       // console.log('VID MODE OFF')
-      }
-
-      // Video.switchVideo();
-
-
+      if (videoJumpOn === true) {
+          Video.videoJump();
+     } else {
+        return false;
+     }
     }
 }
 

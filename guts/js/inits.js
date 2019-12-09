@@ -144,6 +144,19 @@ function changeRando() {
     videoInternal[1].src = gj.randomizedVideoSrc;
 }
 
+
+function myIndex(videoIndex) {
+	return videoIndex;
+}
+
+
+function getVideoIndex() {
+	console.log('(F) CALLING GET VIDEO INDEX');
+	videoIndex = myIndex();
+	return videoIndex;
+}
+
+var videoJumpOn = false;
 var dancerOn = false;
 var videoModeOn = false;
 var autoOverlayOn = 0;
