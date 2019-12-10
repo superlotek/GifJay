@@ -102,6 +102,7 @@ filters = appz.filters;
 singleBankTriggerArray = [];
 
 let videoIndex = 0;
+let videoJumpOn = false;
 
 var banksInUse = [];
 var giyTriggerArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
@@ -144,19 +145,6 @@ function changeRando() {
     videoInternal[1].src = gj.randomizedVideoSrc;
 }
 
-
-function myIndex(videoIndex) {
-	return videoIndex;
-}
-
-
-function getVideoIndex() {
-	console.log('(F) CALLING GET VIDEO INDEX');
-	videoIndex = myIndex();
-	return videoIndex;
-}
-
-var videoJumpOn = false;
 var dancerOn = false;
 var videoModeOn = false;
 var autoOverlayOn = 0;

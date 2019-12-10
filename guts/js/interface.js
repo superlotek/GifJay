@@ -284,7 +284,9 @@ $(document).ready(function() {
     $('#video-list li').click(function() {
       videoIndex = $(this).index() - 1;
 
-      myIndex(videoIndex);
+      gj.externalVideoIndex = videoIndex;
+      // gj.Video.randomVideo(videoIndex);
+      // myIndex(videoIndex);
       // gj.videoIndex = videoIndex;
       console.log(videoIndex);
       // getVideoIndex(videoIndex)

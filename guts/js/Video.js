@@ -15,8 +15,10 @@ const Video = {
     window.opener.videoInternalSwitcher(randomDuration);
   },
 
-  randomVideo() {
+  randomVideo(videoIndex) {
     console.log('RANDOM VIDEO FUNCTION');
+
+     videoIndex = externalVideoIndex;
     // randomVideo = playlist.video.clips[Math.floor(Math.random() * playlist.video.clips.length)].name;
     randomVideo = playlist.video[videoIndex].clips[Math.floor(Math.random() * playlist.video[videoIndex].clips.length)].name;
     randomizedVideoSrc = videoBinLocation + randomVideo;

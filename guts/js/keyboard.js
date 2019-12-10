@@ -71,6 +71,7 @@ function loadjscssfile(filename, filetype){
       console.log('VIDEO JUMP: ON');
       gj.videoJumpOn = true;
       videoJumpOn = true;
+      Video.randomVideo(videoIndex)
     } else {
       console.log('VIDEO JUMP: OFF');
       gj.videoJumpOn = false;
