@@ -101,6 +101,8 @@ filters = appz.filters;
 
 singleBankTriggerArray = [];
 
+const og = window.opener;
+
 let videoIndex = 0;
 let videoJumpOn = false;
 

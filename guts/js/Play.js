@@ -305,8 +305,8 @@ const Play = {
       // bankSelectorS2 = Init.randomizer(banksInUse);
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
 
-      if (videoJumpOn === true) {
-          Video.videoJump();
+      if (window.videoJumpOn === true || videoJumpOn === true) {
+        Video.videoJump();
      } else {
         return false;
      }

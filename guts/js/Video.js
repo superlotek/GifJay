@@ -17,11 +17,13 @@ const Video = {
 
   randomVideo(videoIndex) {
     console.log('RANDOM VIDEO FUNCTION');
-
-     videoIndex = externalVideoIndex;
+    // videoIndex = 0;
+    videoIndex = externalVideoIndex;
+    // externalVideeoIndex = videoIndex;
     // randomVideo = playlist.video.clips[Math.floor(Math.random() * playlist.video.clips.length)].name;
     randomVideo = playlist.video[videoIndex].clips[Math.floor(Math.random() * playlist.video[videoIndex].clips.length)].name;
     randomizedVideoSrc = videoBinLocation + randomVideo;
+    // $('.scene video').attr('src', randomizedVideoSrc);
     videoExternal.src = randomizedVideoSrc;
     window.opener.changeRando();
   },

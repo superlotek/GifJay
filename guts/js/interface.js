@@ -278,13 +278,15 @@ $(document).ready(function() {
     });
 
     for ( let i = 0; i < videosArray.length; i++) {
-       $('#video-list').append('<li>' + videosArray[i].name + '</li>');
+       $('#video-list ul').append('<li>' + videosArray[i].name + '</li>');
     }
 
     $('#video-list li').click(function() {
-      videoIndex = $(this).index() - 1;
+      videoIndex = $(this).index();
 
       gj.externalVideoIndex = videoIndex;
+      externalVideoIndex = videoIndex;
+
       // gj.Video.randomVideo(videoIndex);
       // myIndex(videoIndex);
       // gj.videoIndex = videoIndex;
