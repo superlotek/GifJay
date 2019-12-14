@@ -273,6 +273,8 @@ $(document).ready(function() {
     // VIDEO PLAYLIST 
     // ++++++++++++++++++++++++++++
 
+
+
     videosArray = playlist.video.filter(function(video) {
       return video.enabled === true;
     });
@@ -281,12 +283,16 @@ $(document).ready(function() {
        $('#video-list ul').append('<li>' + videosArray[i].name + '</li>');
     }
 
+    $('#video-list li').eq(0).addClass('active');
+
     $('#video-list li').click(function() {
       videoIndex = $(this).index();
+      $('#video-list li').removeClass('active');
+      $(this).addClass('active');
 
       gj.externalVideoIndex = videoIndex;
       externalVideoIndex = videoIndex;
-
+      gj.Mousetrap.trigger('@');
       // gj.Video.randomVideo(videoIndex);
       // myIndex(videoIndex);
       // gj.videoIndex = videoIndex;

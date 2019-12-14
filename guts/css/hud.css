@@ -290,8 +290,9 @@ video {
 /* VIDEO PLAYLIST */
 /* ============================ */
 
-#video-list { grid-row: 1 / span 3; grid-column: 1 / span 2; height: 100%; width: 100%; }
-#video-list li { color: var(--highlight-color); font-size: 12px; border-bottom: 1px solid var(--darkest-grey); margin-bottom: 10px; padding: 5px; cursor: pointer; }
+#video-list { grid-row: 1 / span 2; grid-column: 1 / span 2; height: 100%; width: 100%; overflow: hidden; overflow-y: auto; border-bottom: 1px solid var(--white); }
+#video-list li { color: var(--highlight-color); font-size: 14px; border-bottom: 1px solid var(--darkest-grey); padding: 5px; cursor: pointer; }
+#video-list li.active { background: var(--highlight-color); color: var(--darkest-grey); }
 
 /* EDIT FILTERS */
 /* ============================ */

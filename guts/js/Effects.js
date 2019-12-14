@@ -40,6 +40,10 @@ const Effects = {
       barTenderCounter = 0; // WAS 1
       console.log('RESTARTING THE BAR TENDER');
       Mousetrap.trigger(']');
+      if (window.opener.videoModeOn === true) {
+        Mousetrap.trigger('@');
+      }
+
       // Mousetrap.trigger('alt+1');
       setTimeout(triggerReset, beatTime);
     }
