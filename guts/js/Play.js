@@ -154,11 +154,11 @@ const Play = {
 
       Filter.colorPalette();
 
-		if (window.videoJumpOn === true || videoJumpOn === true) {
-			Video.videoJump();
-		} else {
-			return false;
-		}
+    if (window.videoJumpOn === true || videoJumpOn === true) {
+      Video.videoJump();
+    } else {
+      return false;
+    }
 
 
       break;
@@ -312,12 +312,12 @@ const Play = {
       // bankSelectorS2 = Init.randomizer(banksInUse);
       sceneSetter(banksInUse,bankSelectorS1,bankSelectorS2);
 
-		if (window.videoJumpOn === true || videoJumpOn === true) {
-			Video.videoJump();
-		} else {
-			return false;
-		}
-	}
+    if (window.videoJumpOn === true || videoJumpOn === true) {
+      Video.videoJump();
+    } else {
+      return false;
+    }
+  }
 }
 
 
