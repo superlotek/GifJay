@@ -177,7 +177,7 @@ div[class^="grid-inner-"] {
     position: relative;
 }
 
-#s1-section .stage-types { grid-column: 2 / span 3; grid-row: 1 / span 3; }
+#s1-section .stage-types { grid-column: 2 / span 3; grid-row: 1 / span 3; position: relative; }
 #s2-section .stage-types { grid-column: 1 / span 3; grid-row: 1 / span 3; }
 
 .stage-one, .stage-two, .stage-video { border: 1px solid var(--white); position: absolute !important; }
@@ -211,6 +211,19 @@ div[class^="grid-inner-"] {
 #btn-blur-s2 { grid-row: 4 / span 1; grid-column: 4 / span 1; }
 #btn-s2-select { grid-row: 4 / span 1; grid-column: 2 / span 1; }
 #btn-s2-toggle { grid-row: 4 / span 1; grid-column: 1 / span 1; }
+
+.stage-type-selector { display: flex; position: absolute; top: 0; right: 0; z-index: 1; }
+
+.stage-type-selector > button {
+  opacity: .5;
+  padding: 5px;
+/*  width: 50px;
+  height: 50px;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-weight: bold;*/
+}
 
 /* SCENE */
 /* ============================ */

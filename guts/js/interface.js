@@ -71,6 +71,8 @@
       let stageContainerPadding = (stageContainerHeight - stageHeight) / 2;
       $('#s1-section .stage-one, #s2-section .stage-two, #s1-section .video-container').css('top', stageContainerPadding);
 
+      $('.stage-type-selector').css('top', stageContainerPadding);
+
       // if (gj.innerWidth >= $('#scene-section .stage-one').width() ) {
       //   $('#scene-section .stage-one').width();
       //   return false;
@@ -156,6 +158,7 @@ $(document).ready(function() {
   $('button#hud-open').attr('disabled', false);
   $('section, .bank-slider').hide();
   $('.gps-data').html(beatTime/1000 + '<em>s</em>');
+  $('#btn-gif-mode').addClass('active');
 
     var binLocation = "Bins/";
 
